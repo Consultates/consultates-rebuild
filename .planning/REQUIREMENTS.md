@@ -34,11 +34,11 @@
 - [ ] **HOME-03**: Negative stakes section with 84% count-up stat and 12-18 months static stat
 - [ ] **HOME-04**: Offering section with 3 service cards linking to service pages
 - [ ] **HOME-05**: Use cases section with 2 testimonial blocks (context + quote + attribution)
-- [ ] **HOME-06**: How it works section with 3 numbered steps and CTA
-- [ ] **HOME-07**: Social proof section with full testimonial quote on secondary background
-- [ ] **HOME-08**: Why Consultates section with 3 authority columns
-- [ ] **HOME-09**: Stakes CTA section with always-dark background and pulse animation
-- [ ] **HOME-10**: Transitional CTAs section with 2 blog cards
+- [x] **HOME-06**: How it works section with 3 numbered steps and CTA
+- [x] **HOME-07**: Social proof section with full testimonial quote on secondary background
+- [x] **HOME-08**: Why Consultates section with 3 authority columns
+- [x] **HOME-09**: Stakes CTA section with always-dark background and pulse animation
+- [x] **HOME-10**: Transitional CTAs section with 2 blog cards
 
 ### Animation
 
@@ -159,11 +159,11 @@
 | HOME-03 | Phase 3 | Pending |
 | HOME-04 | Phase 3 | Pending |
 | HOME-05 | Phase 3 | Pending |
-| HOME-06 | Phase 3 | Pending |
-| HOME-07 | Phase 3 | Pending |
-| HOME-08 | Phase 3 | Pending |
-| HOME-09 | Phase 3 | Pending |
-| HOME-10 | Phase 3 | Pending |
+| HOME-06 | Phase 3 | Complete |
+| HOME-07 | Phase 3 | Complete |
+| HOME-08 | Phase 3 | Complete |
+| HOME-09 | Phase 3 | Complete |
+| HOME-10 | Phase 3 | Complete |
 | ANIM-01 | Phase 4 | Pending |
 | ANIM-02 | Phase 4 | Pending |
 | ANIM-03 | Phase 4 | Pending |
