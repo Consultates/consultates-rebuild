@@ -1,0 +1,22 @@
+---
+interface Props {
+  icon?: string;
+  title: string;
+  description: string;
+  href: string;
+}
+
+const { title, description, href } = Astro.props;
+---
+
+<a
+  href={href}
+  class="block bg-card border border-border rounded-xl p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(0,0,0,0.1)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+>
+  <div class="mb-4 text-primary">
+    <slot name="icon" />
+  </div>
+  <h3 class="text-sub text-card-foreground mb-2">{title}</h3>
+  <p class="text-body text-muted-foreground mb-4">{description}</p>
+  <span class="text-body font-medium text-primary">Learn more &rarr;</span>
+</a>

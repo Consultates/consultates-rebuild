@@ -1,0 +1,15 @@
+---
+interface Props {
+  number: string;
+  label: string;
+  source?: string;
+}
+
+const { number, label, source } = Astro.props;
+---
+
+<div>
+  <p class="text-stats text-primary">{number}</p>
+  <p class="text-body text-foreground mt-2">{label}</p>
+  {source && <p class="text-cite text-muted-foreground mt-1">{source}</p>}
+</div>
