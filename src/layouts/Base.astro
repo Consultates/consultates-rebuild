@@ -53,7 +53,7 @@ const { title, description = 'AI consulting for business leaders. Coaching, trai
 </head>
 <body class="bg-background text-foreground font-sans">
   <Nav />
-  <main class="pt-16">
+  <main class="pt-16 scroll-canvas">
     <slot />
   </main>
   <Footer />
@@ -71,9 +71,27 @@ const { title, description = 'AI consulting for business leaders. Coaching, trai
     if (isDesktop && !prefersReducedMotion) {
       const sections = gsap.utils.toArray<HTMLElement>('.scroll-section');
 
-      // Per-section ScrollTrigger with snap — PRD §3.1
+      // Per-section ScrollTrigger with snap + zoom transitions
       sections.forEach((section, i) => {
-        // Zoom-in transition: scrub-linked scale+opacity as section enters
+        // Zoom-OUT: current section scales down as you scroll away
+        if (i < sections.length - 1) {
+          gsap.fromTo(section,
+            { scale: 1, opacity: 1 },
+            {
+              scale: 0.92,
+              opacity: 0,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: section,
+                start: 'bottom bottom',
+                end: 'bottom top+=64',
+                scrub: true,
+              },
+            }
+          );
+        }
+
+        // Zoom-IN: next section scales up as it enters
         if (i > 0) {
           gsap.fromTo(section,
             { scale: 0.92, opacity: 0 },

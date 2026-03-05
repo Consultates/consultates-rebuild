@@ -266,6 +266,18 @@ body.nav-open {
 }
 
 /* --------------------------------------------------------
+   Scroll canvas — contrasting background visible between zoom transitions
+   -------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .scroll-canvas {
+    background: #0D1117;
+  }
+  .dark .scroll-canvas {
+    background: #F6F2EB;
+  }
+}
+
+/* --------------------------------------------------------
    Scroll section base — applied to homepage sections
    -------------------------------------------------------- */
 .scroll-section {
