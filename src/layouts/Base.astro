@@ -41,5 +41,60 @@ const { title, description = 'AI consulting for business leaders. Coaching, trai
     <slot />
   </main>
   <Footer />
+
+  <script>
+    import gsap from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Gate: only run on desktop AND no reduced motion
+    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (isDesktop && !prefersReducedMotion) {
+      const sections = gsap.utils.toArray<HTMLElement>('.scroll-section');
+
+      // Zoom transition on sections 2-10 (skip hero — it has its own FM entrance)
+      sections.slice(1).forEach((section) => {
+        gsap.fromTo(section,
+          { scale: 0.92, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.5,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top bottom',
+              end: 'top top',
+              scrub: false,
+              toggleActions: 'play none none reverse',
+            }
+          }
+        );
+      });
+
+      // Scroll snap behavior
+      ScrollTrigger.create({
+        snap: {
+          snapTo: 1 / (sections.length - 1),
+          duration: { min: 0.3, max: 0.6 },
+          ease: 'power2.inOut',
+        },
+      });
+
+      // Scroll indicator fade-out: hide when #section-trust enters
+      const scrollIndicator = document.querySelector('[data-scroll-indicator]');
+      if (scrollIndicator) {
+        ScrollTrigger.create({
+          trigger: '#section-trust',
+          start: 'top 80%',
+          onEnter: () => gsap.to(scrollIndicator, { opacity: 0, duration: 0.3 }),
+          onLeaveBack: () => gsap.to(scrollIndicator, { opacity: 0.6, duration: 0.3 }),
+        });
+      }
+    }
+  </script>
 </body>
 </html>
