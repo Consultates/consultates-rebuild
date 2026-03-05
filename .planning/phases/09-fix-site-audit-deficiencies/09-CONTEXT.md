@@ -46,7 +46,8 @@ Fix all 18 deficiencies identified in the site audit. The audit compared the bui
 - Check markdown source or component for errant `>` or quote styling
 
 ### Robots.txt (Issue #16 — LOW)
-- Add `public/robots.txt` with `User-agent: * Allow: /`
+- ~~Add `public/robots.txt` with `User-agent: * Allow: /`~~
+- **Already implemented.** `public/robots.txt` exists with correct content (`User-agent: * Allow: /` + sitemap). No action needed.
 
 ### Claude's Discretion
 - Exact approach for fixing stat count-up (GSAP callback vs client:load vs other)
@@ -75,6 +76,7 @@ Fix all 18 deficiencies identified in the site audit. The audit compared the bui
 ## Deferred Ideas
 
 - Issue #15 (blog post slug/title mismatch) — minor, slug comes from markdown frontmatter which is authoritative
+- Issue #16 (robots.txt) — already implemented in `public/robots.txt` with correct content, no action needed
 - Issue #17 (nav dropdown descriptions) — descriptions are reasonable, not PRD-specified
 - Issue #18 (blog index heading) — "Blog" is reasonable, not PRD-specified
 
