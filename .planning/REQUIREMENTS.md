@@ -98,13 +98,13 @@
 
 ### SEO & Deploy
 
-- [ ] **SEO-01**: Per-page meta tags (title, description) matching PRD route table
-- [ ] **SEO-02**: Sitemap auto-generated via @astrojs/sitemap
-- [ ] **SEO-03**: Canonical URLs on every page
-- [ ] **SEO-04**: robots.txt allowing all crawlers
+- [x] **SEO-01**: Per-page meta tags (title, description) matching PRD route table
+- [x] **SEO-02**: Sitemap auto-generated via @astrojs/sitemap
+- [x] **SEO-03**: Canonical URLs on every page
+- [x] **SEO-04**: robots.txt allowing all crawlers
 - [ ] **DEPLOY-01**: GitHub Actions CI/CD workflow (checkout → Node 22 + pnpm 9 → install → build → deploy)
 - [ ] **DEPLOY-02**: GitHub Pages config with CNAME for consultates.com
-- [ ] **DEPLOY-03**: Favicon from Consultates head mark
+- [x] **DEPLOY-03**: Favicon from Consultates head mark
 
 ### Assets
 
@@ -196,13 +196,13 @@
 | COMP-07 | Phase 2 | Complete |
 | COMP-08 | Phase 2 | Complete |
 | COMP-09 | Phase 2 | Complete |
-| SEO-01 | Phase 7 | Pending |
-| SEO-02 | Phase 7 | Pending |
-| SEO-03 | Phase 7 | Pending |
-| SEO-04 | Phase 7 | Pending |
+| SEO-01 | Phase 7 | Complete |
+| SEO-02 | Phase 7 | Complete |
+| SEO-03 | Phase 7 | Complete |
+| SEO-04 | Phase 7 | Complete |
 | DEPLOY-01 | Phase 8 | Pending |
 | DEPLOY-02 | Phase 8 | Pending |
-| DEPLOY-03 | Phase 7 | Pending |
+| DEPLOY-03 | Phase 7 | Complete |
 | ASSET-01 | Phase 1 | Complete |
 | ASSET-02 | Phase 1 | Complete |
 | ASSET-03 | Phase 1 | Complete |

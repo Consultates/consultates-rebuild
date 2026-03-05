@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Completed 06-02-PLAN.md
-last_updated: "2026-03-05T06:22:07.692Z"
+stopped_at: Completed 07-01-PLAN.md
+last_updated: "2026-03-05T07:31:30.709Z"
 last_activity: 2026-03-05 — Plan 06-02 executed (3 blog posts migrated from HTML to Markdown)
 progress:
   total_phases: 8
-  completed_phases: 6
-  total_plans: 16
-  completed_plans: 16
+  completed_phases: 7
+  total_plans: 17
+  completed_plans: 17
   percent: 100
 ---
 
@@ -64,6 +64,7 @@ Progress: [██████████] 16/16 plans (100%) — Overall: Phase
 | Phase 05-inner-pages P01 | 4min | 2 tasks | 4 files |
 | Phase 06-blog P01 | 1min | 2 tasks | 4 files |
 | Phase 06-blog P02 | 3min | 1 tasks | 5 files |
+| Phase 07-polish P01 | 1min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -105,6 +106,7 @@ Recent decisions affecting current work:
 - [Phase 06-01]: Prose font overrides use existing CSS custom properties (--font-serif, --font-sans)
 - [Phase 06-01]: Blog index uses scoped style for responsive grid instead of inline media query
 - [Phase 06-02]: Strip .md extension from post.id for clean blog URLs (Astro 5 includes file extension in content collection ID)
+- [Phase 07-polish]: Used consultates-head.png as OG fallback image; Twitter card set to summary type
 
 ### Pending Todos
 
@@ -116,6 +118,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T06:18:48.505Z
-Stopped at: Completed 06-02-PLAN.md
+Last session: 2026-03-05T07:31:30.706Z
+Stopped at: Completed 07-01-PLAN.md
 Resume file: None
