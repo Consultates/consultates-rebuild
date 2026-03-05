@@ -1,5 +1,6 @@
 ---
 import ServiceCard from '../ServiceCard.astro';
+import { SectionAnimator } from '../islands/SectionAnimator';
 ---
 
 <section
@@ -7,55 +8,59 @@ import ServiceCard from '../ServiceCard.astro';
   class="max-w-[1200px] mx-auto"
   style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);"
 >
-  <h2 class="text-section text-foreground">Three ways we help</h2>
-  <p class="text-body-lg text-muted-foreground max-w-[700px] mb-8">
-    Whether you're a leader who needs clarity, a team that needs skills, or a company that needs senior AI leadership — we work with you directly. No templates. No generic workshops. Everything is built around your situation.
-  </p>
+  <SectionAnimator client:visible>
+    <h2 class="text-section text-foreground">Three ways we help</h2>
+    <p class="text-body-lg text-muted-foreground max-w-[700px] mb-8">
+      Whether you're a leader who needs clarity, a team that needs skills, or a company that needs senior AI leadership — we work with you directly. No templates. No generic workshops. Everything is built around your situation.
+    </p>
+  </SectionAnimator>
 
-  <div class="grid grid-cols-3 gap-6 md:max-lg:grid-cols-2 max-md:grid-cols-1">
-    <ServiceCard
-      title="AI Coaching for Leaders"
-      description="One-to-one sessions for leaders who need clarity on AI. You bring your situation — you leave with a plan you can act on."
-      href="/services/ai-coaching-for-leaders"
-    >
-      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
-        <rect width="256" height="256" fill="none"/>
-        <circle cx="128" cy="128" r="96" opacity="0.2"/>
-        <circle cx="128" cy="120" r="40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-        <path d="M63.8,199.37a72,72,0,0,1,128.4,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-        <circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-      </svg>
-    </ServiceCard>
+  <SectionAnimator client:visible delay={0.2}>
+    <div class="grid grid-cols-3 gap-6 md:max-lg:grid-cols-2 max-md:grid-cols-1">
+      <ServiceCard
+        title="AI Coaching for Leaders"
+        description="One-to-one sessions for leaders who need clarity on AI. You bring your situation — you leave with a plan you can act on."
+        href="/services/ai-coaching-for-leaders"
+      >
+        <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+          <rect width="256" height="256" fill="none"/>
+          <circle cx="128" cy="128" r="96" opacity="0.2"/>
+          <circle cx="128" cy="120" r="40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+          <path d="M63.8,199.37a72,72,0,0,1,128.4,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+          <circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        </svg>
+      </ServiceCard>
 
-    <ServiceCard
-      title="AI Training for Teams"
-      description="Hands-on workshops built around your team's actual work. People learn by doing with the tools they'll use tomorrow."
-      href="/services/ai-training-for-teams"
-    >
-      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
-        <rect width="256" height="256" fill="none"/>
-        <circle cx="128" cy="140" r="40" opacity="0.2"/>
-        <circle cx="128" cy="140" r="40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-        <path d="M196,116a59.8,59.8,0,0,1,48,24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-        <path d="M12,140a59.8,59.8,0,0,1,48-24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-        <path d="M70.4,216a72.1,72.1,0,0,1,115.2,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-        <path d="M60,116A32,32,0,1,1,91.4,78" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-        <path d="M164.6,78A32,32,0,1,1,196,116" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-      </svg>
-    </ServiceCard>
+      <ServiceCard
+        title="AI Training for Teams"
+        description="Hands-on workshops built around your team's actual work. People learn by doing with the tools they'll use tomorrow."
+        href="/services/ai-training-for-teams"
+      >
+        <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+          <rect width="256" height="256" fill="none"/>
+          <circle cx="128" cy="140" r="40" opacity="0.2"/>
+          <circle cx="128" cy="140" r="40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+          <path d="M196,116a59.8,59.8,0,0,1,48,24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+          <path d="M12,140a59.8,59.8,0,0,1,48-24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+          <path d="M70.4,216a72.1,72.1,0,0,1,115.2,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+          <path d="M60,116A32,32,0,1,1,91.4,78" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+          <path d="M164.6,78A32,32,0,1,1,196,116" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        </svg>
+      </ServiceCard>
 
-    <ServiceCard
-      title="Fractional Exec Support"
-      description="Senior AI go-to-market leadership without a full-time hire. Strategy, product direction, and execution for companies scaling AI."
-      href="/services/fractional-exec-support"
-    >
-      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
-        <rect width="256" height="256" fill="none"/>
-        <rect x="32" y="72" width="192" height="144" rx="8" opacity="0.2"/>
-        <rect x="32" y="72" width="192" height="144" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-        <path d="M168,72V56a16,16,0,0,0-16-16H104A16,16,0,0,0,88,56V72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-        <line x1="32" y1="144" x2="224" y2="144" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-      </svg>
-    </ServiceCard>
-  </div>
+      <ServiceCard
+        title="Fractional Exec Support"
+        description="Senior AI go-to-market leadership without a full-time hire. Strategy, product direction, and execution for companies scaling AI."
+        href="/services/fractional-exec-support"
+      >
+        <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+          <rect width="256" height="256" fill="none"/>
+          <rect x="32" y="72" width="192" height="144" rx="8" opacity="0.2"/>
+          <rect x="32" y="72" width="192" height="144" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+          <path d="M168,72V56a16,16,0,0,0-16-16H104A16,16,0,0,0,88,56V72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+          <line x1="32" y1="144" x2="224" y2="144" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+        </svg>
+      </ServiceCard>
+    </div>
+  </SectionAnimator>
 </section>

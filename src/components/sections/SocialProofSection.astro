@@ -1,4 +1,5 @@
 ---
+import { SectionAnimator } from '../islands/SectionAnimator';
 ---
 
 <section id="section-proof" class="bg-secondary">
@@ -8,10 +9,14 @@
       style="top: clamp(2rem, 4vw, 4rem); left: clamp(1.5rem, 5vw, 8rem);"
       aria-hidden="true"
     >&ldquo;</span>
-    <p class="text-body-lg font-serif italic text-foreground">
-      I originally hired him into Cyan when we were launching our international expansion. He joined as an SE and subsequently went on to head up pre-sales for APAC, then he successfully transitioned from pre-sales to sales and sales leadership. With Wedge Networks, Gary has demonstrated remarkable skill and resilience at introducing a small but innovative start-up into major accounts, competing against well-established Tier 1 incumbents. His strong work ethic, personal networking, and technical prowess have enabled him to enter new markets with minimal support to land key accounts.
-    </p>
-    <p class="text-body font-semibold text-foreground mt-6">Frank Wiener</p>
-    <p class="text-caption text-muted-foreground">CMO and Director of Product Marketing (retired)</p>
+    <SectionAnimator client:visible>
+      <p class="text-body-lg font-serif italic text-foreground">
+        I originally hired him into Cyan when we were launching our international expansion. He joined as an SE and subsequently went on to head up pre-sales for APAC, then he successfully transitioned from pre-sales to sales and sales leadership. With Wedge Networks, Gary has demonstrated remarkable skill and resilience at introducing a small but innovative start-up into major accounts, competing against well-established Tier 1 incumbents. His strong work ethic, personal networking, and technical prowess have enabled him to enter new markets with minimal support to land key accounts.
+      </p>
+    </SectionAnimator>
+    <SectionAnimator client:visible delay={0.2}>
+      <p class="text-body font-semibold text-foreground mt-6">Frank Wiener</p>
+      <p class="text-caption text-muted-foreground">CMO and Director of Product Marketing (retired)</p>
+    </SectionAnimator>
   </div>
 </section>

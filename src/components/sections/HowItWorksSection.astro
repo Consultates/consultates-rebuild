@@ -1,31 +1,36 @@
 ---
 import StepCard from '../StepCard.astro';
 import Button from '../Button.astro';
+import { SectionAnimator } from '../islands/SectionAnimator';
 ---
 
 <section id="section-how" style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
   <div class="max-w-[1200px] mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-      <StepCard
-        number={1}
-        heading="We talk"
-        description="Tell me where you are and what you're trying to figure out. No preparation needed."
-      />
-      <StepCard
-        number={2}
-        heading="You get a plan"
-        description="Specific to your business, your team, and your goals. Not a template."
-      />
-      <StepCard
-        number={3}
-        heading="We do the work together"
-        description="Coaching, training, or hands-on leadership. One accountable team, start to finish."
-      />
-    </div>
-    <div class="text-center">
-      <Button variant="cta" href="https://tidycal.com/garyctate/15-minute-meeting" target="_blank" rel="noopener noreferrer">
-        Book a Free Call
-      </Button>
-    </div>
+    <SectionAnimator client:visible>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <StepCard
+          number={1}
+          heading="We talk"
+          description="Tell me where you are and what you're trying to figure out. No preparation needed."
+        />
+        <StepCard
+          number={2}
+          heading="You get a plan"
+          description="Specific to your business, your team, and your goals. Not a template."
+        />
+        <StepCard
+          number={3}
+          heading="We do the work together"
+          description="Coaching, training, or hands-on leadership. One accountable team, start to finish."
+        />
+      </div>
+    </SectionAnimator>
+    <SectionAnimator client:visible delay={0.2}>
+      <div class="text-center">
+        <Button variant="cta" href="https://tidycal.com/garyctate/15-minute-meeting" target="_blank" rel="noopener noreferrer">
+          Book a Free Call
+        </Button>
+      </div>
+    </SectionAnimator>
   </div>
 </section>
