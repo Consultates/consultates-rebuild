@@ -70,68 +70,117 @@ const { title, description = 'AI consulting for business leaders. Coaching, trai
 
     if (isDesktop && !prefersReducedMotion) {
       const sections = gsap.utils.toArray<HTMLElement>('.scroll-section');
+      const navH = 64;
+      const vh = window.innerHeight;
 
-      // Per-section ScrollTrigger with snap + zoom transitions
+      // Single pinned container with all sections stacked.
+      // One master timeline: for each transition —
+      //   zoom-out → hold → slide → hold → zoom-in
+
+      const container = sections[0].parentElement!;
+      const sectionCount = sections.length;
+
+      // Stack all sections absolutely inside the container
+      container.style.position = 'relative';
+      container.style.height = `${vh - navH}px`;
+      container.style.overflow = 'hidden';
+
       sections.forEach((section, i) => {
-        // Zoom-OUT: current section scales down as you scroll away
-        if (i < sections.length - 1) {
-          gsap.fromTo(section,
-            { scale: 1, opacity: 1 },
-            {
-              scale: 0.92,
-              opacity: 0,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: section,
-                start: 'bottom bottom',
-                end: 'bottom top+=64',
-                scrub: true,
-              },
-            }
-          );
+        const el = section as HTMLElement;
+        el.style.position = 'absolute';
+        el.style.top = '0';
+        el.style.left = '0';
+        el.style.width = '100%';
+        el.style.height = '100%';
+        el.style.minHeight = '100%';
+        if (i === 0) {
+          // First section visible and active — animations can run
+          el.setAttribute('data-active', '');
+        } else {
+          // Rest start below and inactive — animations suppressed
+          gsap.set(el, { yPercent: 100 });
         }
-
-        // Zoom-IN: next section scales up as it enters
-        if (i > 0) {
-          gsap.fromTo(section,
-            { scale: 0.92, opacity: 0 },
-            {
-              scale: 1,
-              opacity: 1,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: section,
-                start: 'top bottom',
-                end: 'top top+=64',
-                scrub: true,
-              },
-            }
-          );
-        }
-
-        // Snap behavior per section
-        ScrollTrigger.create({
-          trigger: section,
-          start: 'top top+=64',
-          end: 'bottom top+=64',
-          snap: {
-            snapTo: 1,
-            duration: { min: 0.3, max: 0.6 },
-            ease: 'power2.inOut',
-          },
-        });
       });
 
-      // Scroll indicator fade-out: hide when #section-trust enters
+      // Build one master timeline — evenly spaced snap points
+      const snapPoints: number[] = [0];
+      const transDur = 1.6; // 0.5 zoom-out + 0.6 slide + 0.5 zoom-in
+
+      // Even spacing — no breathing room, so every transition is identical
+      for (let i = 1; i < sectionCount; i++) {
+        snapPoints.push(i / (sectionCount - 1));
+      }
+
+      // Scroll indicator — fade out once user starts scrolling
       const scrollIndicator = document.querySelector('[data-scroll-indicator]');
-      if (scrollIndicator) {
-        ScrollTrigger.create({
-          trigger: '#section-trust',
-          start: 'top 80%',
-          onEnter: () => gsap.to(scrollIndicator, { opacity: 0, duration: 0.3, ease: 'power2.out' }),
-          onLeaveBack: () => gsap.to(scrollIndicator, { opacity: 0.6, duration: 0.3 }),
+      let indicatorHidden = false;
+
+      const master = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          start: `top top+=${navH}`,
+          end: `+=${vh * 1.2 * (sectionCount - 1)}`,
+          pin: true,
+          pinSpacing: true,
+          scrub: true,
+          anticipatePin: 1,
+          snap: {
+            snapTo: snapPoints,
+            delay: 0,
+            duration: 2,
+            ease: 'power2.inOut',
+          },
+          onUpdate: (self: any) => {
+            if (!scrollIndicator) return;
+            if (self.progress > 0.02 && !indicatorHidden) {
+              indicatorHidden = true;
+              gsap.to(scrollIndicator, { opacity: 0, duration: 0.3, ease: 'power2.out' });
+            } else if (self.progress <= 0.02 && indicatorHidden) {
+              indicatorHidden = false;
+              gsap.to(scrollIndicator, { opacity: 0.6, duration: 0.3 });
+            }
+          },
+        },
+      });
+
+      // Build transitions
+      for (let i = 0; i < sectionCount - 1; i++) {
+        const cur = sections[i] as HTMLElement;
+        const next = sections[i + 1] as HTMLElement;
+
+        // Phase 1: Zoom OUT current — pull back to reveal canvas
+        master.to(cur, {
+          scale: 0.8, borderRadius: '16px',
+          duration: 0.5, ease: 'power2.inOut',
+        });
+
+        // Position next card on the "paper strip" just below current
+        // At 0.8 scale: card=80%, border=10% each side, gap=10%
+        // Distance between card centers = 80% + 10% gap = 90%
+        master.set(next, { yPercent: 90, scale: 0.8, borderRadius: '16px', opacity: 1 });
+
+        // Phase 2: Slide both as one strip — both move up by 90%
+        master.to(cur, {
+          yPercent: -90,
+          duration: 0.6, ease: 'power1.inOut',
+        });
+        master.to(next, {
+          yPercent: 0,
+          duration: 0.6, ease: 'power1.inOut',
+        }, '<');
+
+        // Hide outgoing card now that it's off-screen
+        master.set(cur, { opacity: 0 });
+
+        // Phase 3: Zoom IN next — push in to fill the window
+        // Mark section active so Framer Motion animations can start
+        master.call(() => { next.setAttribute('data-active', ''); });
+        master.to(next, {
+          scale: 1, borderRadius: '0px',
+          duration: 0.5, ease: 'power2.inOut',
         });
       }
+
     }
   </script>
 </body>

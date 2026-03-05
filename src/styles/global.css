@@ -290,6 +290,21 @@ body.nav-open {
   overflow: hidden;
   position: relative;
   will-change: transform;
+  transform-origin: center center;
+}
+
+/* Desktop: suppress inner animations until section is zoomed into place.
+   visibility:hidden prevents IntersectionObserver from firing whileInView
+   on Framer Motion elements inside inactive sections. The section card itself
+   stays visible (for the slide), only inner content is held back. */
+@media (min-width: 1024px) {
+  .scroll-section:not([data-active]) > * {
+    visibility: hidden;
+  }
+  .scroll-section:not([data-active]) {
+    /* Section itself visible for slide, but show a solid background card */
+    background: var(--background);
+  }
 }
 
 /* Mobile/tablet: natural height, no scroll-snap styles */

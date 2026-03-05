@@ -43,7 +43,7 @@ export const hoverLift = {
 } as const;
 
 /** Viewport intersection config for whileInView (desktop) */
-export const viewportConfig = { once: true, amount: 0.3 } as const;
+export const viewportConfig = { once: false, amount: 0.3 } as const;
 
 /** Viewport intersection config for mobile (lower threshold) */
 export const viewportConfigMobile = { once: true, amount: 0.2 } as const;
