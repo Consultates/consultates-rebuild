@@ -1,12 +1,11 @@
 ---
 /**
- * Trust bar — standalone scroll-section showing credentials.
- * Centered text, full viewport on mobile, fills GSAP container on desktop.
+ * Trust bar — sits at the bottom of each scroll-section,
+ * just below the scroll indicator mouse icon.
+ * Not a standalone page — an overlay element repeated on every section.
  */
 ---
 
-<section id="section-trust" class="flex items-center justify-center min-h-[100dvh] lg:min-h-0 lg:h-full px-4">
-  <p class="text-caption text-muted-foreground text-center opacity-50">
-    Guest lecturer, Lead with AI PRO &middot; 35 years across engineering, sales &amp; AI &middot; Trained executive cohorts through FlexOS &middot; 16 countries
-  </p>
-</section>
+<p class="hidden lg:block absolute bottom-2 left-1/2 -translate-x-1/2 text-caption text-muted-foreground text-center whitespace-nowrap opacity-50">
+  Guest lecturer, Lead with AI PRO &middot; 35 years across engineering, sales &amp; AI &middot; Trained executive cohorts through FlexOS &middot; 16 countries
+</p>
