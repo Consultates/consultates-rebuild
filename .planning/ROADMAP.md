@@ -115,9 +115,11 @@ Plans:
   2. Each blog post page renders with readable prose styling, publication date, and estimated reading time
   3. All 3 initial posts are published and accessible via the blog index
   4. Draft posts do not appear on the public blog index
-**Plans**: TBD
+**Plans:** 2 plans
 
-Plans: TBD
+Plans:
+- [ ] 06-01-PLAN.md — Content collections config, typography plugin, blog index page, and blog post layout
+- [ ] 06-02-PLAN.md — Migrate 3 blog posts from HTML to Markdown content files
 
 ### Phase 7: Polish
 **Goal**: The site is production-ready — every page is responsive, accessible, indexed by search engines, and branded with the correct favicon
@@ -159,6 +161,6 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 | 3. Homepage | 3/3 | Complete   | 2026-03-05 |
 | 4. Animation | 3/3 | Complete   | 2026-03-05 |
 | 5. Inner Pages | 3/3 | Complete   | 2026-03-05 |
-| 6. Blog | 0/? | Not started | - |
+| 6. Blog | 0/2 | Not started | - |
 | 7. Polish | 0/? | Not started | - |
 | 8. Deploy | 0/? | Not started | - |
