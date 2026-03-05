@@ -12,7 +12,8 @@ Business leaders can quickly understand what Consultates offers and book a free 
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ Self-hosted IBM Plex fonts (Sans/Serif/Mono) — Phase 1
+- ✓ Astro 5 + React + Tailwind 4 foundation — Phase 1
 
 ### Active
 
@@ -28,7 +29,6 @@ Business leaders can quickly understand what Consultates offers and book a free 
 - [ ] GSAP ScrollTrigger scroll-snap sections (desktop)
 - [ ] Framer Motion component animations
 - [ ] Reduced motion support
-- [ ] Self-hosted IBM Plex fonts (Sans/Serif/Mono)
 - [ ] Phosphor duotone icons
 - [ ] Nav with services mega menu + mobile hamburger
 - [ ] Footer (always dark)
@@ -72,12 +72,14 @@ Business leaders can quickly understand what Consultates offers and book a free 
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Astro 5 + React islands | Static-first with selective hydration for animations | — Pending |
-| Tailwind 4 CSS-first | Modern approach, no config file, `@theme` block | — Pending |
+| Astro 5 + React islands | Static-first with selective hydration for animations | ✓ Working — Phase 1 |
+| Tailwind 4 CSS-first | Modern approach, no config file, `@theme` block | ✓ Working — Phase 1 |
 | GSAP + Framer Motion (decoupled) | GSAP for scroll behavior, FM for component entrance — each does what it's best at | — Pending |
-| Self-hosted fonts | Performance, no external requests to Google Fonts | — Pending |
+| Self-hosted fonts | Performance, no external requests to Google Fonts | ✓ Working — Phase 1 (fontsource extraction) |
 | Client-side form mock (Phase 1) | Ship fast, wire backend in Phase 2 | — Pending |
 | GitHub Pages | Free, simple, Gary already uses GitHub | — Pending |
+| Manual Astro scaffold | Avoid overwriting existing repo files (CLAUDE.md, PRD, .planning/) | ✓ Applied — Phase 1 |
+| @layer utilities for type scale | Multi-property utilities cannot go in @theme block | ✓ Applied — Phase 1 |
 
 ---
-*Last updated: 2026-03-05 after initialization*
+*Last updated: 2026-03-05 after Phase 1 (Scaffold)*
