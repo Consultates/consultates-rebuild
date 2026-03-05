@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Completed 06-01-PLAN.md
-last_updated: "2026-03-05T06:13:46.792Z"
-last_activity: 2026-03-05 — Plan 06-01 executed (blog infrastructure with content collections and index/post pages)
+stopped_at: Completed 06-02-PLAN.md
+last_updated: "2026-03-05T06:18:48.507Z"
+last_activity: 2026-03-05 — Plan 06-02 executed (3 blog posts migrated from HTML to Markdown)
 progress:
   total_phases: 8
-  completed_phases: 5
+  completed_phases: 6
   total_plans: 16
-  completed_plans: 15
-  percent: 100
+  completed_plans: 16
+  percent: 94
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-05)
 
 **Core value:** Business leaders can quickly understand what Consultates offers and book a free call — the site removes friction between "I need help with AI" and "I'm talking to someone who can help."
-**Current focus:** Phase 6 — Blog
+**Current focus:** Phase 6 — Blog (complete)
 
 ## Current Position
 
-Phase: 6 of 8 (Blog)
-Plan: 1 of 2 in current phase (06-01 complete)
-Status: Blog infrastructure complete — content collections, index page, post layout
-Last activity: 2026-03-05 — Plan 06-01 executed (blog infrastructure with content collections and index/post pages)
+Phase: 6 of 8 (Blog) — complete
+Plan: 2 of 2 in current phase (06-02 complete)
+Status: Blog phase complete — 3 posts published, index page, post layout all working
+Last activity: 2026-03-05 — Plan 06-02 executed (3 blog posts migrated from HTML to Markdown)
 
-Progress: [█████████░] 15/16 plans (94%) — Overall: Phase 6/8 in progress
+Progress: [██████████] 16/16 plans (100%) — Overall: Phase 6/8 complete
 
 ## Performance Metrics
 
@@ -63,6 +63,7 @@ Progress: [█████████░] 15/16 plans (94%) — Overall: Phase 
 | Phase 05-inner-pages P02 | 4min | 2 tasks | 2 files |
 | Phase 05-inner-pages P01 | 4min | 2 tasks | 4 files |
 | Phase 06-blog P01 | 1min | 2 tasks | 4 files |
+| Phase 06-blog P02 | 3min | 1 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -103,6 +104,7 @@ Recent decisions affecting current work:
 - [Phase 05-01]: ServicePage layout uses set:html for whatYouGet/whoItsFor props to render HTML paragraphs from page files
 - [Phase 06-01]: Prose font overrides use existing CSS custom properties (--font-serif, --font-sans)
 - [Phase 06-01]: Blog index uses scoped style for responsive grid instead of inline media query
+- [Phase 06-02]: Strip .md extension from post.id for clean blog URLs (Astro 5 includes file extension in content collection ID)
 
 ### Pending Todos
 
@@ -114,6 +116,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T06:13:15Z
-Stopped at: Completed 06-01-PLAN.md
+Last session: 2026-03-05T06:18:48.505Z
+Stopped at: Completed 06-02-PLAN.md
 Resume file: None
