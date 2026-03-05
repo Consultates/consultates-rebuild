@@ -144,9 +144,10 @@ Plans:
   1. Pushing to the main branch automatically triggers a GitHub Actions workflow that builds and deploys the site
   2. consultates.com resolves to the deployed Astro site with a valid SSL certificate
   3. The build passes in CI with no errors (Node 22, pnpm 9, static output)
-**Plans**: TBD
+**Plans:** 1 plan
 
-Plans: TBD
+Plans:
+- [ ] 08-01-PLAN.md — GitHub Actions CI/CD workflow and CNAME for GitHub Pages deployment
 
 ## Progress
 
@@ -164,4 +165,4 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 | 5. Inner Pages | 3/3 | Complete   | 2026-03-05 |
 | 6. Blog | 1/2 | In Progress|  |
 | 7. Polish | 1/1 | Complete   | 2026-03-05 |
-| 8. Deploy | 0/? | Not started | - |
+| 8. Deploy | 0/1 | Not started | - |
