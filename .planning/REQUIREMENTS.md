@@ -46,9 +46,9 @@
 - [ ] **ANIM-02**: GSAP disabled on tablet/mobile — sections at natural height
 - [x] **ANIM-03**: Framer Motion fadeUp/scaleIn/staggerContainer variants for component entrances
 - [x] **ANIM-04**: Hero letter stagger sequence (1200ms hold → stagger → fadeUp → scaleIn → indicator)
-- [ ] **ANIM-05**: Count-up animation from 0 to 84 on viewport entry
-- [ ] **ANIM-06**: CTA pulse animation on Stakes CTA section
-- [ ] **ANIM-07**: Scroll indicator with bob animation, fades on scroll
+- [x] **ANIM-05**: Count-up animation from 0 to 84 on viewport entry
+- [x] **ANIM-06**: CTA pulse animation on Stakes CTA section
+- [x] **ANIM-07**: Scroll indicator with bob animation, fades on scroll
 - [x] **ANIM-08**: Reduced motion support — all animations disabled, content visible immediately
 
 ### Service Pages
@@ -168,9 +168,9 @@
 | ANIM-02 | Phase 4 | Pending |
 | ANIM-03 | Phase 4 | Complete |
 | ANIM-04 | Phase 4 | Complete |
-| ANIM-05 | Phase 4 | Pending |
-| ANIM-06 | Phase 4 | Pending |
-| ANIM-07 | Phase 4 | Pending |
+| ANIM-05 | Phase 4 | Complete |
+| ANIM-06 | Phase 4 | Complete |
+| ANIM-07 | Phase 4 | Complete |
 | ANIM-08 | Phase 4 | Complete |
 | SERV-01 | Phase 5 | Pending |
 | SERV-02 | Phase 5 | Pending |

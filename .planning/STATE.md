@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: in-progress
-stopped_at: Completed 04-01-PLAN.md
-last_updated: "2026-03-05T04:15:29Z"
-last_activity: 2026-03-05 — Plan 04-01 executed (FM foundation and Hero island)
+stopped_at: Completed 04-02-PLAN.md
+last_updated: "2026-03-05T04:22:58.535Z"
+last_activity: 2026-03-05 — Plan 04-02 executed (section animations wired into all 9 sections)
 progress:
   total_phases: 8
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 11
-  completed_plans: 9
-  percent: 82
+  completed_plans: 10
+  percent: 91
 ---
 
 # Project State
@@ -25,12 +25,12 @@ See: .planning/PROJECT.md (updated 2026-03-05)
 
 ## Current Position
 
-Phase: 4 of 8 (Animation)
-Plan: 1 of 2 in current phase (04-01 complete)
-Status: FM foundation and Hero island complete, remaining section animations next
-Last activity: 2026-03-05 — Plan 04-01 executed (FM foundation and Hero island)
+Phase: 4 of 8 (Animation) — COMPLETE
+Plan: 2 of 2 in current phase (04-02 complete)
+Status: Phase 4 complete — all FM section animations wired
+Last activity: 2026-03-05 — Plan 04-02 executed (section animations wired into all 9 sections)
 
-Progress: [████████░░] 9/11 plans (82%) — Overall: Phase 4/8
+Progress: [█████████░] 10/11 plans (91%) — Overall: Phase 4/8 complete
 
 ## Performance Metrics
 
@@ -57,6 +57,7 @@ Progress: [████████░░] 9/11 plans (82%) — Overall: Phase 4
 | Phase 03-homepage P01 | 2min | 3 tasks | 6 files |
 | Phase 03-homepage P03 | 1min | 2 tasks | 1 files |
 | Phase 04-animation P01 | 2min | 2 tasks | 5 files |
+| Phase 04-animation P02 | 3min | 2 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -86,6 +87,8 @@ Recent decisions affecting current work:
 - [Phase 03-homepage]: No wrapper div for homepage sections - each component handles own layout
 - 04-01: Hero CTA uses bg-primary/text-primary-foreground to match Button CTA variant in React island
 - 04-01: scroll-bob-dot utility class in global.css for React island access to scroll-bob keyframe
+- 04-02: SectionAnimator wraps container divs, not individual Astro sub-components (Astro components cannot be React children)
+- 04-02: Single fadeUp per section container instead of per-item stagger (server-rendered Astro children are not motion-aware)
 
 ### Pending Todos
 
@@ -97,6 +100,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T04:15:29Z
-Stopped at: Completed 04-01-PLAN.md
+Last session: 2026-03-05T04:21:15Z
+Stopped at: Completed 04-02-PLAN.md
 Resume file: None
