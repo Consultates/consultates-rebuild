@@ -149,10 +149,27 @@ Plans:
 Plans:
 - [ ] 08-01-PLAN.md — GitHub Actions CI/CD workflow and CNAME for GitHub Pages deployment
 
+### Phase 9: Fix site audit deficiencies
+**Goal:** Every deficiency from the Playwright site audit is fixed — no JS errors on inner pages, footer matches PRD exactly, homepage renders each component once on all viewports, stat animation fires correctly, and all section IDs present
+**Requirements**: AUDIT-01, AUDIT-02, AUDIT-03, AUDIT-04, AUDIT-05, AUDIT-06, AUDIT-07, AUDIT-08, AUDIT-09, AUDIT-10, AUDIT-11, AUDIT-12, AUDIT-13, AUDIT-14
+**Depends on:** Phase 8
+**Success Criteria** (what must be TRUE):
+  1. No JS errors in browser console on any page
+  2. Footer content matches PRD exactly on all pages (email, LinkedIn, links, location, quote, copyright)
+  3. Homepage renders TrustBar exactly once and ScrollIndicator exactly once on all viewports
+  4. 84% stat counts up from 0 when Negative Stakes section is visible
+  5. All section IDs present including section-trust
+  6. About page paragraphs render as plain text, not blockquotes
+**Plans:** 2 plans
+
+Plans:
+- [ ] 09-01-PLAN.md — GSAP crash guard, footer corrections, TrustBar section ID, about page fix
+- [ ] 09-02-PLAN.md — Homepage architecture restructure (single TrustBar/ScrollIndicator) and stat count-up fix
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9
 
 Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute concurrently after Phase 3 if needed. Phase 7 depends on both Phase 5 and Phase 6.
 
@@ -166,3 +183,4 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 | 6. Blog | 1/2 | In Progress|  |
 | 7. Polish | 1/1 | Complete   | 2026-03-05 |
 | 8. Deploy | 1/1 | Complete   | 2026-03-05 |
+| 9. Fix Audit | 0/2 | Planned    |  |
