@@ -7,7 +7,7 @@
 
 ### Foundation
 
-- [ ] **FOUND-01**: Site scaffolded with Astro 5, React integration, and static output
+- [x] **FOUND-01**: Site scaffolded with Astro 5, React integration, and static output
 - [ ] **FOUND-02**: Tailwind 4 configured via CSS-first `@theme` block with all color tokens (light + dark)
 - [ ] **FOUND-03**: IBM Plex Sans/Serif/Mono self-hosted as WOFF2 with font-display swap
 - [ ] **FOUND-04**: Base layout with theme flash prevention script in `<head>`
@@ -108,10 +108,10 @@
 
 ### Assets
 
-- [ ] **ASSET-01**: Logo files copied (light + dark horizontal variants)
-- [ ] **ASSET-02**: Gary photo converted to 400×400 WEBP
-- [ ] **ASSET-03**: Favicon copied from Consultates Icons
-- [ ] **ASSET-04**: Font files (IBM Plex Sans/Serif/Mono) in public/fonts/
+- [x] **ASSET-01**: Logo files copied (light + dark horizontal variants)
+- [x] **ASSET-02**: Gary photo converted to 400×400 WEBP
+- [x] **ASSET-03**: Favicon copied from Consultates Icons
+- [x] **ASSET-04**: Font files (IBM Plex Sans/Serif/Mono) in public/fonts/
 
 ## v2 Requirements
 
@@ -141,7 +141,7 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01 | Phase 1 | Pending |
+| FOUND-01 | Phase 1 | Complete |
 | FOUND-02 | Phase 1 | Pending |
 | FOUND-03 | Phase 1 | Pending |
 | FOUND-04 | Phase 1 | Pending |
@@ -203,10 +203,10 @@
 | DEPLOY-01 | Phase 8 | Pending |
 | DEPLOY-02 | Phase 8 | Pending |
 | DEPLOY-03 | Phase 7 | Pending |
-| ASSET-01 | Phase 1 | Pending |
-| ASSET-02 | Phase 1 | Pending |
-| ASSET-03 | Phase 1 | Pending |
-| ASSET-04 | Phase 1 | Pending |
+| ASSET-01 | Phase 1 | Complete |
+| ASSET-02 | Phase 1 | Complete |
+| ASSET-03 | Phase 1 | Complete |
+| ASSET-04 | Phase 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 58 total

@@ -35,7 +35,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Initialize Astro 5 project with dependencies and copy all static assets
+- [x] 01-01-PLAN.md — Initialize Astro 5 project with dependencies and copy all static assets
 - [ ] 01-02-PLAN.md — Create design system CSS (tokens, fonts, type scale) and base layout
 
 ### Phase 2: Components
