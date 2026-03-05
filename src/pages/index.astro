@@ -1,13 +1,72 @@
 ---
+import Base from '../layouts/Base.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Consultates</title>
-  </head>
-  <body>
-    <h1>Consultates</h1>
-  </body>
-</html>
+<Base title="Consultates — Design System Test">
+  <main class="max-w-5xl mx-auto px-6 py-12 space-y-12">
+
+    <!-- Type Scale -->
+    <section class="space-y-6">
+      <h1 class="text-hero text-foreground">Consultates</h1>
+      <h2 class="text-section text-foreground">AI consulting for business leaders</h2>
+      <p class="text-sub text-muted-foreground">Coaching, training, and fractional executive support</p>
+      <p class="text-body-lg text-foreground">This is body-lg text. IBM Plex Sans at 18px, weight 400, line-height 1.6.</p>
+      <p class="text-body text-foreground">This is body text. IBM Plex Sans at 16px, weight 400, line-height 1.6. The quick brown fox jumps over the lazy dog.</p>
+      <p class="text-caption text-muted-foreground">Caption text — IBM Plex Sans 14px, weight 500</p>
+      <p class="text-stats text-primary">35+</p>
+      <p class="text-cite text-muted-foreground">Source: years of experience across military, enterprise, and AI</p>
+    </section>
+
+    <!-- Color Swatches -->
+    <section class="space-y-4">
+      <h2 class="text-section text-foreground">Color Tokens</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="space-y-2">
+          <div class="h-20 rounded-xl bg-primary"></div>
+          <p class="text-caption text-muted-foreground">Primary</p>
+        </div>
+        <div class="space-y-2">
+          <div class="h-20 rounded-xl bg-secondary"></div>
+          <p class="text-caption text-muted-foreground">Secondary</p>
+        </div>
+        <div class="space-y-2">
+          <div class="h-20 rounded-xl bg-muted"></div>
+          <p class="text-caption text-muted-foreground">Muted</p>
+        </div>
+        <div class="space-y-2">
+          <div class="h-20 rounded-xl bg-accent"></div>
+          <p class="text-caption text-muted-foreground">Accent</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="space-y-2">
+          <div class="h-20 rounded-xl bg-card border border-border"></div>
+          <p class="text-caption text-muted-foreground">Card</p>
+        </div>
+        <div class="space-y-2">
+          <div class="h-20 rounded-xl bg-destructive"></div>
+          <p class="text-caption text-muted-foreground">Destructive</p>
+        </div>
+        <div class="space-y-2">
+          <div class="h-20 rounded-xl bg-footer-bg"></div>
+          <p class="text-caption text-muted-foreground">Footer BG</p>
+        </div>
+        <div class="space-y-2">
+          <div class="h-20 rounded-xl border-2 border-ring"></div>
+          <p class="text-caption text-muted-foreground">Ring (border)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Theme Toggle Instructions -->
+    <section class="p-6 rounded-xl bg-muted space-y-3">
+      <h3 class="text-sub text-foreground">Theme Test</h3>
+      <p class="text-body text-foreground">
+        Open browser DevTools and run
+        <code class="font-mono text-sm bg-card px-2 py-1 rounded border border-border">document.documentElement.classList.toggle('dark')</code>
+        to verify dark mode tokens switch correctly.
+      </p>
+    </section>
+
+  </main>
+</Base>
