@@ -23,9 +23,9 @@
 
 ### Theme
 
-- [ ] **THEME-01**: Light/dark/system theme toggle cycling light → dark → system → light
-- [ ] **THEME-02**: Theme persisted to localStorage, restored on page load without flash
-- [ ] **THEME-03**: Logo swaps between light and dark variants based on active theme
+- [x] **THEME-01**: Light/dark/system theme toggle cycling light → dark → system → light
+- [x] **THEME-02**: Theme persisted to localStorage, restored on page load without flash
+- [x] **THEME-03**: Logo swaps between light and dark variants based on active theme
 
 ### Homepage
 
@@ -86,15 +86,15 @@
 
 ### Components
 
-- [ ] **COMP-01**: Button component with primary, secondary, ghost, CTA variants and all states
-- [ ] **COMP-02**: Service card component with icon, title, description, link, hover lift
-- [ ] **COMP-03**: Testimonial block component with decorative quote mark, border-left
-- [ ] **COMP-04**: Stat block component with number, label, source
-- [ ] **COMP-05**: Step card component with numbered circle, heading, description
-- [ ] **COMP-06**: Blog card component with title, date, excerpt, CTA, hover lift
-- [ ] **COMP-07**: Form input component with label, error state, focus ring
-- [ ] **COMP-08**: Icon wrapper component for Phosphor duotone with theme-aware opacity
-- [ ] **COMP-09**: Scroll indicator component with mouse outline and bob animation
+- [x] **COMP-01**: Button component with primary, secondary, ghost, CTA variants and all states
+- [x] **COMP-02**: Service card component with icon, title, description, link, hover lift
+- [x] **COMP-03**: Testimonial block component with decorative quote mark, border-left
+- [x] **COMP-04**: Stat block component with number, label, source
+- [x] **COMP-05**: Step card component with numbered circle, heading, description
+- [x] **COMP-06**: Blog card component with title, date, excerpt, CTA, hover lift
+- [x] **COMP-07**: Form input component with label, error state, focus ring
+- [x] **COMP-08**: Icon wrapper component for Phosphor duotone with theme-aware opacity
+- [x] **COMP-09**: Scroll indicator component with mouse outline and bob animation
 
 ### SEO & Deploy
 
@@ -151,9 +151,9 @@
 | NAV-03 | Phase 2 | Pending |
 | NAV-04 | Phase 2 | Pending |
 | NAV-05 | Phase 2 | Pending |
-| THEME-01 | Phase 2 | Pending |
-| THEME-02 | Phase 2 | Pending |
-| THEME-03 | Phase 2 | Pending |
+| THEME-01 | Phase 2 | Complete |
+| THEME-02 | Phase 2 | Complete |
+| THEME-03 | Phase 2 | Complete |
 | HOME-01 | Phase 3 | Pending |
 | HOME-02 | Phase 3 | Pending |
 | HOME-03 | Phase 3 | Pending |
@@ -187,15 +187,15 @@
 | ERR-01 | Phase 5 | Pending |
 | FOOT-01 | Phase 2 | Pending |
 | FOOT-02 | Phase 2 | Pending |
-| COMP-01 | Phase 2 | Pending |
-| COMP-02 | Phase 2 | Pending |
-| COMP-03 | Phase 2 | Pending |
-| COMP-04 | Phase 2 | Pending |
-| COMP-05 | Phase 2 | Pending |
-| COMP-06 | Phase 2 | Pending |
-| COMP-07 | Phase 2 | Pending |
-| COMP-08 | Phase 2 | Pending |
-| COMP-09 | Phase 2 | Pending |
+| COMP-01 | Phase 2 | Complete |
+| COMP-02 | Phase 2 | Complete |
+| COMP-03 | Phase 2 | Complete |
+| COMP-04 | Phase 2 | Complete |
+| COMP-05 | Phase 2 | Complete |
+| COMP-06 | Phase 2 | Complete |
+| COMP-07 | Phase 2 | Complete |
+| COMP-08 | Phase 2 | Complete |
+| COMP-09 | Phase 2 | Complete |
 | SEO-01 | Phase 7 | Pending |
 | SEO-02 | Phase 7 | Pending |
 | SEO-03 | Phase 7 | Pending |

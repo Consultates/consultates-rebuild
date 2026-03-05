@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Phase 2 context gathered
-last_updated: "2026-03-05T03:17:33.737Z"
-last_activity: 2026-03-05 — Plan 01-02 executed (design system CSS, base layout, theme switching)
+stopped_at: Completed 02-02-PLAN.md
+last_updated: "2026-03-05T03:27:40.818Z"
+last_activity: 2026-03-05 — Plan 02-01 executed (ThemeToggle, Button, IconWrapper components)
 progress:
   total_phases: 8
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
-  percent: 100
+  total_plans: 5
+  completed_plans: 4
+  percent: 80
 ---
 
 # Project State
@@ -25,31 +25,33 @@ See: .planning/PROJECT.md (updated 2026-03-05)
 
 ## Current Position
 
-Phase: 1 of 8 (Scaffold) — COMPLETE
-Plan: 2 of 2 in current phase
-Status: Phase 1 complete, ready for Phase 2
-Last activity: 2026-03-05 — Plan 01-02 executed (design system CSS, base layout, theme switching)
+Phase: 2 of 8 (Components) — IN PROGRESS
+Plan: 1 of 3 in current phase — COMPLETE
+Status: Plan 02-01 complete, continuing Phase 2
+Last activity: 2026-03-05 — Plan 02-01 executed (ThemeToggle, Button, IconWrapper components)
 
-Progress: [████████████████████] 2/2 plans (100% Phase 1) — Overall: Phase 1/8
+Progress: [████████░░] 4/5 plans (80%) — Overall: Phase 2/8
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 4min
-- Total execution time: 0.1 hours
+- Total plans completed: 3
+- Average duration: 3min
+- Total execution time: 0.15 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-scaffold | 2 | 8min | 4min |
+| 02-components | 1 | 1min | 1min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (6min), 01-02 (2min)
+- Last 5 plans: 01-01 (6min), 01-02 (2min), 02-01 (1min)
 - Trend: Accelerating
 
 *Updated after each plan completion*
+| Phase 02-components P02 | 1min | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -66,6 +68,10 @@ Recent decisions affecting current work:
 - 01-01: Fonts extracted from fontsource npm packages (self-hosted WOFF2)
 - 01-02: Used @layer utilities for type scale (multi-property utilities cannot go in @theme)
 - 01-02: Preload only 2 critical fonts per PRD 2.2 (Sans Regular + Serif Bold)
+- 02-01: IconWrapper uses MutationObserver on documentElement class for theme-aware duotone opacity
+- 02-01: ThemeToggle dispatches custom 'theme-changed' event for downstream component sync
+- [Phase 02-02]: ServiceCard uses named slot for icon to allow any Phosphor SVG or React island
+- [Phase 02-02]: FormInput joins CSS classes dynamically for conditional error border styling
 
 ### Pending Todos
 
@@ -77,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T03:17:33.735Z
-Stopped at: Phase 2 context gathered
-Resume file: .planning/phases/02-components/02-CONTEXT.md
+Last session: 2026-03-05T03:27:32.141Z
+Stopped at: Completed 02-02-PLAN.md
+Resume file: None
