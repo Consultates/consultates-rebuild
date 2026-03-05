@@ -131,9 +131,10 @@ Plans:
   3. Sitemap XML is auto-generated and includes all public routes
   4. robots.txt allows all crawlers and references the sitemap
   5. Consultates favicon appears in browser tabs and bookmarks across all pages
-**Plans**: TBD
+**Plans:** 1 plan
 
-Plans: TBD
+Plans:
+- [ ] 07-01-PLAN.md — SEO meta tags, canonical URLs, OG tags, robots.txt, and sitemap verification
 
 ### Phase 8: Deploy
 **Goal**: The live site is deployed to consultates.com via GitHub Pages with automated CI/CD — every push to main triggers a fresh build and deploy
@@ -162,5 +163,5 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 | 4. Animation | 3/3 | Complete   | 2026-03-05 |
 | 5. Inner Pages | 3/3 | Complete   | 2026-03-05 |
 | 6. Blog | 1/2 | In Progress|  |
-| 7. Polish | 0/? | Not started | - |
+| 7. Polish | 0/1 | Not started | - |
 | 8. Deploy | 0/? | Not started | - |
