@@ -1,0 +1,25 @@
+---
+import StatBlock from '../StatBlock.astro';
+---
+
+<div class="bg-secondary">
+  <section
+    id="section-stakes"
+    class="max-w-[1200px] mx-auto"
+    style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);"
+  >
+    <div class="grid grid-cols-2 gap-12 max-md:grid-cols-1">
+      <StatBlock
+        number="84%"
+        label="of the world hasn't used AI at all. Most leaders are still at zero."
+      />
+      <StatBlock
+        number="12–18 months"
+        label="Until white collar computer tasks are fully automated, according to the CEO of Microsoft AI. The window to get ahead of this is closing."
+      />
+    </div>
+    <p class="text-cite text-muted-foreground mt-8 text-center">
+      Source: DataReportal Digital 2026 &middot; Mustafa Suleiman, Everyday AI Podcast, Feb 2026
+    </p>
+  </section>
+</div>
