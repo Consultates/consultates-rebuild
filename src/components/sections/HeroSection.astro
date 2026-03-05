@@ -1,6 +1,5 @@
 ---
-import Button from '../Button.astro';
-import ScrollIndicator from '../ScrollIndicator.astro';
+import HeroIsland from '../islands/HeroIsland.tsx';
 import { TIDYCAL_URL } from '../../config';
 ---
 
@@ -9,20 +8,13 @@ import { TIDYCAL_URL } from '../../config';
   class="hero-section min-h-screen flex flex-col items-center justify-center text-center relative"
   style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);"
 >
-  <div class="max-w-[800px]">
-    <h1 class="text-hero text-foreground">
-      Clarity on AI — what to do, where to start, and who to trust
-    </h1>
-    <p class="text-body-lg text-muted-foreground mt-6">
-      You're a leader who knows AI matters but can't separate the signal from the noise. You don't need more articles or another webinar. You need someone who builds with AI every day to sit down with you and make it practical.
-    </p>
-    <div class="mt-8">
-      <Button variant="cta" href={TIDYCAL_URL} target="_blank" rel="noopener noreferrer">
-        Book a Free Call
-      </Button>
-    </div>
-  </div>
-  <ScrollIndicator />
+  <HeroIsland
+    client:load
+    headline="Clarity on AI — what to do, where to start, and who to trust"
+    paragraph="You're a leader who knows AI matters but can't separate the signal from the noise. You don't need more articles or another webinar. You need someone who builds with AI every day to sit down with you and make it practical."
+    ctaHref={TIDYCAL_URL}
+    ctaText="Book a Free Call"
+  />
 </section>
 
 <style>
