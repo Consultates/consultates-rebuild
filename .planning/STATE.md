@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-01-PLAN.md
-last_updated: "2026-03-05T03:02:21.000Z"
-last_activity: 2026-03-05 — Plan 01-01 executed (project init + static assets)
+stopped_at: Completed 01-02-PLAN.md (Phase 1 complete)
+last_updated: "2026-03-05T03:07:07.000Z"
+last_activity: 2026-03-05 — Plan 01-02 executed (design system CSS, base layout, theme switching)
 progress:
   total_phases: 8
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 1
+  completed_plans: 2
   percent: 6
 ---
 
@@ -25,29 +25,29 @@ See: .planning/PROJECT.md (updated 2026-03-05)
 
 ## Current Position
 
-Phase: 1 of 8 (Scaffold)
-Plan: 1 of 2 in current phase
-Status: Executing
-Last activity: 2026-03-05 — Plan 01-01 executed (project init + static assets)
+Phase: 1 of 8 (Scaffold) — COMPLETE
+Plan: 2 of 2 in current phase
+Status: Phase 1 complete, ready for Phase 2
+Last activity: 2026-03-05 — Plan 01-02 executed (design system CSS, base layout, theme switching)
 
-Progress: [█░░░░░░░░░] 6%
+Progress: [██████████] 100% (Phase 1)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 6min
+- Total plans completed: 2
+- Average duration: 4min
 - Total execution time: 0.1 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-scaffold | 1 | 6min | 6min |
+| 01-scaffold | 2 | 8min | 4min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (6min)
-- Trend: Starting
+- Last 5 plans: 01-01 (6min), 01-02 (2min)
+- Trend: Accelerating
 
 *Updated after each plan completion*
 
@@ -64,6 +64,8 @@ Recent decisions affecting current work:
 - PRD v2.0: Client-side form mock in Phase 1 of site build; real backend wired in v2
 - 01-01: Manual Astro scaffold to avoid overwriting existing repo files
 - 01-01: Fonts extracted from fontsource npm packages (self-hosted WOFF2)
+- 01-02: Used @layer utilities for type scale (multi-property utilities cannot go in @theme)
+- 01-02: Preload only 2 critical fonts per PRD 2.2 (Sans Regular + Serif Bold)
 
 ### Pending Todos
 
@@ -75,6 +77,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T03:02:21.000Z
-Stopped at: Completed 01-01-PLAN.md
-Resume file: .planning/phases/01-scaffold/01-02-PLAN.md
+Last session: 2026-03-05T03:07:07.000Z
+Stopped at: Completed 01-02-PLAN.md (Phase 1 complete)
+Resume file: Next phase plans

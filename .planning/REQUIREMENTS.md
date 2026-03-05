@@ -8,10 +8,10 @@
 ### Foundation
 
 - [x] **FOUND-01**: Site scaffolded with Astro 5, React integration, and static output
-- [ ] **FOUND-02**: Tailwind 4 configured via CSS-first `@theme` block with all color tokens (light + dark)
-- [ ] **FOUND-03**: IBM Plex Sans/Serif/Mono self-hosted as WOFF2 with font-display swap
-- [ ] **FOUND-04**: Base layout with theme flash prevention script in `<head>`
-- [ ] **FOUND-05**: Custom type scale defined (text-hero, text-section, text-sub, text-body-lg, text-body, text-caption, text-stats, text-cite)
+- [x] **FOUND-02**: Tailwind 4 configured via CSS-first `@theme` block with all color tokens (light + dark)
+- [x] **FOUND-03**: IBM Plex Sans/Serif/Mono self-hosted as WOFF2 with font-display swap
+- [x] **FOUND-04**: Base layout with theme flash prevention script in `<head>`
+- [x] **FOUND-05**: Custom type scale defined (text-hero, text-section, text-sub, text-body-lg, text-body, text-caption, text-stats, text-cite)
 
 ### Navigation
 
@@ -142,10 +142,10 @@
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | FOUND-01 | Phase 1 | Complete |
-| FOUND-02 | Phase 1 | Pending |
-| FOUND-03 | Phase 1 | Pending |
-| FOUND-04 | Phase 1 | Pending |
-| FOUND-05 | Phase 1 | Pending |
+| FOUND-02 | Phase 1 | Complete |
+| FOUND-03 | Phase 1 | Complete |
+| FOUND-04 | Phase 1 | Complete |
+| FOUND-05 | Phase 1 | Complete |
 | NAV-01 | Phase 2 | Pending |
 | NAV-02 | Phase 2 | Pending |
 | NAV-03 | Phase 2 | Pending |

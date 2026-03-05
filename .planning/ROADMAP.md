@@ -12,7 +12,7 @@ Eight phases transform a bloated WebWave site into a clean, fast Astro 5 static 
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Scaffold** - Astro 5 project with Tailwind 4, fonts, design tokens, and base layout
+- [x] **Phase 1: Scaffold** - Astro 5 project with Tailwind 4, fonts, design tokens, and base layout (completed 2026-03-05)
 - [ ] **Phase 2: Components** - All shared UI components, nav, footer, and theme system
 - [ ] **Phase 3: Homepage** - All 12 StoryBrand sections with full content, no animation
 - [ ] **Phase 4: Animation** - GSAP ScrollTrigger and Framer Motion layered onto existing pages
@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Royal Purple and all brand color tokens render correctly in light and dark modes with no flash on load
   3. IBM Plex Sans, Serif, and Mono load from local files (no external requests) and all custom type scale classes apply correctly
   4. All static assets (logos, Gary photo, favicon, font files) are present in the correct public directories
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 
 Plans:
 - [x] 01-01-PLAN.md — Initialize Astro 5 project with dependencies and copy all static assets
@@ -142,7 +142,7 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Scaffold | 0/2 | Planning | - |
+| 1. Scaffold | 2/2 | Complete   | 2026-03-05 |
 | 2. Components | 0/? | Not started | - |
 | 3. Homepage | 0/? | Not started | - |
 | 4. Animation | 0/? | Not started | - |
