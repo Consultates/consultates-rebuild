@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: in-progress
-stopped_at: Completed 04-02-PLAN.md
-last_updated: "2026-03-05T04:22:58.535Z"
+status: completed
+stopped_at: Completed 04-03-PLAN.md
+last_updated: "2026-03-05T04:26:46.941Z"
 last_activity: 2026-03-05 — Plan 04-02 executed (section animations wired into all 9 sections)
 progress:
   total_phases: 8
   completed_phases: 4
   total_plans: 11
-  completed_plans: 10
+  completed_plans: 11
   percent: 91
 ---
 
@@ -58,6 +58,7 @@ Progress: [█████████░] 10/11 plans (91%) — Overall: Phase 
 | Phase 03-homepage P03 | 1min | 2 tasks | 1 files |
 | Phase 04-animation P01 | 2min | 2 tasks | 5 files |
 | Phase 04-animation P02 | 3min | 2 tasks | 12 files |
+| Phase 04-animation P03 | 2min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -89,6 +90,9 @@ Recent decisions affecting current work:
 - 04-01: scroll-bob-dot utility class in global.css for React island access to scroll-bob keyframe
 - 04-02: SectionAnimator wraps container divs, not individual Astro sub-components (Astro components cannot be React children)
 - 04-02: Single fadeUp per section container instead of per-item stagger (server-rendered Astro children are not motion-aware)
+- [Phase 04-03]: sections.slice(1) to skip hero from GSAP zoom — hero has its own FM entrance
+- [Phase 04-03]: Wrapper div approach for scroll-section class avoids modifying 10 section files
+- [Phase 04-03]: data-scroll-indicator attribute on HeroIsland for GSAP cross-framework targeting
 
 ### Pending Todos
 
@@ -100,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T04:21:15Z
-Stopped at: Completed 04-02-PLAN.md
+Last session: 2026-03-05T04:26:46.939Z
+Stopped at: Completed 04-03-PLAN.md
 Resume file: None

@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Scaffold** - Astro 5 project with Tailwind 4, fonts, design tokens, and base layout (completed 2026-03-05)
 - [x] **Phase 2: Components** - All shared UI components, nav, footer, and theme system (completed 2026-03-05)
 - [x] **Phase 3: Homepage** - All 12 StoryBrand sections with full content, no animation (completed 2026-03-05)
-- [ ] **Phase 4: Animation** - GSAP ScrollTrigger and Framer Motion layered onto existing pages
+- [x] **Phase 4: Animation** - GSAP ScrollTrigger and Framer Motion layered onto existing pages (completed 2026-03-05)
 - [ ] **Phase 5: Inner Pages** - Service pages x3, About, Contact, Privacy Policy, 404
 - [ ] **Phase 6: Blog** - Content collections, blog index, blog post layout, 3 initial posts
 - [ ] **Phase 7: Polish** - Responsive testing, accessibility, SEO meta tags, favicon
@@ -82,7 +82,7 @@ Plans:
   3. The 84% stat counts up from 0 when the negative stakes section enters the viewport
   4. Stakes CTA section pulse animation runs continuously
   5. Visiting with `prefers-reduced-motion: reduce` shows all content immediately with no animations running
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 - [ ] 04-01-PLAN.md — Animation variants, reduced-motion hook, and Hero letter stagger island
@@ -154,7 +154,7 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 | 1. Scaffold | 2/2 | Complete   | 2026-03-05 |
 | 2. Components | 3/3 | Complete   | 2026-03-05 |
 | 3. Homepage | 3/3 | Complete   | 2026-03-05 |
-| 4. Animation | 2/3 | In Progress|  |
+| 4. Animation | 3/3 | Complete   | 2026-03-05 |
 | 5. Inner Pages | 0/? | Not started | - |
 | 6. Blog | 0/? | Not started | - |
 | 7. Polish | 0/? | Not started | - |

@@ -42,8 +42,8 @@
 
 ### Animation
 
-- [ ] **ANIM-01**: GSAP ScrollTrigger scroll-snap with zoom transitions on desktop (≥1024px)
-- [ ] **ANIM-02**: GSAP disabled on tablet/mobile — sections at natural height
+- [x] **ANIM-01**: GSAP ScrollTrigger scroll-snap with zoom transitions on desktop (≥1024px)
+- [x] **ANIM-02**: GSAP disabled on tablet/mobile — sections at natural height
 - [x] **ANIM-03**: Framer Motion fadeUp/scaleIn/staggerContainer variants for component entrances
 - [x] **ANIM-04**: Hero letter stagger sequence (1200ms hold → stagger → fadeUp → scaleIn → indicator)
 - [x] **ANIM-05**: Count-up animation from 0 to 84 on viewport entry
@@ -164,8 +164,8 @@
 | HOME-08 | Phase 3 | Complete |
 | HOME-09 | Phase 3 | Complete |
 | HOME-10 | Phase 3 | Complete |
-| ANIM-01 | Phase 4 | Pending |
-| ANIM-02 | Phase 4 | Pending |
+| ANIM-01 | Phase 4 | Complete |
+| ANIM-02 | Phase 4 | Complete |
 | ANIM-03 | Phase 4 | Complete |
 | ANIM-04 | Phase 4 | Complete |
 | ANIM-05 | Phase 4 | Complete |
