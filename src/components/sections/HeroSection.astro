@@ -1,0 +1,35 @@
+---
+import Button from '../Button.astro';
+import ScrollIndicator from '../ScrollIndicator.astro';
+import { TIDYCAL_URL } from '../../config';
+---
+
+<section
+  id="section-hero"
+  class="hero-section min-h-screen flex flex-col items-center justify-center text-center relative"
+  style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);"
+>
+  <div class="max-w-[800px]">
+    <h1 class="text-hero text-foreground">
+      Clarity on AI — what to do, where to start, and who to trust
+    </h1>
+    <p class="text-body-lg text-muted-foreground mt-6">
+      You're a leader who knows AI matters but can't separate the signal from the noise. You don't need more articles or another webinar. You need someone who builds with AI every day to sit down with you and make it practical.
+    </p>
+    <div class="mt-8">
+      <Button variant="cta" href={TIDYCAL_URL} target="_blank" rel="noopener noreferrer">
+        Book a Free Call
+      </Button>
+    </div>
+  </div>
+  <ScrollIndicator />
+</section>
+
+<style>
+  .hero-section {
+    background: radial-gradient(ellipse at 50% 60%, #F6F2EB 0%, #FFFFFF 70%);
+  }
+  :global(.dark) .hero-section {
+    background: radial-gradient(ellipse at 50% 40%, rgba(92,59,156,0.15) 0%, #0D1117 60%);
+  }
+</style>
