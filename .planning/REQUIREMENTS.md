@@ -102,8 +102,8 @@
 - [x] **SEO-02**: Sitemap auto-generated via @astrojs/sitemap
 - [x] **SEO-03**: Canonical URLs on every page
 - [x] **SEO-04**: robots.txt allowing all crawlers
-- [ ] **DEPLOY-01**: GitHub Actions CI/CD workflow (checkout → Node 22 + pnpm 9 → install → build → deploy)
-- [ ] **DEPLOY-02**: GitHub Pages config with CNAME for consultates.com
+- [x] **DEPLOY-01**: GitHub Actions CI/CD workflow (checkout → Node 22 + pnpm 9 → install → build → deploy)
+- [x] **DEPLOY-02**: GitHub Pages config with CNAME for consultates.com
 - [x] **DEPLOY-03**: Favicon from Consultates head mark
 
 ### Assets
@@ -200,8 +200,8 @@
 | SEO-02 | Phase 7 | Complete |
 | SEO-03 | Phase 7 | Complete |
 | SEO-04 | Phase 7 | Complete |
-| DEPLOY-01 | Phase 8 | Pending |
-| DEPLOY-02 | Phase 8 | Pending |
+| DEPLOY-01 | Phase 8 | Complete |
+| DEPLOY-02 | Phase 8 | Complete |
 | DEPLOY-03 | Phase 7 | Complete |
 | ASSET-01 | Phase 1 | Complete |
 | ASSET-02 | Phase 1 | Complete |

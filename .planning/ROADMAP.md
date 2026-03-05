@@ -19,7 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 5: Inner Pages** - Service pages x3, About, Contact, Privacy Policy, 404 (completed 2026-03-05)
 - [ ] **Phase 6: Blog** - Content collections, blog index, blog post layout, 3 initial posts
 - [x] **Phase 7: Polish** - Responsive testing, accessibility, SEO meta tags, favicon (completed 2026-03-05)
-- [ ] **Phase 8: Deploy** - GitHub Actions CI/CD, GitHub Pages, CNAME, sitemap verification
+- [x] **Phase 8: Deploy** - GitHub Actions CI/CD, GitHub Pages, CNAME, sitemap verification (completed 2026-03-05)
 
 ## Phase Details
 
@@ -144,7 +144,7 @@ Plans:
   1. Pushing to the main branch automatically triggers a GitHub Actions workflow that builds and deploys the site
   2. consultates.com resolves to the deployed Astro site with a valid SSL certificate
   3. The build passes in CI with no errors (Node 22, pnpm 9, static output)
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 Plans:
 - [ ] 08-01-PLAN.md — GitHub Actions CI/CD workflow and CNAME for GitHub Pages deployment
@@ -165,4 +165,4 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 | 5. Inner Pages | 3/3 | Complete   | 2026-03-05 |
 | 6. Blog | 1/2 | In Progress|  |
 | 7. Polish | 1/1 | Complete   | 2026-03-05 |
-| 8. Deploy | 0/1 | Not started | - |
+| 8. Deploy | 1/1 | Complete   | 2026-03-05 |

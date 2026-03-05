@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Completed 07-01-PLAN.md
-last_updated: "2026-03-05T07:35:21.119Z"
-last_activity: 2026-03-05 — Plan 06-02 executed (3 blog posts migrated from HTML to Markdown)
+stopped_at: Completed 08-01-PLAN.md
+last_updated: "2026-03-05T07:42:22.346Z"
+last_activity: 2026-03-05 — Plan 08-01 executed (GitHub Pages deploy workflow + CNAME)
 progress:
   total_phases: 8
-  completed_phases: 7
-  total_plans: 17
-  completed_plans: 17
+  completed_phases: 8
+  total_plans: 18
+  completed_plans: 18
   percent: 100
 ---
 
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-05)
 
 **Core value:** Business leaders can quickly understand what Consultates offers and book a free call — the site removes friction between "I need help with AI" and "I'm talking to someone who can help."
-**Current focus:** Phase 6 — Blog (complete)
+**Current focus:** Phase 8 — Deploy (complete)
 
 ## Current Position
 
-Phase: 6 of 8 (Blog) — complete
-Plan: 2 of 2 in current phase (06-02 complete)
-Status: Blog phase complete — 3 posts published, index page, post layout all working
-Last activity: 2026-03-05 — Plan 06-02 executed (3 blog posts migrated from HTML to Markdown)
+Phase: 8 of 8 (Deploy) — complete
+Plan: 1 of 1 in current phase (08-01 complete)
+Status: All phases complete — site built and deploy pipeline ready
+Last activity: 2026-03-05 — Plan 08-01 executed (GitHub Pages deploy workflow + CNAME)
 
-Progress: [██████████] 16/16 plans (100%) — Overall: Phase 6/8 complete
+Progress: [██████████] 18/18 plans (100%) — Overall: Phase 8/8 complete
 
 ## Performance Metrics
 
@@ -65,6 +65,7 @@ Progress: [██████████] 16/16 plans (100%) — Overall: Phase
 | Phase 06-blog P01 | 1min | 2 tasks | 4 files |
 | Phase 06-blog P02 | 3min | 1 tasks | 5 files |
 | Phase 07-polish P01 | 1min | 2 tasks | 3 files |
+| Phase 08-deploy P01 | 1min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -118,6 +119,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T07:31:30.706Z
-Stopped at: Completed 07-01-PLAN.md
+Last session: 2026-03-05T07:42:22.342Z
+Stopped at: Completed 08-01-PLAN.md
 Resume file: None
