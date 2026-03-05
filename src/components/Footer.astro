@@ -1,0 +1,59 @@
+---
+const year = new Date().getFullYear();
+
+const quickLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/about', label: 'About' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/privacy', label: 'Privacy Policy' },
+];
+---
+
+<footer class="bg-footer-bg text-footer-text">
+  <div class="max-w-[1200px] mx-auto px-[clamp(1.5rem,5vw,8rem)] py-12">
+
+    <!-- 3-column grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Column 1: Brand -->
+      <div>
+        <img src="/images/logo-dark.webp" alt="Consultates" class="h-8" />
+        <p class="text-caption text-footer-text/70 mt-2">Consultates Limited</p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div>
+        <h4 class="text-caption font-semibold text-footer-text uppercase tracking-wider mb-4">Quick Links</h4>
+        {quickLinks.map((link) => (
+          <a href={link.href} class="block text-body text-footer-link hover:text-footer-link-hover transition-colors duration-150 mb-2">
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Column 3: Contact -->
+      <div>
+        <h4 class="text-caption font-semibold text-footer-text uppercase tracking-wider mb-4">Get in Touch</h4>
+        <a href="mailto:gary@consultates.com" class="text-body text-footer-link hover:text-footer-link-hover transition-colors">
+          gary@consultates.com
+        </a>
+        <a href="https://linkedin.com/in/garyctate" target="_blank" rel="noopener" class="inline-flex text-footer-link hover:text-footer-link-hover transition-colors mt-3">
+          <!-- Phosphor LinkedinLogo duotone -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M224,40V216a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8H216A8,8,0,0,1,224,40Z" opacity="0.2"></path>
+            <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM92,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,0v64a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,180,140ZM96,84A12,12,0,1,1,84,72,12,12,0,0,1,96,84Z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-footer-border mt-8 pt-6 text-center space-y-1">
+      <p class="text-caption text-footer-text/70">London, UK &middot; Saigon, Vietnam &middot; Everywhere online</p>
+      <p class="font-serif italic text-caption text-footer-text/50">"We help good people in a turbulent time"</p>
+      <p class="text-cite text-footer-text/50">&copy; {year} Consultates Limited. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
