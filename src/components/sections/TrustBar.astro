@@ -1,15 +1,11 @@
 ---
-import { SectionAnimator } from '../islands/SectionAnimator';
+/**
+ * Trust bar — sits at the bottom of each scroll-section,
+ * just below the scroll indicator mouse icon.
+ * Not a standalone page — an overlay element repeated on every section.
+ */
 ---
 
-<section
-  id="section-trust"
-  class="flex items-center justify-center gap-2 flex-wrap text-center"
-  style="padding: 1.5rem clamp(1.5rem, 5vw, 8rem);"
->
-  <SectionAnimator client:visible>
-    <p class="text-caption text-muted-foreground">
-      Guest lecturer, Lead with AI PRO &middot; 35 years across engineering, sales &amp; AI &middot; Trained executive cohorts through FlexOS &middot; 16 countries
-    </p>
-  </SectionAnimator>
-</section>
+<p class="absolute bottom-2 left-1/2 -translate-x-1/2 text-caption text-muted-foreground text-center whitespace-nowrap opacity-50">
+  Guest lecturer, Lead with AI PRO &middot; 35 years across engineering, sales &amp; AI &middot; Trained executive cohorts through FlexOS &middot; 16 countries
+</p>

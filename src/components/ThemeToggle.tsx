@@ -1,63 +1,34 @@
 import { useState, useEffect } from 'react';
-import { Sun, Moon, Monitor } from '@phosphor-icons/react';
-
-type ThemeMode = 'light' | 'dark' | 'system';
+import { Sun, Moon } from '@phosphor-icons/react';
 
 export default function ThemeToggle() {
-  const [mode, setMode] = useState<ThemeMode>('system');
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem('theme');
-    if (stored === 'dark' || stored === 'light') {
-      setMode(stored);
-    } else {
-      setMode('system');
-    }
+    setIsDark(document.documentElement.classList.contains('dark'));
   }, []);
 
-  function applyTheme(newMode: ThemeMode) {
-    setMode(newMode);
-    localStorage.setItem('theme', newMode);
+  function toggle() {
+    const next = !isDark;
+    setIsDark(next);
+    localStorage.setItem('theme', next ? 'dark' : 'light');
 
-    const root = document.documentElement;
-
-    if (newMode === 'dark') {
-      root.classList.add('dark');
-    } else if (newMode === 'light') {
-      root.classList.remove('dark');
+    if (next) {
+      document.documentElement.classList.add('dark');
     } else {
-      // system
-      const prefersDark = window.matchMedia(
-        '(prefers-color-scheme: dark)',
-      ).matches;
-      if (prefersDark) {
-        root.classList.add('dark');
-      } else {
-        root.classList.remove('dark');
-      }
+      document.documentElement.classList.remove('dark');
     }
 
-    window.dispatchEvent(new CustomEvent('theme-changed', { detail: newMode }));
+    window.dispatchEvent(new CustomEvent('theme-changed', { detail: next ? 'dark' : 'light' }));
   }
-
-  function cycle() {
-    const next: Record<ThemeMode, ThemeMode> = {
-      light: 'dark',
-      dark: 'system',
-      system: 'light',
-    };
-    applyTheme(next[mode]);
-  }
-
-  const Icon = mode === 'light' ? Sun : mode === 'dark' ? Moon : Monitor;
 
   return (
     <button
-      onClick={cycle}
-      aria-label="Toggle theme"
+      onClick={toggle}
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-muted transition-colors duration-150 text-foreground cursor-pointer"
     >
-      <Icon size={20} weight="duotone" />
+      {isDark ? <Sun size={20} weight="duotone" /> : <Moon size={20} weight="duotone" />}
     </button>
   );
 }

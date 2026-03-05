@@ -2,6 +2,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Class-based dark mode (Tailwind 4 defaults to media query) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* --------------------------------------------------------
    Tailwind 4 @theme — maps CSS custom properties to
    Tailwind utility classes (bg-primary, text-foreground, etc.)
@@ -275,7 +278,7 @@ body.nav-open {
     background: #0D1117;
   }
   .dark .scroll-canvas:has(.scroll-section) {
-    background: #F6F2EB;
+    background: #080B10;
   }
   .scroll-section {
     background: var(--background);
