@@ -71,6 +71,13 @@ const { title, description = 'AI consulting for business leaders. Coaching, trai
     if (isDesktop && !prefersReducedMotion) {
       const sections = gsap.utils.toArray<HTMLElement>('.scroll-section');
 
+      // Hide sections 2+ initially so zoom-in is visible
+      sections.forEach((section, i) => {
+        if (i > 0) {
+          gsap.set(section, { scale: 0.92, opacity: 0 });
+        }
+      });
+
       // Per-section ScrollTrigger with snap and zoom transition — PRD §3.1
       sections.forEach((section, i) => {
         ScrollTrigger.create({
@@ -83,12 +90,13 @@ const { title, description = 'AI consulting for business leaders. Coaching, trai
             ease: 'power2.inOut',
           },
           onEnter: () => {
-            // Skip hero (index 0) — it has its own Framer Motion entrance
             if (i > 0) {
-              gsap.fromTo(section,
-                { scale: 0.92, opacity: 0 },
-                { scale: 1, opacity: 1, duration: 0.5, ease: 'power2.out' }
-              );
+              gsap.to(section, { scale: 1, opacity: 1, duration: 0.5, ease: 'power2.out' });
+            }
+          },
+          onLeaveBack: () => {
+            if (i > 0) {
+              gsap.to(section, { scale: 0.92, opacity: 0, duration: 0.3, ease: 'power2.in' });
             }
           },
         });
