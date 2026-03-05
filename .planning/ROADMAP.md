@@ -77,14 +77,17 @@ Plans:
 **Depends on**: Phase 3
 **Requirements**: ANIM-01, ANIM-02, ANIM-03, ANIM-04, ANIM-05, ANIM-06, ANIM-07, ANIM-08
 **Success Criteria** (what must be TRUE):
-  1. On desktop (≥1024px), scrolling through the homepage snaps section-by-section with zoom transitions; on tablet/mobile sections stack at natural height with no snap behavior
+  1. On desktop (>=1024px), scrolling through the homepage snaps section-by-section with zoom transitions; on tablet/mobile sections stack at natural height with no snap behavior
   2. Hero headline animates with letter stagger on page load, followed by paragraph fade up, CTA scale in, and scroll indicator bob
   3. The 84% stat counts up from 0 when the negative stakes section enters the viewport
   4. Stakes CTA section pulse animation runs continuously
   5. Visiting with `prefers-reduced-motion: reduce` shows all content immediately with no animations running
-**Plans**: TBD
+**Plans:** 3 plans
 
-Plans: TBD
+Plans:
+- [ ] 04-01-PLAN.md — Animation variants, reduced-motion hook, and Hero letter stagger island
+- [ ] 04-02-PLAN.md — Section animation islands (CountUpStat, StakesCTAPulse, SectionAnimator) wired into all sections
+- [ ] 04-03-PLAN.md — GSAP ScrollTrigger scroll-snap, scroll-section CSS, and reduced motion wiring
 
 ### Phase 5: Inner Pages
 **Goal**: Every non-homepage page is built and navigable — visitors can explore all three services, read about Gary, submit a contact form, and find the legal page
@@ -151,7 +154,7 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 | 1. Scaffold | 2/2 | Complete   | 2026-03-05 |
 | 2. Components | 3/3 | Complete   | 2026-03-05 |
 | 3. Homepage | 3/3 | Complete   | 2026-03-05 |
-| 4. Animation | 0/? | Not started | - |
+| 4. Animation | 0/3 | Not started | - |
 | 5. Inner Pages | 0/? | Not started | - |
 | 6. Blog | 0/? | Not started | - |
 | 7. Polish | 0/? | Not started | - |
