@@ -75,6 +75,7 @@ export default function HeroIsland({
         <div
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
           aria-hidden="true"
+          data-scroll-indicator
         >
           <div className="w-[30px] h-[50px] border-2 border-foreground rounded-[15px] opacity-60 flex justify-center">
             <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-1.5 scroll-bob-dot" />
@@ -151,6 +152,7 @@ export default function HeroIsland({
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         aria-hidden="true"
+        data-scroll-indicator
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ duration: 0.5, ease, delay: scrollDelay }}

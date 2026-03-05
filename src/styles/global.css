@@ -263,3 +263,31 @@ body.nav-open {
 .scroll-bob-dot {
   animation: scroll-bob 2s infinite ease-in-out;
 }
+
+/* --------------------------------------------------------
+   Scroll section base — applied to homepage sections
+   -------------------------------------------------------- */
+.scroll-section {
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  will-change: transform;
+}
+
+/* Mobile/tablet: natural height, no scroll-snap styles */
+@media (max-width: 1023px) {
+  .scroll-section {
+    min-height: auto;
+    will-change: auto;
+  }
+}
+
+/* Reduced motion: kill all custom animations */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-section {
+    will-change: auto;
+  }
+  [data-scroll-indicator] {
+    animation: none !important;
+  }
+}
