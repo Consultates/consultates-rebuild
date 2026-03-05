@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const wordCount = post.body ? post.body.split(/\s+/).length : 0;
+const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+
+const formattedDate = post.data.date.toLocaleDateString('en-GB', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const description = post.data.excerpt || (post.body ? post.body.slice(0, 160) : '');
+---
+
+<Base title={`${post.data.title} -- Consultates Blog`} description={description}>
+  <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
+    <div style="max-width: 720px; margin: 0 auto;">
+      <a href="/blog" class="text-body text-primary hover:underline mb-4 inline-block">&larr; Back to Blog</a>
+      <h1 class="text-hero">{post.data.title}</h1>
+      <p class="text-cite text-muted-foreground mb-8">
+        {formattedDate} &middot; {readingTime} min read
+      </p>
+      <div class="prose prose-lg max-w-none">
+        <Content />
+      </div>
+    </div>
+  </section>
+</Base>

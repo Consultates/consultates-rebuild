@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Base title="Blog -- Consultates" description="Articles on AI adoption, AI safety, and practical guidance for business leaders.">
+  <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
+    <div style="max-width: 960px; margin: 0 auto;">
+      <h1 class="text-hero mb-8">Blog</h1>
+      <div class="blog-grid">
+        {posts.map(post => (
+          <BlogCard
+            title={post.data.title}
+            date={post.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+            excerpt={post.data.excerpt || post.body?.slice(0, 160) + '...'}
+            href={'/blog/' + post.id}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 767px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
