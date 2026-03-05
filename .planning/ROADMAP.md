@@ -160,7 +160,7 @@ Plans:
   4. 84% stat counts up from 0 when Negative Stakes section is visible
   5. All section IDs present including section-trust
   6. About page paragraphs render as plain text, not blockquotes
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 09-01-PLAN.md — GSAP crash guard, footer corrections, TrustBar section ID, about page fix
@@ -183,4 +183,4 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 | 6. Blog | 1/2 | In Progress|  |
 | 7. Polish | 1/1 | Complete   | 2026-03-05 |
 | 8. Deploy | 1/1 | Complete   | 2026-03-05 |
-| 9. Fix Audit | 0/2 | Planned    |  |
+| 9. Fix Audit | 2/2 | Complete   | 2026-03-05 |

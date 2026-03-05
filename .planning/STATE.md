@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Completed 08-01-PLAN.md
-last_updated: "2026-03-05T07:44:32.486Z"
-last_activity: 2026-03-05 — Plan 08-01 executed (GitHub Pages deploy workflow + CNAME)
+status: in-progress
+stopped_at: Completed 09-01-PLAN.md
+last_updated: "2026-03-05T12:57:00Z"
+last_activity: 2026-03-05 — Plan 09-01 executed (GSAP crash guard + footer fixes)
 progress:
-  total_phases: 8
+  total_phases: 9
   completed_phases: 8
-  total_plans: 18
-  completed_plans: 18
-  percent: 100
+  total_plans: 20
+  completed_plans: 19
+  percent: 95
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-05)
 
 **Core value:** Business leaders can quickly understand what Consultates offers and book a free call — the site removes friction between "I need help with AI" and "I'm talking to someone who can help."
-**Current focus:** Phase 8 — Deploy (complete)
+**Current focus:** Phase 9 — Fix Site Audit Deficiencies (in progress)
 
 ## Current Position
 
-Phase: 8 of 8 (Deploy) — complete
-Plan: 1 of 1 in current phase (08-01 complete)
-Status: All phases complete — site built and deploy pipeline ready
-Last activity: 2026-03-05 — Plan 08-01 executed (GitHub Pages deploy workflow + CNAME)
+Phase: 9 of 9 (Fix Site Audit Deficiencies) — in progress
+Plan: 1 of 2 in current phase (09-01 complete)
+Status: Plan 09-01 complete, Plan 09-02 remaining
+Last activity: 2026-03-05 — Plan 09-01 executed (GSAP crash guard + footer fixes)
 
-Progress: [██████████] 18/18 plans (100%) — Overall: Phase 8/8 complete
+Progress: [█████████░] 19/20 plans (95%) — Overall: Phase 9/9 in progress
 
 ## Performance Metrics
 
@@ -66,6 +66,7 @@ Progress: [██████████] 18/18 plans (100%) — Overall: Phase
 | Phase 06-blog P02 | 3min | 1 tasks | 5 files |
 | Phase 07-polish P01 | 1min | 2 tasks | 3 files |
 | Phase 08-deploy P01 | 1min | 2 tasks | 2 files |
+| Phase 09-fix-site-audit P01 | 2min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -108,6 +109,12 @@ Recent decisions affecting current work:
 - [Phase 06-01]: Blog index uses scoped style for responsive grid instead of inline media query
 - [Phase 06-02]: Strip .md extension from post.id for clean blog URLs (Astro 5 includes file extension in content collection ID)
 - [Phase 07-polish]: Used consultates-head.png as OG fallback image; Twitter card set to summary type
+- [Phase 09-01]: Nested if guard for GSAP sections (ESM modules prohibit top-level return)
+- [Phase 09-01]: About page "Most AI consultants..." quote rendering is false positive — already plain <p>
+
+### Roadmap Evolution
+
+- Phase 9 added: Fix site audit deficiencies (Playwright audit found 19 issues — 6 critical, 5 high, 5 medium, 3 low)
 
 ### Pending Todos
 
@@ -119,6 +126,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T07:42:22.342Z
-Stopped at: Completed 08-01-PLAN.md
+Last session: 2026-03-05T12:57:00Z
+Stopped at: Completed 09-01-PLAN.md
 Resume file: None
