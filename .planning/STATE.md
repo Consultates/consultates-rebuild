@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: in-progress
-stopped_at: Completed 09-01-PLAN.md
-last_updated: "2026-03-05T12:57:00Z"
+status: completed
+stopped_at: Completed 09-02-PLAN.md
+last_updated: "2026-03-05T12:58:21.269Z"
 last_activity: 2026-03-05 — Plan 09-01 executed (GSAP crash guard + footer fixes)
 progress:
   total_phases: 9
-  completed_phases: 8
+  completed_phases: 9
   total_plans: 20
-  completed_plans: 19
+  completed_plans: 20
   percent: 95
 ---
 
@@ -67,6 +67,7 @@ Progress: [█████████░] 19/20 plans (95%) — Overall: Phase 
 | Phase 07-polish P01 | 1min | 2 tasks | 3 files |
 | Phase 08-deploy P01 | 1min | 2 tasks | 2 files |
 | Phase 09-fix-site-audit P01 | 2min | 2 tasks | 2 files |
+| Phase 09 P02 | 2min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -111,6 +112,8 @@ Recent decisions affecting current work:
 - [Phase 07-polish]: Used consultates-head.png as OG fallback image; Twitter card set to summary type
 - [Phase 09-01]: Nested if guard for GSAP sections (ESM modules prohibit top-level return)
 - [Phase 09-01]: About page "Most AI consultants..." quote rendering is false positive — already plain <p>
+- [Phase 09]: TrustBar becomes its own scroll-section instead of overlay repeated in every section
+- [Phase 09]: CountUpStat uses MutationObserver on data-active for GSAP, IntersectionObserver fallback for mobile
 
 ### Roadmap Evolution
 
@@ -126,6 +129,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T12:57:00Z
-Stopped at: Completed 09-01-PLAN.md
+Last session: 2026-03-05T12:58:21.264Z
+Stopped at: Completed 09-02-PLAN.md
 Resume file: None
