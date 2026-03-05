@@ -36,7 +36,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md — Initialize Astro 5 project with dependencies and copy all static assets
-- [ ] 01-02-PLAN.md — Create design system CSS (tokens, fonts, type scale) and base layout
+- [x] 01-02-PLAN.md — Create design system CSS (tokens, fonts, type scale) and base layout
 
 ### Phase 2: Components
 **Goal**: The full component library exists and renders correctly — every page built after this pulls from tested, reusable building blocks
@@ -48,9 +48,12 @@ Plans:
   3. Theme toggle cycles light → dark → system → light, persists across page reloads, and logo swaps correctly in each mode
   4. Always-dark footer renders with 3-column grid, quick links, contact info, and bottom bar
   5. All 9 shared components (Button, ServiceCard, TestimonialBlock, StatBlock, StepCard, BlogCard, FormInput, IconWrapper, ScrollIndicator) render without errors in all their variants
-**Plans**: TBD
+**Plans:** 3 plans
 
-Plans: TBD
+Plans:
+- [ ] 02-01-PLAN.md — Foundational components: ThemeToggle, Button, IconWrapper
+- [ ] 02-02-PLAN.md — Shared display components: ServiceCard, BlogCard, StepCard, StatBlock, TestimonialBlock, FormInput, ScrollIndicator
+- [ ] 02-03-PLAN.md — Navigation bar with mega menu + Footer + wire into Base.astro
 
 ### Phase 3: Homepage
 **Goal**: The complete StoryBrand homepage is live with all 12 sections, full PRD copy, and correct layout — visitors can read the full narrative and book a call
@@ -143,7 +146,7 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Scaffold | 2/2 | Complete   | 2026-03-05 |
-| 2. Components | 0/? | Not started | - |
+| 2. Components | 0/3 | Not started | - |
 | 3. Homepage | 0/? | Not started | - |
 | 4. Animation | 0/? | Not started | - |
 | 5. Inner Pages | 0/? | Not started | - |
