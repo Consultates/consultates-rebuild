@@ -99,9 +99,12 @@ Plans:
   3. Contact page form accepts name, email, company, and message; submitting shows a success message (client-side mock)
   4. Privacy policy page renders with full legal content from PRD
   5. Navigating to a nonexistent URL renders the 404 page with a back-to-home button
-**Plans**: TBD
+**Plans:** 3 plans
 
-Plans: TBD
+Plans:
+- [ ] 05-01-PLAN.md — Shared service page layout + 3 service pages (AI Coaching, AI Training, Fractional Exec)
+- [ ] 05-02-PLAN.md — About page + Contact page with client-side mock form
+- [ ] 05-03-PLAN.md — Privacy Policy + 404 page
 
 ### Phase 6: Blog
 **Goal**: The blog is live with content collections, a browsable index, readable post pages, and 3 real posts — visitors can find and read Gary's writing
@@ -155,7 +158,7 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 | 2. Components | 3/3 | Complete   | 2026-03-05 |
 | 3. Homepage | 3/3 | Complete   | 2026-03-05 |
 | 4. Animation | 3/3 | Complete   | 2026-03-05 |
-| 5. Inner Pages | 0/? | Not started | - |
+| 5. Inner Pages | 0/3 | Not started | - |
 | 6. Blog | 0/? | Not started | - |
 | 7. Polish | 0/? | Not started | - |
 | 8. Deploy | 0/? | Not started | - |
