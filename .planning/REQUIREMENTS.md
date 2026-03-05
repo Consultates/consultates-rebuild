@@ -152,7 +152,7 @@
 | NAV-04 | Phase 2 | Pending |
 | NAV-05 | Phase 2 | Pending |
 | THEME-01 | Phase 2 | Pending |
-| THEME-02 | Phase 1 | Pending |
+| THEME-02 | Phase 2 | Pending |
 | THEME-03 | Phase 2 | Pending |
 | HOME-01 | Phase 3 | Pending |
 | HOME-02 | Phase 3 | Pending |
