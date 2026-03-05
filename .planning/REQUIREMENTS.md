@@ -63,9 +63,9 @@
 
 ### Blog
 
-- [ ] **BLOG-01**: Content collections configured with title, date, author, excerpt, draft schema
-- [ ] **BLOG-02**: Blog index page with card grid (2 columns desktop, 1 mobile)
-- [ ] **BLOG-03**: Blog post layout with prose styling, date, reading time
+- [x] **BLOG-01**: Content collections configured with title, date, author, excerpt, draft schema
+- [x] **BLOG-02**: Blog index page with card grid (2 columns desktop, 1 mobile)
+- [x] **BLOG-03**: Blog post layout with prose styling, date, reading time
 - [ ] **BLOG-04**: 3 initial posts migrated from project content directory
 
 ### Contact
@@ -176,9 +176,9 @@
 | SERV-02 | Phase 5 | Complete |
 | SERV-03 | Phase 5 | Complete |
 | ABOUT-01 | Phase 5 | Complete |
-| BLOG-01 | Phase 6 | Pending |
-| BLOG-02 | Phase 6 | Pending |
-| BLOG-03 | Phase 6 | Pending |
+| BLOG-01 | Phase 6 | Complete |
+| BLOG-02 | Phase 6 | Complete |
+| BLOG-03 | Phase 6 | Complete |
 | BLOG-04 | Phase 6 | Pending |
 | CONT-01 | Phase 5 | Complete |
 | CONT-02 | Phase 5 | Complete |

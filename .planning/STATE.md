@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Completed 05-01-PLAN.md
-last_updated: "2026-03-05T05:59:42.751Z"
-last_activity: 2026-03-05 — Plan 05-01 executed (3 service pages with shared ServicePage layout)
+stopped_at: Completed 06-01-PLAN.md
+last_updated: "2026-03-05T06:13:46.792Z"
+last_activity: 2026-03-05 — Plan 06-01 executed (blog infrastructure with content collections and index/post pages)
 progress:
   total_phases: 8
   completed_phases: 5
-  total_plans: 14
-  completed_plans: 14
+  total_plans: 16
+  completed_plans: 15
   percent: 100
 ---
 
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-05)
 
 **Core value:** Business leaders can quickly understand what Consultates offers and book a free call — the site removes friction between "I need help with AI" and "I'm talking to someone who can help."
-**Current focus:** Phase 5 complete — Inner pages
+**Current focus:** Phase 6 — Blog
 
 ## Current Position
 
-Phase: 5 of 8 (Inner Pages) — COMPLETE
-Plan: 3 of 3 in current phase (all complete)
-Status: All inner pages complete — service, about, contact, privacy pages
-Last activity: 2026-03-05 — Plan 05-01 executed (3 service pages with shared ServicePage layout)
+Phase: 6 of 8 (Blog)
+Plan: 1 of 2 in current phase (06-01 complete)
+Status: Blog infrastructure complete — content collections, index page, post layout
+Last activity: 2026-03-05 — Plan 06-01 executed (blog infrastructure with content collections and index/post pages)
 
-Progress: [██████████] 14/14 plans (100%) — Overall: Phase 5/8 complete
+Progress: [█████████░] 15/16 plans (94%) — Overall: Phase 6/8 in progress
 
 ## Performance Metrics
 
@@ -62,6 +62,7 @@ Progress: [██████████] 14/14 plans (100%) — Overall: Phase
 | Phase 05-inner-pages P03 | 3min | 2 tasks | 2 files |
 | Phase 05-inner-pages P02 | 4min | 2 tasks | 2 files |
 | Phase 05-inner-pages P01 | 4min | 2 tasks | 4 files |
+| Phase 06-blog P01 | 1min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -100,6 +101,8 @@ Recent decisions affecting current work:
 - [Phase 05-02]: Inner page sections use inline style for padding/container consistent with homepage pattern
 - [Phase 05-02]: TypeScript casting in contact form script for type-safe DOM queries
 - [Phase 05-01]: ServicePage layout uses set:html for whatYouGet/whoItsFor props to render HTML paragraphs from page files
+- [Phase 06-01]: Prose font overrides use existing CSS custom properties (--font-serif, --font-sans)
+- [Phase 06-01]: Blog index uses scoped style for responsive grid instead of inline media query
 
 ### Pending Todos
 
@@ -111,6 +114,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T05:55:35Z
-Stopped at: Completed 05-01-PLAN.md
+Last session: 2026-03-05T06:13:15Z
+Stopped at: Completed 06-01-PLAN.md
 Resume file: None
