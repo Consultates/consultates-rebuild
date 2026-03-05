@@ -1,5 +1,6 @@
 /* src/styles/global.css — Consultates Design System */
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* --------------------------------------------------------
    Tailwind 4 @theme — maps CSS custom properties to
@@ -290,4 +291,14 @@ body.nav-open {
   [data-scroll-indicator] {
     animation: none !important;
   }
+}
+
+/* --------------------------------------------------------
+   Prose typography overrides — blog posts
+   -------------------------------------------------------- */
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-family: var(--font-serif);
+}
+.prose {
+  font-family: var(--font-sans);
 }
