@@ -32,9 +32,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Royal Purple and all brand color tokens render correctly in light and dark modes with no flash on load
   3. IBM Plex Sans, Serif, and Mono load from local files (no external requests) and all custom type scale classes apply correctly
   4. All static assets (logos, Gary photo, favicon, font files) are present in the correct public directories
-**Plans**: TBD
+**Plans:** 2 plans
 
-Plans: TBD
+Plans:
+- [ ] 01-01-PLAN.md — Initialize Astro 5 project with dependencies and copy all static assets
+- [ ] 01-02-PLAN.md — Create design system CSS (tokens, fonts, type scale) and base layout
 
 ### Phase 2: Components
 **Goal**: The full component library exists and renders correctly — every page built after this pulls from tested, reusable building blocks
@@ -140,7 +142,7 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Scaffold | 0/? | Not started | - |
+| 1. Scaffold | 0/2 | Planning | - |
 | 2. Components | 0/? | Not started | - |
 | 3. Homepage | 0/? | Not started | - |
 | 4. Animation | 0/? | Not started | - |
