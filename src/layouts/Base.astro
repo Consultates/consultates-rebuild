@@ -71,33 +71,27 @@ const { title, description = 'AI consulting for business leaders. Coaching, trai
     if (isDesktop && !prefersReducedMotion) {
       const sections = gsap.utils.toArray<HTMLElement>('.scroll-section');
 
-      // Zoom transition on sections 2-10 (skip hero — it has its own FM entrance)
-      sections.slice(1).forEach((section) => {
-        gsap.fromTo(section,
-          { scale: 0.92, opacity: 0 },
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 0.5,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: section,
-              start: 'top bottom',
-              end: 'top top',
-              scrub: false,
-              toggleActions: 'play none none reverse',
+      // Per-section ScrollTrigger with snap and zoom transition — PRD §3.1
+      sections.forEach((section, i) => {
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top top',
+          end: 'bottom top',
+          snap: {
+            snapTo: 1,
+            duration: { min: 0.3, max: 0.6 },
+            ease: 'power2.inOut',
+          },
+          onEnter: () => {
+            // Skip hero (index 0) — it has its own Framer Motion entrance
+            if (i > 0) {
+              gsap.fromTo(section,
+                { scale: 0.92, opacity: 0 },
+                { scale: 1, opacity: 1, duration: 0.5, ease: 'power2.out' }
+              );
             }
-          }
-        );
-      });
-
-      // Scroll snap behavior
-      ScrollTrigger.create({
-        snap: {
-          snapTo: 1 / (sections.length - 1),
-          duration: { min: 0.3, max: 0.6 },
-          ease: 'power2.inOut',
-        },
+          },
+        });
       });
 
       // Scroll indicator fade-out: hide when #section-trust enters
@@ -106,7 +100,7 @@ const { title, description = 'AI consulting for business leaders. Coaching, trai
         ScrollTrigger.create({
           trigger: '#section-trust',
           start: 'top 80%',
-          onEnter: () => gsap.to(scrollIndicator, { opacity: 0, duration: 0.3 }),
+          onEnter: () => gsap.to(scrollIndicator, { opacity: 0, duration: 0.3, ease: 'power2.out' }),
           onLeaveBack: () => gsap.to(scrollIndicator, { opacity: 0.6, duration: 0.3 }),
         });
       }
