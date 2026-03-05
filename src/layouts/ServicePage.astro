@@ -1,0 +1,78 @@
+---
+import Base from './Base.astro';
+import StepCard from '../components/StepCard.astro';
+import Button from '../components/Button.astro';
+import { TIDYCAL_URL } from '../config';
+
+interface Props {
+  title: string;
+  description: string;
+  headline: string;
+  subline: string;
+  whatYouGet: string;
+  whoItsFor: string;
+}
+
+const { title, description, headline, subline, whatYouGet, whoItsFor } = Astro.props;
+
+const sectionPadding = 'padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);';
+---
+
+<Base title={title} description={description}>
+  <!-- Hero -->
+  <section style={sectionPadding}>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h1 class="text-hero">{headline}</h1>
+      <p class="text-body-lg text-muted-foreground mt-4">{subline}</p>
+    </div>
+  </section>
+
+  <!-- What You Get -->
+  <section style={sectionPadding}>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 class="text-section">What you get</h2>
+      <div class="text-body mt-4 space-y-4" set:html={whatYouGet} />
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section style={sectionPadding}>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 class="text-sub">Who it's for</h2>
+      <div class="text-body mt-4" set:html={whoItsFor} />
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section style={sectionPadding}>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 class="text-section">How it works</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <StepCard
+          number={1}
+          heading="We talk"
+          description="Tell me where you are and what you're trying to figure out. No preparation needed."
+        />
+        <StepCard
+          number={2}
+          heading="You get a plan"
+          description="Specific to your business, your team, and your goals. Not a template."
+        />
+        <StepCard
+          number={3}
+          heading="We do the work together"
+          description="Coaching, training, or hands-on leadership. One accountable team, start to finish."
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style={sectionPadding}>
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <Button variant="cta" href={TIDYCAL_URL} target="_blank" rel="noopener noreferrer">
+        Book a Free Call
+      </Button>
+    </div>
+  </section>
+</Base>
