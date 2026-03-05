@@ -267,13 +267,18 @@ body.nav-open {
 
 /* --------------------------------------------------------
    Scroll canvas — contrasting background visible between zoom transitions
+   Only on homepage (has .scroll-section children). Sections have opaque
+   backgrounds so the canvas only peeks through during zoom transitions.
    -------------------------------------------------------- */
 @media (min-width: 1024px) {
-  .scroll-canvas {
+  .scroll-canvas:has(.scroll-section) {
     background: #0D1117;
   }
-  .dark .scroll-canvas {
+  .dark .scroll-canvas:has(.scroll-section) {
     background: #F6F2EB;
+  }
+  .scroll-section {
+    background: var(--background);
   }
 }
 
