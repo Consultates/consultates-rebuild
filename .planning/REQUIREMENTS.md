@@ -29,11 +29,11 @@
 
 ### Homepage
 
-- [ ] **HOME-01**: Hero section with letter-stagger headline, paragraph, CTA, and scroll indicator
-- [ ] **HOME-02**: Trust bar with credentials separated by middle dots
-- [ ] **HOME-03**: Negative stakes section with 84% count-up stat and 12-18 months static stat
-- [ ] **HOME-04**: Offering section with 3 service cards linking to service pages
-- [ ] **HOME-05**: Use cases section with 2 testimonial blocks (context + quote + attribution)
+- [x] **HOME-01**: Hero section with letter-stagger headline, paragraph, CTA, and scroll indicator
+- [x] **HOME-02**: Trust bar with credentials separated by middle dots
+- [x] **HOME-03**: Negative stakes section with 84% count-up stat and 12-18 months static stat
+- [x] **HOME-04**: Offering section with 3 service cards linking to service pages
+- [x] **HOME-05**: Use cases section with 2 testimonial blocks (context + quote + attribution)
 - [x] **HOME-06**: How it works section with 3 numbered steps and CTA
 - [x] **HOME-07**: Social proof section with full testimonial quote on secondary background
 - [x] **HOME-08**: Why Consultates section with 3 authority columns
@@ -154,11 +154,11 @@
 | THEME-01 | Phase 2 | Complete |
 | THEME-02 | Phase 2 | Complete |
 | THEME-03 | Phase 2 | Complete |
-| HOME-01 | Phase 3 | Pending |
-| HOME-02 | Phase 3 | Pending |
-| HOME-03 | Phase 3 | Pending |
-| HOME-04 | Phase 3 | Pending |
-| HOME-05 | Phase 3 | Pending |
+| HOME-01 | Phase 3 | Complete |
+| HOME-02 | Phase 3 | Complete |
+| HOME-03 | Phase 3 | Complete |
+| HOME-04 | Phase 3 | Complete |
+| HOME-05 | Phase 3 | Complete |
 | HOME-06 | Phase 3 | Complete |
 | HOME-07 | Phase 3 | Complete |
 | HOME-08 | Phase 3 | Complete |

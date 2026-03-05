@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Completed 03-02-PLAN.md
-last_updated: "2026-03-05T03:51:28.502Z"
-last_activity: 2026-03-05 — Plan 02-03 executed (Nav, Footer, Base.astro wiring)
+stopped_at: Completed 03-01-PLAN.md
+last_updated: "2026-03-05T03:52:59.480Z"
+last_activity: 2026-03-05 — Plan 03-01 executed (Hero, Trust Bar, Stakes, Offering, Use Cases sections)
 progress:
   total_phases: 8
   completed_phases: 2
   total_plans: 8
-  completed_plans: 6
-  percent: 100
+  completed_plans: 7
+  percent: 88
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-05)
 
 **Core value:** Business leaders can quickly understand what Consultates offers and book a free call — the site removes friction between "I need help with AI" and "I'm talking to someone who can help."
-**Current focus:** Phase 2 — Components (COMPLETE)
+**Current focus:** Phase 3 — Homepage
 
 ## Current Position
 
-Phase: 2 of 8 (Components) — COMPLETE
-Plan: 3 of 3 in current phase — COMPLETE
-Status: Phase 2 complete, ready for Phase 3 (Homepage)
-Last activity: 2026-03-05 — Plan 02-03 executed (Nav, Footer, Base.astro wiring)
+Phase: 3 of 8 (Homepage)
+Plan: 1 of 3 in current phase
+Status: Plan 03-01 complete (Hero through Use Cases)
+Last activity: 2026-03-05 — Plan 03-01 executed (Hero, Trust Bar, Stakes, Offering, Use Cases sections)
 
-Progress: [██████████] 5/5 plans (100%) — Overall: Phase 2/8
+Progress: [████████░░] 7/8 plans (88%) — Overall: Phase 3/8
 
 ## Performance Metrics
 
@@ -54,6 +54,7 @@ Progress: [██████████] 5/5 plans (100%) — Overall: Phase 2
 | Phase 02-components P02 | 1min | 2 tasks | 7 files |
 | Phase 02-components P03 | 1min | 2 tasks | 4 files |
 | Phase 03-homepage P02 | 1min | 2 tasks | 5 files |
+| Phase 03-homepage P01 | 2min | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -78,6 +79,8 @@ Recent decisions affecting current work:
 - 02-03: Inline SVGs for Phosphor icons in Astro components (avoids hydration cost)
 - 02-03: Footer always renders dark logo since bg-footer-bg is dark in both themes
 - [Phase 03-homepage]: Stakes CTA uses raw anchor with scoped CSS instead of Button component for theme-independent always-dark section
+- [Phase 03-homepage]: UseCasesSection uses custom inline markup instead of TestimonialBlock (PRD requires context paragraph that TestimonialBlock does not support)
+- [Phase 03-homepage]: Hero background uses scoped style with :global(.dark) for theme-aware radial gradient
 
 ### Pending Todos
 
@@ -89,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T03:51:28.499Z
-Stopped at: Completed 03-02-PLAN.md
+Last session: 2026-03-05T03:52:59.477Z
+Stopped at: Completed 03-01-PLAN.md
 Resume file: None
