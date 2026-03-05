@@ -70,7 +70,7 @@ const { title, description = 'AI consulting for business leaders. Coaching, trai
 
     if (isDesktop && !prefersReducedMotion) {
       const sections = gsap.utils.toArray<HTMLElement>('.scroll-section');
-      if (sections.length === 0) return;
+      if (sections.length > 0) {
       const navH = 64;
       const vh = window.innerHeight;
 
@@ -182,6 +182,7 @@ const { title, description = 'AI consulting for business leaders. Coaching, trai
         });
       }
 
+      } // sections.length > 0 guard
     }
   </script>
 </body>
