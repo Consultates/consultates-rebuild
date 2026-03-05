@@ -65,9 +65,12 @@ Plans:
   3. Two blog cards in Transitional CTAs section link to blog posts
   4. Book a call CTA buttons link to the correct TidyCal URL
   5. Homepage reads as a coherent narrative from hero to final CTA with no missing sections or placeholder text
-**Plans**: TBD
+**Plans:** 3 plans
 
-Plans: TBD
+Plans:
+- [ ] 03-01-PLAN.md — Site config + Hero, Trust Bar, Negative Stakes, Offering, and Use Cases sections
+- [ ] 03-02-PLAN.md — How It Works, Social Proof, Why Consultates, Stakes CTA, and Transitional CTAs sections
+- [ ] 03-03-PLAN.md — Wire all sections into index.astro and verify build
 
 ### Phase 4: Animation
 **Goal**: The site feels alive — scroll behavior, entrance animations, and micro-interactions layer onto the existing static content without breaking it
@@ -147,7 +150,7 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 |-------|----------------|--------|-----------|
 | 1. Scaffold | 2/2 | Complete   | 2026-03-05 |
 | 2. Components | 3/3 | Complete   | 2026-03-05 |
-| 3. Homepage | 0/? | Not started | - |
+| 3. Homepage | 0/3 | Planned | - |
 | 4. Animation | 0/? | Not started | - |
 | 5. Inner Pages | 0/? | Not started | - |
 | 6. Blog | 0/? | Not started | - |
