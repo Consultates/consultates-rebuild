@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Scaffold** - Astro 5 project with Tailwind 4, fonts, design tokens, and base layout (completed 2026-03-05)
 - [x] **Phase 2: Components** - All shared UI components, nav, footer, and theme system (completed 2026-03-05)
-- [ ] **Phase 3: Homepage** - All 12 StoryBrand sections with full content, no animation
+- [x] **Phase 3: Homepage** - All 12 StoryBrand sections with full content, no animation (completed 2026-03-05)
 - [ ] **Phase 4: Animation** - GSAP ScrollTrigger and Framer Motion layered onto existing pages
 - [ ] **Phase 5: Inner Pages** - Service pages x3, About, Contact, Privacy Policy, 404
 - [ ] **Phase 6: Blog** - Content collections, blog index, blog post layout, 3 initial posts
@@ -65,7 +65,7 @@ Plans:
   3. Two blog cards in Transitional CTAs section link to blog posts
   4. Book a call CTA buttons link to the correct TidyCal URL
   5. Homepage reads as a coherent narrative from hero to final CTA with no missing sections or placeholder text
-**Plans:** 3 plans
+**Plans:** 3/3 plans complete
 
 Plans:
 - [ ] 03-01-PLAN.md — Site config + Hero, Trust Bar, Negative Stakes, Offering, and Use Cases sections
@@ -150,7 +150,7 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 |-------|----------------|--------|-----------|
 | 1. Scaffold | 2/2 | Complete   | 2026-03-05 |
 | 2. Components | 3/3 | Complete   | 2026-03-05 |
-| 3. Homepage | 0/3 | Planned | - |
+| 3. Homepage | 3/3 | Complete   | 2026-03-05 |
 | 4. Animation | 0/? | Not started | - |
 | 5. Inner Pages | 0/? | Not started | - |
 | 6. Blog | 0/? | Not started | - |
