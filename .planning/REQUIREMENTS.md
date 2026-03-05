@@ -53,9 +53,9 @@
 
 ### Service Pages
 
-- [ ] **SERV-01**: AI Coaching for Leaders page with hero, what you get, who it's for, how it works, CTA
-- [ ] **SERV-02**: AI Training for Teams page with hero, what you get, who it's for, how it works, CTA
-- [ ] **SERV-03**: Fractional Exec Support page with hero, what you get, who it's for, how it works, CTA
+- [x] **SERV-01**: AI Coaching for Leaders page with hero, what you get, who it's for, how it works, CTA
+- [x] **SERV-02**: AI Training for Teams page with hero, what you get, who it's for, how it works, CTA
+- [x] **SERV-03**: Fractional Exec Support page with hero, what you get, who it's for, how it works, CTA
 
 ### About Page
 
@@ -172,9 +172,9 @@
 | ANIM-06 | Phase 4 | Complete |
 | ANIM-07 | Phase 4 | Complete |
 | ANIM-08 | Phase 4 | Complete |
-| SERV-01 | Phase 5 | Pending |
-| SERV-02 | Phase 5 | Pending |
-| SERV-03 | Phase 5 | Pending |
+| SERV-01 | Phase 5 | Complete |
+| SERV-02 | Phase 5 | Complete |
+| SERV-03 | Phase 5 | Complete |
 | ABOUT-01 | Phase 5 | Complete |
 | BLOG-01 | Phase 6 | Pending |
 | BLOG-02 | Phase 6 | Pending |
