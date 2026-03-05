@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import Button from '../components/Button.astro';
+import { TIDYCAL_URL } from '../config';
+---
+
+<Base title="About Gary Tate — Consultates" description="Engineer. Commercial leader. AI practitioner. 35 years across military electronics, enterprise sales, and production AI — now helping leaders make sense of it.">
+
+  <!-- Section 1 — Hero -->
+  <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <img
+        src="/images/gary-tate.webp"
+        alt="Gary Tate"
+        width="200"
+        height="200"
+        class="rounded-full object-cover mx-auto mb-8"
+      />
+      <h1 class="text-hero">Engineer. Commercial leader. AI practitioner.</h1>
+      <p class="text-body-lg text-muted-foreground mt-4">35 years across military electronics, enterprise sales leadership, and production AI.</p>
+    </div>
+  </section>
+
+  <!-- Section 2 — The Story -->
+  <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 class="text-section mb-8">The through-line</h2>
+      <div class="space-y-4">
+        <p class="text-body text-muted-foreground">Gary started coding at 10. He joined the Royal Air Force and spent a decade in military electronics, telecoms, cryptography, and secure communications — physical systems where mistakes aren't theoretical.</p>
+        <p class="text-body text-muted-foreground">Then another decade building telecoms and internet infrastructure. His own company first, then 8 years as a Senior Systems Engineer at Juniper Networks in Silicon Valley. Later, 5 years as Director of Systems Engineering at Cyan.</p>
+        <p class="text-body text-muted-foreground">He moved from engineering into sales — not because he stopped being technical, but because he could sit in front of a CRO and explain the technology in terms that closed deals. Systems engineer → Director → MD Sales → VP Sales (three times) → CRO. Always deep-tech companies — cybersecurity, AI, enterprise SaaS, networking infrastructure. 16 countries. He built entire sales organisations from zero.</p>
+        <p class="text-body text-muted-foreground">Today, Gary ships production applications with AI agents. He designs agentic workflows with real API integrations. He builds alone what would have taken a small team two years ago.</p>
+        <p class="text-body text-muted-foreground">Most AI consultants fall into one camp: technical people who can't explain it to a boardroom, business people who've never built anything, or trainers teaching from slides they didn't write. Gary does all three. That's why the consulting, the training, and the leadership all carry weight.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 — Family Business -->
+  <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 class="text-section mb-8">A family business</h2>
+      <p class="text-body text-muted-foreground">Consultates is Gary and Trinh Tate. They don't scale through volume. They scale through trust. You get one accountable team from start to finish — not a rotating cast of consultants.</p>
+    </div>
+  </section>
+
+  <!-- Section 4 — Lead with AI PRO -->
+  <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 class="text-section mb-8">Lead with AI PRO</h2>
+      <p class="text-body text-muted-foreground">Gary is a guest lecturer and hosts monthly agentic briefings through Lead with AI PRO — a platform with 3× weekly analyst briefings, tutorials, and an active WhatsApp community. His sessions feature live demos of OpenClaw (his own agentic framework) and synthesise what the leading voices in AI — Karpathy, Amodei, Suleiman, Roose — are saying, translated for non-technical leaders.</p>
+    </div>
+  </section>
+
+  <!-- Section 5 — CTA -->
+  <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <Button variant="cta" href={TIDYCAL_URL} target="_blank" rel="noopener noreferrer">Book a Free Call</Button>
+    </div>
+  </section>
+
+</Base>
