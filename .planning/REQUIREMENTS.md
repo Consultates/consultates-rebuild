@@ -76,8 +76,8 @@
 
 ### Legal & Error
 
-- [ ] **LEGAL-01**: Privacy policy page with full content from PRD
-- [ ] **ERR-01**: 404 page with heading, message, and back-to-home button
+- [x] **LEGAL-01**: Privacy policy page with full content from PRD
+- [x] **ERR-01**: 404 page with heading, message, and back-to-home button
 
 ### Footer
 
@@ -183,8 +183,8 @@
 | CONT-01 | Phase 5 | Pending |
 | CONT-02 | Phase 5 | Pending |
 | CONT-03 | Phase 5 | Pending |
-| LEGAL-01 | Phase 5 | Pending |
-| ERR-01 | Phase 5 | Pending |
+| LEGAL-01 | Phase 5 | Complete |
+| ERR-01 | Phase 5 | Complete |
 | FOOT-01 | Phase 2 | Complete |
 | FOOT-02 | Phase 2 | Complete |
 | COMP-01 | Phase 2 | Complete |
