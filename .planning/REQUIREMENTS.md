@@ -59,7 +59,7 @@
 
 ### About Page
 
-- [ ] **ABOUT-01**: About page with photo, hero headline, the story, family business, Lead with AI PRO, CTA
+- [x] **ABOUT-01**: About page with photo, hero headline, the story, family business, Lead with AI PRO, CTA
 
 ### Blog
 
@@ -70,9 +70,9 @@
 
 ### Contact
 
-- [ ] **CONT-01**: Contact page with left info column and right form column
-- [ ] **CONT-02**: Form with name, email, company, message fields and honeypot
-- [ ] **CONT-03**: Client-side form mock (Phase 1) — fake send with success message
+- [x] **CONT-01**: Contact page with left info column and right form column
+- [x] **CONT-02**: Form with name, email, company, message fields and honeypot
+- [x] **CONT-03**: Client-side form mock (Phase 1) — fake send with success message
 
 ### Legal & Error
 
@@ -175,14 +175,14 @@
 | SERV-01 | Phase 5 | Pending |
 | SERV-02 | Phase 5 | Pending |
 | SERV-03 | Phase 5 | Pending |
-| ABOUT-01 | Phase 5 | Pending |
+| ABOUT-01 | Phase 5 | Complete |
 | BLOG-01 | Phase 6 | Pending |
 | BLOG-02 | Phase 6 | Pending |
 | BLOG-03 | Phase 6 | Pending |
 | BLOG-04 | Phase 6 | Pending |
-| CONT-01 | Phase 5 | Pending |
-| CONT-02 | Phase 5 | Pending |
-| CONT-03 | Phase 5 | Pending |
+| CONT-01 | Phase 5 | Complete |
+| CONT-02 | Phase 5 | Complete |
+| CONT-03 | Phase 5 | Complete |
 | LEGAL-01 | Phase 5 | Complete |
 | ERR-01 | Phase 5 | Complete |
 | FOOT-01 | Phase 2 | Complete |

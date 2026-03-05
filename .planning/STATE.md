@@ -4,13 +4,13 @@ milestone: v1.0
 milestone_name: milestone
 status: completed
 stopped_at: Completed 05-03-PLAN.md
-last_updated: "2026-03-05T05:54:13.807Z"
-last_activity: 2026-03-05 — Plan 04-02 executed (section animations wired into all 9 sections)
+last_updated: "2026-03-05T05:55:35.228Z"
+last_activity: 2026-03-05 — Plan 05-02 executed (About and Contact pages with full PRD content)
 progress:
   total_phases: 8
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 14
-  completed_plans: 12
+  completed_plans: 13
   percent: 91
 ---
 
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-05)
 
 **Core value:** Business leaders can quickly understand what Consultates offers and book a free call — the site removes friction between "I need help with AI" and "I'm talking to someone who can help."
-**Current focus:** Phase 4 in progress — Animation layer
+**Current focus:** Phase 5 in progress — Inner pages
 
 ## Current Position
 
-Phase: 4 of 8 (Animation) — COMPLETE
-Plan: 2 of 2 in current phase (04-02 complete)
-Status: Phase 4 complete — all FM section animations wired
-Last activity: 2026-03-05 — Plan 04-02 executed (section animations wired into all 9 sections)
+Phase: 5 of 8 (Inner Pages)
+Plan: 2 of 3 in current phase (05-02 complete)
+Status: About and Contact pages built with full PRD content
+Last activity: 2026-03-05 — Plan 05-02 executed (About and Contact pages with full PRD content)
 
-Progress: [█████████░] 10/11 plans (91%) — Overall: Phase 4/8 complete
+Progress: [█████████░] 13/14 plans (93%) — Overall: Phase 5/8 in progress
 
 ## Performance Metrics
 
@@ -60,6 +60,7 @@ Progress: [█████████░] 10/11 plans (91%) — Overall: Phase 
 | Phase 04-animation P02 | 3min | 2 tasks | 12 files |
 | Phase 04-animation P03 | 2min | 2 tasks | 4 files |
 | Phase 05-inner-pages P03 | 3min | 2 tasks | 2 files |
+| Phase 05-inner-pages P02 | 4min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -95,6 +96,8 @@ Recent decisions affecting current work:
 - [Phase 04-03]: Wrapper div approach for scroll-section class avoids modifying 10 section files
 - [Phase 04-03]: data-scroll-indicator attribute on HeroIsland for GSAP cross-framework targeting
 - [Phase 05-inner-pages]: Privacy policy uses inline style for max-width/padding to match blog post layout pattern
+- [Phase 05-02]: Inner page sections use inline style for padding/container consistent with homepage pattern
+- [Phase 05-02]: TypeScript casting in contact form script for type-safe DOM queries
 
 ### Pending Todos
 
@@ -106,6 +109,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T05:54:13.803Z
-Stopped at: Completed 05-03-PLAN.md
+Last session: 2026-03-05T05:55:00Z
+Stopped at: Completed 05-02-PLAN.md
 Resume file: None

@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Components** - All shared UI components, nav, footer, and theme system (completed 2026-03-05)
 - [x] **Phase 3: Homepage** - All 12 StoryBrand sections with full content, no animation (completed 2026-03-05)
 - [x] **Phase 4: Animation** - GSAP ScrollTrigger and Framer Motion layered onto existing pages (completed 2026-03-05)
-- [ ] **Phase 5: Inner Pages** - Service pages x3, About, Contact, Privacy Policy, 404
+- [x] **Phase 5: Inner Pages** - Service pages x3, About, Contact, Privacy Policy, 404 (completed 2026-03-05)
 - [ ] **Phase 6: Blog** - Content collections, blog index, blog post layout, 3 initial posts
 - [ ] **Phase 7: Polish** - Responsive testing, accessibility, SEO meta tags, favicon
 - [ ] **Phase 8: Deploy** - GitHub Actions CI/CD, GitHub Pages, CNAME, sitemap verification
@@ -99,7 +99,7 @@ Plans:
   3. Contact page form accepts name, email, company, and message; submitting shows a success message (client-side mock)
   4. Privacy policy page renders with full legal content from PRD
   5. Navigating to a nonexistent URL renders the 404 page with a back-to-home button
-**Plans:** 1/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 - [ ] 05-01-PLAN.md — Shared service page layout + 3 service pages (AI Coaching, AI Training, Fractional Exec)
@@ -158,7 +158,7 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 | 2. Components | 3/3 | Complete   | 2026-03-05 |
 | 3. Homepage | 3/3 | Complete   | 2026-03-05 |
 | 4. Animation | 3/3 | Complete   | 2026-03-05 |
-| 5. Inner Pages | 1/3 | In Progress|  |
+| 5. Inner Pages | 3/3 | Complete   | 2026-03-05 |
 | 6. Blog | 0/? | Not started | - |
 | 7. Polish | 0/? | Not started | - |
 | 8. Deploy | 0/? | Not started | - |
