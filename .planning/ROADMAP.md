@@ -13,7 +13,7 @@ Eight phases transform a bloated WebWave site into a clean, fast Astro 5 static 
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Scaffold** - Astro 5 project with Tailwind 4, fonts, design tokens, and base layout (completed 2026-03-05)
-- [ ] **Phase 2: Components** - All shared UI components, nav, footer, and theme system
+- [x] **Phase 2: Components** - All shared UI components, nav, footer, and theme system (completed 2026-03-05)
 - [ ] **Phase 3: Homepage** - All 12 StoryBrand sections with full content, no animation
 - [ ] **Phase 4: Animation** - GSAP ScrollTrigger and Framer Motion layered onto existing pages
 - [ ] **Phase 5: Inner Pages** - Service pages x3, About, Contact, Privacy Policy, 404
@@ -48,7 +48,7 @@ Plans:
   3. Theme toggle cycles light → dark → system → light, persists across page reloads, and logo swaps correctly in each mode
   4. Always-dark footer renders with 3-column grid, quick links, contact info, and bottom bar
   5. All 9 shared components (Button, ServiceCard, TestimonialBlock, StatBlock, StepCard, BlogCard, FormInput, IconWrapper, ScrollIndicator) render without errors in all their variants
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 - [ ] 02-01-PLAN.md — Foundational components: ThemeToggle, Button, IconWrapper
@@ -146,7 +146,7 @@ Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute co
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Scaffold | 2/2 | Complete   | 2026-03-05 |
-| 2. Components | 2/3 | In Progress|  |
+| 2. Components | 3/3 | Complete   | 2026-03-05 |
 | 3. Homepage | 0/? | Not started | - |
 | 4. Animation | 0/? | Not started | - |
 | 5. Inner Pages | 0/? | Not started | - |
