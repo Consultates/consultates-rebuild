@@ -25,7 +25,7 @@ const formattedDate = post.data.date.toLocaleDateString('en-GB', {
 const description = post.data.excerpt || (post.body ? post.body.slice(0, 160) : '');
 ---
 
-<Base title={`${post.data.title} -- Consultates Blog`} description={description}>
+<Base title={`${post.data.title} — Consultates Blog`} description={description}>
   <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
     <div style="max-width: 720px; margin: 0 auto;">
       <a href="/blog" class="text-body text-primary hover:underline mb-4 inline-block">&larr; Back to Blog</a>

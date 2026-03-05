@@ -21,6 +21,22 @@ const { title, description = 'AI consulting for business leaders. Coaching, trai
   <title>{title}</title>
   <meta name="description" content={description} />
 
+  <!-- Canonical URL -->
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site).href} />
+  <meta property="og:image" content={new URL('/images/consultates-head.png', Astro.site).href} />
+  <meta property="og:site_name" content="Consultates" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+
   <!-- Theme flash prevention — PRD section 6.10, verbatim -->
   <script is:inline>
     (function() {
