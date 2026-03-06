@@ -25,7 +25,7 @@ const { title, description, href } = Astro.props;
   <h3 class="font-serif mb-3" style="font-size: var(--text-subhead); line-height: var(--lh-subhead); font-weight: 600; letter-spacing: -0.01em; color: var(--foreground);">{title}</h3>
   <p class="text-body mb-5 flex-1" style="color: var(--secondary-foreground);">{description}</p>
   <div class="mt-auto">
-    <span class="card-cta text-primary">Learn more</span>
+    <span class="btn-alive btn-alive--sm text-primary">Learn more</span>
   </div>
 </a>
 
@@ -49,29 +49,9 @@ const { title, description, href } = Astro.props;
     border-color: var(--accent);
   }
 
-  .card-cta {
-    display: inline-flex;
-    align-self: flex-start;
-    font-family: var(--font-sans);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    position: relative;
-    padding: 0.25rem 0;
-    background: transparent;
-  }
-  /* Underline draw on card hover */
-  .card-cta::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: currentColor;
-    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .service-card:hover .card-cta::after {
-    width: 100%;
+  /* Trigger btn-alive underline on card hover */
+  .service-card:hover :global(.btn-alive)::after {
+    width: calc(100% + 10px);
   }
 
 
