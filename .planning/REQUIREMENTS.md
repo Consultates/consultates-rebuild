@@ -107,10 +107,10 @@
 
 ### Negative Stakes
 
-- [ ] **RDES-17**: Three stats in three-column grid
-- [ ] **RDES-18**: Text-stroke treatment on stat numbers at full designed size
-- [ ] **RDES-19**: Radial glow centered on section
-- [ ] **RDES-20**: Pull quote below stats
+- [x] **RDES-17**: Three stats in three-column grid
+- [x] **RDES-18**: Text-stroke treatment on stat numbers at full designed size
+- [x] **RDES-19**: Radial glow centered on section
+- [x] **RDES-20**: Pull quote below stats
 
 ### Offering
 
@@ -236,10 +236,10 @@
 | RDES-14 | Phase 10 | Complete |
 | RDES-15 | Phase 10 | Complete |
 | RDES-16 | Phase 10 | Complete |
-| RDES-17 | Phase 11 | Pending |
-| RDES-18 | Phase 11 | Pending |
-| RDES-19 | Phase 11 | Pending |
-| RDES-20 | Phase 11 | Pending |
+| RDES-17 | Phase 11 | Complete |
+| RDES-18 | Phase 11 | Complete |
+| RDES-19 | Phase 11 | Complete |
+| RDES-20 | Phase 11 | Complete |
 | RDES-21 | Phase 11 | Pending |
 | RDES-22 | Phase 11 | Pending |
 | RDES-23 | Phase 11 | Pending |

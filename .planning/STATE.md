@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Visual Redesign
-status: completed
-stopped_at: Phase 11 context gathered
-last_updated: "2026-03-06T08:08:12.676Z"
-last_activity: 2026-03-06 -- Completed 10-02 (hero section redesign)
+status: in-progress
+stopped_at: Completed 11-01-PLAN.md
+last_updated: "2026-03-06T08:26:45Z"
+last_activity: 2026-03-06 -- Completed 11-01 (negative stakes redesign)
 progress:
   total_phases: 8
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  total_plans: 4
+  completed_plans: 3
   percent: 100
 ---
 
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-06)
 
 **Core value:** Business leaders can quickly understand what Consultates offers and book a free call -- the site removes friction between "I need help with AI" and "I'm talking to someone who can help."
-**Current focus:** v2.0 Visual Redesign -- Phase 10: Foundation + Hero + Trust Bar
+**Current focus:** v2.0 Visual Redesign -- Phase 11: Negative Stakes + Offering
 
 ## Current Position
 
-Phase: 10 of 17 (Foundation + Hero + Trust Bar)
-Plan: 2 of 2 complete
-Status: Phase 10 Complete
-Last activity: 2026-03-06 -- Completed 10-02 (hero section redesign)
+Phase: 11 of 17 (Negative Stakes + Offering)
+Plan: 1 of 2 complete
+Status: In Progress
+Last activity: 2026-03-06 -- Completed 11-01 (negative stakes redesign)
 
-Progress: [██████████] 100% (2/2 plans complete in phase 10)
+Progress: [█████░░░░░] 50% (1/2 plans complete in phase 11)
 
 ## Performance Metrics
 
@@ -52,6 +52,7 @@ Progress: [██████████] 100% (2/2 plans complete in phase 10)
 | 08-deploy | 1 | 1min | 1min |
 | 09-fix-audit | 2 | 4min | 2min |
 | Phase 10 P02 | 2min | 1 tasks | 2 files |
+| Phase 11 P01 | 2min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,9 @@ Recent decisions affecting current work:
 - [10-01]: Trust bar placed outside scroll-section wrapper as static element between GSAP snap sections
 - [Phase 10]: Headline em tags parsed via regex into React elements for safe rendering
 - [Phase 10]: Hero scroll indicator uses inline white styles since hero is always dark
+- [11-01]: SVG text stroke-dashoffset via CSS transition for per-element draw timing control
+- [11-01]: getComputedTextLength() * 3 for stroke perimeter approximation on SVG text
+- [11-01]: Count-up retained only for 84% stat; other stats use static stroke-draw
 
 ### Roadmap Evolution
 
@@ -85,6 +89,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-06T08:08:12.673Z
-Stopped at: Phase 11 context gathered
-Resume file: .planning/phases/11-negative-stakes-offering/11-CONTEXT.md
+Last session: 2026-03-06T08:26:45Z
+Stopped at: Completed 11-01-PLAN.md
+Resume file: .planning/phases/11-negative-stakes-offering/11-01-SUMMARY.md

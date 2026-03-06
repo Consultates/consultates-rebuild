@@ -180,7 +180,7 @@ Note: Phases 14, 15, 16, and 17 depend only on Phase 10 (foundation), so they ca
 | 8. Deploy | v1.0 | 1/1 | Complete | 2026-03-05 |
 | 9. Fix Audit | v1.0 | 2/2 | Complete | 2026-03-05 |
 | 10. Foundation + Hero + Trust Bar | 2/2 | Complete   | 2026-03-06 | - |
-| 11. Negative Stakes + Offering | v2.0 | 0/2 | Not started | - |
+| 11. Negative Stakes + Offering | 1/2 | In Progress|  | - |
 | 12. Use Cases + How It Works | v2.0 | 0/? | Not started | - |
 | 13. Social Proof + Authority + Stakes CTA + Transitional CTAs | v2.0 | 0/? | Not started | - |
 | 14. About Page | v2.0 | 0/? | Not started | - |
