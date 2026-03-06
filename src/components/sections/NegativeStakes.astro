@@ -1,33 +1,13 @@
 ---
-import StatBlock from '../StatBlock.astro';
-import { CountUpStat } from '../islands/CountUpStat';
-import { SectionAnimator } from '../islands/SectionAnimator';
+import { StrokeDrawStats } from '../islands/StrokeDrawStats';
 ---
 
 <div class="bg-secondary">
   <section
     id="section-stakes"
-    class="max-w-[1200px] mx-auto"
+    class="glow max-w-[1200px] mx-auto relative"
     style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);"
   >
-    <div class="grid grid-cols-2 gap-12 max-md:grid-cols-1">
-      <CountUpStat
-        client:load
-        target={84}
-        suffix="%"
-        label="of the world hasn't used AI at all. Most leaders are still at zero."
-      />
-      <SectionAnimator client:visible delay={0.2}>
-        <StatBlock
-          number="12–18 months"
-          label="Until white collar computer tasks are fully automated, according to the CEO of Microsoft AI. The window to get ahead of this is closing."
-        />
-      </SectionAnimator>
-    </div>
-    <SectionAnimator client:visible delay={0.4}>
-      <p class="text-cite text-muted-foreground mt-8 text-center">
-        Source: DataReportal Digital 2026 &middot; Mustafa Suleiman, Everyday AI Podcast, Feb 2026
-      </p>
-    </SectionAnimator>
+    <StrokeDrawStats client:visible />
   </section>
 </div>
