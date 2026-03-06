@@ -86,8 +86,8 @@ export default function HeroIsland({
 
   // Timing calculations
   const staggerDuration = totalChars * 0.03; // 30ms per char
-  const headlineEndDelay = 1.0 + staggerDuration; // 1000ms initial + stagger
-  const paragraphDelay = headlineEndDelay + 0.2;
+  const lastLetterDone = 1.0 + staggerDuration + 0.4; // initial + stagger + last letter's 400ms fade
+  const paragraphDelay = lastLetterDone + 0.3;
   const ctaDelay = paragraphDelay + 0.6;
 
   const renderHeadline = () =>
@@ -114,7 +114,6 @@ export default function HeroIsland({
             className="c-hero-cta btn-alive btn-alive--lg btn-alive--on-dark"
           >
             {ctaText}
-            <span className="arrow" aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </>
@@ -195,7 +194,6 @@ export default function HeroIsland({
           className="c-hero-cta btn-alive btn-alive--lg btn-alive--on-dark"
         >
           {ctaText}
-          <span className="arrow" aria-hidden="true">&rarr;</span>
         </a>
       </motion.div>
     </>
