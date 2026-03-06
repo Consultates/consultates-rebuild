@@ -30,7 +30,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 ### v2.0 Visual Redesign
 
-- [ ] **Phase 10: Foundation + Hero + Trust Bar** - Design system globals, hero with background video and dark overlay, trust bar redesign
+- [x] **Phase 10: Foundation + Hero + Trust Bar** - Design system globals, hero with background video and dark overlay, trust bar redesign (completed 2026-03-06)
 - [ ] **Phase 11: Negative Stakes + Offering** - Three-stat layout with text-stroke, design system cards with gradient icons
 - [ ] **Phase 12: Use Cases + How It Works** - Alternating two-column layout, animated GSAP timeline
 - [ ] **Phase 13: Social Proof + Authority + Stakes CTA + Transitional CTAs** - Quote redesign, authority cards, radial glow CTA, three-card transitional section
@@ -178,7 +178,7 @@ Note: Phases 14, 15, 16, and 17 depend only on Phase 10 (foundation), so they ca
 | 7. Polish | v1.0 | 1/1 | Complete | 2026-03-05 |
 | 8. Deploy | v1.0 | 1/1 | Complete | 2026-03-05 |
 | 9. Fix Audit | v1.0 | 2/2 | Complete | 2026-03-05 |
-| 10. Foundation + Hero + Trust Bar | 1/2 | In Progress|  | - |
+| 10. Foundation + Hero + Trust Bar | 2/2 | Complete   | 2026-03-06 | - |
 | 11. Negative Stakes + Offering | v2.0 | 0/? | Not started | - |
 | 12. Use Cases + How It Works | v2.0 | 0/? | Not started | - |
 | 13. Social Proof + Authority + Stakes CTA + Transitional CTAs | v2.0 | 0/? | Not started | - |

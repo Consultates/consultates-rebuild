@@ -90,13 +90,13 @@
 
 ### Hero
 
-- [ ] **RDES-06**: Background video plays (autoplay, muted, loop, monochrome via `filter: grayscale(1)`) with dark overlay
-- [ ] **RDES-07**: Dot grid overlay and radial purple glow behind headline
-- [ ] **RDES-08**: Hero type scale to design system sizes, white text on dark, `<em>` in accent purple
-- [ ] **RDES-09**: CTA button pill-shaped with accent purple and arrow shift on hover
-- [ ] **RDES-10**: Body text uses `--hero-muted`, max-width 580px
-- [ ] **RDES-11**: Poster image fallback on mobile (video hidden below 768px)
-- [ ] **RDES-12**: Hero delay reduced from 1200ms to 1000ms
+- [x] **RDES-06**: Background video plays (autoplay, muted, loop, monochrome via `filter: grayscale(1)`) with dark overlay
+- [x] **RDES-07**: Dot grid overlay and radial purple glow behind headline
+- [x] **RDES-08**: Hero type scale to design system sizes, white text on dark, `<em>` in accent purple
+- [x] **RDES-09**: CTA button pill-shaped with accent purple and arrow shift on hover
+- [x] **RDES-10**: Body text uses `--hero-muted`, max-width 580px
+- [x] **RDES-11**: Poster image fallback on mobile (video hidden below 768px)
+- [x] **RDES-12**: Hero delay reduced from 1200ms to 1000ms
 
 ### Trust Bar
 
@@ -225,13 +225,13 @@
 | RDES-03 | Phase 10 | Complete |
 | RDES-04 | Phase 10 | Complete |
 | RDES-05 | Phase 10 | Complete |
-| RDES-06 | Phase 10 | Pending |
-| RDES-07 | Phase 10 | Pending |
-| RDES-08 | Phase 10 | Pending |
-| RDES-09 | Phase 10 | Pending |
-| RDES-10 | Phase 10 | Pending |
-| RDES-11 | Phase 10 | Pending |
-| RDES-12 | Phase 10 | Pending |
+| RDES-06 | Phase 10 | Complete |
+| RDES-07 | Phase 10 | Complete |
+| RDES-08 | Phase 10 | Complete |
+| RDES-09 | Phase 10 | Complete |
+| RDES-10 | Phase 10 | Complete |
+| RDES-11 | Phase 10 | Complete |
+| RDES-12 | Phase 10 | Complete |
 | RDES-13 | Phase 10 | Complete |
 | RDES-14 | Phase 10 | Complete |
 | RDES-15 | Phase 10 | Complete |
