@@ -114,10 +114,10 @@
 
 ### Offering
 
-- [ ] **RDES-21**: Cards per design system: 16px radius, gradient icon containers, inset accent hover
-- [ ] **RDES-22**: Card titles in serif
-- [ ] **RDES-23**: Staggered card reveal (0s, 0.12s, 0.24s)
-- [ ] **RDES-24**: Card gap 1.25rem
+- [x] **RDES-21**: Cards per design system: 16px radius, gradient icon containers, inset accent hover
+- [x] **RDES-22**: Card titles in serif
+- [x] **RDES-23**: Staggered card reveal (0s, 0.12s, 0.24s)
+- [x] **RDES-24**: Card gap 1.25rem
 
 ### Use Cases
 
@@ -240,10 +240,10 @@
 | RDES-18 | Phase 11 | Complete |
 | RDES-19 | Phase 11 | Complete |
 | RDES-20 | Phase 11 | Complete |
-| RDES-21 | Phase 11 | Pending |
-| RDES-22 | Phase 11 | Pending |
-| RDES-23 | Phase 11 | Pending |
-| RDES-24 | Phase 11 | Pending |
+| RDES-21 | Phase 11 | Complete |
+| RDES-22 | Phase 11 | Complete |
+| RDES-23 | Phase 11 | Complete |
+| RDES-24 | Phase 11 | Complete |
 | RDES-25 | Phase 12 | Pending |
 | RDES-26 | Phase 12 | Pending |
 | RDES-27 | Phase 12 | Pending |
