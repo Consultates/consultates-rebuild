@@ -66,10 +66,11 @@ Plans:
   2. Offering section shows three service cards with 16px radius, gradient icon containers, serif titles, inset accent hover effect, and 1.25rem gap
   3. Offering cards stagger-reveal on scroll entrance (0s, 0.12s, 0.24s delays)
   4. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 11-01: TBD
+- [ ] 11-01-PLAN.md -- Negative Stakes redesign with 3-col text-stroke stats, stroke-draw animation, pull quote, radial glow
+- [ ] 11-02-PLAN.md -- Offering cards design system treatment + visual verification of both sections
 
 ### Phase 12: Use Cases + How It Works
 **Goal**: Visitors see concrete scenarios of who Consultates helps (alternating layout with images) and a clear visual timeline of how the engagement works
@@ -179,7 +180,7 @@ Note: Phases 14, 15, 16, and 17 depend only on Phase 10 (foundation), so they ca
 | 8. Deploy | v1.0 | 1/1 | Complete | 2026-03-05 |
 | 9. Fix Audit | v1.0 | 2/2 | Complete | 2026-03-05 |
 | 10. Foundation + Hero + Trust Bar | 2/2 | Complete   | 2026-03-06 | - |
-| 11. Negative Stakes + Offering | v2.0 | 0/? | Not started | - |
+| 11. Negative Stakes + Offering | v2.0 | 0/2 | Not started | - |
 | 12. Use Cases + How It Works | v2.0 | 0/? | Not started | - |
 | 13. Social Proof + Authority + Stakes CTA + Transitional CTAs | v2.0 | 0/? | Not started | - |
 | 14. About Page | v2.0 | 0/? | Not started | - |
