@@ -11,12 +11,17 @@ const { title, description, href } = Astro.props;
 
 <a
   href={href}
-  class="block bg-card border border-border rounded-xl p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(0,0,0,0.1)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+  class="block bg-card border border-border transition-all duration-200 hover:border-primary/40 hover:shadow-[inset_0_0_0_1px_var(--primary)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+  style={`border-radius: var(--card-radius); padding: var(--card-padding);`}
 >
-  <div class="mb-4 text-primary">
+  <div
+    class="mb-4 relative flex items-center justify-center text-primary"
+    style="width: 48px; height: 48px; border-radius: 12px;"
+  >
+    <div class="absolute inset-0 rounded-[12px]" style="background: linear-gradient(135deg, var(--primary) 0%, #8B6CC7 100%); opacity: 0.15;"></div>
     <slot name="icon" />
   </div>
-  <h3 class="text-sub text-card-foreground mb-2">{title}</h3>
+  <h3 class="text-sub font-serif text-card-foreground mb-2">{title}</h3>
   <p class="text-body text-muted-foreground mb-4">{description}</p>
   <span class="text-body font-medium text-primary">Learn more &rarr;</span>
 </a>

@@ -15,8 +15,8 @@ import { SectionAnimator } from '../islands/SectionAnimator';
     </p>
   </SectionAnimator>
 
-  <SectionAnimator client:visible delay={0.2}>
-    <div class="grid grid-cols-3 gap-6 md:max-lg:grid-cols-2 max-md:grid-cols-1">
+  <div class="grid grid-cols-3 gap-[1.25rem] md:max-lg:grid-cols-2 max-md:grid-cols-1">
+    <SectionAnimator client:visible delay={0}>
       <ServiceCard
         title="AI Coaching for Leaders"
         description="One-to-one sessions for leaders who need clarity on AI. You bring your situation — you leave with a plan you can act on."
@@ -30,7 +30,9 @@ import { SectionAnimator } from '../islands/SectionAnimator';
           <circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
         </svg>
       </ServiceCard>
+    </SectionAnimator>
 
+    <SectionAnimator client:visible delay={0.12}>
       <ServiceCard
         title="AI Training for Teams"
         description="Hands-on workshops built around your team's actual work. People learn by doing with the tools they'll use tomorrow."
@@ -47,7 +49,9 @@ import { SectionAnimator } from '../islands/SectionAnimator';
           <path d="M164.6,78A32,32,0,1,1,196,116" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
         </svg>
       </ServiceCard>
+    </SectionAnimator>
 
+    <SectionAnimator client:visible delay={0.24}>
       <ServiceCard
         title="Fractional Exec Support"
         description="Senior AI go-to-market leadership without a full-time hire. Strategy, product direction, and execution for companies scaling AI."
@@ -61,6 +65,6 @@ import { SectionAnimator } from '../islands/SectionAnimator';
           <line x1="32" y1="144" x2="224" y2="144" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
         </svg>
       </ServiceCard>
-    </div>
-  </SectionAnimator>
+    </SectionAnimator>
+  </div>
 </section>
