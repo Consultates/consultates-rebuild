@@ -326,6 +326,18 @@ body.nav-open {
 }
 
 /* --------------------------------------------------------
+   Stroke-draw stat — SVG text with outline trace animation
+   -------------------------------------------------------- */
+.text-stroke-stat {
+  font-family: var(--font-serif);
+  font-size: var(--text-stat);
+  font-weight: 700;
+  fill: transparent;
+  stroke: var(--stakes-accent);
+  stroke-width: 2px;
+}
+
+/* --------------------------------------------------------
    v2 Animation keyframes
    -------------------------------------------------------- */
 /* --------------------------------------------------------
@@ -351,28 +363,36 @@ body.nav-open {
 .btn-alive::before {
   content: '';
   position: absolute;
-  inset: -6px -16px;
-  border-radius: 99px;
-  background: radial-gradient(ellipse, rgba(92,59,156,0.08) 0%, transparent 70%);
+  inset: -64px -120px;
+  background: radial-gradient(ellipse 65% 55% at center, rgba(139,108,199,0.35) 0%, rgba(139,108,199,0.1) 45%, transparent 85%);
   z-index: -1;
-  transition: background 0.4s var(--ease-out);
+  transform: scale(0.55);
+  transition: transform 0.4s var(--ease-out);
   pointer-events: none;
+  animation: cta-glow-pulse 2.5s ease-in-out infinite;
 }
 .btn-alive:hover::before {
-  background: radial-gradient(ellipse, rgba(92,59,156,0.18) 0%, transparent 70%);
+  transform: scale(1);
 }
 .btn-alive::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -6px;
   left: 0;
   width: 0;
-  height: 2px;
+  height: 8px;
   background: currentColor;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    calc(100% - 14px) 100%,
+    calc(100% - 14px) 3px,
+    0 3px
+  );
   transition: width 0.4s var(--ease-out);
 }
 .btn-alive:hover::after {
-  width: 100%;
+  width: calc(100% + 10px);
 }
 .btn-alive .arrow {
   transition: transform 0.25s var(--ease-out);
@@ -386,8 +406,22 @@ body.nav-open {
   font-size: 1.125rem;
   letter-spacing: -0.01em;
 }
+.btn-alive--lg:hover::after {
+  width: calc(100% + 20px);
+}
 .btn-alive--sm {
   font-size: var(--text-sm);
+}
+.btn-alive--sm::before {
+  inset: -24px -48px;
+  transform: none;
+  animation: none;
+}
+.btn-alive--sm:hover::before {
+  transform: none;
+}
+.btn-alive--sm::after {
+  bottom: -1px;
 }
 
 /* On dark backgrounds — white text */
@@ -395,14 +429,15 @@ body.nav-open {
   color: #FFFFFF;
 }
 .btn-alive--on-dark::before {
-  background: radial-gradient(ellipse, rgba(139,108,199,0.15) 0%, transparent 70%);
-}
-.btn-alive--on-dark:hover::before {
-  background: radial-gradient(ellipse, rgba(139,108,199,0.3) 0%, transparent 70%);
+  background: radial-gradient(ellipse 65% 55% at center, rgba(139,108,199,0.4) 0%, rgba(139,108,199,0.12) 45%, transparent 85%);
 }
 .btn-alive--on-dark::after {
   background: var(--stakes-accent, #8B6CC7);
-  height: 3px;
+}
+
+@keyframes cta-glow-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
 }
 
 @keyframes fadeInUp {
