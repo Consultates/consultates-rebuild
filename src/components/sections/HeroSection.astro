@@ -22,11 +22,28 @@ import { TIDYCAL_URL } from '../../config';
     <HeroIsland
       client:load
       tagline="AI Consulting"
-      headline="Clarity on AI — what to do, where to start, and <em>who to trust</em>"
+      headline="Clarity on AI — what to do, where to start,<br/> and <em>who to trust</em>"
       paragraph="You're a leader who knows AI matters but can't separate the signal from the noise. You don't need more articles or another webinar. You need someone who builds with AI every day to sit down with you and make it practical."
       ctaHref={TIDYCAL_URL}
       ctaText="Book a Free Call"
     />
+  </div>
+
+  <!-- Scroll indicator — positioned against .c-hero (position:relative) -->
+  <div
+    class="hidden lg:block absolute bottom-8 left-1/2 -translate-x-1/2"
+    aria-hidden="true"
+    style="z-index: 2;"
+  >
+    <div
+      class="w-[30px] h-[50px] rounded-[15px] flex justify-center"
+      style="border: 2px solid rgba(255,255,255,0.6);"
+    >
+      <div
+        class="w-1.5 h-1.5 rounded-full mt-1.5 scroll-bob-dot"
+        style="background: rgba(255,255,255,0.6);"
+      ></div>
+    </div>
   </div>
 </section>
 
@@ -83,7 +100,7 @@ import { TIDYCAL_URL } from '../../config';
     transform: translate(-50%, -50%);
     width: 800px;
     height: 500px;
-    background: radial-gradient(ellipse, rgba(92,59,156,0.12) 0%, rgba(92,59,156,0.04) 40%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(92,59,156,0.25) 0%, rgba(92,59,156,0.10) 40%, transparent 70%);
     pointer-events: none;
     z-index: 1;
   }
@@ -93,7 +110,7 @@ import { TIDYCAL_URL } from '../../config';
     content: '';
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle, rgba(139,108,199,0.07) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(139,108,199,0.18) 1px, transparent 1px);
     background-size: 32px 32px;
     pointer-events: none;
     z-index: 1;
@@ -144,32 +161,6 @@ import { TIDYCAL_URL } from '../../config';
   }
 
   :global(.c-hero-cta) {
-    display: inline-flex;
-    align-items: center;
     gap: 0.625rem;
-    padding: 0.9375rem 2.25rem;
-    background: var(--stakes-accent, #8B6CC7);
-    color: #FFFFFF;
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 99px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  :global(.c-hero-cta:hover) {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(139,108,199,0.3);
-  }
-
-  :global(.c-hero-cta .arrow) {
-    transition: transform 0.2s;
-  }
-
-  :global(.c-hero-cta:hover .arrow) {
-    transform: translateX(3px);
   }
 </style>

@@ -328,6 +328,83 @@ body.nav-open {
 /* --------------------------------------------------------
    v2 Animation keyframes
    -------------------------------------------------------- */
+/* --------------------------------------------------------
+   Alive button — underline draw + magnetic hover
+   -------------------------------------------------------- */
+.btn-alive {
+  background: none;
+  border: none;
+  border-radius: 0;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: inherit;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: transform 0.2s var(--ease-out);
+  will-change: transform;
+}
+.btn-alive::before {
+  content: '';
+  position: absolute;
+  inset: -6px -16px;
+  border-radius: 99px;
+  background: radial-gradient(ellipse, rgba(92,59,156,0.08) 0%, transparent 70%);
+  z-index: -1;
+  transition: background 0.4s var(--ease-out);
+  pointer-events: none;
+}
+.btn-alive:hover::before {
+  background: radial-gradient(ellipse, rgba(92,59,156,0.18) 0%, transparent 70%);
+}
+.btn-alive::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.4s var(--ease-out);
+}
+.btn-alive:hover::after {
+  width: 100%;
+}
+.btn-alive .arrow {
+  transition: transform 0.25s var(--ease-out);
+}
+.btn-alive:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Size variants */
+.btn-alive--lg {
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+}
+.btn-alive--sm {
+  font-size: var(--text-sm);
+}
+
+/* On dark backgrounds — white text */
+.btn-alive--on-dark {
+  color: #FFFFFF;
+}
+.btn-alive--on-dark::before {
+  background: radial-gradient(ellipse, rgba(139,108,199,0.15) 0%, transparent 70%);
+}
+.btn-alive--on-dark:hover::before {
+  background: radial-gradient(ellipse, rgba(139,108,199,0.3) 0%, transparent 70%);
+}
+.btn-alive--on-dark::after {
+  background: var(--stakes-accent, #8B6CC7);
+  height: 3px;
+}
+
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(32px); }
   to { opacity: 1; transform: translateY(0); }

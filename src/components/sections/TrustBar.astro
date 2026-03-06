@@ -1,43 +1,38 @@
 ---
 /**
- * Trust bar -- standalone section below the hero.
- * Credential markers with dot separators, visible on all viewports.
+ * Trust bar — absolute-positioned overlay at the bottom of each scroll-section.
+ * Credential markers with dot separators, v2 design system styling.
+ * Placed inside scroll-sections just below the scroll indicator.
  */
 ---
 
-<section class="c-trust">
-  <div class="c-trust-inner">
-    <span class="c-trust-item">Guest lecturer, Lead with AI PRO</span>
-    <span class="c-trust-dot"></span>
-    <span class="c-trust-item">35 years across engineering, sales &amp; AI</span>
-    <span class="c-trust-dot"></span>
-    <span class="c-trust-item">Trained executive cohorts through FlexOS</span>
-    <span class="c-trust-dot"></span>
-    <span class="c-trust-item">16 countries</span>
-  </div>
-</section>
+<div class="c-trust-overlay">
+  <span class="c-trust-item">35 years across engineering, sales &amp; AI</span>
+  <span class="c-trust-dot"></span>
+  <span class="c-trust-item">AI-driven executive</span>
+  <span class="c-trust-dot"></span>
+  <span class="c-trust-item">Trains executive cohorts via Agnetics</span>
+</div>
 
 <style>
-  .c-trust {
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--border);
-    background: var(--background);
-  }
-  .c-trust-inner {
-    max-width: var(--content-max, 1140px);
-    margin: 0 auto;
-    padding-left: var(--content-px, clamp(1.5rem, 4vw, 2.5rem));
-    padding-right: var(--content-px, clamp(1.5rem, 4vw, 2.5rem));
+  .c-trust-overlay {
+    position: absolute;
+    bottom: 0.25rem;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1.75rem;
-    flex-wrap: wrap;
     font-family: var(--font-sans);
     font-size: 0.8125rem;
     color: var(--muted-foreground);
     font-weight: 500;
     letter-spacing: 0.01em;
+    white-space: nowrap;
+    opacity: 0.5;
+    z-index: 2;
+    padding: 0 1rem;
   }
   .c-trust-item {
     display: flex;
@@ -50,5 +45,11 @@
     border-radius: 50%;
     background: var(--border);
     flex-shrink: 0;
+  }
+  /* Hide on small screens where it would wrap badly */
+  @media (max-width: 1023px) {
+    .c-trust-overlay {
+      display: none;
+    }
   }
 </style>

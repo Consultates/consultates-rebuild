@@ -185,5 +185,27 @@ const { title, description = 'AI consulting for business leaders. Coaching, trai
       } // sections.length > 0 guard
     }
   </script>
+<script>
+// Magnetic cursor effect for .btn-alive elements
+(function() {
+  const PULL = 4; // max px shift toward cursor
+  const THRESHOLD = 80; // activation distance in px
+  document.querySelectorAll('.btn-alive').forEach(function(btn) {
+    btn.addEventListener('mousemove', function(e) {
+      var rect = btn.getBoundingClientRect();
+      var cx = rect.left + rect.width / 2;
+      var cy = rect.top + rect.height / 2;
+      var dx = (e.clientX - cx) / (THRESHOLD) * PULL;
+      var dy = (e.clientY - cy) / (THRESHOLD) * PULL;
+      dx = Math.max(-PULL, Math.min(PULL, dx));
+      dy = Math.max(-PULL, Math.min(PULL, dy));
+      btn.style.transform = 'translate(' + dx + 'px,' + dy + 'px) translateY(-2px)';
+    });
+    btn.addEventListener('mouseleave', function() {
+      btn.style.transform = '';
+    });
+  });
+})();
+</script>
 </body>
 </html>
