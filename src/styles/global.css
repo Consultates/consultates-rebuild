@@ -448,6 +448,9 @@ body.nav-open {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.6; }
 }
+@keyframes blink {
+  50% { opacity: 0; }
+}
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(32px); }
