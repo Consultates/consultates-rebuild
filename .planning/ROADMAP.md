@@ -1,8 +1,9 @@
 # Roadmap: Consultates.com Rebuild
 
-## Overview
+## Milestones
 
-Eight phases transform a bloated WebWave site into a clean, fast Astro 5 static site. Phases follow the natural build dependency order from the PRD: scaffold the foundation first, then shared components, then the homepage (the primary conversion page), then animation layered on top of static content, then inner pages, then the blog, then polish and SEO, then deploy. Each phase delivers a coherent, independently verifiable capability.
+- v1.0 MVP - Phases 1-9 (shipped 2026-03-05)
+- v2.0 Visual Redesign - Phases 10-17 (in progress)
 
 ## Phases
 
@@ -12,175 +13,176 @@ Eight phases transform a bloated WebWave site into a clean, fast Astro 5 static 
 
 Decimal phases appear between their surrounding integers in numeric order.
 
+<details>
+<summary>v1.0 MVP (Phases 1-9) - SHIPPED 2026-03-05</summary>
+
 - [x] **Phase 1: Scaffold** - Astro 5 project with Tailwind 4, fonts, design tokens, and base layout (completed 2026-03-05)
 - [x] **Phase 2: Components** - All shared UI components, nav, footer, and theme system (completed 2026-03-05)
 - [x] **Phase 3: Homepage** - All 12 StoryBrand sections with full content, no animation (completed 2026-03-05)
 - [x] **Phase 4: Animation** - GSAP ScrollTrigger and Framer Motion layered onto existing pages (completed 2026-03-05)
 - [x] **Phase 5: Inner Pages** - Service pages x3, About, Contact, Privacy Policy, 404 (completed 2026-03-05)
-- [ ] **Phase 6: Blog** - Content collections, blog index, blog post layout, 3 initial posts
+- [x] **Phase 6: Blog** - Content collections, blog index, blog post layout, 3 initial posts (completed 2026-03-05)
 - [x] **Phase 7: Polish** - Responsive testing, accessibility, SEO meta tags, favicon (completed 2026-03-05)
 - [x] **Phase 8: Deploy** - GitHub Actions CI/CD, GitHub Pages, CNAME, sitemap verification (completed 2026-03-05)
+- [x] **Phase 9: Fix Audit** - GSAP crash guard, footer fixes, CountUpStat MutationObserver (completed 2026-03-05)
+
+</details>
+
+### v2.0 Visual Redesign
+
+- [ ] **Phase 10: Foundation + Hero + Trust Bar** - Design system globals, hero with background video and dark overlay, trust bar redesign
+- [ ] **Phase 11: Negative Stakes + Offering** - Three-stat layout with text-stroke, design system cards with gradient icons
+- [ ] **Phase 12: Use Cases + How It Works** - Alternating two-column layout, animated GSAP timeline
+- [ ] **Phase 13: Social Proof + Authority + Stakes CTA + Transitional CTAs** - Quote redesign, authority cards, radial glow CTA, three-card transitional section
+- [ ] **Phase 14: About Page** - Asymmetric hero, editorial timeline, family business card
+- [ ] **Phase 15: Service Pages** - Individual layouts, structured outcomes, embedded testimonials
+- [ ] **Phase 16: Contact Page** - Card-style contact methods, styled form inputs
+- [ ] **Phase 17: Blog** - Three-column card grid, design system cards, improved post layout
 
 ## Phase Details
 
-### Phase 1: Scaffold
-**Goal**: A running Astro 5 site with all design system primitives in place — any page built after this inherits correct tokens, fonts, and theme behavior automatically
-**Depends on**: Nothing (first phase)
-**Requirements**: FOUND-01, FOUND-02, FOUND-03, FOUND-04, FOUND-05, ASSET-01, ASSET-02, ASSET-03, ASSET-04
+### Phase 10: Foundation + Hero + Trust Bar
+**Goal**: The global design system is in place and the first two visible sections (hero + trust bar) match the marketing-design-guidelines.html spec -- visitors see a cinematic dark hero with video background, purple glow, pill CTA, and a clean credential bar below it
+**Depends on**: Phase 9
+**Requirements**: RDES-01, RDES-02, RDES-03, RDES-04, RDES-05, RDES-06, RDES-07, RDES-08, RDES-09, RDES-10, RDES-11, RDES-12, RDES-13, RDES-14, RDES-15, RDES-16
 **Success Criteria** (what must be TRUE):
-  1. `pnpm dev` starts without errors and serves a page at localhost
-  2. Royal Purple and all brand color tokens render correctly in light and dark modes with no flash on load
-  3. IBM Plex Sans, Serif, and Mono load from local files (no external requests) and all custom type scale classes apply correctly
-  4. All static assets (logos, Gary photo, favicon, font files) are present in the correct public directories
-**Plans:** 2/2 plans complete
+  1. Design system type scale, spacing variables, texture utilities (.bg-dots, .glow, .corner-marks), animation keyframes, and color tokens are defined in global CSS and available to all components
+  2. Hero section plays a monochrome background video on desktop with dark overlay, dot grid, and radial purple glow behind the headline; on mobile a poster image displays instead
+  3. Hero headline renders at design system size with white text, accent purple `<em>`, pill-shaped CTA with arrow hover, and muted body text capped at 580px
+  4. Trust bar renders as a standalone section below the hero on all viewports with credential markers, dot separators, correct typography (13px, 500 weight, muted color)
+  5. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
+**Plans**: TBD
 
 Plans:
-- [x] 01-01-PLAN.md — Initialize Astro 5 project with dependencies and copy all static assets
-- [x] 01-02-PLAN.md — Create design system CSS (tokens, fonts, type scale) and base layout
+- [ ] 10-01: TBD
+- [ ] 10-02: TBD
 
-### Phase 2: Components
-**Goal**: The full component library exists and renders correctly — every page built after this pulls from tested, reusable building blocks
-**Depends on**: Phase 1
-**Requirements**: NAV-01, NAV-02, NAV-03, NAV-04, NAV-05, THEME-01, THEME-02, THEME-03, FOOT-01, FOOT-02, COMP-01, COMP-02, COMP-03, COMP-04, COMP-05, COMP-06, COMP-07, COMP-08, COMP-09
+### Phase 11: Negative Stakes + Offering
+**Goal**: The problem/solution narrative pair is visually complete -- visitors see dramatic stat numbers that communicate urgency, followed by three polished service cards that present the solution
+**Depends on**: Phase 10
+**Requirements**: RDES-17, RDES-18, RDES-19, RDES-20, RDES-21, RDES-22, RDES-23, RDES-24
 **Success Criteria** (what must be TRUE):
-  1. Fixed nav bar renders with logo, links, and Book CTA button; services mega menu opens on hover (desktop) and tap (mobile)
-  2. Mobile hamburger menu opens a full-screen overlay with all navigation links
-  3. Theme toggle cycles light → dark → system → light, persists across page reloads, and logo swaps correctly in each mode
-  4. Always-dark footer renders with 3-column grid, quick links, contact info, and bottom bar
-  5. All 9 shared components (Button, ServiceCard, TestimonialBlock, StatBlock, StepCard, BlogCard, FormInput, IconWrapper, ScrollIndicator) render without errors in all their variants
-**Plans:** 3/3 plans complete
+  1. Negative stakes section displays three stats in a three-column grid with text-stroke treatment on numbers, a radial glow centered on the section, and a pull quote below
+  2. Offering section shows three service cards with 16px radius, gradient icon containers, serif titles, inset accent hover effect, and 1.25rem gap
+  3. Offering cards stagger-reveal on scroll entrance (0s, 0.12s, 0.24s delays)
+  4. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
+**Plans**: TBD
 
 Plans:
-- [ ] 02-01-PLAN.md — Foundational components: ThemeToggle, Button, IconWrapper
-- [ ] 02-02-PLAN.md — Shared display components: ServiceCard, BlogCard, StepCard, StatBlock, TestimonialBlock, FormInput, ScrollIndicator
-- [ ] 02-03-PLAN.md — Navigation bar with mega menu + Footer + wire into Base.astro
+- [ ] 11-01: TBD
 
-### Phase 3: Homepage
-**Goal**: The complete StoryBrand homepage is live with all 12 sections, full PRD copy, and correct layout — visitors can read the full narrative and book a call
-**Depends on**: Phase 2
-**Requirements**: HOME-01, HOME-02, HOME-03, HOME-04, HOME-05, HOME-06, HOME-07, HOME-08, HOME-09, HOME-10
+### Phase 12: Use Cases + How It Works
+**Goal**: Visitors see concrete scenarios of who Consultates helps (alternating layout with images) and a clear visual timeline of how the engagement works
+**Depends on**: Phase 11
+**Requirements**: RDES-25, RDES-26, RDES-27, RDES-28, RDES-29, RDES-30, RDES-31, RDES-32, RDES-33
 **Success Criteria** (what must be TRUE):
-  1. All 12 homepage sections render with exact PRD copy — hero, trust bar, negative stakes, offering, use cases, how it works, social proof, why Consultates, stakes CTA, and transitional CTAs
-  2. Three service cards in the Offering section each link to their respective service pages
-  3. Two blog cards in Transitional CTAs section link to blog posts
-  4. Book a call CTA buttons link to the correct TidyCal URL
-  5. Homepage reads as a coherent narrative from hero to final CTA with no missing sections or placeholder text
-**Plans:** 3/3 plans complete
+  1. Use cases section shows three use cases in alternating two-column layout with mono uppercase labels, image placeholders with corner marks, and slide-in entrance animations
+  2. How it works section renders an animated GSAP timeline with a connecting line that draws on scroll, step nodes that fill sequentially (48px circles with pulse), and content that reveals per node
+  3. How it works layout is horizontal on desktop and vertical on mobile
+  4. With `prefers-reduced-motion: reduce`, timeline and slide-in animations are disabled and all content is immediately visible
+  5. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
+**Plans**: TBD
 
 Plans:
-- [ ] 03-01-PLAN.md — Site config + Hero, Trust Bar, Negative Stakes, Offering, and Use Cases sections
-- [ ] 03-02-PLAN.md — How It Works, Social Proof, Why Consultates, Stakes CTA, and Transitional CTAs sections
-- [ ] 03-03-PLAN.md — Wire all sections into index.astro and verify build
+- [ ] 12-01: TBD
+- [ ] 12-02: TBD
 
-### Phase 4: Animation
-**Goal**: The site feels alive — scroll behavior, entrance animations, and micro-interactions layer onto the existing static content without breaking it
-**Depends on**: Phase 3
-**Requirements**: ANIM-01, ANIM-02, ANIM-03, ANIM-04, ANIM-05, ANIM-06, ANIM-07, ANIM-08
+### Phase 13: Social Proof + Authority + Stakes CTA + Transitional CTAs
+**Goal**: The bottom half of the homepage is visually complete -- testimonial, authority credentials, urgent CTA, and content bridge cards all match the design system
+**Depends on**: Phase 12
+**Requirements**: RDES-34, RDES-35, RDES-36, RDES-37, RDES-38, RDES-39, RDES-40, RDES-41, RDES-42, RDES-43, RDES-44, RDES-45
 **Success Criteria** (what must be TRUE):
-  1. On desktop (>=1024px), scrolling through the homepage snaps section-by-section with zoom transitions; on tablet/mobile sections stack at natural height with no snap behavior
-  2. Hero headline animates with letter stagger on page load, followed by paragraph fade up, CTA scale in, and scroll indicator bob
-  3. The 84% stat counts up from 0 when the negative stakes section enters the viewport
-  4. Stakes CTA section pulse animation runs continuously
-  5. Visiting with `prefers-reduced-motion: reduce` shows all content immediately with no animations running
-**Plans:** 3/3 plans complete
+  1. Social proof section shows a 72x72px photo placeholder circle with initials and quote text at the design system enlarged size
+  2. Authority section renders cards with border, radius, padding, hover accent, stat callouts in serif purple, and staggered reveal animation
+  3. Stakes CTA section displays radial purple glow, corner marks, accent-highlighted `<em>`, and a pill button matching the hero CTA
+  4. Transitional CTAs section shows three cards filling the row with section heading "Not ready to book? Start here.", serif titles, and hover accent border
+  5. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
+**Plans**: TBD
 
 Plans:
-- [ ] 04-01-PLAN.md — Animation variants, reduced-motion hook, and Hero letter stagger island
-- [ ] 04-02-PLAN.md — Section animation islands (CountUpStat, StakesCTAPulse, SectionAnimator) wired into all sections
-- [ ] 04-03-PLAN.md — GSAP ScrollTrigger scroll-snap, scroll-section CSS, and reduced motion wiring
+- [ ] 13-01: TBD
+- [ ] 13-02: TBD
 
-### Phase 5: Inner Pages
-**Goal**: Every non-homepage page is built and navigable — visitors can explore all three services, read about Gary, submit a contact form, and find the legal page
-**Depends on**: Phase 2
-**Requirements**: SERV-01, SERV-02, SERV-03, ABOUT-01, CONT-01, CONT-02, CONT-03, LEGAL-01, ERR-01
+### Phase 14: About Page
+**Goal**: The about page tells Gary's story with editorial polish -- asymmetric layout, timeline, warm family business card, and credentials
+**Depends on**: Phase 10
+**Requirements**: RDES-46, RDES-47, RDES-48, RDES-49, RDES-50
 **Success Criteria** (what must be TRUE):
-  1. All three service pages (AI Coaching, AI Training, Fractional Exec) render with hero, what you get, who it's for, how it works, and CTA sections using PRD copy
-  2. About page shows Gary's photo, story, family business section, Lead with AI PRO credentials, and a book-a-call CTA
-  3. Contact page form accepts name, email, company, and message; submitting shows a success message (client-side mock)
-  4. Privacy policy page renders with full legal content from PRD
-  5. Navigating to a nonexistent URL renders the 404 page with a back-to-home button
-**Plans:** 3/3 plans complete
+  1. About page opens with an asymmetric two-column hero layout
+  2. Career history renders as an editorial timeline
+  3. Family business section uses a warm-background card treatment
+  4. Lead with AI PRO section renders as a distinct card/banner
+  5. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
+**Plans**: TBD
 
 Plans:
-- [ ] 05-01-PLAN.md — Shared service page layout + 3 service pages (AI Coaching, AI Training, Fractional Exec)
-- [ ] 05-02-PLAN.md — About page + Contact page with client-side mock form
-- [ ] 05-03-PLAN.md — Privacy Policy + 404 page
+- [ ] 14-01: TBD
 
-### Phase 6: Blog
-**Goal**: The blog is live with content collections, a browsable index, readable post pages, and 3 real posts — visitors can find and read Gary's writing
-**Depends on**: Phase 2
-**Requirements**: BLOG-01, BLOG-02, BLOG-03, BLOG-04
+### Phase 15: Service Pages
+**Goal**: Each of the three service pages has its own distinct layout with structured outcomes, embedded testimonials, and a connecting-line how-it-works section
+**Depends on**: Phase 10
+**Requirements**: RDES-51, RDES-52, RDES-53, RDES-54, RDES-55, RDES-56
 **Success Criteria** (what must be TRUE):
-  1. Blog index page shows all published posts as cards in a 2-column grid (desktop) / 1-column (mobile) with title, date, and excerpt
-  2. Each blog post page renders with readable prose styling, publication date, and estimated reading time
-  3. All 3 initial posts are published and accessible via the blog index
-  4. Draft posts do not appear on the public blog index
-**Plans:** 1/2 plans executed
+  1. Each service page (AI Coaching, AI Training, Fractional Exec) has an individual layout distinct from the others
+  2. "What you get" sections render as structured outcomes grids/lists
+  3. Each service page includes a scenario-based "who it's for" section, an embedded testimonial, a how-it-works with connecting line, and a dark CTA section
+  4. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
+**Plans**: TBD
 
 Plans:
-- [ ] 06-01-PLAN.md — Content collections config, typography plugin, blog index page, and blog post layout
-- [ ] 06-02-PLAN.md — Migrate 3 blog posts from HTML to Markdown content files
+- [ ] 15-01: TBD
 
-### Phase 7: Polish
-**Goal**: The site is production-ready — every page is responsive, accessible, indexed by search engines, and branded with the correct favicon
-**Depends on**: Phase 5, Phase 6
-**Requirements**: SEO-01, SEO-02, SEO-03, SEO-04, DEPLOY-03
+### Phase 16: Contact Page
+**Goal**: The contact page presents professional card-style contact methods with styled form inputs matching the design system
+**Depends on**: Phase 10
+**Requirements**: RDES-57, RDES-58, RDES-59
 **Success Criteria** (what must be TRUE):
-  1. Every page has a unique title tag and meta description matching the PRD route table
-  2. Every page has a canonical URL tag
-  3. Sitemap XML is auto-generated and includes all public routes
-  4. robots.txt allows all crawlers and references the sitemap
-  5. Consultates favicon appears in browser tabs and bookmarks across all pages
-**Plans:** 1/1 plans complete
+  1. Contact methods (email, LinkedIn, booking) render as card-style items
+  2. TidyCal booking has a pill button CTA matching the site-wide pill button style
+  3. Form inputs follow design system styling (radius, border, focus states)
+  4. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
+**Plans**: TBD
 
 Plans:
-- [ ] 07-01-PLAN.md — SEO meta tags, canonical URLs, OG tags, robots.txt, and sitemap verification
+- [ ] 16-01: TBD
 
-### Phase 8: Deploy
-**Goal**: The live site is deployed to consultates.com via GitHub Pages with automated CI/CD — every push to main triggers a fresh build and deploy
-**Depends on**: Phase 7
-**Requirements**: DEPLOY-01, DEPLOY-02
+### Phase 17: Blog
+**Goal**: Blog index and post pages match the design system with a three-column card grid and improved typography
+**Depends on**: Phase 10
+**Requirements**: RDES-60, RDES-61, RDES-62, RDES-63
 **Success Criteria** (what must be TRUE):
-  1. Pushing to the main branch automatically triggers a GitHub Actions workflow that builds and deploys the site
-  2. consultates.com resolves to the deployed Astro site with a valid SSL certificate
-  3. The build passes in CI with no errors (Node 22, pnpm 9, static output)
-**Plans:** 1/1 plans complete
+  1. Blog index displays posts in a three-column card grid with design system cards (16px radius, hover accent border)
+  2. Card titles render in serif
+  3. Blog post layout uses a wider content column with mono date and serif title
+  4. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
+**Plans**: TBD
 
 Plans:
-- [ ] 08-01-PLAN.md — GitHub Actions CI/CD workflow and CNAME for GitHub Pages deployment
-
-### Phase 9: Fix site audit deficiencies
-**Goal:** Every deficiency from the Playwright site audit is fixed — no JS errors on inner pages, footer matches PRD exactly, homepage renders each component once on all viewports, stat animation fires correctly, and all section IDs present
-**Requirements**: AUDIT-01, AUDIT-02, AUDIT-03, AUDIT-04, AUDIT-05, AUDIT-06, AUDIT-07, AUDIT-08, AUDIT-09, AUDIT-10, AUDIT-11, AUDIT-12, AUDIT-13, AUDIT-14
-**Depends on:** Phase 8
-**Success Criteria** (what must be TRUE):
-  1. No JS errors in browser console on any page
-  2. Footer content matches PRD exactly on all pages (email, LinkedIn, links, location, quote, copyright)
-  3. Homepage renders TrustBar exactly once and ScrollIndicator exactly once on all viewports
-  4. 84% stat counts up from 0 when Negative Stakes section is visible
-  5. All section IDs present including section-trust
-  6. About page paragraphs render as plain text, not blockquotes
-**Plans:** 2/2 plans complete
-
-Plans:
-- [ ] 09-01-PLAN.md — GSAP crash guard, footer corrections, TrustBar section ID, about page fix
-- [ ] 09-02-PLAN.md — Homepage architecture restructure (single TrustBar/ScrollIndicator) and stat count-up fix
+- [ ] 17-01: TBD
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9
+Phases execute in numeric order: 10 -> 11 -> 12 -> 13 -> 14 -> 15 -> 16 -> 17
 
-Note: Phase 5 depends on Phase 2 (not Phase 4), so Phases 4 and 5 can execute concurrently after Phase 3 if needed. Phase 7 depends on both Phase 5 and Phase 6.
+Note: Phases 14, 15, 16, and 17 depend only on Phase 10 (foundation), so they can execute concurrently after Phase 13 completes. Homepage phases (10-13) are sequential because each builds on the previous section.
 
-| Phase | Plans Complete | Status | Completed |
-|-------|----------------|--------|-----------|
-| 1. Scaffold | 2/2 | Complete   | 2026-03-05 |
-| 2. Components | 3/3 | Complete   | 2026-03-05 |
-| 3. Homepage | 3/3 | Complete   | 2026-03-05 |
-| 4. Animation | 3/3 | Complete   | 2026-03-05 |
-| 5. Inner Pages | 3/3 | Complete   | 2026-03-05 |
-| 6. Blog | 1/2 | In Progress|  |
-| 7. Polish | 1/1 | Complete   | 2026-03-05 |
-| 8. Deploy | 1/1 | Complete   | 2026-03-05 |
-| 9. Fix Audit | 2/2 | Complete   | 2026-03-05 |
+| Phase | Milestone | Plans Complete | Status | Completed |
+|-------|-----------|----------------|--------|-----------|
+| 1. Scaffold | v1.0 | 2/2 | Complete | 2026-03-05 |
+| 2. Components | v1.0 | 3/3 | Complete | 2026-03-05 |
+| 3. Homepage | v1.0 | 3/3 | Complete | 2026-03-05 |
+| 4. Animation | v1.0 | 3/3 | Complete | 2026-03-05 |
+| 5. Inner Pages | v1.0 | 3/3 | Complete | 2026-03-05 |
+| 6. Blog | v1.0 | 2/2 | Complete | 2026-03-05 |
+| 7. Polish | v1.0 | 1/1 | Complete | 2026-03-05 |
+| 8. Deploy | v1.0 | 1/1 | Complete | 2026-03-05 |
+| 9. Fix Audit | v1.0 | 2/2 | Complete | 2026-03-05 |
+| 10. Foundation + Hero + Trust Bar | v2.0 | 0/? | Not started | - |
+| 11. Negative Stakes + Offering | v2.0 | 0/? | Not started | - |
+| 12. Use Cases + How It Works | v2.0 | 0/? | Not started | - |
+| 13. Social Proof + Authority + Stakes CTA + Transitional CTAs | v2.0 | 0/? | Not started | - |
+| 14. About Page | v2.0 | 0/? | Not started | - |
+| 15. Service Pages | v2.0 | 0/? | Not started | - |
+| 16. Contact Page | v2.0 | 0/? | Not started | - |
+| 17. Blog | v2.0 | 0/? | Not started | - |
