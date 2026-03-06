@@ -51,11 +51,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Hero headline renders at design system size with white text, accent purple `<em>`, pill-shaped CTA with arrow hover, and muted body text capped at 580px
   4. Trust bar renders as a standalone section below the hero on all viewports with credential markers, dot separators, correct typography (13px, 500 weight, muted color)
   5. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 10-01: TBD
-- [ ] 10-02: TBD
+- [ ] 10-01-PLAN.md -- Design system foundation CSS + trust bar standalone section
+- [ ] 10-02-PLAN.md -- Hero redesign with dark bg, video, glow, pill CTA + visual verification
 
 ### Phase 11: Negative Stakes + Offering
 **Goal**: The problem/solution narrative pair is visually complete -- visitors see dramatic stat numbers that communicate urgency, followed by three polished service cards that present the solution
@@ -178,7 +178,7 @@ Note: Phases 14, 15, 16, and 17 depend only on Phase 10 (foundation), so they ca
 | 7. Polish | v1.0 | 1/1 | Complete | 2026-03-05 |
 | 8. Deploy | v1.0 | 1/1 | Complete | 2026-03-05 |
 | 9. Fix Audit | v1.0 | 2/2 | Complete | 2026-03-05 |
-| 10. Foundation + Hero + Trust Bar | v2.0 | 0/? | Not started | - |
+| 10. Foundation + Hero + Trust Bar | v2.0 | 0/2 | Not started | - |
 | 11. Negative Stakes + Offering | v2.0 | 0/? | Not started | - |
 | 12. Use Cases + How It Works | v2.0 | 0/? | Not started | - |
 | 13. Social Proof + Authority + Stakes CTA + Transitional CTAs | v2.0 | 0/? | Not started | - |
