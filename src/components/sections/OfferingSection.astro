@@ -5,23 +5,22 @@ import { SectionAnimator } from '../islands/SectionAnimator';
 
 <section
   id="section-offering"
-  class="bg-dots"
-  style="padding: var(--section-py) 0; position: relative;"
+  class="offering-section"
 >
   <div class="max-w-[1200px] mx-auto" style="padding: 0 clamp(1.5rem, 5vw, 8rem);">
-    <SectionAnimator client:visible>
+    <SectionAnimator client:visible delay={0.5}>
       <div class="text-center" style="margin-bottom: 3.5rem;">
         <h2 class="text-section text-foreground mb-4">Three ways we help</h2>
-        <p class="text-body-lg text-muted-foreground mx-auto" style="max-width: 580px;">
-          Whether you're a leader who needs clarity, a team that needs skills, or a company that needs senior AI leadership — we work with you directly. No templates. No generic workshops. Everything is built around your situation.
+        <p class="text-body-lg mx-auto" style="max-width: 580px; color: var(--secondary-foreground);">
+          Whether you're a leader who needs clarity, a team that needs skills, or a company that needs senior AI leadership — we work with you directly. No templates. No generic workshops.
         </p>
       </div>
     </SectionAnimator>
 
     <div class="grid grid-cols-3 gap-[1.25rem] md:max-lg:grid-cols-2 max-md:grid-cols-1">
-      <SectionAnimator client:visible delay={0}>
+      <SectionAnimator client:visible delay={0.7}>
         <ServiceCard
-          title="AI Coaching for Leaders"
+          title="AI Advisory for Leaders"
           description="One-to-one sessions for leaders who need clarity on AI. You bring your situation — you leave with a plan you can act on."
           href="/services/ai-coaching-for-leaders"
         >
@@ -35,7 +34,7 @@ import { SectionAnimator } from '../islands/SectionAnimator';
         </ServiceCard>
       </SectionAnimator>
 
-      <SectionAnimator client:visible delay={0.12}>
+      <SectionAnimator client:visible delay={0.85}>
         <ServiceCard
           title="AI Training for Teams"
           description="Hands-on workshops built around your team's actual work. People learn by doing with the tools they'll use tomorrow."
@@ -54,7 +53,7 @@ import { SectionAnimator } from '../islands/SectionAnimator';
         </ServiceCard>
       </SectionAnimator>
 
-      <SectionAnimator client:visible delay={0.24}>
+      <SectionAnimator client:visible delay={1.0}>
         <ServiceCard
           title="Fractional Exec Support"
           description="Senior AI go-to-market leadership without a full-time hire. Strategy, product direction, and execution for companies scaling AI."
@@ -72,3 +71,24 @@ import { SectionAnimator } from '../islands/SectionAnimator';
     </div>
   </div>
 </section>
+
+<style>
+  .offering-section {
+    padding: var(--section-py) 0;
+    background: var(--secondary);
+    position: relative;
+  }
+
+  /* Subtle top/bottom border to separate from adjacent white sections */
+  .offering-section::before,
+  .offering-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  }
+  .offering-section::before { top: 0; }
+  .offering-section::after { bottom: 0; }
+</style>

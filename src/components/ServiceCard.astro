@@ -11,8 +11,7 @@ const { title, description, href } = Astro.props;
 
 <a
   href={href}
-  class="service-card block bg-card border border-border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-  style={`border-radius: var(--card-radius); padding: var(--card-padding);`}
+  class="service-card flex flex-col focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
 >
   <div
     class="mb-6 relative flex items-center justify-center text-primary"
@@ -23,19 +22,63 @@ const { title, description, href } = Astro.props;
       <slot name="icon" />
     </div>
   </div>
-  <h3 class="font-serif text-card-foreground mb-3" style="font-size: var(--text-subhead); line-height: var(--lh-subhead); font-weight: 600; letter-spacing: -0.01em;">{title}</h3>
-  <p class="text-body text-muted-foreground mb-4">{description}</p>
-  <span class="text-body font-medium text-primary">Learn more &rarr;</span>
+  <h3 class="font-serif mb-3" style="font-size: var(--text-subhead); line-height: var(--lh-subhead); font-weight: 600; letter-spacing: -0.01em; color: var(--foreground);">{title}</h3>
+  <p class="text-body mb-5 flex-1" style="color: var(--secondary-foreground);">{description}</p>
+  <div class="mt-auto">
+    <span class="card-cta text-primary">Learn more</span>
+  </div>
 </a>
 
 <style>
   .service-card {
-    box-shadow: var(--card-shadow);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    height: 100%;
+    overflow: visible;
+    box-shadow: 0 1px 3px rgba(20,28,116,0.04), 0 4px 20px rgba(20,28,116,0.07);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease;
+    text-decoration: none;
   }
   .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--card-shadow-hover), inset 0 0 0 1px var(--accent);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 32px rgba(20,28,116,0.12), 0 2px 8px rgba(20,28,116,0.06), inset 0 0 0 1px var(--accent);
     border-color: var(--accent);
+  }
+
+  .card-cta {
+    display: inline-flex;
+    align-self: flex-start;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    position: relative;
+    padding: 0.25rem 0;
+    background: transparent;
+  }
+  /* Underline draw on card hover */
+  .card-cta::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .service-card:hover .card-cta::after {
+    width: 100%;
+  }
+
+
+  :global(.dark) .service-card {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 4px 20px rgba(0,0,0,0.2);
+  }
+  :global(.dark) .service-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.15), inset 0 0 0 1px var(--accent);
   }
 </style>
