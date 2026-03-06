@@ -1,11 +1,54 @@
 ---
 /**
- * Trust bar — sits at the bottom of each scroll-section,
- * just below the scroll indicator mouse icon.
- * Not a standalone page — an overlay element repeated on every section.
+ * Trust bar -- standalone section below the hero.
+ * Credential markers with dot separators, visible on all viewports.
  */
 ---
 
-<p class="hidden lg:block absolute bottom-2 left-1/2 -translate-x-1/2 text-caption text-muted-foreground text-center whitespace-nowrap opacity-50">
-  Guest lecturer, Lead with AI PRO &middot; 35 years across engineering, sales &amp; AI &middot; Trained executive cohorts through FlexOS &middot; 16 countries
-</p>
+<section class="c-trust">
+  <div class="c-trust-inner">
+    <span class="c-trust-item">Guest lecturer, Lead with AI PRO</span>
+    <span class="c-trust-dot"></span>
+    <span class="c-trust-item">35 years across engineering, sales &amp; AI</span>
+    <span class="c-trust-dot"></span>
+    <span class="c-trust-item">Trained executive cohorts through FlexOS</span>
+    <span class="c-trust-dot"></span>
+    <span class="c-trust-item">16 countries</span>
+  </div>
+</section>
+
+<style>
+  .c-trust {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--background);
+  }
+  .c-trust-inner {
+    max-width: var(--content-max, 1140px);
+    margin: 0 auto;
+    padding-left: var(--content-px, clamp(1.5rem, 4vw, 2.5rem));
+    padding-right: var(--content-px, clamp(1.5rem, 4vw, 2.5rem));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    color: var(--muted-foreground);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .c-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .c-trust-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+</style>
