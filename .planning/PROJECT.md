@@ -8,44 +8,71 @@ A marketing site for Gary Tate's AI consulting business, replacing a bloated Web
 
 Business leaders can quickly understand what Consultates offers and book a free call — the site removes friction between "I need help with AI" and "I'm talking to someone who can help."
 
+## Current Milestone: v2.0 Visual Redesign
+
+**Goal:** Apply the complete design system from marketing-design-guidelines.html across all pages — hero with background video, design system type scale, texture overlays, alternating layouts, authority cards, animated timeline, and section-specific CSS treatments that were designed but never built in v1.0.
+
+**Target features:**
+- Global CSS update: design system type scale, spacing vars, texture/ornament utilities, animation keyframes
+- Hero section: background video (monochrome), dark overlay, dot grid, radial glow, type scale up, pill CTA
+- Trust bar: standalone section below hero, visible on all devices, credential markers with dot separators
+- Negative stakes: three stats with text-stroke treatment, radial glow, pull quote
+- Offering section: design system cards with gradient icon containers, inset accent hover, serif titles
+- Use cases: alternating two-column layout, corner marks, mono labels, three use cases
+- How it works: animated timeline with GSAP, connecting line, sequential node fills
+- Social proof: photo placeholder, quote size up
+- Authority section: proper cards with stat callouts
+- Stakes CTA: radial glow, corner marks, accent-highlighted em
+- Transitional CTAs: three cards, section heading, serif titles
+- About page: asymmetric hero, editorial timeline, family business card
+- Service pages: individual layouts per service, structured outcomes, embedded testimonials
+- Contact page: card-style contact methods, styled form inputs
+- Blog: three-column index, improved post layout
+
 ## Requirements
 
-### Validated
+### Validated (v1.0)
 
 - ✓ Self-hosted IBM Plex fonts (Sans/Serif/Mono) — Phase 1
 - ✓ Astro 5 + React + Tailwind 4 foundation — Phase 1
+- ✓ StoryBrand homepage with 12 narrative sections — Phase 3
+- ✓ Three service pages (AI Coaching, AI Training, Fractional Exec) — Phase 5
+- ✓ About page with Gary's story and credentials — Phase 5
+- ✓ Blog with content collections (3 initial posts) — Phase 6
+- ✓ Contact page with form (client-side mock) — Phase 5
+- ✓ Privacy policy page — Phase 5
+- ✓ 404 page — Phase 5
+- ✓ Light/dark/system theme with toggle — Phase 2
+- ✓ Responsive design (desktop/tablet/mobile breakpoints) — Phase 7
+- ✓ GSAP ScrollTrigger scroll-snap sections (desktop) — Phase 4
+- ✓ Framer Motion component animations — Phase 4
+- ✓ Reduced motion support — Phase 4
+- ✓ Phosphor duotone icons — Phase 2
+- ✓ Nav with services mega menu + mobile hamburger — Phase 2
+- ✓ Footer (always dark) — Phase 2
+- ✓ TidyCal booking links (external) — Phase 3
+- ✓ GitHub Pages deployment with GitHub Actions — Phase 8
+- ✓ SEO meta tags, sitemap, structured data — Phase 7
+- ✓ GSAP crash guard + footer fixes — Phase 9
+- ✓ CountUpStat MutationObserver for GSAP sections — Phase 9
 
 ### Active
 
-- [ ] StoryBrand homepage with 12 narrative sections
-- [ ] Three service pages (AI Coaching, AI Training, Fractional Exec)
-- [ ] About page with Gary's story and credentials
-- [ ] Blog with content collections (3 initial posts)
-- [ ] Contact page with form (client-side Phase 1)
-- [ ] Privacy policy page
-- [ ] 404 page
-- [ ] Light/dark/system theme with toggle
-- [ ] Responsive design (desktop/tablet/mobile breakpoints)
-- [ ] GSAP ScrollTrigger scroll-snap sections (desktop)
-- [ ] Framer Motion component animations
-- [ ] Reduced motion support
-- [ ] Phosphor duotone icons
-- [ ] Nav with services mega menu + mobile hamburger
-- [ ] Footer (always dark)
-- [ ] TidyCal booking links (external)
-- [ ] GitHub Pages deployment with GitHub Actions
-- [ ] SEO meta tags, sitemap, structured data
+See REQUIREMENTS.md for v2.0 scoped requirements.
 
 ### Out of Scope
 
-- Google Apps Script form backend — Phase 2
-- Google Analytics — later phase
+- Google Apps Script form backend — future milestone
+- Google Analytics — future milestone
 - Chat widget — not planned
 - TidyCal embed — links only for now
-- Blog post images — text-only initial posts
-- Cookie consent banner — later phase
+- Cookie consent banner — future milestone
 - i18n / multilingual — not planned
 - OG image generation — use head mark as fallback
+- Copy/content rewrites — existing copy preserved as-is
+- StoryBrand narrative structure changes — section order unchanged
+- GSAP scroll-snap system changes — untouched
+- New dependencies — everything achievable with existing stack
 
 ## Context
 
@@ -82,4 +109,4 @@ Business leaders can quickly understand what Consultates offers and book a free 
 | @layer utilities for type scale | Multi-property utilities cannot go in @theme block | ✓ Applied — Phase 1 |
 
 ---
-*Last updated: 2026-03-05 after Phase 1 (Scaffold)*
+*Last updated: 2026-03-06 after v2.0 milestone start*

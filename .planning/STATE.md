@@ -1,73 +1,56 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: milestone
-status: completed
-stopped_at: Completed 09-02-PLAN.md
-last_updated: "2026-03-05T12:58:21.269Z"
-last_activity: 2026-03-05 — Plan 09-01 executed (GSAP crash guard + footer fixes)
+milestone: v2.0
+milestone_name: Visual Redesign
+status: defining_requirements
+stopped_at: Milestone v2.0 started
+last_updated: "2026-03-06"
+last_activity: 2026-03-06 — Milestone v2.0 started
 progress:
-  total_phases: 9
-  completed_phases: 9
-  total_plans: 20
-  completed_plans: 20
-  percent: 95
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-03-05)
+See: .planning/PROJECT.md (updated 2026-03-06)
 
 **Core value:** Business leaders can quickly understand what Consultates offers and book a free call — the site removes friction between "I need help with AI" and "I'm talking to someone who can help."
-**Current focus:** Phase 9 — Fix Site Audit Deficiencies (in progress)
+**Current focus:** v2.0 Visual Redesign — applying the design system across all pages
 
 ## Current Position
 
-Phase: 9 of 9 (Fix Site Audit Deficiencies) — in progress
-Plan: 1 of 2 in current phase (09-01 complete)
-Status: Plan 09-01 complete, Plan 09-02 remaining
-Last activity: 2026-03-05 — Plan 09-01 executed (GSAP crash guard + footer fixes)
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-03-06 — Milestone v2.0 started
 
-Progress: [█████████░] 19/20 plans (95%) — Overall: Phase 9/9 in progress
+Progress: [░░░░░░░░░░] 0/0 plans (0%)
 
 ## Performance Metrics
 
-**Velocity:**
-- Total plans completed: 3
-- Average duration: 3min
-- Total execution time: 0.15 hours
+**Velocity (v1.0):**
+- Total plans completed: 20
+- Phases completed: 9
 
-**By Phase:**
+**By Phase (v1.0):**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-scaffold | 2 | 8min | 4min |
 | 02-components | 3 | 3min | 1min |
-
-**Recent Trend:**
-- Last 5 plans: 01-01 (6min), 01-02 (2min), 02-01 (1min), 02-02 (1min), 02-03 (1min)
-- Trend: Accelerating
-
-*Updated after each plan completion*
-| Phase 02-components P02 | 1min | 2 tasks | 7 files |
-| Phase 02-components P03 | 1min | 2 tasks | 4 files |
-| Phase 03-homepage P02 | 1min | 2 tasks | 5 files |
-| Phase 03-homepage P01 | 2min | 3 tasks | 6 files |
-| Phase 03-homepage P03 | 1min | 2 tasks | 1 files |
-| Phase 04-animation P01 | 2min | 2 tasks | 5 files |
-| Phase 04-animation P02 | 3min | 2 tasks | 12 files |
-| Phase 04-animation P03 | 2min | 2 tasks | 4 files |
-| Phase 05-inner-pages P03 | 3min | 2 tasks | 2 files |
-| Phase 05-inner-pages P02 | 4min | 2 tasks | 2 files |
-| Phase 05-inner-pages P01 | 4min | 2 tasks | 4 files |
-| Phase 06-blog P01 | 1min | 2 tasks | 4 files |
-| Phase 06-blog P02 | 3min | 1 tasks | 5 files |
-| Phase 07-polish P01 | 1min | 2 tasks | 3 files |
-| Phase 08-deploy P01 | 1min | 2 tasks | 2 files |
-| Phase 09-fix-site-audit P01 | 2min | 2 tasks | 2 files |
-| Phase 09 P02 | 2min | 2 tasks | 4 files |
+| 03-homepage | 3 | 4min | 1.3min |
+| 04-animation | 3 | 7min | 2.3min |
+| 05-inner-pages | 3 | 11min | 3.7min |
+| 06-blog | 2 | 4min | 2min |
+| 07-polish | 1 | 1min | 1min |
+| 08-deploy | 1 | 1min | 1min |
+| 09-fix-audit | 2 | 4min | 2min |
 
 ## Accumulated Context
 
@@ -79,45 +62,17 @@ Recent decisions affecting current work:
 - PRD v2.0: Tailwind 4 CSS-first via `@theme` block — use `@tailwindcss/vite` NOT `@astrojs/tailwind`
 - PRD v2.0: GSAP and Framer Motion are fully decoupled — no cross-library communication
 - PRD v2.0: All copy comes from PRD.md — do not generate or modify marketing content
-- PRD v2.0: Client-side form mock in Phase 1 of site build; real backend wired in v2
-- 01-01: Manual Astro scaffold to avoid overwriting existing repo files
-- 01-01: Fonts extracted from fontsource npm packages (self-hosted WOFF2)
-- 01-02: Used @layer utilities for type scale (multi-property utilities cannot go in @theme)
-- 01-02: Preload only 2 critical fonts per PRD 2.2 (Sans Regular + Serif Bold)
-- 02-01: IconWrapper uses MutationObserver on documentElement class for theme-aware duotone opacity
-- 02-01: ThemeToggle dispatches custom 'theme-changed' event for downstream component sync
-- [Phase 02-02]: ServiceCard uses named slot for icon to allow any Phosphor SVG or React island
-- [Phase 02-02]: FormInput joins CSS classes dynamically for conditional error border styling
-- 02-03: Nav uses CSS group-hover for mega menu (zero JS desktop dropdown)
-- 02-03: Inline SVGs for Phosphor icons in Astro components (avoids hydration cost)
-- 02-03: Footer always renders dark logo since bg-footer-bg is dark in both themes
-- [Phase 03-homepage]: Stakes CTA uses raw anchor with scoped CSS instead of Button component for theme-independent always-dark section
-- [Phase 03-homepage]: UseCasesSection uses custom inline markup instead of TestimonialBlock (PRD requires context paragraph that TestimonialBlock does not support)
-- [Phase 03-homepage]: Hero background uses scoped style with :global(.dark) for theme-aware radial gradient
-- [Phase 03-homepage]: No wrapper div for homepage sections - each component handles own layout
-- 04-01: Hero CTA uses bg-primary/text-primary-foreground to match Button CTA variant in React island
-- 04-01: scroll-bob-dot utility class in global.css for React island access to scroll-bob keyframe
-- 04-02: SectionAnimator wraps container divs, not individual Astro sub-components (Astro components cannot be React children)
-- 04-02: Single fadeUp per section container instead of per-item stagger (server-rendered Astro children are not motion-aware)
-- [Phase 04-03]: sections.slice(1) to skip hero from GSAP zoom — hero has its own FM entrance
-- [Phase 04-03]: Wrapper div approach for scroll-section class avoids modifying 10 section files
-- [Phase 04-03]: data-scroll-indicator attribute on HeroIsland for GSAP cross-framework targeting
-- [Phase 05-inner-pages]: Privacy policy uses inline style for max-width/padding to match blog post layout pattern
-- [Phase 05-02]: Inner page sections use inline style for padding/container consistent with homepage pattern
-- [Phase 05-02]: TypeScript casting in contact form script for type-safe DOM queries
-- [Phase 05-01]: ServicePage layout uses set:html for whatYouGet/whoItsFor props to render HTML paragraphs from page files
-- [Phase 06-01]: Prose font overrides use existing CSS custom properties (--font-serif, --font-sans)
-- [Phase 06-01]: Blog index uses scoped style for responsive grid instead of inline media query
-- [Phase 06-02]: Strip .md extension from post.id for clean blog URLs (Astro 5 includes file extension in content collection ID)
-- [Phase 07-polish]: Used consultates-head.png as OG fallback image; Twitter card set to summary type
-- [Phase 09-01]: Nested if guard for GSAP sections (ESM modules prohibit top-level return)
-- [Phase 09-01]: About page "Most AI consultants..." quote rendering is false positive — already plain <p>
 - [Phase 09]: TrustBar becomes its own scroll-section instead of overlay repeated in every section
 - [Phase 09]: CountUpStat uses MutationObserver on data-active for GSAP, IntersectionObserver fallback for mobile
+- [v2.0]: Design system source of truth is marketing-design-guidelines.html
+- [v2.0]: Don't touch GSAP scroll-snap system, CountUpStat MutationObserver, or footer fixes
+- [v2.0]: No new dependencies — everything achievable with CSS, Tailwind utilities, and existing stack
+- [v2.0]: Copy/content stays as-is unless redesign plan explicitly says otherwise
 
 ### Roadmap Evolution
 
-- Phase 9 added: Fix site audit deficiencies (Playwright audit found 19 issues — 6 critical, 5 high, 5 medium, 3 low)
+- v1.0 completed: 9 phases, 20 plans (2026-03-05)
+- v2.0 started: Visual Redesign milestone (2026-03-06)
 
 ### Pending Todos
 
@@ -129,6 +84,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T12:58:21.264Z
-Stopped at: Completed 09-02-PLAN.md
+Last session: 2026-03-06
+Stopped at: Milestone v2.0 started — defining requirements
 Resume file: None
