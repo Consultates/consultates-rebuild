@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useReducedMotion } from '../../lib/animations';
 
 interface HeroIslandProps {
+  tagline?: string;
   headline: string;
   paragraph: string;
   ctaHref: string;
@@ -12,73 +13,108 @@ interface HeroIslandProps {
 const ease = [0.25, 0.1, 0.25, 1];
 
 /**
- * Hero animation orchestrator with letter stagger sequence.
+ * Parse headline string to support <em> tags without innerHTML.
+ * Returns array of { text, isEm } segments.
+ */
+function parseHeadline(raw: string): { text: string; isEm: boolean }[] {
+  const parts: { text: string; isEm: boolean }[] = [];
+  const regex = /<em>(.*?)<\/em>/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = regex.exec(raw)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push({ text: raw.slice(lastIndex, match.index), isEm: false });
+    }
+    parts.push({ text: match[1], isEm: true });
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < raw.length) {
+    parts.push({ text: raw.slice(lastIndex), isEm: false });
+  }
+
+  return parts;
+}
+
+/**
+ * Hero animation orchestrator with whole-element fade-up sequence.
  *
  * Sequence (normal motion):
  *   t=0ms      mount
- *   t=1200ms   letter stagger begins (30ms/char)
- *   t=~3090ms  paragraph fadeUp
- *   t=~3690ms  CTA scaleIn
- *   t=~4090ms  scroll indicator fade in
+ *   t=1000ms   animation begins
+ *   Tagline:   fadeUp delay 0.2s
+ *   Headline:  fadeUp delay 0.4s
+ *   Body:      fadeUp delay 0.8s
+ *   CTA:       scaleIn delay 1.2s
+ *   Scroll:    fadeIn delay 1.6s
  *
  * Reduced motion: all content visible immediately, no animation.
  */
 export default function HeroIsland({
+  tagline,
   headline,
   paragraph,
   ctaHref,
   ctaText,
 }: HeroIslandProps) {
   const reducedMotion = useReducedMotion();
-  const [animationPhase, setAnimationPhase] = useState<
-    'waiting' | 'staggering' | 'complete'
-  >(reducedMotion ? 'complete' : 'waiting');
+  const [ready, setReady] = useState(reducedMotion);
 
   useEffect(() => {
     if (reducedMotion) {
-      setAnimationPhase('complete');
+      setReady(true);
       return;
     }
 
     const timer = setTimeout(() => {
-      setAnimationPhase('staggering');
-    }, 1200);
+      setReady(true);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [reducedMotion]);
 
-  // Timing calculations
-  const charCount = headline.length;
-  const staggerDuration = charCount * 0.03; // 30ms per char in seconds
-  const headlineEndDelay = 1.2 + staggerDuration; // 1200ms initial + stagger
-  const paragraphDelay = headlineEndDelay + 0.2;
-  const ctaDelay = paragraphDelay + 0.6;
-  const scrollDelay = ctaDelay + 0.4;
+  const headlineParts = parseHeadline(headline);
+
+  const renderHeadline = () =>
+    headlineParts.map((part, i) =>
+      part.isEm ? (
+        <em key={i}>{part.text}</em>
+      ) : (
+        <span key={i}>{part.text}</span>
+      )
+    );
 
   if (reducedMotion) {
     return (
       <>
-        <div className="max-w-[800px]">
-          <h1 className="text-hero text-foreground">{headline}</h1>
-          <p className="text-body-lg text-muted-foreground mt-6">{paragraph}</p>
-          <div className="mt-8">
-            <a
-              href={ctaHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center font-sans font-semibold rounded-lg h-12 px-8 text-body-lg bg-primary text-primary-foreground hover:bg-primary-hover transition-all duration-150 hover:scale-[1.02]"
-            >
-              {ctaText}
-            </a>
-          </div>
+        {tagline && <p className="c-hero-tagline">{tagline}</p>}
+        <h1 className="c-hero-h1">{renderHeadline()}</h1>
+        <p className="c-hero-body">{paragraph}</p>
+        <div>
+          <a
+            href={ctaHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="c-hero-cta"
+          >
+            {ctaText}
+            <span className="arrow" aria-hidden="true">&rarr;</span>
+          </a>
         </div>
         <div
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
           aria-hidden="true"
           data-scroll-indicator
         >
-          <div className="w-[30px] h-[50px] border-2 border-foreground rounded-[15px] opacity-60 flex justify-center">
-            <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-1.5 scroll-bob-dot" />
+          <div
+            className="w-[30px] h-[50px] rounded-[15px] flex justify-center"
+            style={{ border: '2px solid rgba(255,255,255,0.6)' }}
+          >
+            <div
+              className="w-1.5 h-1.5 rounded-full mt-1.5 scroll-bob-dot"
+              style={{ background: 'rgba(255,255,255,0.6)' }}
+            />
           </div>
         </div>
       </>
@@ -87,78 +123,72 @@ export default function HeroIsland({
 
   return (
     <>
-      <div className="max-w-[800px]">
-        {/* Headline with letter stagger */}
-        <motion.h1
-          className="text-hero text-foreground"
-          initial="initial"
-          animate={animationPhase !== 'waiting' ? 'animate' : 'initial'}
-          variants={{
-            initial: {},
-            animate: {
-              transition: {
-                staggerChildren: 0.03,
-              },
-            },
-          }}
-        >
-          {headline.split('').map((char, i) => (
-            <motion.span
-              key={i}
-              variants={{
-                initial: { opacity: 0, y: 20 },
-                animate: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.4, ease },
-                },
-              }}
-              style={{ display: char === ' ' ? 'inline' : 'inline-block' }}
-            >
-              {char === ' ' ? '\u00A0' : char}
-            </motion.span>
-          ))}
-        </motion.h1>
-
-        {/* Paragraph fadeUp */}
+      {/* Tagline fadeUp */}
+      {tagline && (
         <motion.p
-          className="text-body-lg text-muted-foreground mt-6"
+          className="c-hero-tagline"
           initial={{ y: 24, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease, delay: paragraphDelay }}
+          animate={ready ? { y: 0, opacity: 1 } : { y: 24, opacity: 0 }}
+          transition={{ duration: 0.6, ease, delay: 0.2 }}
         >
-          {paragraph}
+          {tagline}
         </motion.p>
+      )}
 
-        {/* CTA scaleIn */}
-        <motion.div
-          className="mt-8"
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5, ease, delay: ctaDelay }}
+      {/* Headline fadeUp */}
+      <motion.h1
+        className="c-hero-h1"
+        initial={{ y: 24, opacity: 0 }}
+        animate={ready ? { y: 0, opacity: 1 } : { y: 24, opacity: 0 }}
+        transition={{ duration: 0.6, ease, delay: 0.4 }}
+      >
+        {renderHeadline()}
+      </motion.h1>
+
+      {/* Body fadeUp */}
+      <motion.p
+        className="c-hero-body"
+        initial={{ y: 24, opacity: 0 }}
+        animate={ready ? { y: 0, opacity: 1 } : { y: 24, opacity: 0 }}
+        transition={{ duration: 0.6, ease, delay: 0.8 }}
+      >
+        {paragraph}
+      </motion.p>
+
+      {/* CTA scaleIn */}
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={ready ? { scale: 1, opacity: 1 } : { scale: 0.95, opacity: 0 }}
+        transition={{ duration: 0.5, ease, delay: 1.2 }}
+      >
+        <a
+          href={ctaHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="c-hero-cta"
         >
-          <a
-            href={ctaHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center font-sans font-semibold rounded-lg h-12 px-8 text-body-lg bg-primary text-primary-foreground hover:bg-primary-hover transition-all duration-150 hover:scale-[1.02]"
-          >
-            {ctaText}
-          </a>
-        </motion.div>
-      </div>
+          {ctaText}
+          <span className="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </motion.div>
 
-      {/* Scroll indicator fade in */}
+      {/* Scroll indicator fadeIn */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         aria-hidden="true"
         data-scroll-indicator
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.6 }}
-        transition={{ duration: 0.5, ease, delay: scrollDelay }}
+        animate={ready ? { opacity: 0.6 } : { opacity: 0 }}
+        transition={{ duration: 0.5, ease, delay: 1.6 }}
       >
-        <div className="w-[30px] h-[50px] border-2 border-foreground rounded-[15px] flex justify-center">
-          <div className="w-1.5 h-1.5 rounded-full bg-foreground mt-1.5 scroll-bob-dot" />
+        <div
+          className="w-[30px] h-[50px] rounded-[15px] flex justify-center"
+          style={{ border: '2px solid rgba(255,255,255,0.6)' }}
+        >
+          <div
+            className="w-1.5 h-1.5 rounded-full mt-1.5 scroll-bob-dot"
+            style={{ background: 'rgba(255,255,255,0.6)' }}
+          />
         </div>
       </motion.div>
     </>
