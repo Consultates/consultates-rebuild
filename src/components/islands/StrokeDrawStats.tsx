@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
-import { useMotionValue, useTransform, animate } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import { useReducedMotion } from '../../lib/animations';
+
+const letterEase: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 
 interface StatData {
   value: string;
   label: string;
   source: string;
-  countUp?: { target: number; suffix: string };
 }
 
 const STATS: StatData[] = [
@@ -14,7 +15,6 @@ const STATS: StatData[] = [
     value: '84%',
     label: 'of the world hasn\'t used AI at all. Most leaders are still at zero.',
     source: 'DataReportal Digital 2026',
-    countUp: { target: 84, suffix: '%' },
   },
   {
     value: '5% to 40%',
@@ -31,17 +31,62 @@ const STATS: StatData[] = [
 const SECTION_TITLE = 'The ground is moving faster than most people realise';
 
 const PULL_QUOTE = {
-  text: 'I have never seen such a yawning inside-outside gap. People in SF are putting multi-agent Claude swarms in charge of their lives... People elsewhere are still trying to get approval to use co-pilot.',
+  text: 'I have never seen such a yawning inside-outside gap. People in SF are putting multi-agent Claude swarms in charge of their lives… People elsewhere are still trying to get approval to use co-pilot.',
   attribution: 'Kevin Roose, NYT Tech Columnist, Feb 2026',
 };
 
-const STAGGER_MS = 800;
-const DRAW_DURATION_MS = 1200;
+// Timing
+const TITLE_DELAY = 200;
+const STAT_STAGGER = 1200;
+const DRAW_DURATION = 1600;
+const FILL_PAUSE = 500;
+const QUOTE_PAUSE = 300;
+const LETTER_STAGGER = 0.018;
+const TYPEWRITER_SPEED = 25; // ms per character for stat labels
 
-/**
- * SVG stat number with stroke-draw animation.
- * Uses SVG <text> with stroke-dasharray/dashoffset to trace character outlines.
- */
+const QUOTE_STEP = STATS.length + 2;
+const SHARED_VIEWBOX_W = 620;
+const SHARED_VIEWBOX_H = 90;
+
+/** Split text into words, tracking character indices for stagger delays */
+function splitIntoWords(text: string) {
+  return text.split(' ').map((word) => word);
+}
+
+function TypewriterText({ text, active, reducedMotion, className, delay = 0 }: {
+  text: string;
+  active: boolean;
+  reducedMotion: boolean;
+  className?: string;
+  delay?: number;
+}) {
+  const [visibleCount, setVisibleCount] = useState(0);
+
+  useEffect(() => {
+    if (!active) { setVisibleCount(0); return; }
+    if (reducedMotion) { setVisibleCount(text.length); return; }
+
+    let i = 0;
+    const delayTimer = setTimeout(() => {
+      const interval = setInterval(() => {
+        i++;
+        setVisibleCount(i);
+        if (i >= text.length) clearInterval(interval);
+      }, TYPEWRITER_SPEED);
+      return () => clearInterval(interval);
+    }, delay);
+
+    return () => clearTimeout(delayTimer);
+  }, [active, reducedMotion, text, delay]);
+
+  return (
+    <p className={className}>
+      <span>{text.slice(0, visibleCount)}</span>
+      <span style={{ opacity: 0 }}>{text.slice(visibleCount)}</span>
+    </p>
+  );
+}
+
 function StrokeStat({
   stat,
   active,
@@ -53,93 +98,53 @@ function StrokeStat({
 }) {
   const textRef = useRef<SVGTextElement>(null);
   const [dashLength, setDashLength] = useState(0);
-  const [svgWidth, setSvgWidth] = useState(300);
 
-  // Count-up for the 84% stat
-  const motionValue = useMotionValue(0);
-  const rounded = useTransform(motionValue, (v) => Math.round(v));
-  const [countDisplay, setCountDisplay] = useState(
-    reducedMotion && stat.countUp ? stat.countUp.target : 0
-  );
-
-  // Measure text length for stroke-dasharray
   useEffect(() => {
     if (!textRef.current) return;
     const len = textRef.current.getComputedTextLength();
-    // Approximate stroke perimeter: text length * 3 gives enough dasharray for the outline
     setDashLength(len * 3);
-    // Set SVG width to fit text with a bit of padding
-    setSvgWidth(Math.ceil(len) + 20);
-  }, [stat.value, countDisplay]);
-
-  // Count-up animation for the 84% stat
-  useEffect(() => {
-    if (!stat.countUp || !active || reducedMotion) return;
-    const controls = animate(motionValue, stat.countUp.target, {
-      duration: DRAW_DURATION_MS / 1000,
-      ease: [0.25, 0.1, 0.25, 1],
-    });
-    return () => controls.stop();
-  }, [active, reducedMotion, motionValue, stat.countUp]);
-
-  // Subscribe to count-up value
-  useEffect(() => {
-    if (!stat.countUp) return;
-    if (reducedMotion) {
-      setCountDisplay(stat.countUp.target);
-      return;
-    }
-    const unsub = rounded.on('change', (v) => setCountDisplay(v));
-    return () => unsub();
-  }, [rounded, reducedMotion, stat.countUp]);
-
-  const displayValue = stat.countUp
-    ? `${countDisplay}${stat.countUp.suffix}`
-    : stat.value;
+  }, [stat.value]);
 
   const drawn = active || reducedMotion;
 
   return (
     <div className="flex flex-col items-center text-center">
       <svg
-        width={svgWidth}
-        height="80"
-        viewBox={`0 0 ${svgWidth} 80`}
+        viewBox={`0 0 ${SHARED_VIEWBOX_W} ${SHARED_VIEWBOX_H}`}
         aria-hidden="true"
-        className="overflow-visible mb-3"
-        style={{ maxWidth: '100%' }}
+        className="overflow-visible mb-2 w-full"
+        style={{ height: 'auto', maxHeight: '90px' }}
       >
         <text
           ref={textRef}
           x="50%"
-          y="60"
+          y="65"
           textAnchor="middle"
           className="text-stroke-stat"
           style={{
             strokeDasharray: dashLength || 1000,
             strokeDashoffset: drawn ? 0 : (dashLength || 1000),
+            fill: drawn ? 'var(--accent)' : 'transparent',
             transition: reducedMotion
               ? 'none'
-              : `stroke-dashoffset ${DRAW_DURATION_MS}ms cubic-bezier(0.25, 0.1, 0.25, 1)`,
+              : `stroke-dashoffset ${DRAW_DURATION}ms cubic-bezier(0.25, 0.1, 0.25, 1), fill ${DRAW_DURATION * 0.4}ms ease ${FILL_PAUSE}ms`,
           }}
         >
-          {displayValue}
+          {stat.value}
         </text>
       </svg>
-      <p
-        className="text-body text-foreground mt-1 max-w-[280px]"
-        style={{
-          opacity: drawn ? 1 : 0,
-          transition: reducedMotion ? 'none' : 'opacity 0.5s ease 0.3s',
-        }}
-      >
-        {stat.label}
-      </p>
+      <TypewriterText
+        text={stat.label}
+        active={active}
+        reducedMotion={reducedMotion}
+        className="text-body text-foreground mt-1 max-w-[260px]"
+        delay={FILL_PAUSE}
+      />
       <p
         className="text-cite text-muted-foreground mt-2"
         style={{
           opacity: drawn ? 1 : 0,
-          transition: reducedMotion ? 'none' : 'opacity 0.5s ease 0.5s',
+          transition: reducedMotion ? 'none' : `opacity 0.4s ease ${FILL_PAUSE + 300}ms`,
         }}
       >
         {stat.source}
@@ -148,163 +153,167 @@ function StrokeStat({
   );
 }
 
-/**
- * StrokeDrawStats — Three-column stat grid with SVG stroke-draw animation,
- * section title, and pull quote. The signature animation for the Negative Stakes section.
- */
+const quoteWords = splitIntoWords(`\u201C${PULL_QUOTE.text}\u201D`);
+
 export function StrokeDrawStats() {
   const reducedMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [triggered, setTriggered] = useState(false);
-  const [revealStep, setRevealStep] = useState(reducedMotion ? STATS.length + 2 : 0);
-  // Steps: 0=hidden, 1=title, 2=stat1, 3=stat2, 4=stat3, 5=quote
+  const [isActive, setIsActive] = useState(false);
+  const [revealStep, setRevealStep] = useState(0);
 
-  // Dual detection: MutationObserver for GSAP desktop + IntersectionObserver fallback
   useEffect(() => {
-    if (!containerRef.current || triggered) return;
+    if (!containerRef.current) return;
 
     const scrollSection = containerRef.current.closest('.scroll-section');
 
-    const onTrigger = () => {
-      setTriggered(true);
-    };
-
     if (scrollSection) {
-      if (scrollSection.hasAttribute('data-active')) {
-        onTrigger();
-        return;
-      }
+      const checkActive = () => scrollSection.hasAttribute('data-active');
+      if (checkActive()) setIsActive(true);
 
-      const mutObs = new MutationObserver((mutations) => {
-        for (const m of mutations) {
-          if (
-            m.type === 'attributes' &&
-            m.attributeName === 'data-active' &&
-            scrollSection.hasAttribute('data-active')
-          ) {
-            onTrigger();
-            mutObs.disconnect();
-            return;
-          }
-        }
+      const mutObs = new MutationObserver(() => {
+        const nowActive = checkActive();
+        setIsActive(nowActive);
+        if (!nowActive) setRevealStep(0);
       });
       mutObs.observe(scrollSection, { attributes: true, attributeFilter: ['data-active'] });
 
       const intObs = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) {
-            onTrigger();
-            intObs.disconnect();
-            mutObs.disconnect();
-          }
+          setIsActive(entry.isIntersecting);
+          if (!entry.isIntersecting) setRevealStep(0);
         },
-        { threshold: 0.2 },
+        { threshold: 0.15 },
       );
       intObs.observe(containerRef.current);
 
-      return () => {
-        mutObs.disconnect();
-        intObs.disconnect();
-      };
+      return () => { mutObs.disconnect(); intObs.disconnect(); };
     }
 
-    // No scroll-section — pure IntersectionObserver
+    const el = containerRef.current;
     const intObs = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          onTrigger();
-          intObs.disconnect();
-        }
+        setIsActive(entry.isIntersecting);
+        if (!entry.isIntersecting) setRevealStep(0);
       },
-      { threshold: 0.2 },
+      { threshold: 0.15 },
     );
-    intObs.observe(containerRef.current);
+    intObs.observe(el);
     return () => intObs.disconnect();
-  }, [triggered]);
+  }, []);
 
-  // Sequential reveal: title -> stat1 -> stat2 -> stat3 -> quote
   useEffect(() => {
-    if (!triggered || reducedMotion) return;
-
-    // Step 1: title (immediate)
-    setRevealStep(1);
+    if (!isActive) return;
+    if (reducedMotion) {
+      setRevealStep(QUOTE_STEP);
+      return;
+    }
 
     const timers: ReturnType<typeof setTimeout>[] = [];
-    // Steps 2-4: stats staggered
+    timers.push(setTimeout(() => setRevealStep(1), TITLE_DELAY));
     for (let i = 0; i < STATS.length; i++) {
       timers.push(
-        setTimeout(() => setRevealStep(i + 2), 400 + i * STAGGER_MS)
+        setTimeout(() => setRevealStep(i + 2), TITLE_DELAY + 500 + i * STAT_STAGGER)
       );
     }
-    // Step 5: quote after all stats
-    timers.push(
-      setTimeout(
-        () => setRevealStep(STATS.length + 2),
-        400 + STATS.length * STAGGER_MS + 400
-      )
-    );
+    // Quote starts sooner — right after last stat's stroke + fill
+    const quoteTime = TITLE_DELAY + 500 + (STATS.length - 1) * STAT_STAGGER + DRAW_DURATION + QUOTE_PAUSE;
+    timers.push(setTimeout(() => setRevealStep(QUOTE_STEP), quoteTime));
 
     return () => timers.forEach(clearTimeout);
-  }, [triggered, reducedMotion]);
+  }, [isActive, reducedMotion]);
 
   const titleVisible = revealStep >= 1;
-  const quoteVisible = revealStep >= STATS.length + 2;
+  const quoteVisible = revealStep >= QUOTE_STEP;
+
+  // Build character index for stagger delays across all words
+  let charIdx = 0;
 
   return (
     <div ref={containerRef}>
-      {/* Section Title */}
-      <h2
-        className="text-section text-foreground text-center mb-12"
-        style={{
-          opacity: titleVisible ? 1 : 0,
-          transform: titleVisible ? 'translateY(0)' : 'translateY(24px)',
-          transition: reducedMotion
-            ? 'none'
-            : 'opacity 0.6s cubic-bezier(0.25,0.1,0.25,1), transform 0.6s cubic-bezier(0.25,0.1,0.25,1)',
-        }}
-      >
-        {SECTION_TITLE}
-      </h2>
+      {/* === CREAM SECTION: Title + Stats === */}
+      <div style={{ background: 'var(--secondary)' }}>
+        <div
+          className="glow max-w-[1200px] mx-auto relative flex flex-col items-center"
+          style={{ padding: 'clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 6rem)' }}
+        >
+          <h2
+            className="text-section text-foreground text-center mb-10"
+            style={{
+              maxWidth: '620px',
+              opacity: titleVisible ? 1 : 0,
+              transform: titleVisible ? 'translateY(0)' : 'translateY(20px)',
+              transition: reducedMotion
+                ? 'none'
+                : 'opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out)',
+            }}
+          >
+            {SECTION_TITLE}
+          </h2>
 
-      {/* 3-column stat grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-        {STATS.map((stat, i) => (
-          <StrokeStat
-            key={stat.value}
-            stat={stat}
-            active={revealStep >= i + 2}
-            reducedMotion={reducedMotion}
-          />
-        ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 w-full">
+            {STATS.map((stat, i) => (
+              <StrokeStat
+                key={stat.value}
+                stat={stat}
+                active={revealStep >= i + 2}
+                reducedMotion={reducedMotion}
+              />
+            ))}
+          </div>
+        </div>
       </div>
 
-      {/* Pull Quote */}
-      <blockquote
-        className="mt-14 max-w-[720px] mx-auto text-center"
-        style={{
-          opacity: quoteVisible ? 1 : 0,
-          transform: quoteVisible ? 'translateY(0)' : 'translateY(16px)',
-          transition: reducedMotion
-            ? 'none'
-            : 'opacity 0.7s cubic-bezier(0.25,0.1,0.25,1), transform 0.7s cubic-bezier(0.25,0.1,0.25,1)',
-        }}
+      {/* === WHITE SECTION: The Finale — Quote word-by-word stagger === */}
+      <div
+        className="max-w-[780px] mx-auto text-center"
+        style={{ padding: 'clamp(3rem, 6vw, 6rem) clamp(1.5rem, 5vw, 4rem)' }}
       >
-        <p
-          className="text-muted-foreground italic"
-          style={{
-            fontFamily: 'var(--font-serif)',
-            fontSize: 'var(--text-body-lg)',
-            lineHeight: 'var(--lh-body-lg)',
-          }}
-        >
-          &ldquo;{PULL_QUOTE.text}&rdquo;
-        </p>
-        <cite
-          className="text-cite text-muted-foreground block mt-3 not-italic"
-        >
-          &mdash; {PULL_QUOTE.attribution}
-        </cite>
-      </blockquote>
+        <blockquote>
+          <p
+            className="text-foreground italic"
+            style={{
+              fontFamily: 'var(--font-serif)',
+              fontSize: 'var(--text-section)',
+              lineHeight: '1.45',
+              letterSpacing: 'var(--ls-section)',
+            }}
+          >
+            {quoteWords.map((word, wi) => {
+              const startIdx = charIdx;
+              charIdx += word.length + 1; // +1 for space
+              return (
+                <span key={wi}>
+                  <motion.span
+                    style={{ display: 'inline-block', whiteSpace: 'nowrap' }}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={quoteVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+                    transition={{
+                      duration: 0.3,
+                      ease: letterEase,
+                      delay: quoteVisible ? 0.05 + startIdx * LETTER_STAGGER : 0,
+                    }}
+                  >
+                    {word}
+                  </motion.span>
+                  {wi < quoteWords.length - 1 ? ' ' : null}
+                </span>
+              );
+            })}
+          </p>
+          <motion.cite
+            className="text-cite text-muted-foreground block mt-4 not-italic"
+            style={{ fontSize: '0.8125rem' }}
+            initial={{ opacity: 0 }}
+            animate={quoteVisible ? { opacity: 1 } : { opacity: 0 }}
+            transition={{
+              duration: 0.5,
+              delay: quoteVisible ? charIdx * LETTER_STAGGER + 0.3 : 0,
+            }}
+          >
+            &mdash; {PULL_QUOTE.attribution}
+          </motion.cite>
+        </blockquote>
+      </div>
     </div>
   );
 }

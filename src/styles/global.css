@@ -334,7 +334,9 @@ body.nav-open {
   font-weight: 700;
   fill: transparent;
   stroke: var(--stakes-accent);
-  stroke-width: 2px;
+  stroke-width: 2.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
 
 /* --------------------------------------------------------
