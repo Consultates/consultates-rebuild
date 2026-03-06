@@ -3,7 +3,7 @@
 **Defined:** 2026-03-05
 **Core Value:** Business leaders can quickly understand what Consultates offers and book a free call
 
-## v1 Requirements
+## v1.0 Requirements (Complete)
 
 ### Foundation
 
@@ -16,7 +16,7 @@
 ### Navigation
 
 - [x] **NAV-01**: Fixed nav bar with logo, center links, and CTA button
-- [x] **NAV-02**: Services mega menu dropdown with icons and descriptions (hover on desktop, tap on mobile)
+- [x] **NAV-02**: Services mega menu dropdown with icons and descriptions
 - [x] **NAV-03**: Mobile hamburger menu with full-screen overlay
 - [x] **NAV-04**: Active page indicator on current nav link
 - [x] **NAV-05**: Nav background with backdrop blur and semi-transparent background
@@ -33,7 +33,7 @@
 - [x] **HOME-02**: Trust bar with credentials separated by middle dots
 - [x] **HOME-03**: Negative stakes section with 84% count-up stat and 12-18 months static stat
 - [x] **HOME-04**: Offering section with 3 service cards linking to service pages
-- [x] **HOME-05**: Use cases section with 2 testimonial blocks (context + quote + attribution)
+- [x] **HOME-05**: Use cases section with 2 testimonial blocks
 - [x] **HOME-06**: How it works section with 3 numbered steps and CTA
 - [x] **HOME-07**: Social proof section with full testimonial quote on secondary background
 - [x] **HOME-08**: Why Consultates section with 3 authority columns
@@ -43,82 +43,157 @@
 ### Animation
 
 - [x] **ANIM-01**: GSAP ScrollTrigger scroll-snap with zoom transitions on desktop (≥1024px)
-- [x] **ANIM-02**: GSAP disabled on tablet/mobile — sections at natural height
-- [x] **ANIM-03**: Framer Motion fadeUp/scaleIn/staggerContainer variants for component entrances
-- [x] **ANIM-04**: Hero letter stagger sequence (1200ms hold → stagger → fadeUp → scaleIn → indicator)
-- [x] **ANIM-05**: Count-up animation from 0 to 84 on viewport entry
-- [x] **ANIM-06**: CTA pulse animation on Stakes CTA section
-- [x] **ANIM-07**: Scroll indicator with bob animation, fades on scroll
-- [x] **ANIM-08**: Reduced motion support — all animations disabled, content visible immediately
+- [x] **ANIM-02**: GSAP disabled on tablet/mobile
+- [x] **ANIM-03**: Framer Motion fadeUp/scaleIn/staggerContainer variants
+- [x] **ANIM-04**: Hero letter stagger sequence
+- [x] **ANIM-05**: Count-up animation from 0 to 84
+- [x] **ANIM-06**: CTA pulse animation
+- [x] **ANIM-07**: Scroll indicator with bob animation
+- [x] **ANIM-08**: Reduced motion support
 
-### Service Pages
+### Inner Pages
 
-- [x] **SERV-01**: AI Coaching for Leaders page with hero, what you get, who it's for, how it works, CTA
-- [x] **SERV-02**: AI Training for Teams page with hero, what you get, who it's for, how it works, CTA
-- [x] **SERV-03**: Fractional Exec Support page with hero, what you get, who it's for, how it works, CTA
+- [x] **SERV-01**: AI Coaching for Leaders page
+- [x] **SERV-02**: AI Training for Teams page
+- [x] **SERV-03**: Fractional Exec Support page
+- [x] **ABOUT-01**: About page with photo, story, family business, Lead with AI PRO, CTA
+- [x] **CONT-01**: Contact page with info + form columns
+- [x] **CONT-02**: Form with name, email, company, message fields
+- [x] **CONT-03**: Client-side form mock with success message
+- [x] **LEGAL-01**: Privacy policy page
+- [x] **ERR-01**: 404 page
+
+### Components, Footer, SEO, Deploy, Assets
+
+- [x] **COMP-01** through **COMP-09**: All shared UI components
+- [x] **FOOT-01**, **FOOT-02**: Always-dark footer
+- [x] **SEO-01** through **SEO-04**: Meta tags, sitemap, canonical, robots
+- [x] **DEPLOY-01** through **DEPLOY-03**: GitHub Actions, GitHub Pages, favicon
+- [x] **ASSET-01** through **ASSET-04**: Logos, photo, favicon, fonts
+
+### Audit Fixes
+
+- [x] **AUDIT-01**: GSAP crash guard for inner pages
+- [x] **AUDIT-02**: Footer content matches PRD
+- [x] **AUDIT-03**: TrustBar as standalone scroll-section
+- [x] **AUDIT-04**: CountUpStat MutationObserver for GSAP sections
+
+## v2.0 Requirements (Visual Redesign)
+
+### Global Foundation
+
+- [ ] **RDES-01**: Design system type scale applied — hero `clamp(2.75rem, 5.5vw, 4rem)`, stats `clamp(3.5rem, 7vw, 5.5rem)`, subheadings in serif
+- [ ] **RDES-02**: Design system spacing variables added — `--section-py`, `--section-gap`, `--card-padding`, `--card-radius`, `--btn-radius`, `--content-max`, `--content-px`
+- [ ] **RDES-03**: Texture/ornament utility classes added — `.bg-dots`, `.glow`, `.corner-marks`
+- [ ] **RDES-04**: Animation keyframes added — `fadeInUp`, `scaleIn`, `slideInLeft`, `slideInRight`, `drawLine`
+- [ ] **RDES-05**: Design system color tokens added — `--hero-bg`, `--hero-fg`, `--hero-muted`, `--stakes-bg`, `--stakes-fg`, `--stakes-accent`, `--dot-color`, `--glow-color`, `--corner-color`
+
+### Hero
+
+- [ ] **RDES-06**: Background video plays (autoplay, muted, loop, monochrome via `filter: grayscale(1)`) with dark overlay
+- [ ] **RDES-07**: Dot grid overlay and radial purple glow behind headline
+- [ ] **RDES-08**: Hero type scale to design system sizes, white text on dark, `<em>` in accent purple
+- [ ] **RDES-09**: CTA button pill-shaped with accent purple and arrow shift on hover
+- [ ] **RDES-10**: Body text uses `--hero-muted`, max-width 580px
+- [ ] **RDES-11**: Poster image fallback on mobile (video hidden below 768px)
+- [ ] **RDES-12**: Hero delay reduced from 1200ms to 1000ms
+
+### Trust Bar
+
+- [ ] **RDES-13**: Trust bar as standalone section below hero (not overlay)
+- [ ] **RDES-14**: Visible on all devices including mobile
+- [ ] **RDES-15**: Credential markers with dot separators in flex row, wrapping on mobile
+- [ ] **RDES-16**: Typography: 13px, 500 weight, `--fg-muted`, 0.01em letter-spacing
+
+### Negative Stakes
+
+- [ ] **RDES-17**: Three stats in three-column grid
+- [ ] **RDES-18**: Text-stroke treatment on stat numbers at full designed size
+- [ ] **RDES-19**: Radial glow centered on section
+- [ ] **RDES-20**: Pull quote below stats
+
+### Offering
+
+- [ ] **RDES-21**: Cards per design system: 16px radius, gradient icon containers, inset accent hover
+- [ ] **RDES-22**: Card titles in serif
+- [ ] **RDES-23**: Staggered card reveal (0s, 0.12s, 0.24s)
+- [ ] **RDES-24**: Card gap 1.25rem
+
+### Use Cases
+
+- [ ] **RDES-25**: Alternating two-column layout with three use cases
+- [ ] **RDES-26**: Mono uppercase labels
+- [ ] **RDES-27**: Image placeholders with corner marks
+- [ ] **RDES-28**: Slide-in entrance animations
+
+### How It Works
+
+- [ ] **RDES-29**: Animated timeline with GSAP — connecting line draws on scroll
+- [ ] **RDES-30**: Step nodes fill sequentially (48px circles, pulse animation)
+- [ ] **RDES-31**: Content reveals per node
+- [ ] **RDES-32**: Horizontal desktop, vertical mobile
+- [ ] **RDES-33**: Reduced motion fallback
+
+### Social Proof
+
+- [ ] **RDES-34**: Photo placeholder circle (72x72px) with initials
+- [ ] **RDES-35**: Quote size up to `clamp(1.125rem, 2vw, 1.375rem)`
+
+### Authority
+
+- [ ] **RDES-36**: Authority cards with border, radius, padding, hover accent
+- [ ] **RDES-37**: Stat callouts in serif purple
+- [ ] **RDES-38**: Staggered card reveal
+
+### Stakes CTA
+
+- [ ] **RDES-39**: Radial purple glow
+- [ ] **RDES-40**: Accent-highlighted `<em>`
+- [ ] **RDES-41**: Corner marks on section
+- [ ] **RDES-42**: Pill button matching hero CTA
+
+### Transitional CTAs
+
+- [ ] **RDES-43**: Three cards filling the row
+- [ ] **RDES-44**: Section heading: "Not ready to book? Start here."
+- [ ] **RDES-45**: Card titles in serif, hover accent border
 
 ### About Page
 
-- [x] **ABOUT-01**: About page with photo, hero headline, the story, family business, Lead with AI PRO, CTA
+- [ ] **RDES-46**: Asymmetric two-column hero
+- [ ] **RDES-47**: Editorial timeline layout
+- [ ] **RDES-48**: Family business warm-background card
+- [ ] **RDES-49**: Lead with AI PRO card/banner
+- [ ] **RDES-50**: Dark CTA section
+
+### Service Pages
+
+- [ ] **RDES-51**: Individual layout per service page
+- [ ] **RDES-52**: Structured "what you get" as outcomes grid/list
+- [ ] **RDES-53**: Scenario-based "who it's for"
+- [ ] **RDES-54**: Embedded testimonial per service page
+- [ ] **RDES-55**: How it works with connecting line
+- [ ] **RDES-56**: Dark CTA section per service page
+
+### Contact Page
+
+- [ ] **RDES-57**: Contact methods as card-style items
+- [ ] **RDES-58**: TidyCal booking gets pill button CTA
+- [ ] **RDES-59**: Form inputs per design system
 
 ### Blog
 
-- [x] **BLOG-01**: Content collections configured with title, date, author, excerpt, draft schema
-- [x] **BLOG-02**: Blog index page with card grid (2 columns desktop, 1 mobile)
-- [x] **BLOG-03**: Blog post layout with prose styling, date, reading time
-- [x] **BLOG-04**: 3 initial posts migrated from project content directory
+- [ ] **RDES-60**: Three-column card grid
+- [ ] **RDES-61**: Cards per design system (16px radius, hover accent)
+- [ ] **RDES-62**: Card titles in serif
+- [ ] **RDES-63**: Blog post layout with wider column, mono date, serif title
 
-### Contact
-
-- [x] **CONT-01**: Contact page with left info column and right form column
-- [x] **CONT-02**: Form with name, email, company, message fields and honeypot
-- [x] **CONT-03**: Client-side form mock (Phase 1) — fake send with success message
-
-### Legal & Error
-
-- [x] **LEGAL-01**: Privacy policy page with full content from PRD
-- [x] **ERR-01**: 404 page with heading, message, and back-to-home button
-
-### Footer
-
-- [x] **FOOT-01**: Always-dark footer with 3-column grid (logo, quick links, contact)
-- [x] **FOOT-02**: Footer bottom bar with location, quote, and copyright
-
-### Components
-
-- [x] **COMP-01**: Button component with primary, secondary, ghost, CTA variants and all states
-- [x] **COMP-02**: Service card component with icon, title, description, link, hover lift
-- [x] **COMP-03**: Testimonial block component with decorative quote mark, border-left
-- [x] **COMP-04**: Stat block component with number, label, source
-- [x] **COMP-05**: Step card component with numbered circle, heading, description
-- [x] **COMP-06**: Blog card component with title, date, excerpt, CTA, hover lift
-- [x] **COMP-07**: Form input component with label, error state, focus ring
-- [x] **COMP-08**: Icon wrapper component for Phosphor duotone with theme-aware opacity
-- [x] **COMP-09**: Scroll indicator component with mouse outline and bob animation
-
-### SEO & Deploy
-
-- [x] **SEO-01**: Per-page meta tags (title, description) matching PRD route table
-- [x] **SEO-02**: Sitemap auto-generated via @astrojs/sitemap
-- [x] **SEO-03**: Canonical URLs on every page
-- [x] **SEO-04**: robots.txt allowing all crawlers
-- [x] **DEPLOY-01**: GitHub Actions CI/CD workflow (checkout → Node 22 + pnpm 9 → install → build → deploy)
-- [x] **DEPLOY-02**: GitHub Pages config with CNAME for consultates.com
-- [x] **DEPLOY-03**: Favicon from Consultates head mark
-
-### Assets
-
-- [x] **ASSET-01**: Logo files copied (light + dark horizontal variants)
-- [x] **ASSET-02**: Gary photo converted to 400×400 WEBP
-- [x] **ASSET-03**: Favicon copied from Consultates Icons
-- [x] **ASSET-04**: Font files (IBM Plex Sans/Serif/Mono) in public/fonts/
-
-## v2 Requirements
+## Future Requirements
 
 ### Integrations
 
 - **INT-01**: Google Apps Script form backend (email + Google Sheet)
-- **INT-02**: Google Analytics GA4 tag (G-K8K16L2VET)
+- **INT-02**: Google Analytics GA4 tag
 - **INT-03**: TidyCal embed on contact page
 - **INT-04**: Cookie consent banner
 
@@ -132,87 +207,88 @@
 | Feature | Reason |
 |---------|--------|
 | Chat widget | Not aligned with high-touch consulting model |
-| i18n / multilingual | English-only audience for now |
+| i18n / multilingual | English-only audience |
 | E-commerce / payments | No products sold online |
 | User accounts / auth | No user-facing login needed |
 | CMS / admin panel | Markdown + git is sufficient |
+| Copy/content rewrites | v2.0 preserves existing copy |
+| StoryBrand structure changes | Section order unchanged in v2.0 |
+| GSAP scroll-snap modifications | Explicitly excluded from redesign |
+| New dependencies | Everything achievable with existing stack |
 
 ## Traceability
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01 | Phase 1 | Complete |
-| FOUND-02 | Phase 1 | Complete |
-| FOUND-03 | Phase 1 | Complete |
-| FOUND-04 | Phase 1 | Complete |
-| FOUND-05 | Phase 1 | Complete |
-| NAV-01 | Phase 2 | Complete |
-| NAV-02 | Phase 2 | Complete |
-| NAV-03 | Phase 2 | Complete |
-| NAV-04 | Phase 2 | Complete |
-| NAV-05 | Phase 2 | Complete |
-| THEME-01 | Phase 2 | Complete |
-| THEME-02 | Phase 2 | Complete |
-| THEME-03 | Phase 2 | Complete |
-| HOME-01 | Phase 3 | Complete |
-| HOME-02 | Phase 3 | Complete |
-| HOME-03 | Phase 3 | Complete |
-| HOME-04 | Phase 3 | Complete |
-| HOME-05 | Phase 3 | Complete |
-| HOME-06 | Phase 3 | Complete |
-| HOME-07 | Phase 3 | Complete |
-| HOME-08 | Phase 3 | Complete |
-| HOME-09 | Phase 3 | Complete |
-| HOME-10 | Phase 3 | Complete |
-| ANIM-01 | Phase 4 | Complete |
-| ANIM-02 | Phase 4 | Complete |
-| ANIM-03 | Phase 4 | Complete |
-| ANIM-04 | Phase 4 | Complete |
-| ANIM-05 | Phase 4 | Complete |
-| ANIM-06 | Phase 4 | Complete |
-| ANIM-07 | Phase 4 | Complete |
-| ANIM-08 | Phase 4 | Complete |
-| SERV-01 | Phase 5 | Complete |
-| SERV-02 | Phase 5 | Complete |
-| SERV-03 | Phase 5 | Complete |
-| ABOUT-01 | Phase 5 | Complete |
-| BLOG-01 | Phase 6 | Complete |
-| BLOG-02 | Phase 6 | Complete |
-| BLOG-03 | Phase 6 | Complete |
-| BLOG-04 | Phase 6 | Complete |
-| CONT-01 | Phase 5 | Complete |
-| CONT-02 | Phase 5 | Complete |
-| CONT-03 | Phase 5 | Complete |
-| LEGAL-01 | Phase 5 | Complete |
-| ERR-01 | Phase 5 | Complete |
-| FOOT-01 | Phase 2 | Complete |
-| FOOT-02 | Phase 2 | Complete |
-| COMP-01 | Phase 2 | Complete |
-| COMP-02 | Phase 2 | Complete |
-| COMP-03 | Phase 2 | Complete |
-| COMP-04 | Phase 2 | Complete |
-| COMP-05 | Phase 2 | Complete |
-| COMP-06 | Phase 2 | Complete |
-| COMP-07 | Phase 2 | Complete |
-| COMP-08 | Phase 2 | Complete |
-| COMP-09 | Phase 2 | Complete |
-| SEO-01 | Phase 7 | Complete |
-| SEO-02 | Phase 7 | Complete |
-| SEO-03 | Phase 7 | Complete |
-| SEO-04 | Phase 7 | Complete |
-| DEPLOY-01 | Phase 8 | Complete |
-| DEPLOY-02 | Phase 8 | Complete |
-| DEPLOY-03 | Phase 7 | Complete |
-| ASSET-01 | Phase 1 | Complete |
-| ASSET-02 | Phase 1 | Complete |
-| ASSET-03 | Phase 1 | Complete |
-| ASSET-04 | Phase 1 | Complete |
+| RDES-01 | Phase 10 | Pending |
+| RDES-02 | Phase 10 | Pending |
+| RDES-03 | Phase 10 | Pending |
+| RDES-04 | Phase 10 | Pending |
+| RDES-05 | Phase 10 | Pending |
+| RDES-06 | Phase 10 | Pending |
+| RDES-07 | Phase 10 | Pending |
+| RDES-08 | Phase 10 | Pending |
+| RDES-09 | Phase 10 | Pending |
+| RDES-10 | Phase 10 | Pending |
+| RDES-11 | Phase 10 | Pending |
+| RDES-12 | Phase 10 | Pending |
+| RDES-13 | Phase 10 | Pending |
+| RDES-14 | Phase 10 | Pending |
+| RDES-15 | Phase 10 | Pending |
+| RDES-16 | Phase 10 | Pending |
+| RDES-17 | Phase 11 | Pending |
+| RDES-18 | Phase 11 | Pending |
+| RDES-19 | Phase 11 | Pending |
+| RDES-20 | Phase 11 | Pending |
+| RDES-21 | Phase 11 | Pending |
+| RDES-22 | Phase 11 | Pending |
+| RDES-23 | Phase 11 | Pending |
+| RDES-24 | Phase 11 | Pending |
+| RDES-25 | Phase 12 | Pending |
+| RDES-26 | Phase 12 | Pending |
+| RDES-27 | Phase 12 | Pending |
+| RDES-28 | Phase 12 | Pending |
+| RDES-29 | Phase 12 | Pending |
+| RDES-30 | Phase 12 | Pending |
+| RDES-31 | Phase 12 | Pending |
+| RDES-32 | Phase 12 | Pending |
+| RDES-33 | Phase 12 | Pending |
+| RDES-34 | Phase 13 | Pending |
+| RDES-35 | Phase 13 | Pending |
+| RDES-36 | Phase 13 | Pending |
+| RDES-37 | Phase 13 | Pending |
+| RDES-38 | Phase 13 | Pending |
+| RDES-39 | Phase 13 | Pending |
+| RDES-40 | Phase 13 | Pending |
+| RDES-41 | Phase 13 | Pending |
+| RDES-42 | Phase 13 | Pending |
+| RDES-43 | Phase 13 | Pending |
+| RDES-44 | Phase 13 | Pending |
+| RDES-45 | Phase 13 | Pending |
+| RDES-46 | Phase 14 | Pending |
+| RDES-47 | Phase 14 | Pending |
+| RDES-48 | Phase 14 | Pending |
+| RDES-49 | Phase 14 | Pending |
+| RDES-50 | Phase 14 | Pending |
+| RDES-51 | Phase 15 | Pending |
+| RDES-52 | Phase 15 | Pending |
+| RDES-53 | Phase 15 | Pending |
+| RDES-54 | Phase 15 | Pending |
+| RDES-55 | Phase 15 | Pending |
+| RDES-56 | Phase 15 | Pending |
+| RDES-57 | Phase 16 | Pending |
+| RDES-58 | Phase 16 | Pending |
+| RDES-59 | Phase 16 | Pending |
+| RDES-60 | Phase 17 | Pending |
+| RDES-61 | Phase 17 | Pending |
+| RDES-62 | Phase 17 | Pending |
+| RDES-63 | Phase 17 | Pending |
 
 **Coverage:**
-- v1 requirements: 58 total
-- Mapped to phases: 58
+- v2.0 requirements: 63 total
+- Mapped to phases: 63
 - Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-03-05*
-*Last updated: 2026-03-05 after initialization*
+*Last updated: 2026-03-06 after v2.0 requirements added*
