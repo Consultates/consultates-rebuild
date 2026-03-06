@@ -82,11 +82,11 @@
 
 ### Global Foundation
 
-- [ ] **RDES-01**: Design system type scale applied — hero `clamp(2.75rem, 5.5vw, 4rem)`, stats `clamp(3.5rem, 7vw, 5.5rem)`, subheadings in serif
-- [ ] **RDES-02**: Design system spacing variables added — `--section-py`, `--section-gap`, `--card-padding`, `--card-radius`, `--btn-radius`, `--content-max`, `--content-px`
-- [ ] **RDES-03**: Texture/ornament utility classes added — `.bg-dots`, `.glow`, `.corner-marks`
-- [ ] **RDES-04**: Animation keyframes added — `fadeInUp`, `scaleIn`, `slideInLeft`, `slideInRight`, `drawLine`
-- [ ] **RDES-05**: Design system color tokens added — `--hero-bg`, `--hero-fg`, `--hero-muted`, `--stakes-bg`, `--stakes-fg`, `--stakes-accent`, `--dot-color`, `--glow-color`, `--corner-color`
+- [x] **RDES-01**: Design system type scale applied — hero `clamp(2.75rem, 5.5vw, 4rem)`, stats `clamp(3.5rem, 7vw, 5.5rem)`, subheadings in serif
+- [x] **RDES-02**: Design system spacing variables added — `--section-py`, `--section-gap`, `--card-padding`, `--card-radius`, `--btn-radius`, `--content-max`, `--content-px`
+- [x] **RDES-03**: Texture/ornament utility classes added — `.bg-dots`, `.glow`, `.corner-marks`
+- [x] **RDES-04**: Animation keyframes added — `fadeInUp`, `scaleIn`, `slideInLeft`, `slideInRight`, `drawLine`
+- [x] **RDES-05**: Design system color tokens added — `--hero-bg`, `--hero-fg`, `--hero-muted`, `--stakes-bg`, `--stakes-fg`, `--stakes-accent`, `--dot-color`, `--glow-color`, `--corner-color`
 
 ### Hero
 
@@ -100,10 +100,10 @@
 
 ### Trust Bar
 
-- [ ] **RDES-13**: Trust bar as standalone section below hero (not overlay)
-- [ ] **RDES-14**: Visible on all devices including mobile
-- [ ] **RDES-15**: Credential markers with dot separators in flex row, wrapping on mobile
-- [ ] **RDES-16**: Typography: 13px, 500 weight, `--fg-muted`, 0.01em letter-spacing
+- [x] **RDES-13**: Trust bar as standalone section below hero (not overlay)
+- [x] **RDES-14**: Visible on all devices including mobile
+- [x] **RDES-15**: Credential markers with dot separators in flex row, wrapping on mobile
+- [x] **RDES-16**: Typography: 13px, 500 weight, `--fg-muted`, 0.01em letter-spacing
 
 ### Negative Stakes
 
@@ -220,11 +220,11 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| RDES-01 | Phase 10 | Pending |
-| RDES-02 | Phase 10 | Pending |
-| RDES-03 | Phase 10 | Pending |
-| RDES-04 | Phase 10 | Pending |
-| RDES-05 | Phase 10 | Pending |
+| RDES-01 | Phase 10 | Complete |
+| RDES-02 | Phase 10 | Complete |
+| RDES-03 | Phase 10 | Complete |
+| RDES-04 | Phase 10 | Complete |
+| RDES-05 | Phase 10 | Complete |
 | RDES-06 | Phase 10 | Pending |
 | RDES-07 | Phase 10 | Pending |
 | RDES-08 | Phase 10 | Pending |
@@ -232,10 +232,10 @@
 | RDES-10 | Phase 10 | Pending |
 | RDES-11 | Phase 10 | Pending |
 | RDES-12 | Phase 10 | Pending |
-| RDES-13 | Phase 10 | Pending |
-| RDES-14 | Phase 10 | Pending |
-| RDES-15 | Phase 10 | Pending |
-| RDES-16 | Phase 10 | Pending |
+| RDES-13 | Phase 10 | Complete |
+| RDES-14 | Phase 10 | Complete |
+| RDES-15 | Phase 10 | Complete |
+| RDES-16 | Phase 10 | Complete |
 | RDES-17 | Phase 11 | Pending |
 | RDES-18 | Phase 11 | Pending |
 | RDES-19 | Phase 11 | Pending |
