@@ -160,11 +160,11 @@
 
 ### About Page
 
-- [ ] **RDES-46**: Asymmetric two-column hero
-- [ ] **RDES-47**: Editorial timeline layout
-- [ ] **RDES-48**: Family business warm-background card
-- [ ] **RDES-49**: Lead with AI PRO card/banner
-- [ ] **RDES-50**: Dark CTA section
+- [x] **RDES-46**: Asymmetric two-column hero
+- [x] **RDES-47**: Editorial timeline layout
+- [x] **RDES-48**: Family business warm-background card
+- [x] **RDES-49**: Lead with AI PRO card/banner
+- [x] **RDES-50**: Dark CTA section
 
 ### Service Pages
 
@@ -265,11 +265,11 @@
 | RDES-43 | Phase 13 | Complete |
 | RDES-44 | Phase 13 | Complete |
 | RDES-45 | Phase 13 | Complete |
-| RDES-46 | Phase 14 | Pending |
-| RDES-47 | Phase 14 | Pending |
-| RDES-48 | Phase 14 | Pending |
-| RDES-49 | Phase 14 | Pending |
-| RDES-50 | Phase 14 | Pending |
+| RDES-46 | Phase 14 | Complete |
+| RDES-47 | Phase 14 | Complete |
+| RDES-48 | Phase 14 | Complete |
+| RDES-49 | Phase 14 | Complete |
+| RDES-50 | Phase 14 | Complete |
 | RDES-51 | Phase 15 | Pending |
 | RDES-52 | Phase 15 | Pending |
 | RDES-53 | Phase 15 | Pending |
