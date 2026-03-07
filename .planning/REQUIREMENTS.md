@@ -147,16 +147,16 @@
 
 ### Stakes CTA
 
-- [ ] **RDES-39**: Radial purple glow
-- [ ] **RDES-40**: Accent-highlighted `<em>`
-- [ ] **RDES-41**: Corner marks on section
-- [ ] **RDES-42**: Pill button matching hero CTA
+- [x] **RDES-39**: Radial purple glow
+- [x] **RDES-40**: Accent-highlighted `<em>`
+- [x] **RDES-41**: Corner marks on section
+- [x] **RDES-42**: Pill button matching hero CTA
 
 ### Transitional CTAs
 
-- [ ] **RDES-43**: Three cards filling the row
-- [ ] **RDES-44**: Section heading: "Not ready to book? Start here."
-- [ ] **RDES-45**: Card titles in serif, hover accent border
+- [x] **RDES-43**: Three cards filling the row
+- [x] **RDES-44**: Section heading: "Not ready to book? Start here."
+- [x] **RDES-45**: Card titles in serif, hover accent border
 
 ### About Page
 
@@ -258,13 +258,13 @@
 | RDES-36 | Phase 13 | Complete |
 | RDES-37 | Phase 13 | Complete |
 | RDES-38 | Phase 13 | Complete |
-| RDES-39 | Phase 13 | Pending |
-| RDES-40 | Phase 13 | Pending |
-| RDES-41 | Phase 13 | Pending |
-| RDES-42 | Phase 13 | Pending |
-| RDES-43 | Phase 13 | Pending |
-| RDES-44 | Phase 13 | Pending |
-| RDES-45 | Phase 13 | Pending |
+| RDES-39 | Phase 13 | Complete |
+| RDES-40 | Phase 13 | Complete |
+| RDES-41 | Phase 13 | Complete |
+| RDES-42 | Phase 13 | Complete |
+| RDES-43 | Phase 13 | Complete |
+| RDES-44 | Phase 13 | Complete |
+| RDES-45 | Phase 13 | Complete |
 | RDES-46 | Phase 14 | Pending |
 | RDES-47 | Phase 14 | Pending |
 | RDES-48 | Phase 14 | Pending |
