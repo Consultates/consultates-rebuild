@@ -136,14 +136,14 @@
 
 ### Social Proof
 
-- [ ] **RDES-34**: Photo placeholder circle (72x72px) with initials
-- [ ] **RDES-35**: Quote size up to `clamp(1.125rem, 2vw, 1.375rem)`
+- [x] **RDES-34**: Photo placeholder circle (72x72px) with initials
+- [x] **RDES-35**: Quote size up to `clamp(1.125rem, 2vw, 1.375rem)`
 
 ### Authority
 
-- [ ] **RDES-36**: Authority cards with border, radius, padding, hover accent
-- [ ] **RDES-37**: Stat callouts in serif purple
-- [ ] **RDES-38**: Staggered card reveal
+- [x] **RDES-36**: Authority cards with border, radius, padding, hover accent
+- [x] **RDES-37**: Stat callouts in serif purple
+- [x] **RDES-38**: Staggered card reveal
 
 ### Stakes CTA
 
@@ -253,11 +253,11 @@
 | RDES-31 | Phase 12 | Complete |
 | RDES-32 | Phase 12 | Complete |
 | RDES-33 | Phase 12 | Complete |
-| RDES-34 | Phase 13 | Pending |
-| RDES-35 | Phase 13 | Pending |
-| RDES-36 | Phase 13 | Pending |
-| RDES-37 | Phase 13 | Pending |
-| RDES-38 | Phase 13 | Pending |
+| RDES-34 | Phase 13 | Complete |
+| RDES-35 | Phase 13 | Complete |
+| RDES-36 | Phase 13 | Complete |
+| RDES-37 | Phase 13 | Complete |
+| RDES-38 | Phase 13 | Complete |
 | RDES-39 | Phase 13 | Pending |
 | RDES-40 | Phase 13 | Pending |
 | RDES-41 | Phase 13 | Pending |
