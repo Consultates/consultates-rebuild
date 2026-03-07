@@ -168,10 +168,10 @@
 
 ### Service Pages
 
-- [ ] **RDES-51**: Individual layout per service page
-- [ ] **RDES-52**: Structured "what you get" as outcomes grid/list
-- [ ] **RDES-53**: Scenario-based "who it's for"
-- [ ] **RDES-54**: Embedded testimonial per service page
+- [x] **RDES-51**: Individual layout per service page
+- [x] **RDES-52**: Structured "what you get" as outcomes grid/list
+- [x] **RDES-53**: Scenario-based "who it's for"
+- [x] **RDES-54**: Embedded testimonial per service page
 - [ ] **RDES-55**: How it works with connecting line
 - [ ] **RDES-56**: Dark CTA section per service page
 
@@ -270,10 +270,10 @@
 | RDES-48 | Phase 14 | Complete |
 | RDES-49 | Phase 14 | Complete |
 | RDES-50 | Phase 14 | Complete |
-| RDES-51 | Phase 15 | Pending |
-| RDES-52 | Phase 15 | Pending |
-| RDES-53 | Phase 15 | Pending |
-| RDES-54 | Phase 15 | Pending |
+| RDES-51 | Phase 15 | Complete |
+| RDES-52 | Phase 15 | Complete |
+| RDES-53 | Phase 15 | Complete |
+| RDES-54 | Phase 15 | Complete |
 | RDES-55 | Phase 15 | Pending |
 | RDES-56 | Phase 15 | Pending |
 | RDES-57 | Phase 16 | Pending |

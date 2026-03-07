@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Visual Redesign
 status: executing
-stopped_at: Completed 14-02-PLAN.md
-last_updated: "2026-03-07T06:56:24.090Z"
-last_activity: 2026-03-07 -- Completed 13-02 (stakes CTA + transitional CTAs)
+stopped_at: Completed 15-01-PLAN.md
+last_updated: "2026-03-07T08:14:47.786Z"
+last_activity: 2026-03-07 -- Completed 15-01 (service page redesign)
 progress:
   total_phases: 8
   completed_phases: 5
-  total_plans: 10
-  completed_plans: 10
+  total_plans: 12
+  completed_plans: 11
   percent: 100
 ---
 
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-07)
 
 **Core value:** Business leaders can quickly understand what Consultates offers and book a free call -- the site removes friction between "I need help with AI" and "I'm talking to someone who can help."
-**Current focus:** v2.0 Visual Redesign -- Phase 13: Social Proof + Authority + Stakes CTA + Transitional CTAs
+**Current focus:** v2.0 Visual Redesign -- Phase 15: Service Pages
 
 ## Current Position
 
-Phase: 13 of 17 (Social Proof + Authority + Stakes CTA + Transitional CTAs)
-Plan: 2 of 2 complete
+Phase: 15 of 17 (Service Pages)
+Plan: 1 of 2 complete
 Status: In Progress
-Last activity: 2026-03-07 -- Completed 13-02 (stakes CTA + transitional CTAs)
+Last activity: 2026-03-07 -- Completed 15-01 (service page redesign)
 
-Progress: [██████████] 100% (8/8 plans complete through phase 13 plan 2)
+Progress: [██████████] 97% (11/12 plans complete through phase 15 plan 1)
 
 ## Performance Metrics
 
@@ -60,6 +60,7 @@ Progress: [██████████] 100% (8/8 plans complete through phas
 | Phase 13 P02 | 2min | 2 tasks | 4 files |
 | Phase 14 P01 | 2min | 2 tasks | 1 files |
 | Phase 14 P02 | 1min | 2 tasks | 3 files |
+| Phase 15 P01 | 2min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -93,6 +94,9 @@ Recent decisions affecting current work:
 - [Phase 14]: Timeline era labels use monospace font for editorial feel
 - [Phase 14]: Family card uses --secondary (cream) bg, AI PRO banner uses --card bg with left accent border for contrast
 - [Phase 14]: Auto-approved visual verification checkpoint in autonomous mode
+- [15-01]: Each service page imports Base.astro directly instead of shared ServicePage.astro layout
+- [15-01]: CTA uses btn-alive class (underline-draw) consistent with v2.0 design system
+- [15-01]: Testimonial sections alternate cream/bordered-white bg for visual variety
 
 ### Roadmap Evolution
 
@@ -109,5 +113,5 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-07T06:54:12.769Z
-Stopped at: Completed 14-02-PLAN.md
+Last session: 2026-03-07T08:14:00Z
+Stopped at: Completed 15-01-PLAN.md
