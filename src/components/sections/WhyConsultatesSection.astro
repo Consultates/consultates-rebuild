@@ -1,30 +1,9 @@
 ---
-import { SectionAnimator } from '../islands/SectionAnimator';
+import AuthorityCardsIsland from '../islands/AuthorityCardsIsland';
 ---
 
 <section id="section-why" style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
   <div class="max-w-[1200px] mx-auto">
-    <SectionAnimator client:visible>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <h3 class="text-sub text-foreground">20 years building technology</h3>
-          <p class="text-body text-muted-foreground mt-3">
-            Military electronics and cryptography in the Royal Air Force. Telecoms and internet infrastructure. 8 years at Juniper Networks in Silicon Valley. 5 years leading systems engineering at Cyan. He built the systems AI runs on.
-          </p>
-        </div>
-        <div>
-          <h3 class="text-sub text-foreground">15 years selling it</h3>
-          <p class="text-body text-muted-foreground mt-3">
-            Systems engineer to VP Sales to CRO. Cybersecurity, AI, SaaS, enterprise networking. Built sales organisations from zero across 16 countries. Sat across from C-suite buyers in enterprise procurement cycles for over a decade.
-          </p>
-        </div>
-        <div>
-          <h3 class="text-sub text-foreground">Now builds with AI agents daily</h3>
-          <p class="text-body text-muted-foreground mt-3">
-            Ships production applications with Claude Code, Codex, and Gemini CLI. Designs agentic workflows. Trains executive cohorts through FlexOS. Guest lecturer and monthly briefing host for Lead with AI PRO. The training works because he built the thing he's teaching.
-          </p>
-        </div>
-      </div>
-    </SectionAnimator>
+    <AuthorityCardsIsland client:visible />
   </div>
 </section>
