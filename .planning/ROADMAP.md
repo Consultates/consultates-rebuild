@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 10: Foundation + Hero + Trust Bar** - Design system globals, hero with background video and dark overlay, trust bar redesign (completed 2026-03-06)
 - [x] **Phase 11: Negative Stakes + Offering** - Three-stat layout with text-stroke, design system cards with gradient icons (completed 2026-03-06)
-- [ ] **Phase 12: Use Cases + How It Works** - Card-based use cases, animated timeline How It Works
+- [x] **Phase 12: Use Cases + How It Works** - Card-based use cases, animated timeline How It Works (completed 2026-03-07)
 - [ ] **Phase 13: Social Proof + Authority + Stakes CTA + Transitional CTAs** - Quote redesign, authority cards, radial glow CTA, three-card transitional section
 - [ ] **Phase 14: About Page** - Asymmetric hero, editorial timeline, family business card
 - [ ] **Phase 15: Service Pages** - Individual layouts, structured outcomes, embedded testimonials
@@ -181,7 +181,7 @@ Note: Phases 14, 15, 16, and 17 depend only on Phase 10 (foundation), so they ca
 | 9. Fix Audit | v1.0 | 2/2 | Complete | 2026-03-05 |
 | 10. Foundation + Hero + Trust Bar | 2/2 | Complete   | 2026-03-06 | - |
 | 11. Negative Stakes + Offering | 2/2 | Complete   | 2026-03-06 | - |
-| 12. Use Cases + How It Works | 1/2 | In Progress|  | - |
+| 12. Use Cases + How It Works | 2/2 | Complete   | 2026-03-07 | - |
 | 13. Social Proof + Authority + Stakes CTA + Transitional CTAs | v2.0 | 0/? | Not started | - |
 | 14. About Page | v2.0 | 0/? | Not started | - |
 | 15. Service Pages | v2.0 | 0/? | Not started | - |

@@ -128,11 +128,11 @@
 
 ### How It Works
 
-- [ ] **RDES-29**: Animated timeline with GSAP — connecting line draws on scroll
-- [ ] **RDES-30**: Step nodes fill sequentially (48px circles, pulse animation)
-- [ ] **RDES-31**: Content reveals per node
-- [ ] **RDES-32**: Horizontal desktop, vertical mobile
-- [ ] **RDES-33**: Reduced motion fallback
+- [x] **RDES-29**: Animated timeline with GSAP — connecting line draws on scroll
+- [x] **RDES-30**: Step nodes fill sequentially (48px circles, pulse animation)
+- [x] **RDES-31**: Content reveals per node
+- [x] **RDES-32**: Horizontal desktop, vertical mobile
+- [x] **RDES-33**: Reduced motion fallback
 
 ### Social Proof
 
@@ -248,11 +248,11 @@
 | RDES-26 | Phase 12 | Complete |
 | RDES-27 | Phase 12 | Complete |
 | RDES-28 | Phase 12 | Complete |
-| RDES-29 | Phase 12 | Pending |
-| RDES-30 | Phase 12 | Pending |
-| RDES-31 | Phase 12 | Pending |
-| RDES-32 | Phase 12 | Pending |
-| RDES-33 | Phase 12 | Pending |
+| RDES-29 | Phase 12 | Complete |
+| RDES-30 | Phase 12 | Complete |
+| RDES-31 | Phase 12 | Complete |
+| RDES-32 | Phase 12 | Complete |
+| RDES-33 | Phase 12 | Complete |
 | RDES-34 | Phase 13 | Pending |
 | RDES-35 | Phase 13 | Pending |
 | RDES-36 | Phase 13 | Pending |
