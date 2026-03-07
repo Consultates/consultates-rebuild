@@ -6,20 +6,33 @@ import { SectionAnimator } from '../islands/SectionAnimator';
 <section id="section-transitional" style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
   <div class="max-w-[1200px] mx-auto">
     <SectionAnimator client:visible>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <h2 class="font-serif text-foreground mb-8" style="font-size: clamp(1.25rem, 2.5vw, 1.75rem);">Not ready to book? Start here.</h2>
+    </SectionAnimator>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <SectionAnimator client:visible delay={0}>
         <BlogCard
           title="You're Not the Only One Stuck"
           date=""
           excerpt="If AI feels like something for tech people, you're not alone. Start here."
           href="/blog/youre-not-the-only-one-stuck"
         />
+      </SectionAnimator>
+      <SectionAnimator client:visible delay={0.12}>
         <BlogCard
           title="How Safe Is AI Really?"
           date=""
           excerpt="What you need to know before you start using AI in your business."
           href="/blog/how-safe-is-ai-really"
         />
-      </div>
-    </SectionAnimator>
+      </SectionAnimator>
+      <SectionAnimator client:visible delay={0.24}>
+        <BlogCard
+          title="The misconception that Generative AI is complex."
+          date=""
+          excerpt="If you've already tried AI tools and walked away thinking &quot;This isn't for me,&quot; you're not alone. Most people give up too early."
+          href="/blog/get-out-of-the-ai-cage"
+        />
+      </SectionAnimator>
+    </div>
   </div>
 </section>
