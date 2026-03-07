@@ -1,13 +1,139 @@
 ---
-import ServicePage from '../../layouts/ServicePage.astro';
+import Base from '../../layouts/Base.astro';
+import { SectionAnimator } from '../../components/islands/SectionAnimator';
+import { TIDYCAL_URL } from '../../config';
+
+const sectionPadding = 'padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);';
+
+const outcomes = [
+  {
+    title: 'A confidential sounding board',
+    desc: "Gary has sat across from C-suite executives for 15 years. The coaching isn't theoretical — it comes from someone who builds with AI every day.",
+  },
+  {
+    title: 'Your situation, your agenda',
+    desc: "Each session starts with where you are right now. What you're trying to figure out. What's keeping you up at night about AI.",
+  },
+  {
+    title: "Specific next steps, not general advice",
+    desc: "You leave with actionable steps you can implement immediately. No fixed curriculum — the agenda is your situation.",
+  },
+];
+
+const scenarios = [
+  {
+    label: 'Business Leaders',
+    desc: "You're running a company and need clarity on AI without the jargon",
+  },
+  {
+    label: 'Founders & Solopreneurs',
+    desc: "You're building something and want to use AI as a force multiplier",
+  },
+  {
+    label: 'Consultants & Fractionals',
+    desc: 'You advise others and need to stay ahead of the curve',
+  },
+];
 ---
 
-<ServicePage
-  title="AI Coaching for Leaders — Consultates"
-  description="One-to-one AI coaching sessions for business leaders. You bring your situation, you leave with a plan you can act on."
-  headline="AI Coaching for Leaders"
-  subline="One-to-one sessions. You bring your real situation — you leave with a plan you can act on."
-  whatYouGet={`<p>Gary has sat across from C-suite executives for 15 years. He knows how to talk to leaders because he's been one and he's sold to them. The coaching isn't theoretical — it comes from someone who builds with AI every day and has done engineering, sales, and leadership across 35 years.</p>
-<p>Each session starts with where you are right now. What you're trying to figure out. What's keeping you up at night about AI. There's no fixed curriculum — the agenda is your situation. You leave with specific next steps, not general advice.</p>`}
-  whoItsFor="<p>Business leaders, founders, fractional executives, solopreneurs, consultants — anyone who needs clarity on AI without the jargon. You don't need to be technical. You just need to be ready to start.</p>"
-/>
+<Base title="AI Coaching for Leaders — Consultates" description="One-to-one AI coaching sessions for business leaders. You bring your situation, you leave with a plan you can act on.">
+
+  <!-- Hero: centered, minimal, conversational -->
+  <section style={sectionPadding}>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <SectionAnimator client:visible>
+        <div style="text-align: center;">
+          <h1 class="text-hero" style="max-width: 700px; margin: 0 auto;">AI Coaching for Leaders</h1>
+          <p class="text-body-lg text-muted-foreground mt-4" style="max-width: 600px; margin: 0 auto;">
+            One-to-one sessions. You bring your real situation — you leave with a plan you can act on.
+          </p>
+        </div>
+      </SectionAnimator>
+    </div>
+  </section>
+
+  <!-- What You Get: numbered checklist with left accent -->
+  <section style={sectionPadding}>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 class="text-section mb-8">What you get</h2>
+      <div style="max-width: 700px; border-left: 2px solid var(--border);">
+        {outcomes.map((item, i) => (
+          <SectionAnimator client:visible delay={i * 0.15}>
+            <div style="padding-left: 1.5rem; padding-bottom: 2rem; display: flex; gap: 1rem; align-items: flex-start;">
+              <div style={`
+                min-width: 32px; width: 32px; height: 32px;
+                border: 2px solid var(--primary); border-radius: 50%;
+                display: flex; align-items: center; justify-content: center;
+                font-family: 'IBM Plex Mono', monospace; font-size: 0.875rem;
+                color: var(--primary); flex-shrink: 0;
+              `}>
+                {i + 1}
+              </div>
+              <div>
+                <h3 class="text-sub font-serif mb-1">{item.title}</h3>
+                <p class="text-body text-muted-foreground">{item.desc}</p>
+              </div>
+            </div>
+          </SectionAnimator>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For: scenario cards -->
+  <section style={sectionPadding}>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 class="text-section mb-8">Who it's for</h2>
+      <SectionAnimator client:visible>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {scenarios.map((s) => (
+            <div style={`
+              background: var(--secondary);
+              border-radius: var(--card-radius);
+              padding: var(--card-padding);
+            `}>
+              <h3 class="text-sub font-serif mb-2">{s.label}</h3>
+              <p class="text-body text-muted-foreground">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </SectionAnimator>
+    </div>
+  </section>
+
+  <!-- Testimonial: cream background with decorative quote -->
+  <section style={`${sectionPadding} background: var(--secondary);`}>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <SectionAnimator client:visible>
+        <div style="position: relative; max-width: 700px; margin: 0 auto;">
+          <span style="position: absolute; top: -1.5rem; left: -0.5rem; font-size: 6rem; font-family: 'IBM Plex Serif', serif; color: var(--primary); opacity: 0.2; line-height: 1; pointer-events: none;" aria-hidden="true">&ldquo;</span>
+          <blockquote class="text-body-lg" style="position: relative; z-index: 1; font-style: italic; padding-top: 1rem;">
+            Gary helped me understand exactly where AI fits in my business — not in theory, but in practice. One session gave me more clarity than months of reading articles.
+          </blockquote>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+            <div style={`
+              width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0;
+              background: color-mix(in srgb, var(--primary) 10%, transparent);
+              display: flex; align-items: center; justify-content: center;
+            `}>
+              <span class="text-primary font-serif" style="font-size: 1.25rem; font-weight: 600;">MR</span>
+            </div>
+            <div>
+              <p class="text-body" style="font-weight: 600;">Marketing Director</p>
+              <p class="text-caption text-muted-foreground">SaaS Company</p>
+            </div>
+          </div>
+        </div>
+      </SectionAnimator>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style={sectionPadding}>
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <a href={TIDYCAL_URL} target="_blank" rel="noopener noreferrer" class="btn-alive">
+        Book a Free Call
+      </a>
+    </div>
+  </section>
+</Base>
