@@ -98,11 +98,11 @@ Plans:
   3. Stakes CTA section displays radial purple glow, corner marks, accent-highlighted `<em>`, and a pill button matching the hero CTA
   4. Transitional CTAs section shows three cards filling the row with section heading "Not ready to book? Start here.", serif titles, and hover accent border
   5. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 13-01: TBD
-- [ ] 13-02: TBD
+- [ ] 13-01-PLAN.md -- Social proof photo placeholder + authority cards island with staggered reveal
+- [ ] 13-02-PLAN.md -- Stakes CTA glow/corners/em/pill + transitional CTAs three-card layout
 
 ### Phase 14: About Page
 **Goal**: The about page tells Gary's story with editorial polish -- asymmetric layout, timeline, warm family business card, and credentials
@@ -114,7 +114,7 @@ Plans:
   3. Family business section uses a warm-background card treatment
   4. Lead with AI PRO section renders as a distinct card/banner
   5. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
 - [ ] 14-01: TBD
@@ -128,7 +128,7 @@ Plans:
   2. "What you get" sections render as structured outcomes grids/lists
   3. Each service page includes a scenario-based "who it's for" section, an embedded testimonial, a how-it-works with connecting line, and a dark CTA section
   4. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
 - [ ] 15-01: TBD
@@ -142,7 +142,7 @@ Plans:
   2. TidyCal booking has a pill button CTA matching the site-wide pill button style
   3. Form inputs follow design system styling (radius, border, focus states)
   4. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
 - [ ] 16-01: TBD
@@ -156,7 +156,7 @@ Plans:
   2. Card titles render in serif
   3. Blog post layout uses a wider content column with mono date and serif title
   4. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
 - [ ] 17-01: TBD
