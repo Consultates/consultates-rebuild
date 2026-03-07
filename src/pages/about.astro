@@ -1,61 +1,263 @@
 ---
 import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
+import { SectionAnimator } from '../components/islands/SectionAnimator';
+import { StakesCTAPulse } from '../components/islands/StakesCTAPulse';
 import { TIDYCAL_URL } from '../config';
 ---
 
 <Base title="About Gary Tate — Consultates" description="Engineer. Commercial leader. AI practitioner. 35 years across military electronics, enterprise sales, and production AI — now helping leaders make sense of it.">
 
-  <!-- Section 1 — Hero -->
-  <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <img
-        src="/images/gary-tate.webp"
-        alt="Gary Tate"
-        width="200"
-        height="200"
-        class="rounded-full object-cover mx-auto mb-8"
-      />
-      <h1 class="text-hero">Engineer. Commercial leader. AI practitioner.</h1>
-      <p class="text-body-lg text-muted-foreground mt-4">35 years across military electronics, enterprise sales leadership, and production AI.</p>
-    </div>
-  </section>
-
-  <!-- Section 2 — The Story -->
-  <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <h2 class="text-section mb-8">The through-line</h2>
-      <div class="space-y-4">
-        <p class="text-body text-muted-foreground">Gary started coding at 10. He joined the Royal Air Force and spent a decade in military electronics, telecoms, cryptography, and secure communications — physical systems where mistakes aren't theoretical.</p>
-        <p class="text-body text-muted-foreground">Then another decade building telecoms and internet infrastructure. His own company first, then 8 years as a Senior Systems Engineer at Juniper Networks in Silicon Valley. Later, 5 years as Director of Systems Engineering at Cyan.</p>
-        <p class="text-body text-muted-foreground">He moved from engineering into sales — not because he stopped being technical, but because he could sit in front of a CRO and explain the technology in terms that closed deals. Systems engineer → Director → MD Sales → VP Sales (three times) → CRO. Always deep-tech companies — cybersecurity, AI, enterprise SaaS, networking infrastructure. 16 countries. He built entire sales organisations from zero.</p>
-        <p class="text-body text-muted-foreground">Today, Gary ships production applications with AI agents. He designs agentic workflows with real API integrations. He builds alone what would have taken a small team two years ago.</p>
-        <p class="text-body text-muted-foreground">Most AI consultants fall into one camp: technical people who can't explain it to a boardroom, business people who've never built anything, or trainers teaching from slides they didn't write. Gary does all three. That's why the consulting, the training, and the leadership all carry weight.</p>
+  <!-- Section 1 — Hero (asymmetric two-column) -->
+  <section style="padding: var(--section-py) var(--content-px);">
+    <div style="max-width: var(--content-max); margin: 0 auto;">
+      <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 items-center">
+        <div class="flex justify-center lg:justify-start">
+          <img
+            src="/images/gary-tate.webp"
+            alt="Gary Tate"
+            width="200"
+            height="200"
+            class="rounded-full object-cover"
+          />
+        </div>
+        <div>
+          <h1 class="text-hero">Engineer. Commercial leader. AI practitioner.</h1>
+          <p class="text-body-lg text-muted-foreground mt-4">35 years across military electronics, enterprise sales leadership, and production AI.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 3 — Family Business -->
-  <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <h2 class="text-section mb-8">A family business</h2>
-      <p class="text-body text-muted-foreground">Consultates is Gary and Trinh Tate. They don't scale through volume. They scale through trust. You get one accountable team from start to finish — not a rotating cast of consultants.</p>
+  <!-- Section 2 — The Story (editorial timeline) -->
+  <section style="padding: var(--section-py) var(--content-px);">
+    <div style="max-width: var(--content-max); margin: 0 auto;">
+      <h2 class="text-section mb-12">The through-line</h2>
+
+      <div class="timeline-container">
+        <!-- Entry 1: 1980s -->
+        <SectionAnimator client:visible>
+          <div class="timeline-entry">
+            <div class="timeline-marker">
+              <span class="timeline-dot"></span>
+              <span class="timeline-era">1980s</span>
+            </div>
+            <div class="timeline-content">
+              <p class="text-body text-muted-foreground">Gary started coding at 10. He joined the Royal Air Force and spent a decade in military electronics, telecoms, cryptography, and secure communications — physical systems where mistakes aren't theoretical.</p>
+            </div>
+          </div>
+        </SectionAnimator>
+
+        <!-- Entry 2: 1990s -->
+        <SectionAnimator client:visible delay={0.1}>
+          <div class="timeline-entry">
+            <div class="timeline-marker">
+              <span class="timeline-dot"></span>
+              <span class="timeline-era">1990s</span>
+            </div>
+            <div class="timeline-content">
+              <p class="text-body text-muted-foreground">Then another decade building telecoms and internet infrastructure. His own company first, then 8 years as a Senior Systems Engineer at Juniper Networks in Silicon Valley. Later, 5 years as Director of Systems Engineering at Cyan.</p>
+            </div>
+          </div>
+        </SectionAnimator>
+
+        <!-- Entry 3: 2000s -->
+        <SectionAnimator client:visible delay={0.2}>
+          <div class="timeline-entry">
+            <div class="timeline-marker">
+              <span class="timeline-dot"></span>
+              <span class="timeline-era">2000s</span>
+            </div>
+            <div class="timeline-content">
+              <p class="text-body text-muted-foreground">He moved from engineering into sales — not because he stopped being technical, but because he could sit in front of a CRO and explain the technology in terms that closed deals. Systems engineer → Director → MD Sales → VP Sales (three times) → CRO. Always deep-tech companies — cybersecurity, AI, enterprise SaaS, networking infrastructure. 16 countries. He built entire sales organisations from zero.</p>
+            </div>
+          </div>
+        </SectionAnimator>
+
+        <!-- Entry 4: Today -->
+        <SectionAnimator client:visible delay={0.3}>
+          <div class="timeline-entry">
+            <div class="timeline-marker">
+              <span class="timeline-dot"></span>
+              <span class="timeline-era">Today</span>
+            </div>
+            <div class="timeline-content">
+              <p class="text-body text-muted-foreground">Today, Gary ships production applications with AI agents. He designs agentic workflows with real API integrations. He builds alone what would have taken a small team two years ago.</p>
+            </div>
+          </div>
+        </SectionAnimator>
+
+        <!-- Entry 5: Why it matters -->
+        <SectionAnimator client:visible delay={0.4}>
+          <div class="timeline-entry">
+            <div class="timeline-marker">
+              <span class="timeline-dot"></span>
+              <span class="timeline-era timeline-era--summary">Why it matters</span>
+            </div>
+            <div class="timeline-content">
+              <p class="text-body text-muted-foreground">Most AI consultants fall into one camp: technical people who can't explain it to a boardroom, business people who've never built anything, or trainers teaching from slides they didn't write. Gary does all three. That's why the consulting, the training, and the leadership all carry weight.</p>
+            </div>
+          </div>
+        </SectionAnimator>
+      </div>
     </div>
   </section>
 
-  <!-- Section 4 — Lead with AI PRO -->
-  <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <h2 class="text-section mb-8">Lead with AI PRO</h2>
-      <p class="text-body text-muted-foreground">Gary is a guest lecturer and hosts monthly agentic briefings through Lead with AI PRO — a platform with 3× weekly analyst briefings, tutorials, and an active WhatsApp community. His sessions feature live demos of OpenClaw (his own agentic framework) and synthesise what the leading voices in AI — Karpathy, Amodei, Suleiman, Roose — are saying, translated for non-technical leaders.</p>
+  <!-- Section 3 — Family Business (warm card) -->
+  <section style="padding: var(--section-py) var(--content-px);">
+    <div style="max-width: var(--content-max); margin: 0 auto;">
+      <SectionAnimator client:visible>
+        <div class="family-card">
+          <h2 class="text-section mb-6">A family business</h2>
+          <p class="text-body text-secondary-foreground">Consultates is Gary and Trinh Tate. They don't scale through volume. They scale through trust. You get one accountable team from start to finish — not a rotating cast of consultants.</p>
+        </div>
+      </SectionAnimator>
     </div>
   </section>
 
-  <!-- Section 5 — CTA -->
-  <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
-    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-      <Button variant="cta" href={TIDYCAL_URL} target="_blank" rel="noopener noreferrer">Book a Free Call</Button>
+  <!-- Section 4 — Lead with AI PRO (accent banner) -->
+  <section style="padding: var(--section-py) var(--content-px);">
+    <div style="max-width: var(--content-max); margin: 0 auto;">
+      <SectionAnimator client:visible>
+        <div class="aipro-banner">
+          <h2 class="text-section mb-6">Lead with AI PRO</h2>
+          <p class="text-body text-muted-foreground">Gary is a guest lecturer and hosts monthly agentic briefings through Lead with AI PRO — a platform with 3× weekly analyst briefings, tutorials, and an active WhatsApp community. His sessions feature live demos of OpenClaw (his own agentic framework) and synthesise what the leading voices in AI — Karpathy, Amodei, Suleiman, Roose — are saying, translated for non-technical leaders.</p>
+        </div>
+      </SectionAnimator>
+    </div>
+  </section>
+
+  <!-- Section 5 — Dark CTA -->
+  <section style="background: #0D1117;">
+    <div class="glow corner-marks max-w-[800px] mx-auto text-center" style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem); --corner-color: rgba(139,108,199,0.4);">
+      <SectionAnimator client:visible>
+        <h2 class="text-section" style="color: #FFFFFF;">
+          Ready to <em style="font-style: normal; color: #8B6CC7;">talk</em>?
+        </h2>
+      </SectionAnimator>
+      <div class="mt-8">
+        <StakesCTAPulse
+          client:visible
+          href={TIDYCAL_URL}
+          text="Book a Free Call"
+        />
+      </div>
     </div>
   </section>
 
 </Base>
+
+<style>
+  /* Timeline */
+  .timeline-container {
+    position: relative;
+    padding-left: 80px;
+  }
+
+  .timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 60px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .timeline-entry {
+    position: relative;
+    padding-bottom: 2rem;
+  }
+
+  .timeline-entry:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: -80px;
+    top: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40px;
+  }
+
+  .timeline-dot {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    background: var(--background);
+    position: absolute;
+    left: -26px;
+    top: 4px;
+  }
+
+  .timeline-era {
+    position: absolute;
+    left: -80px;
+    top: 0;
+    width: 44px;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .timeline-era--summary {
+    width: 80px;
+    left: -116px;
+    font-size: 0.7rem;
+  }
+
+  .timeline-content {
+    /* Content flows in normal document flow at the padded-left position */
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 640px) {
+    .timeline-container {
+      padding-left: 60px;
+    }
+
+    .timeline-container::before {
+      left: 40px;
+    }
+
+    .timeline-dot {
+      left: -26px;
+    }
+
+    .timeline-era {
+      left: -60px;
+      width: 30px;
+      font-size: 0.65rem;
+    }
+
+    .timeline-era--summary {
+      width: 56px;
+      left: -60px;
+      font-size: 0.6rem;
+    }
+  }
+
+  /* Family business card */
+  .family-card {
+    background: var(--secondary);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--card-shadow);
+  }
+
+  /* AI PRO banner */
+  .aipro-banner {
+    background: var(--card);
+    border-left: 4px solid var(--primary);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--card-shadow);
+  }
+</style>
