@@ -172,8 +172,8 @@
 - [x] **RDES-52**: Structured "what you get" as outcomes grid/list
 - [x] **RDES-53**: Scenario-based "who it's for"
 - [x] **RDES-54**: Embedded testimonial per service page
-- [ ] **RDES-55**: How it works with connecting line
-- [ ] **RDES-56**: Dark CTA section per service page
+- [x] **RDES-55**: How it works with connecting line
+- [x] **RDES-56**: Dark CTA section per service page
 
 ### Contact Page
 
@@ -274,8 +274,8 @@
 | RDES-52 | Phase 15 | Complete |
 | RDES-53 | Phase 15 | Complete |
 | RDES-54 | Phase 15 | Complete |
-| RDES-55 | Phase 15 | Pending |
-| RDES-56 | Phase 15 | Pending |
+| RDES-55 | Phase 15 | Complete |
+| RDES-56 | Phase 15 | Complete |
 | RDES-57 | Phase 16 | Pending |
 | RDES-58 | Phase 16 | Pending |
 | RDES-59 | Phase 16 | Pending |
