@@ -10,13 +10,23 @@ import { SectionAnimator } from '../islands/SectionAnimator';
       aria-hidden="true"
     >&ldquo;</span>
     <SectionAnimator client:visible>
-      <p class="text-body-lg font-serif italic text-foreground">
+      <p class="font-serif italic text-foreground" style="font-size: clamp(1.125rem, 2vw, 1.375rem);">
         I originally hired him into Cyan when we were launching our international expansion. He joined as an SE and subsequently went on to head up pre-sales for APAC, then he successfully transitioned from pre-sales to sales and sales leadership. With Wedge Networks, Gary has demonstrated remarkable skill and resilience at introducing a small but innovative start-up into major accounts, competing against well-established Tier 1 incumbents. His strong work ethic, personal networking, and technical prowess have enabled him to enter new markets with minimal support to land key accounts.
       </p>
     </SectionAnimator>
     <SectionAnimator client:visible delay={0.2}>
-      <p class="text-body font-semibold text-foreground mt-6">Frank Wiener</p>
-      <p class="text-caption text-muted-foreground">CMO and Director of Product Marketing (retired)</p>
+      <div class="flex items-center gap-4 mt-6">
+        <div
+          class="flex items-center justify-center rounded-full shrink-0"
+          style="width: 72px; height: 72px; background: color-mix(in srgb, var(--primary) 10%, transparent);"
+        >
+          <span class="font-sans font-semibold text-primary text-lg">FW</span>
+        </div>
+        <div>
+          <p class="text-body font-semibold text-foreground">Frank Wiener</p>
+          <p class="text-caption text-muted-foreground">CMO and Director of Product Marketing (retired)</p>
+        </div>
+      </div>
     </SectionAnimator>
   </div>
 </section>
