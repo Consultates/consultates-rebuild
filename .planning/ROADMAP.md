@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 10: Foundation + Hero + Trust Bar** - Design system globals, hero with background video and dark overlay, trust bar redesign (completed 2026-03-06)
 - [x] **Phase 11: Negative Stakes + Offering** - Three-stat layout with text-stroke, design system cards with gradient icons (completed 2026-03-06)
-- [ ] **Phase 12: Use Cases + How It Works** - Alternating two-column layout, animated GSAP timeline
+- [ ] **Phase 12: Use Cases + How It Works** - Card-based use cases, animated timeline How It Works
 - [ ] **Phase 13: Social Proof + Authority + Stakes CTA + Transitional CTAs** - Quote redesign, authority cards, radial glow CTA, three-card transitional section
 - [ ] **Phase 14: About Page** - Asymmetric hero, editorial timeline, family business card
 - [ ] **Phase 15: Service Pages** - Individual layouts, structured outcomes, embedded testimonials
@@ -73,20 +73,20 @@ Plans:
 - [ ] 11-02-PLAN.md -- Offering cards design system treatment + visual verification of both sections
 
 ### Phase 12: Use Cases + How It Works
-**Goal**: Visitors see concrete scenarios of who Consultates helps (alternating layout with images) and a clear visual timeline of how the engagement works
+**Goal**: Visitors see concrete scenarios of who Consultates helps (card-based use cases with sequential animation) and a clear visual timeline of how the engagement works
 **Depends on**: Phase 11
 **Requirements**: RDES-25, RDES-26, RDES-27, RDES-28, RDES-29, RDES-30, RDES-31, RDES-32, RDES-33
 **Success Criteria** (what must be TRUE):
-  1. Use cases section shows three use cases in alternating two-column layout with mono uppercase labels, image placeholders with corner marks, and slide-in entrance animations
-  2. How it works section renders an animated GSAP timeline with a connecting line that draws on scroll, step nodes that fill sequentially (48px circles with pulse), and content that reveals per node
+  1. Use cases section shows three use cases as sequential-animation cards with mono uppercase labels on cream background
+  2. How it works section renders an animated timeline with a connecting line that draws on viewport entry, step nodes that fill sequentially (48px circles with pulse), and content that reveals per node
   3. How it works layout is horizontal on desktop and vertical on mobile
-  4. With `prefers-reduced-motion: reduce`, timeline and slide-in animations are disabled and all content is immediately visible
+  4. With `prefers-reduced-motion: reduce`, timeline and card animations are disabled and all content is immediately visible
   5. Playwright screenshots at desktop (1920x1080), tablet (768x1024), and mobile (390x844) confirm visual fidelity
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 12-01: TBD
-- [ ] 12-02: TBD
+- [ ] 12-01-PLAN.md -- Fix card animation bug + verify use cases section (RDES-25-28)
+- [ ] 12-02-PLAN.md -- How It Works animated timeline island (RDES-29-33)
 
 ### Phase 13: Social Proof + Authority + Stakes CTA + Transitional CTAs
 **Goal**: The bottom half of the homepage is visually complete -- testimonial, authority credentials, urgent CTA, and content bridge cards all match the design system
@@ -181,7 +181,7 @@ Note: Phases 14, 15, 16, and 17 depend only on Phase 10 (foundation), so they ca
 | 9. Fix Audit | v1.0 | 2/2 | Complete | 2026-03-05 |
 | 10. Foundation + Hero + Trust Bar | 2/2 | Complete   | 2026-03-06 | - |
 | 11. Negative Stakes + Offering | 2/2 | Complete   | 2026-03-06 | - |
-| 12. Use Cases + How It Works | v2.0 | 0/? | Not started | - |
+| 12. Use Cases + How It Works | v2.0 | 0/2 | Not started | - |
 | 13. Social Proof + Authority + Stakes CTA + Transitional CTAs | v2.0 | 0/? | Not started | - |
 | 14. About Page | v2.0 | 0/? | Not started | - |
 | 15. Service Pages | v2.0 | 0/? | Not started | - |
