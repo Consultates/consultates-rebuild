@@ -75,7 +75,7 @@ export default function HeroIsland({
 
     const timer = setTimeout(() => {
       setAnimationPhase('staggering');
-    }, 1000);
+    }, 600);
 
     return () => clearTimeout(timer);
   }, [reducedMotion]);

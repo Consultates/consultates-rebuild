@@ -1,39 +1,37 @@
 ---
 import { SectionAnimator } from '../islands/SectionAnimator';
+import UseCaseCardsIsland from '../islands/UseCaseCardsIsland';
 ---
 
-<section
-  id="section-cases"
-  class="max-w-[800px] mx-auto"
-  style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);"
->
-  <!-- Block 1 -->
-  <SectionAnimator client:visible>
-    <div class="py-8 border-b border-border">
-      <p class="text-body text-foreground mb-6">
-        A managing partner at an AI startup needed to connect sales strategy with product direction. Gary reshaped their GTM approach, brought his global network to bear, and raised the standard across the company.
-      </p>
-      <blockquote class="text-body-lg font-serif italic text-foreground border-l-[3px] border-primary pl-6 mb-4">
-        "He helped shape our product direction and pushed us to operate at a higher standard. His wide global network not only allowed us to sell more, and faster, but also helped us to validate our strategy and ideas for the business. What I value most is that he's a genuine partner — focused on results, but always bringing people along in the process."
-      </blockquote>
-      <p class="text-caption font-semibold text-muted-foreground">
-        — Managing Partner, GenerativeLeads AI
-      </p>
-    </div>
-  </SectionAnimator>
+<section id="section-cases" class="cases-section">
+  <div class="max-w-[1200px] mx-auto" style="padding: 0 clamp(1.5rem, 5vw, 8rem);">
+    <SectionAnimator client:visible delay={0.5}>
+      <div class="text-center" style="margin-bottom: 3.5rem;">
+        <h2 class="text-section text-foreground mb-4">What this looks like in practice</h2>
+      </div>
+    </SectionAnimator>
 
-  <!-- Block 2 -->
-  <SectionAnimator client:visible delay={0.2}>
-    <div class="py-8">
-      <p class="text-body text-foreground mb-6">
-        A director partnered with Gary across three companies over 10 years — every engagement involving complex deals, cross-functional teams, and customers who needed trust.
-      </p>
-      <blockquote class="text-body-lg font-serif italic text-foreground border-l-[3px] border-primary pl-6 mb-4">
-        "His ability to bring people together, keep the focus on outcomes, and build trust across teams and customers makes him stand out as a leader and a partner. He's simply a great guy to have on your side."
-      </blockquote>
-      <p class="text-caption font-semibold text-muted-foreground">
-        — Director Asia Pacific, Ace Pacific Group
-      </p>
-    </div>
-  </SectionAnimator>
+    <UseCaseCardsIsland client:visible />
+  </div>
 </section>
+
+<style>
+  .cases-section {
+    padding: var(--section-py) 0;
+    background: var(--secondary);
+    position: relative;
+  }
+
+  /* Subtle top/bottom border to separate from adjacent white sections */
+  .cases-section::before,
+  .cases-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  }
+  .cases-section::before { top: 0; }
+  .cases-section::after { bottom: 0; }
+</style>

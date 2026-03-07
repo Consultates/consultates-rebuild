@@ -41,8 +41,8 @@ const DRAW_DURATION = 1200;
 const FILL_PAUSE = 300;
 const QUOTE_PAUSE = 100;
 const LETTER_STAGGER = 0.018;
-const TYPEWRITER_SPEED = 18; // ms per character for stat labels
-const TYPEWRITER_SETTLE = 100; // breathing room after typewriter before next stat
+const TYPEWRITER_SPEED = 12; // ms per character for stat labels
+const TYPEWRITER_SETTLE = 50; // breathing room after typewriter before next stat
 
 const QUOTE_STEP = STATS.length + 2;
 
