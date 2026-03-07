@@ -121,10 +121,10 @@
 
 ### Use Cases
 
-- [ ] **RDES-25**: Alternating two-column layout with three use cases
-- [ ] **RDES-26**: Mono uppercase labels
-- [ ] **RDES-27**: Image placeholders with corner marks
-- [ ] **RDES-28**: Slide-in entrance animations
+- [x] **RDES-25**: Alternating two-column layout with three use cases
+- [x] **RDES-26**: Mono uppercase labels
+- [x] **RDES-27**: Image placeholders with corner marks
+- [x] **RDES-28**: Slide-in entrance animations
 
 ### How It Works
 
@@ -244,10 +244,10 @@
 | RDES-22 | Phase 11 | Complete |
 | RDES-23 | Phase 11 | Complete |
 | RDES-24 | Phase 11 | Complete |
-| RDES-25 | Phase 12 | Pending |
-| RDES-26 | Phase 12 | Pending |
-| RDES-27 | Phase 12 | Pending |
-| RDES-28 | Phase 12 | Pending |
+| RDES-25 | Phase 12 | Complete |
+| RDES-26 | Phase 12 | Complete |
+| RDES-27 | Phase 12 | Complete |
+| RDES-28 | Phase 12 | Complete |
 | RDES-29 | Phase 12 | Pending |
 | RDES-30 | Phase 12 | Pending |
 | RDES-31 | Phase 12 | Pending |

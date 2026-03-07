@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Visual Redesign
 status: executing
-stopped_at: Phase 12 in progress — use cases section rebuilt, card animation broken, how it works not started
-last_updated: "2026-03-07T01:34:16.828Z"
-last_activity: 2026-03-06 -- Completed 11-01 (negative stakes redesign)
+stopped_at: Completed 12-01-PLAN.md (use cases verification)
+last_updated: "2026-03-07T02:32:00Z"
+last_activity: 2026-03-07 -- Completed 12-01 (use cases section verification)
 progress:
   total_phases: 8
   completed_phases: 2
-  total_plans: 4
-  completed_plans: 4
-  percent: 50
+  total_plans: 5
+  completed_plans: 5
+  percent: 63
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-06)
 
 **Core value:** Business leaders can quickly understand what Consultates offers and book a free call -- the site removes friction between "I need help with AI" and "I'm talking to someone who can help."
-**Current focus:** v2.0 Visual Redesign -- Phase 11: Negative Stakes + Offering
+**Current focus:** v2.0 Visual Redesign -- Phase 12: Use Cases + How It Works
 
 ## Current Position
 
-Phase: 11 of 17 (Negative Stakes + Offering)
+Phase: 12 of 17 (Use Cases + How It Works)
 Plan: 1 of 2 complete
 Status: In Progress
-Last activity: 2026-03-06 -- Completed 11-01 (negative stakes redesign)
+Last activity: 2026-03-07 -- Completed 12-01 (use cases section verification)
 
-Progress: [█████░░░░░] 50% (1/2 plans complete in phase 11)
+Progress: [██████░░░░] 63% (5/5 plans complete through phase 12 plan 1)
 
 ## Performance Metrics
 
@@ -54,6 +54,7 @@ Progress: [█████░░░░░] 50% (1/2 plans complete in phase 11)
 | Phase 10 P02 | 2min | 1 tasks | 2 files |
 | Phase 11 P01 | 2min | 2 tasks | 3 files |
 | Phase 11 P02 | 2min | 2 tasks | 3 files |
+| Phase 12 P01 | 2min | 1 tasks | 0 files |
 
 ## Accumulated Context
 
@@ -75,6 +76,8 @@ Recent decisions affecting current work:
 - [11-01]: getComputedTextLength() * 3 for stroke perimeter approximation on SVG text
 - [11-01]: Count-up retained only for 84% stat; other stats use static stroke-draw
 - [Phase 11]: Card shadow tokens added to design system for light/dark hover elevation
+- [12-01]: Card layout chosen over alternating two-column for use cases (user decision)
+- [12-01]: Animation bug fixed by calling onComplete() directly instead of boolean intermediaries
 
 ### Roadmap Evolution
 
@@ -91,6 +94,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-07T01:34:16.824Z
-Stopped at: Phase 12 in progress — use cases section rebuilt, card animation broken, how it works not started
-Resume file: src/components/islands/OfferingCardsIsland.tsx
+Last session: 2026-03-07T02:32:00Z
+Stopped at: Completed 12-01-PLAN.md (use cases verification)
+Resume file: .planning/phases/12-use-cases-how-it-works/12-02-PLAN.md
