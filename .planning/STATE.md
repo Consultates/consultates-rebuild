@@ -18,10 +18,10 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-03-06)
+See: .planning/PROJECT.md (updated 2026-03-07)
 
 **Core value:** Business leaders can quickly understand what Consultates offers and book a free call -- the site removes friction between "I need help with AI" and "I'm talking to someone who can help."
-**Current focus:** v2.0 Visual Redesign -- Phase 12: Use Cases + How It Works
+**Current focus:** v2.0 Visual Redesign -- Phase 13: Social Proof + Authority + Stakes CTA + Transitional CTAs
 
 ## Current Position
 
@@ -80,6 +80,8 @@ Recent decisions affecting current work:
 - [12-01]: Card layout chosen over alternating two-column for use cases (user decision)
 - [12-01]: Animation bug fixed by calling onComplete() directly instead of boolean intermediaries
 - [Phase 12]: Pure CSS transitions + React state for timeline animation — no GSAP inside snap sections
+- [12-02]: Circle pulse via CSS @keyframes, not Framer Motion — lightweight and no library coupling
+- [12-02]: Horizontal timeline line hidden on mobile, replaced with vertical gap spacing
 
 ### Roadmap Evolution
 
@@ -96,6 +98,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-07T02:33:00.427Z
-Stopped at: Completed 12-02-PLAN.md
+Last session: 2026-03-07
+Stopped at: Phase 12 complete, ready to plan Phase 13
 Resume file: None

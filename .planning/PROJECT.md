@@ -107,6 +107,8 @@ See REQUIREMENTS.md for v2.0 scoped requirements.
 | GitHub Pages | Free, simple, Gary already uses GitHub | — Pending |
 | Manual Astro scaffold | Avoid overwriting existing repo files (CLAUDE.md, PRD, .planning/) | ✓ Applied — Phase 1 |
 | @layer utilities for type scale | Multi-property utilities cannot go in @theme block | ✓ Applied — Phase 1 |
+| Card layout for use cases (not alternating 2-col) | User preference — cards better match offering section pattern | ✓ Applied — Phase 12 |
+| Pure CSS transitions for timeline animation | No GSAP inside snap sections — avoids conflict with page-level scroll-snap | ✓ Applied — Phase 12 |
 
 ---
-*Last updated: 2026-03-06 after v2.0 milestone start*
+*Last updated: 2026-03-07 after Phase 12*
