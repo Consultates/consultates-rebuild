@@ -1,13 +1,122 @@
 ---
-import ServicePage from '../../layouts/ServicePage.astro';
+import Base from '../../layouts/Base.astro';
+import { SectionAnimator } from '../../components/islands/SectionAnimator';
+import { TIDYCAL_URL } from '../../config';
+
+const sectionPadding = 'padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);';
+
+const outcomes = [
+  {
+    title: 'GTM Strategy',
+    desc: 'Building your go-to-market motion from zero across new markets and verticals',
+  },
+  {
+    title: 'Product Direction',
+    desc: 'Shaping product direction with hands-on leadership, not advisory from a distance',
+  },
+  {
+    title: 'Team & Network',
+    desc: 'Coaching your team and opening doors through a global network built over 16 countries',
+  },
+];
+
+const whoItsFor = [
+  'Startups and scale-ups that need experienced GTM leadership for AI products',
+  'Companies entering new markets or launching AI products',
+  'Teams building their first sales organisation',
+  "Businesses not ready for (or don't need) a full-time exec hire",
+];
 ---
 
-<ServicePage
-  title="Fractional Executive Support — Consultates"
-  description="Senior AI go-to-market leadership without a full-time hire. Strategy, product direction, and execution."
-  headline="Fractional Executive Support"
-  subline="Senior AI go-to-market leadership without a full-time hire."
-  whatYouGet={`<p>Gary has been a CRO, VP Sales (\u00D73), MD, and co-founder. He's built entire sales organisations from zero across APAC, Europe, and the US. He brings strategy, product direction, and execution for companies scaling AI initiatives or entering new markets.</p>
-<p>This isn't advisory from a distance. It's hands-on leadership \u2014 building your GTM motion, shaping product direction, coaching your team, and opening doors through a global network built over 16 countries and 15 years.</p>`}
-  whoItsFor="<p>Startups and scale-ups that need experienced GTM leadership for AI products but aren't ready for (or don't need) a full-time exec hire. Companies entering new markets, launching AI products, or building their first sales organisation.</p>"
-/>
+<Base title="Fractional Executive Support — Consultates" description="Senior AI go-to-market leadership without a full-time hire. Strategy, product direction, and execution.">
+
+  <!-- Hero: dark, commanding -->
+  <section style={`${sectionPadding} background: #0D1117;`}>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <SectionAnimator client:visible>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+          <h1 class="text-hero" style="color: #FFFFFF;">Fractional Executive Support</h1>
+          <p class="text-body-lg mt-4" style="color: rgba(255,255,255,0.7);">
+            Senior AI go-to-market leadership without a full-time hire.
+          </p>
+        </div>
+      </SectionAnimator>
+    </div>
+  </section>
+
+  <!-- What You Get: 3-card horizontal row with accent top borders -->
+  <section style={sectionPadding}>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 class="text-section mb-8">What you get</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {outcomes.map((item, i) => (
+          <SectionAnimator client:visible delay={i * 0.1}>
+            <div style={`
+              background: var(--card);
+              border: 1px solid var(--border);
+              border-radius: var(--card-radius);
+              padding: var(--card-padding);
+              border-top: 3px solid var(--primary);
+            `}>
+              <h3 class="text-sub font-serif mb-3">{item.title}</h3>
+              <p class="text-body text-muted-foreground">{item.desc}</p>
+            </div>
+          </SectionAnimator>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For: checkmark list -->
+  <section style={sectionPadding}>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 class="text-section mb-6">Who it's for</h2>
+      <SectionAnimator client:visible>
+        <div class="space-y-4" style="max-width: 700px;">
+          {whoItsFor.map((item) => (
+            <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span class="text-primary font-bold" style="flex-shrink: 0; margin-top: 0.125rem;" aria-hidden="true">&#10003;</span>
+              <p class="text-body text-muted-foreground">{item}</p>
+            </div>
+          ))}
+        </div>
+      </SectionAnimator>
+    </div>
+  </section>
+
+  <!-- Testimonial: cream background, Frank Wiener quote -->
+  <section style={`${sectionPadding} background: var(--secondary);`}>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <SectionAnimator client:visible>
+        <div style="position: relative; max-width: 700px; margin: 0 auto;">
+          <span style="position: absolute; top: -1.5rem; left: -0.5rem; font-size: 6rem; font-family: 'IBM Plex Serif', serif; color: var(--primary); opacity: 0.2; line-height: 1; pointer-events: none;" aria-hidden="true">&ldquo;</span>
+          <blockquote class="text-body-lg" style="position: relative; z-index: 1; font-style: italic; padding-top: 1rem;">
+            Gary has demonstrated remarkable skill and resilience at introducing a small but innovative start-up into major accounts, competing against well-established Tier 1 incumbents. His strong work ethic, personal networking, and technical prowess have enabled him to enter new markets with minimal support to land key accounts.
+          </blockquote>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+            <div style={`
+              width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0;
+              background: color-mix(in srgb, var(--primary) 10%, transparent);
+              display: flex; align-items: center; justify-content: center;
+            `}>
+              <span class="text-primary font-serif" style="font-size: 1.25rem; font-weight: 600;">FW</span>
+            </div>
+            <div>
+              <p class="text-body" style="font-weight: 600;">Frank Wiener</p>
+              <p class="text-caption text-muted-foreground">CMO and Director of Product Marketing (retired)</p>
+            </div>
+          </div>
+        </div>
+      </SectionAnimator>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style={sectionPadding}>
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <a href={TIDYCAL_URL} target="_blank" rel="noopener noreferrer" class="btn-alive">
+        Book a Free Call
+      </a>
+    </div>
+  </section>
+</Base>
