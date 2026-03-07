@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { SectionAnimator } from '../../components/islands/SectionAnimator';
+import { StakesCTAPulse } from '../../components/islands/StakesCTAPulse';
 import { TIDYCAL_URL } from '../../config';
 
 const sectionPadding = 'padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);';
@@ -133,12 +134,129 @@ const scenarios = [
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- How It Works: connecting line -->
   <section style={sectionPadding}>
-    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-      <a href={TIDYCAL_URL} target="_blank" rel="noopener noreferrer" class="btn-alive">
-        Book a Free Call
-      </a>
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 class="text-section mb-12">How it works</h2>
+      <div class="hiw-steps">
+        <SectionAnimator client:visible delay={0}>
+          <div class="hiw-step">
+            <div class="hiw-node">1</div>
+            <div class="hiw-content">
+              <h3 class="text-sub font-serif mb-2">We talk</h3>
+              <p class="text-body text-muted-foreground">Tell me where you are and what you're trying to figure out. No preparation needed.</p>
+            </div>
+          </div>
+        </SectionAnimator>
+        <SectionAnimator client:visible delay={0.15}>
+          <div class="hiw-step">
+            <div class="hiw-node">2</div>
+            <div class="hiw-content">
+              <h3 class="text-sub font-serif mb-2">You get a plan</h3>
+              <p class="text-body text-muted-foreground">Specific to your business, your team, and your goals. Not a template.</p>
+            </div>
+          </div>
+        </SectionAnimator>
+        <SectionAnimator client:visible delay={0.3}>
+          <div class="hiw-step">
+            <div class="hiw-node">3</div>
+            <div class="hiw-content">
+              <h3 class="text-sub font-serif mb-2">Your team ships</h3>
+              <p class="text-body text-muted-foreground">Within days, your team is building automations on their actual work. Measured by adoption, not attendance.</p>
+            </div>
+          </div>
+        </SectionAnimator>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dark CTA -->
+  <section style="background: #0D1117;">
+    <div class="glow corner-marks max-w-[800px] mx-auto text-center"
+         style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem); --corner-color: rgba(139,108,199,0.4);">
+      <SectionAnimator client:visible>
+        <h2 class="text-section" style="color: #FFFFFF;">
+          Ready to <em style="font-style: normal; color: #8B6CC7;">upskill</em> your team?
+        </h2>
+      </SectionAnimator>
+      <div class="mt-8">
+        <StakesCTAPulse client:visible href={TIDYCAL_URL} text="Book a Free Call" />
+      </div>
     </div>
   </section>
 </Base>
+
+<style>
+  .hiw-steps {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .hiw-steps::before {
+    content: '';
+    position: absolute;
+    left: 23px;
+    top: 24px;
+    bottom: 24px;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .hiw-step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .hiw-node {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    background: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hiw-content {
+    padding-top: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .hiw-steps {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    .hiw-steps::before {
+      left: 24px;
+      right: 24px;
+      top: 23px;
+      bottom: auto;
+      width: auto;
+      height: 2px;
+    }
+
+    .hiw-step {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+    }
+
+    .hiw-content {
+      padding-top: 0;
+    }
+  }
+</style>
