@@ -28,7 +28,7 @@ export function StakesCTAPulse({ href, text }: StakesCTAPulseProps) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center font-sans font-semibold rounded-lg h-12 px-8 text-body-lg transition-all duration-150 hover:scale-[1.02]"
+        className="inline-flex items-center justify-center font-sans font-semibold rounded-full h-12 px-8 text-body-lg transition-all duration-150 hover:scale-[1.02]"
         style={{ background: '#5C3B9C', color: '#FFFFFF' }}
       >
         {text}
@@ -41,7 +41,7 @@ export function StakesCTAPulse({ href, text }: StakesCTAPulseProps) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center justify-center font-sans font-semibold rounded-lg h-12 px-8 text-body-lg transition-colors duration-150"
+      className="inline-flex items-center justify-center font-sans font-semibold rounded-full h-12 px-8 text-body-lg transition-colors duration-150"
       style={{ background: '#5C3B9C', color: '#FFFFFF' }}
       variants={v}
       initial="initial"
