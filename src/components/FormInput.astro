@@ -8,6 +8,8 @@ interface Props {
   textarea?: boolean;
   placeholder?: string;
   disabled?: boolean;
+  rows?: number;
+  icon?: string;
 }
 
 const {
@@ -19,19 +21,26 @@ const {
   textarea = false,
   placeholder,
   disabled = false,
+  rows = 5,
+  icon,
 } = Astro.props;
 
 const fieldClasses = [
-  'bg-card border rounded-lg px-3 py-2.5 font-sans text-base text-foreground',
+  'bg-card border rounded-lg px-3 py-2.5 font-sans text-base text-foreground w-full',
   'placeholder:text-muted-foreground',
   'focus:outline-2 focus:outline-offset-0 focus:outline-ring',
   'disabled:opacity-50 disabled:cursor-not-allowed',
   error ? 'border-destructive' : 'border-border',
 ].join(' ');
+
+const iconPaddingClass = icon && !textarea ? 'pl-10' : '';
 ---
 
 <div class="flex flex-col gap-1">
-  <label for={name} class="text-caption font-medium text-foreground">{label}</label>
+  <label for={name} class="text-caption font-medium text-foreground flex items-center gap-1.5">
+    {icon && <i class={`ph-duotone ph-${icon}`} style="font-size: 1rem; color: var(--icon-duotone);"></i>}
+    {label}
+  </label>
   {textarea ? (
     <textarea
       id={name}
@@ -39,7 +48,7 @@ const fieldClasses = [
       placeholder={placeholder}
       required={required}
       disabled={disabled}
-      rows="5"
+      rows={rows}
       class={fieldClasses}
     />
   ) : (

@@ -2,20 +2,15 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useReducedMotion } from '../../lib/animations';
 
-interface HeroIslandProps {
-  tagline?: string;
+interface ContactHeroIslandProps {
   headline: string;
   paragraph: string;
-  ctaHref: string;
   ctaText: string;
+  onComplete?: () => void;
 }
 
 const ease = [0.25, 0.1, 0.25, 1];
 
-/**
- * Parse headline string to support <em> tags without innerHTML.
- * Returns array of { text, isEm } segments.
- */
 type HeadlinePart = { type: 'text'; text: string; isEm: boolean } | { type: 'br' };
 
 function parseHeadline(raw: string): HeadlinePart[] {
@@ -43,34 +38,40 @@ function parseHeadline(raw: string): HeadlinePart[] {
   return parts;
 }
 
-
 /**
- * Hero animation orchestrator with letter stagger sequence.
+ * Contact page hero animation — mirrors HeroIsland.tsx sequence exactly.
  *
  * Sequence (normal motion):
  *   t=0ms      mount
- *   t=1000ms   tagline fadeUp + letter stagger begins (30ms/char)
+ *   t=600ms    letter stagger begins (30ms/char)
  *   t=~end     paragraph fadeUp
  *   t=~end+0.6 CTA scaleIn
+ *   t=~end+0.5 CTA pulse (extend/retract)
+ *   t=~end+0.5 onComplete fires
  *
- * Reduced motion: all content visible immediately, no animation.
+ * CTA is a <span> (not <a>) — used as TidyCal trigger via id.
  */
-export default function HeroIsland({
-  tagline,
+export default function ContactHeroIsland({
   headline,
   paragraph,
-  ctaHref,
   ctaText,
-}: HeroIslandProps) {
+  onComplete,
+}: ContactHeroIslandProps) {
   const reducedMotion = useReducedMotion();
-  const ctaRef = useRef<HTMLAnchorElement>(null);
+  const ctaRef = useRef<HTMLSpanElement>(null);
   const [animationPhase, setAnimationPhase] = useState<
     'waiting' | 'staggering' | 'complete'
   >(reducedMotion ? 'complete' : 'waiting');
 
+  const fireComplete = () => {
+    onComplete?.();
+    window.dispatchEvent(new CustomEvent('contact-hero-complete'));
+  };
+
   useEffect(() => {
     if (reducedMotion) {
       setAnimationPhase('complete');
+      fireComplete();
       return;
     }
 
@@ -78,19 +79,21 @@ export default function HeroIsland({
   }, [reducedMotion]);
 
   const headlineParts = parseHeadline(headline);
-  const textParts = headlineParts.filter((p): p is Extract<HeadlinePart, { type: 'text' }> => p.type === 'text');
+  const textParts = headlineParts.filter(
+    (p): p is Extract<HeadlinePart, { type: 'text' }> => p.type === 'text'
+  );
   const totalChars = textParts.reduce((n, p) => n + p.text.length, 0);
 
-  // Timing calculations
-  const staggerDuration = totalChars * 0.03; // 30ms per char
-  const lastLetterDone = 0.4 + staggerDuration + 0.4; // delayChildren + stagger + last letter's 400ms fade
+  // Timing — identical to HeroIsland
+  const staggerDuration = totalChars * 0.03;
+  const lastLetterDone = 0.4 + staggerDuration + 0.4;
   const paragraphDelay = lastLetterDone + 0.3;
   const ctaDelay = paragraphDelay + 0.6;
 
-  // CTA pulse: underline extend + glow after scaleIn finishes
+  // CTA pulse + onComplete callback
   useEffect(() => {
     if (reducedMotion) return;
-    const pulseStart = (ctaDelay + 0.5) * 1000; // after scaleIn completes
+    const pulseStart = (ctaDelay + 0.5) * 1000;
     const el = ctaRef.current;
     if (!el) return;
     const t1 = setTimeout(() => { el.classList.add('cta-pulse-extend'); }, pulseStart);
@@ -98,7 +101,10 @@ export default function HeroIsland({
       el.classList.remove('cta-pulse-extend');
       el.classList.add('cta-pulse-retract');
     }, pulseStart + 900);
-    const t3 = setTimeout(() => { el.classList.remove('cta-pulse-retract'); }, pulseStart + 1300);
+    const t3 = setTimeout(() => {
+      el.classList.remove('cta-pulse-retract');
+      fireComplete();
+    }, pulseStart + 1300);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, [ctaDelay, reducedMotion]);
 
@@ -115,18 +121,17 @@ export default function HeroIsland({
   if (reducedMotion) {
     return (
       <>
-        {tagline && <p className="c-hero-tagline">{tagline}</p>}
         <h1 className="c-hero-h1">{renderHeadline()}</h1>
         <p className="c-hero-body">{paragraph}</p>
         <div>
-          <a
-            href={ctaHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="c-hero-cta btn-alive btn-alive--lg btn-alive--on-dark"
+          <span
+            id="book-call-btn"
+            role="button"
+            tabIndex={0}
+            className="c-hero-cta btn-alive btn-alive--lg btn-alive--on-dark cursor-pointer"
           >
             {ctaText}
-          </a>
+          </span>
         </div>
       </>
     );
@@ -134,19 +139,7 @@ export default function HeroIsland({
 
   return (
     <>
-      {/* Tagline fadeUp */}
-      {tagline && (
-        <motion.p
-          className="c-hero-tagline"
-          initial={{ y: 24, opacity: 0 }}
-          animate={animationPhase !== 'waiting' ? { y: 0, opacity: 1 } : { y: 24, opacity: 0 }}
-          transition={{ duration: 0.6, ease }}
-        >
-          {tagline}
-        </motion.p>
-      )}
-
-      {/* Headline with letter stagger — em segments grouped */}
+      {/* Headline with letter stagger */}
       <motion.h1
         className="c-hero-h1"
         initial="initial"
@@ -193,21 +186,21 @@ export default function HeroIsland({
         {paragraph}
       </motion.p>
 
-      {/* CTA scaleIn */}
+      {/* CTA scaleIn — span, not anchor */}
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, ease, delay: ctaDelay }}
       >
-        <a
+        <span
           ref={ctaRef}
-          href={ctaHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="c-hero-cta btn-alive btn-alive--lg btn-alive--on-dark"
+          id="book-call-btn"
+          role="button"
+          tabIndex={0}
+          className="c-hero-cta btn-alive btn-alive--lg btn-alive--on-dark cursor-pointer"
         >
           {ctaText}
-        </a>
+        </span>
       </motion.div>
     </>
   );

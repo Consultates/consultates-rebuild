@@ -124,6 +124,7 @@ These rules are mandatory for any agent building components, pages, or sections.
 - **btn-alive system only.** Underline-draw with clip-path taper + radial purple glow. No gradient fills. No pill shapes (border-radius: 9999px).
 - **Variants:** `--lg` (hero), `--sm` (card CTA), `--on-dark` (dark sections — white text, purple accent underline).
 - **No other button styles.** If a section needs a CTA, it uses btn-alive.
+- **No arrow text (`→`) in buttons.** The btn-alive underline animation is the affordance. Adding `→` or arrow spans after button text is redundant.
 
 ### Animation
 - **No generic fade-up.** Every animation must be distinctive: letter stagger on headlines, typewriter on descriptions, sequential card reveals.

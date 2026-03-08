@@ -28,7 +28,7 @@ Single source of truth for building consultates.com. All content, design tokens,
 ### 1.2 Navigation
 
 ```
-[Consultates Logo]  Home  Services▼  About  Blog  Contact  [Book a Free Call →]
+[Consultates Logo]  Home  Services▼  About  Blog  Contact  [Book a Free Call]
                           ├─ AI Coaching for Leaders
                           ├─ AI Training for Teams
                           └─ Fractional Exec Support
@@ -468,7 +468,7 @@ Detection: `const reducedMotion = window.matchMedia('(prefers-reduced-motion: re
 - Center links: `font-family: var(--font-sans); font-weight: 500; font-size: 1rem; color: var(--foreground);`
   - Hover: `color: var(--primary); transition: color 150ms ease;`
   - Active page: `color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 2px;`
-- Right: CTA button — `Book a Free Call →` (primary button, see §6.2)
+- Right: CTA button — `Book a Free Call` (primary button, see §6.2)
 - **Services dropdown (mega menu):**
   - Trigger: `:hover` on desktop (CSS `group-hover`), tap on mobile
   - Panel: `position: absolute; top: 100%; left: 0; min-width: 340px;`
@@ -666,12 +666,12 @@ Paragraph (`text-body`): `Ships production applications with Claude Code, Codex,
 Card 1:
 - Title: `You're Not the Only One Stuck`
 - Description: `If AI feels like something for tech people, you're not alone. Start here.`
-- CTA: `Read →` → `/blog/youre-not-the-only-one-stuck`
+- CTA: `Read` → `/blog/youre-not-the-only-one-stuck`
 
 Card 2:
 - Title: `How Safe Is AI Really?`
 - Description: `What you need to know before you start using AI in your business.`
-- CTA: `Read →` → `/blog/how-safe-is-ai-really`
+- CTA: `Read` → `/blog/how-safe-is-ai-really`
 
 **Animation:** React island, `client:visible`. `staggerContainer` on grid, each card `fadeUp`, stagger `0.15`.
 
@@ -977,7 +977,7 @@ States (all variants):
 - Icon: Phosphor duotone, `size={32}`, `color="var(--icon-duotone)"`
 - Title: `text-sub`
 - Description: `text-body`, `color: var(--muted-foreground)`
-- Link: `Learn more →` — `text-body`, `color: var(--primary)`, `font-weight: 500`
+- Link: `Learn more` — `text-body`, `color: var(--primary)`, `font-weight: 500`
 - Hover: `transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;`
 - Focus visible: `outline: 2px solid var(--ring); outline-offset: 2px;`
 
@@ -1008,7 +1008,7 @@ States (all variants):
 - Title: `text-sub` (Plex Sans 600, `clamp(1.125rem, 2vw, 1.5rem)`)
 - Date: `text-cite`, `color: var(--muted-foreground)`, `font-family: var(--font-mono)`
 - Excerpt: `text-body`, `display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;`
-- CTA: `Read →` — `text-body`, `color: var(--primary)`, `font-weight: 500`
+- CTA: `Read` — `text-body`, `color: var(--primary)`, `font-weight: 500`
 - Hover: `transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); transition: transform 0.2s ease, box-shadow 0.2s ease;`
 - Focus visible: `outline: 2px solid var(--ring); outline-offset: 2px;`
 

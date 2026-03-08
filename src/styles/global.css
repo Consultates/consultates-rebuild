@@ -451,8 +451,8 @@ body.nav-open {
 /* CTA pulse — underline extend + glow scale triggered by JS */
 .btn-alive.cta-pulse-extend::after { width: calc(100% + 10px); transition: width 0.4s var(--ease-out); }
 .btn-alive.cta-pulse-extend::before { transform: scale(1); transition: transform 0.4s var(--ease-out); }
-.btn-alive.cta-pulse-retract::after { width: 0; transition: width 0.1s var(--ease-out); }
-.btn-alive.cta-pulse-retract::before { transform: scale(0.55); transition: transform 0.3s var(--ease-out); }
+.btn-alive.cta-pulse-retract::after { width: 0; transition: width 0.35s var(--ease-out); }
+.btn-alive.cta-pulse-retract::before { transform: scale(0.55); transition: transform 0.35s var(--ease-out); }
 @keyframes blink {
   50% { opacity: 0; }
 }
