@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Start Here
+
+**Read `READMEFIRST.md` before doing anything.** It contains the full history of this build — every mistake made, every design rule that exists because of those mistakes, what's broken right now, and what the owner actually wants. Tell the user you've read it and summarise the current state before starting work.
+
 ## Project
 
 Consultates.com rebuild — a marketing site for Gary Tate's AI consulting business. Replacing a bloated WebWave site with a clean static site.
