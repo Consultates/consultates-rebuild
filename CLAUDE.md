@@ -55,7 +55,14 @@ pnpm preview          # preview production build
 
 ## Brand Design System
 
-**Brand guidelines (source of truth):** `docs/brand-guidelines.html` — combined light/dark theme reference with toggle, live btn-alive demos, letter stagger + sequential card reveal with play buttons, do/don't comparisons, all 14 anti-slop rules, color palette with live hex values. Open locally in a browser to view.
+**Brand guidelines live in a separate repo:** [`Consultates/consultates-brand-guidelines`](https://github.com/Consultates/consultates-brand-guidelines) — single source of truth for all Consultates brand assets. Clone it alongside this repo. Do not copy brand files into this repo.
+
+The repo contains:
+- `consultates/guidelines/brand-guidelines.html` — combined light/dark reference with toggle, live btn-alive demos, animation previews, do/don't comparisons, all 14 anti-slop rules, color palette with live hex values. Open in a browser to view.
+- `consultates/guidelines/brand-theme-light.html` / `brand-theme-dark.html` — historic standalone theme references (superseded by the combined file)
+- `consultates/logos/` — all logo variants (light/dark, horizontal/vertical, PNG/WebP/PSD)
+- `consultates/icons/` — head mark / favicon at multiple sizes
+- `mission-control/brand-adaptation.md` — Mission Control dashboard brand adaptation
 
 Key brand colors:
 - Primary (light): `#5C3B9C` (Royal Purple) / (dark): `#8B6CC7` (Royal Purple Lifted)
@@ -149,7 +156,7 @@ These rules are mandatory for any agent building components, pages, or sections.
 
 ### Reference
 - Anti-slop rules adapted from [Uncodixfy](https://github.com/cyxzdev/Uncodixfy) + project-specific decisions.
-- Brand guidelines (source of truth): `docs/brand-guidelines.html`
+- Brand guidelines repo: [`Consultates/consultates-brand-guidelines`](https://github.com/Consultates/consultates-brand-guidelines)
 
 ## Navigation Structure
 
