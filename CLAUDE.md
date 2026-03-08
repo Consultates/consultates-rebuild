@@ -31,12 +31,11 @@ pnpm preview          # preview production build
 5. Content slots empty — intentional whitespace reserved for rotating quotes/stats, currently blank
 
 **Not yet built:**
-- Phase 16: Contact page wiring (Google Apps Script → email + Google Sheet, TidyCal embed)
 - Phase 17: Blog polish (typography, reading experience, related posts)
 
-## PRD (Single Source of Truth)
+## PRD
 
-**`PRD.md`** in this repo is the complete technical spec. It contains every route, every component, every color token, every animation value, all copy, and all technical decisions. **Read it before building anything.**
+**`PRD.md`** in this repo is the technical spec for routes, components, and copy. **The website design doc (see Design Authority above) overrides the PRD for all design decisions.** The PRD is authoritative for copy and routes only.
 
 **Animation stack:** GSAP ScrollTrigger (page-level scroll/snap, vanilla `<script>` in base layout) + Framer Motion (component animation in React islands via `whileInView`). They are decoupled — no cross-library communication.
 
@@ -53,21 +52,28 @@ pnpm preview          # preview production build
 - **Hosting:** GitHub Pages
 - **CI/CD:** GitHub Actions
 
-## Brand Design System
+## Design Authority
 
-**Brand guidelines live in a separate repo:** [`Consultates/consultates-brand-guidelines`](https://github.com/Consultates/consultates-brand-guidelines) — single source of truth for all Consultates brand assets. Clone it alongside this repo. Do not copy brand files into this repo.
+**The website design document is the single source of truth for building pages:**
+`~/Development/consultates-brand-guidelines/consultates/guidelines/website-design-v3.html`
 
-The repo contains:
-- `consultates/guidelines/brand-guidelines.html` — combined light/dark reference with toggle, live btn-alive demos, animation previews, do/don't comparisons, all 14 anti-slop rules, color palette with live hex values. Open in a browser to view.
-- `consultates/guidelines/brand-theme-light.html` / `brand-theme-dark.html` — historic standalone theme references (superseded by the combined file)
+Read it before building any new page or section. It references the brand theme for identity tokens and points to reference implementations in this codebase.
+
+If the website design doc conflicts with the PRD or any other document, the website design doc wins for design decisions. The PRD is authoritative for copy and routes only.
+
+**Document hierarchy:**
+
+| Document | Location | Purpose |
+|----------|----------|---------|
+| Brand Theme | `consultates/guidelines/brand-theme-v3.html` | Portable identity — colours, typography, icons, spacing, animation tokens |
+| Website Design | `consultates/guidelines/website-design-v3.html` | Website patterns — hero, cards, btn-alive, CTA sections, nav, footer |
+| Mission Control Design | `consultates/guidelines/mission-control-design-v3.html` | Dashboard patterns — density, responsive layout, sidebar, component touches |
+
+All three live in the [`Consultates/consultates-brand-guidelines`](https://github.com/Consultates/consultates-brand-guidelines) repo. Clone it alongside this repo. Open in a browser to view — they have live demos and light/dark toggles.
+
+The repo also contains:
 - `consultates/logos/` — all logo variants (light/dark, horizontal/vertical, PNG/WebP/PSD)
 - `consultates/icons/` — head mark / favicon at multiple sizes
-- `mission-control/brand-adaptation.md` — Mission Control dashboard brand adaptation
-
-Key brand colors:
-- Primary (light): `#5C3B9C` (Royal Purple) / (dark): `#8B6CC7` (Royal Purple Lifted)
-- Background (light): `#FFFFFF` / (dark): `#0D1117`
-- Theme: light default, system-aware, manual toggle
 
 ## Key Components
 
@@ -116,48 +122,6 @@ Follows **StoryBrand narrative framework**: empathy → problem → solution →
 
 **Do not use intermediary boolean state (`titleDone`/`descDone`) for animation sequencing in React.** They persist across viewport re-entries and cause stale `onComplete()` calls. Instead: call `onComplete()` directly from the interval/timeout callback, and add a reset effect when the animation phase regresses to `'waiting'`. See `READMEFIRST.md` for full context.
 
-## Anti-Slop Design Rules (v2.0)
-
-These rules are mandatory for any agent building components, pages, or sections. Violations produce generic AI-looking output that must be rebuilt.
-
-### Buttons
-- **btn-alive system only.** Underline-draw with clip-path taper + radial purple glow. No gradient fills. No pill shapes (border-radius: 9999px).
-- **Variants:** `--lg` (hero), `--sm` (card CTA), `--on-dark` (dark sections — white text, purple accent underline).
-- **No other button styles.** If a section needs a CTA, it uses btn-alive.
-- **No arrow text (`→`) in buttons.** The btn-alive underline animation is the affordance. Adding `→` or arrow spans after button text is redundant.
-
-### Animation
-- **No generic fade-up.** Every animation must be distinctive: letter stagger on headlines, typewriter on descriptions, sequential card reveals.
-- **Sequential, not simultaneous.** Cards animate one at a time L→R. Content within each card reveals in order: label → title stagger → description typewriter → CTA pulse.
-- **Reduced motion is first-class.** All animated components must have a `prefers-reduced-motion` fallback that shows complete content immediately.
-- **No transform-on-hover** except the intentional magnetic hover in btn-alive.
-
-### Dark CTA Sections
-- **Mirror the hero.** Every dark CTA section uses `StaggerHeading` (letter-stagger h2) + `btn-alive--on-dark`. Not SectionAnimator fadeUp. Not pill buttons. Not gradient buttons.
-- Component: `src/components/islands/StaggerHeading.tsx`
-
-### Cards and Icons
-- **Icon containers:** cream background (#F6F2EB / var(--secondary)) + purple border (var(--primary)). NOT gradient backgrounds.
-- **Card radius:** 16px (--card-radius). Not oversized (20px+).
-- **Card shadows:** rest state max blur 20px. Hover state can go to 32px with accent border.
-
-### Labels
-- **Mono labels for categorisation:** IBM Plex Mono, 11px, 500 weight, 0.08em letter-spacing, uppercase, Royal Purple. Used on use case cards and section identifiers.
-- **No eyebrow labels.** Small + uppercase + letter-spacing text above headings is an AI slop pattern. The only exception is mono category labels on cards.
-
-### Colors and Surfaces
-- **Colors stay flat.** Use as distinct, intentional values — not blended into gradients.
-- **No glassmorphism** / backdrop-filter outside the navigation bar.
-- **No dramatic shadows** (blur > 20px) except card hover states.
-- **Cream sections alternate with white.** Card sections use var(--secondary) background with gradient border separators.
-
-### Copy
-- **No decorative copy.** Don't write text that explains what the UI does ("Click here to explore our offerings", "Scroll down to learn more"). Every word must carry information.
-- **No marketing cliches.** Plain language, grounded in facts. Gary directs copy — agents don't improvise it.
-
-### Reference
-- Anti-slop rules adapted from [Uncodixfy](https://github.com/cyxzdev/Uncodixfy) + project-specific decisions.
-- Brand guidelines repo: [`Consultates/consultates-brand-guidelines`](https://github.com/Consultates/consultates-brand-guidelines)
 
 ## Navigation Structure
 
