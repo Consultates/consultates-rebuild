@@ -1,0 +1,2234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultates Brand Guidelines</title>
+
+  <!-- IBM Plex from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <style>
+    /* ============================================================
+       CSS Custom Properties — Light (default)
+       ============================================================ */
+    :root,
+    [data-theme="light"] {
+      --background: #FFFFFF;
+      --foreground: #1A253F;
+      --card: #FFFFFF;
+      --card-foreground: #1A253F;
+      --primary: #5C3B9C;
+      --primary-hover: #4E3285;
+      --primary-foreground: #FFFFFF;
+      --secondary: #F6F2EB;
+      --secondary-foreground: #555869;
+      --muted: #F0EFF4;
+      --muted-foreground: #8e8fa0;
+      --accent: #D4C8E8;
+      --accent-foreground: #5C3B9C;
+      --destructive: #D94C4C;
+      --border: #E2DFE8;
+      --ring: #2E409F;
+      --icon-duotone: #7C6B9B;
+      --footer-bg: #0D1117;
+      --footer-text: #E2E0EC;
+      --footer-link: #C5C3D4;
+      --footer-link-hover: #FFFFFF;
+      --footer-border: #1E2333;
+
+      --hero-bg: #0D1117;
+      --hero-fg: #E2E0EC;
+      --hero-muted: #7A7B90;
+      --stakes-bg: #141C74;
+      --stakes-fg: #E2E0EC;
+      --stakes-accent: #8B6CC7;
+      --dot-color: rgba(92,59,156,0.08);
+      --glow-color: rgba(92,59,156,0.06);
+      --corner-color: rgba(92,59,156,0.15);
+      --card-shadow: 0 2px 16px rgba(20,28,116,0.06);
+      --card-shadow-hover: 0 8px 32px rgba(20,28,116,0.12);
+
+      /* Type scale */
+      --text-hero: clamp(2.75rem, 5.5vw, 4rem);
+      --lh-hero: 1.08;
+      --ls-hero: -0.025em;
+      --text-section: clamp(1.75rem, 3vw, 2.5rem);
+      --lh-section: 1.15;
+      --ls-section: -0.02em;
+      --text-subhead: clamp(1.125rem, 2vw, 1.5rem);
+      --lh-subhead: 1.35;
+      --text-body-lg: clamp(1.0625rem, 1.5vw, 1.25rem);
+      --lh-body-lg: 1.65;
+      --text-body: 1rem;
+      --lh-body: 1.7;
+      --text-sm: 0.875rem;
+      --lh-sm: 1.5;
+      --text-xs: 0.8125rem;
+      --lh-xs: 1.45;
+      --text-stat: clamp(3.5rem, 7vw, 5.5rem);
+      --lh-stat: 1.0;
+
+      /* Spacing */
+      --section-py: clamp(5rem, 10vw, 8rem);
+      --section-gap: clamp(1.5rem, 3vw, 2.5rem);
+      --content-max: 1140px;
+      --content-px: clamp(1.5rem, 4vw, 2.5rem);
+      --card-padding: clamp(1.75rem, 3vw, 2.25rem);
+      --card-radius: 16px;
+
+      /* Animation */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+      --duration: 0.7s;
+      --stagger: 0.12s;
+
+      /* Guidelines page */
+      --guide-sidebar: #F7F5FA;
+      --guide-code-bg: #F5F3F8;
+      --guide-rule-border: #E8E4EF;
+    }
+
+    /* ============================================================
+       CSS Custom Properties — Dark
+       ============================================================ */
+    [data-theme="dark"] {
+      --background: #0D1117;
+      --foreground: #E2E0EC;
+      --card: #161B26;
+      --card-foreground: #E2E0EC;
+      --primary: #8B6CC7;
+      --primary-hover: #7D5FBA;
+      --primary-foreground: #FFFFFF;
+      --secondary: #1E2333;
+      --secondary-foreground: #C5C3D4;
+      --muted: #1E2333;
+      --muted-foreground: #7A7B90;
+      --accent: #2A2540;
+      --accent-foreground: #B89FDE;
+      --destructive: #D94C4C;
+      --border: #1E2333;
+      --ring: #5C6FD6;
+      --icon-duotone: #B89FDE;
+
+      --hero-bg: #0A0E14;
+      --hero-fg: #E2E0EC;
+      --hero-muted: #7A7B90;
+      --stakes-bg: #0A0E14;
+      --stakes-fg: #E2E0EC;
+      --stakes-accent: #B89FDE;
+      --dot-color: rgba(139,108,199,0.06);
+      --glow-color: rgba(139,108,199,0.08);
+      --corner-color: rgba(139,108,199,0.2);
+      --card-shadow: 0 2px 16px rgba(0,0,0,0.2);
+      --card-shadow-hover: 0 8px 32px rgba(0,0,0,0.35);
+
+      --guide-sidebar: #161B26;
+      --guide-code-bg: #1A1F2E;
+      --guide-rule-border: #2A2540;
+    }
+
+    /* ============================================================
+       Reset and Base
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: var(--background);
+      color: var(--foreground);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.7;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* ============================================================
+       Layout
+       ============================================================ */
+    .page-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--background);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .page-header h1 {
+      font-family: 'IBM Plex Serif', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--foreground);
+    }
+
+    .page-header h1 span {
+      color: var(--primary);
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    section {
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.3s ease;
+    }
+
+    section:last-child { border-bottom: none; }
+
+    h2.section-title {
+      font-family: 'IBM Plex Serif', Georgia, serif;
+      font-size: var(--text-section);
+      font-weight: 600;
+      line-height: var(--lh-section);
+      letter-spacing: var(--ls-section);
+      margin-bottom: 2rem;
+      color: var(--foreground);
+    }
+
+    h3.subsection-title {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: var(--text-subhead);
+      font-weight: 600;
+      line-height: var(--lh-subhead);
+      margin-bottom: 1rem;
+      margin-top: 2.5rem;
+      color: var(--foreground);
+    }
+
+    h3.subsection-title:first-of-type { margin-top: 0; }
+
+    p { margin-bottom: 1rem; }
+
+    p.section-desc {
+      font-size: var(--text-body-lg);
+      line-height: var(--lh-body-lg);
+      color: var(--secondary-foreground);
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ============================================================
+       Theme Toggle
+       ============================================================ */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--muted-foreground);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .theme-toggle__track {
+      position: relative;
+      width: 48px;
+      height: 26px;
+      background: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .theme-toggle__thumb {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      background: var(--primary);
+      border-radius: 50%;
+      transition: transform 0.3s var(--ease-out);
+    }
+
+    [data-theme="dark"] .theme-toggle__thumb {
+      transform: translateX(22px);
+    }
+
+    .theme-toggle__label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      min-width: 36px;
+    }
+
+    /* ============================================================
+       Color Palette
+       ============================================================ */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .color-card {
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+
+    .color-card__swatch {
+      height: 80px;
+      transition: background-color 0.3s ease;
+    }
+
+    .color-card__info {
+      padding: 0.875rem 1rem;
+      background: var(--card);
+      transition: background-color 0.3s ease;
+    }
+
+    .color-card__name {
+      font-weight: 600;
+      font-size: 0.875rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .color-card__value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
+
+    /* ============================================================
+       Mapping Table
+       ============================================================ */
+    .mapping-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+    }
+
+    .mapping-table th,
+    .mapping-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.3s ease;
+    }
+
+    .mapping-table th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      background: var(--guide-sidebar);
+    }
+
+    .mapping-table td {
+      vertical-align: middle;
+    }
+
+    .mapping-table .swatch-inline {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+
+    .mapping-table code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8125rem;
+      background: var(--guide-code-bg);
+      padding: 0.125rem 0.375rem;
+      border-radius: 4px;
+    }
+
+    /* ============================================================
+       Typography Specimens
+       ============================================================ */
+    .type-specimen {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--guide-sidebar);
+      border-radius: var(--card-radius);
+      transition: background-color 0.3s ease;
+    }
+
+    .type-specimen__label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .type-specimen__sample--hero {
+      font-family: 'IBM Plex Serif', Georgia, serif;
+      font-size: var(--text-hero);
+      font-weight: 700;
+      line-height: var(--lh-hero);
+      letter-spacing: var(--ls-hero);
+    }
+
+    .type-specimen__sample--section {
+      font-family: 'IBM Plex Serif', Georgia, serif;
+      font-size: var(--text-section);
+      font-weight: 600;
+      line-height: var(--lh-section);
+      letter-spacing: var(--ls-section);
+    }
+
+    .type-specimen__sample--subhead {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: var(--text-subhead);
+      font-weight: 600;
+      line-height: var(--lh-subhead);
+    }
+
+    .type-specimen__sample--body-lg {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: var(--text-body-lg);
+      font-weight: 400;
+      line-height: var(--lh-body-lg);
+    }
+
+    .type-specimen__sample--body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: var(--text-body);
+      font-weight: 400;
+      line-height: var(--lh-body);
+    }
+
+    .type-specimen__sample--caption {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      line-height: var(--lh-sm);
+    }
+
+    .type-specimen__sample--mono {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .type-specimen__sample--stat {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: var(--text-stat);
+      font-weight: 700;
+      line-height: var(--lh-stat);
+      letter-spacing: -0.02em;
+      color: var(--primary);
+    }
+
+    .type-specimen__meta {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      color: var(--muted-foreground);
+      margin-top: 0.5rem;
+    }
+
+    /* ============================================================
+       btn-alive System (from global.css)
+       ============================================================ */
+    .btn-alive {
+      background: none;
+      border: none;
+      border-radius: 0;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 600;
+      color: var(--foreground);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+      padding: 0.25rem 0;
+      transition: transform 0.2s var(--ease-out);
+      will-change: transform;
+      text-decoration: none;
+    }
+
+    .btn-alive::before {
+      content: '';
+      position: absolute;
+      inset: -64px -120px;
+      background: radial-gradient(ellipse 65% 55% at center, rgba(139,108,199,0.35) 0%, rgba(139,108,199,0.1) 45%, transparent 85%);
+      z-index: -1;
+      transform: scale(0.55);
+      transition: transform 0.4s var(--ease-out);
+      pointer-events: none;
+      animation: cta-glow-pulse 2.5s ease-in-out infinite;
+    }
+
+    .btn-alive:hover::before {
+      transform: scale(1);
+    }
+
+    .btn-alive::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 8px;
+      background: currentColor;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, calc(100% - 14px) 3px, 0 3px);
+      transition: width 0.4s var(--ease-out);
+    }
+
+    .btn-alive:hover::after {
+      width: calc(100% + 10px);
+    }
+
+
+    /* CTA pulse — underline extends + glow scales up, then both retract */
+    .btn-alive.cta-pulse-extend::after {
+      width: calc(100% + 10px);
+      transition: width 0.4s var(--ease-out);
+    }
+    .btn-alive.cta-pulse-extend::before {
+      transform: scale(1);
+      transition: transform 0.4s var(--ease-out);
+    }
+
+    .btn-alive.cta-pulse-retract::after {
+      width: 0;
+      transition: width 0.1s var(--ease-out);
+    }
+    .btn-alive.cta-pulse-retract::before {
+      transform: scale(0.55);
+      transition: transform 0.3s var(--ease-out);
+    }
+
+    /* Size variants */
+    .btn-alive--lg {
+      font-size: 1.125rem;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-alive--lg:hover::after {
+      width: calc(100% + 20px);
+    }
+
+    .btn-alive--sm {
+      font-size: var(--text-sm);
+    }
+
+    .btn-alive--sm::before {
+      inset: -48px -80px;
+      background: radial-gradient(ellipse 65% 55% at center, rgba(92,59,156,0.35) 0%, rgba(92,59,156,0.09) 45%, transparent 85%);
+      transform: scale(0.55);
+      animation: cta-glow-pulse 2.5s ease-in-out infinite;
+    }
+
+    .btn-alive--sm:hover::before {
+      transform: scale(1);
+      animation: none;
+      transition: transform 0.4s var(--ease-out);
+    }
+
+    .btn-alive--sm::after {
+      bottom: -1px;
+    }
+
+    /* On dark backgrounds */
+    .btn-alive--on-dark {
+      color: #FFFFFF;
+    }
+
+    .btn-alive--on-dark::before {
+      background: radial-gradient(ellipse 65% 55% at center, rgba(139,108,199,0.4) 0%, rgba(139,108,199,0.12) 45%, transparent 85%);
+    }
+
+    .btn-alive--on-dark::after {
+      background: var(--stakes-accent, #8B6CC7);
+    }
+
+    @keyframes cta-glow-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* ============================================================
+       Demo Containers
+       ============================================================ */
+    .demo-surface {
+      padding: 3rem 2rem;
+      border-radius: var(--card-radius);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .demo-surface--light {
+      background: var(--background);
+      border: 1px solid var(--border);
+    }
+
+    .demo-surface--dark {
+      background: var(--hero-bg);
+    }
+
+    .demo-surface--stakes {
+      background: var(--stakes-bg);
+    }
+
+    .demo-label {
+      position: absolute;
+      top: 0.75rem;
+      right: 1rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    .demo-label--light { color: var(--foreground); }
+    .demo-label--dark { color: #E2E0EC; }
+
+    /* ============================================================
+       Card Demos
+       ============================================================ */
+    .demo-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .offering-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: var(--card-padding);
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s ease;
+      cursor: default;
+    }
+
+    .offering-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--primary);
+    }
+
+    .offering-card__icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F6F2EB;
+      border: 1.5px solid var(--primary);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+
+    [data-theme="dark"] .offering-card__icon {
+      background: var(--accent);
+      border-color: var(--accent-foreground);
+      color: var(--accent-foreground);
+    }
+
+    .offering-card__label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .offering-card__title {
+      font-family: 'IBM Plex Serif', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+      color: var(--foreground);
+    }
+
+    .offering-card__desc {
+      font-size: var(--text-sm);
+      line-height: var(--lh-sm);
+      color: var(--secondary-foreground);
+      margin-bottom: 1rem;
+    }
+
+    /* Use case card */
+    .usecase-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: var(--card-padding);
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s ease;
+      cursor: default;
+    }
+
+    .usecase-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--primary);
+    }
+
+    .usecase-card__label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .usecase-card__title {
+      font-family: 'IBM Plex Serif', Georgia, serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+      color: var(--foreground);
+    }
+
+    .usecase-card__desc {
+      font-size: var(--text-sm);
+      line-height: var(--lh-sm);
+      color: var(--secondary-foreground);
+    }
+
+    /* ============================================================
+       Letter Stagger Animation
+       ============================================================ */
+    .stagger-heading {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .stagger-heading .word {
+      display: inline-flex;
+      margin-right: 0.3em;
+    }
+
+    .stagger-heading .letter {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+    }
+
+    .stagger-heading.animate .letter {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       Sequential Card Reveal
+       ============================================================ */
+    .seq-card {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+    }
+
+    .seq-card.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .seq-card .offering-card__label,
+    .seq-card .offering-card__icon,
+    .seq-card .offering-card__title,
+    .seq-card .offering-card__desc,
+    .seq-card .btn-alive {
+      opacity: 0;
+      transition: opacity 0.4s var(--ease-out);
+    }
+
+    .seq-card.revealed .step-visible { opacity: 1; }
+
+    /* Typewriter effect */
+    .typewriter-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--primary);
+      margin-left: 2px;
+      animation: blink 0.7s step-end infinite;
+      vertical-align: text-bottom;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* ============================================================
+       Anti-Slop Rules
+       ============================================================ */
+    .rules-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .rule-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--guide-rule-border);
+      align-items: start;
+      transition: border-color 0.3s ease;
+    }
+
+    .rule-item:last-child { border-bottom: none; }
+
+    .rule-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--primary);
+      text-align: center;
+      padding-top: 2px;
+    }
+
+    .rule-content strong {
+      display: block;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .rule-content p {
+      font-size: var(--text-sm);
+      line-height: var(--lh-sm);
+      color: var(--secondary-foreground);
+      margin: 0;
+    }
+
+    /* ============================================================
+       Icon Grid
+       ============================================================ */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.25rem 0.75rem;
+      background: var(--guide-sidebar);
+      border-radius: 12px;
+      transition: background-color 0.3s ease;
+    }
+
+    .icon-item i {
+      font-size: 1.75rem;
+      color: var(--icon-duotone);
+    }
+
+    .icon-item span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.625rem;
+      letter-spacing: 0.04em;
+      color: var(--muted-foreground);
+      text-align: center;
+      word-break: break-all;
+    }
+
+    /* ============================================================
+       CSS Properties Reference
+       ============================================================ */
+    .props-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .props-grid { grid-template-columns: 1fr; }
+    }
+
+    .props-grid__item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.625rem 1rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .props-grid__item:nth-last-child(-n+2) { border-bottom: none; }
+
+    .props-grid__key {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--primary);
+    }
+
+    .props-grid__val {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--secondary-foreground);
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+
+    /* ============================================================
+       Play Button
+       ============================================================ */
+    .play-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: none;
+      border: 1.5px solid var(--primary);
+      border-radius: 8px;
+      padding: 0.5rem 1.25rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+      margin-bottom: 1.5rem;
+    }
+
+    .play-btn:hover {
+      background: var(--primary);
+      color: var(--primary-foreground);
+    }
+
+    /* ============================================================
+       Usage Do / Don't
+       ============================================================ */
+    .usage-do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .usage-do-dont { grid-template-columns: 1fr; }
+    }
+
+    .usage-box {
+      border-radius: var(--card-radius);
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .usage-box--do {
+      border-color: #2ea043;
+    }
+
+    .usage-box--dont {
+      border-color: var(--destructive);
+    }
+
+    .usage-box__header {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .usage-box--do .usage-box__header { color: #2ea043; }
+    .usage-box--dont .usage-box__header { color: var(--destructive); }
+
+    .usage-box p {
+      font-size: var(--text-sm);
+      line-height: var(--lh-sm);
+      color: var(--secondary-foreground);
+      margin: 0;
+    }
+
+    /* Slop example — the bad button */
+    .slop-btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: linear-gradient(135deg, #5C3B9C, #8B6CC7);
+      color: white;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: none;
+      cursor: default;
+      margin-top: 0.5rem;
+      opacity: 0.6;
+      text-decoration: line-through;
+    }
+
+    .slop-icon-container {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #5C3B9C, #8B6CC7);
+      border-radius: 12px;
+      color: white;
+      font-size: 1.5rem;
+      opacity: 0.6;
+      margin-top: 0.5rem;
+    }
+
+    /* ============================================================
+       Responsive
+       ============================================================ */
+    @media (max-width: 640px) {
+      .color-grid { grid-template-columns: repeat(2, 1fr); }
+      .demo-card-grid { grid-template-columns: 1fr; }
+      .demo-surface { padding: 2rem 1.25rem; gap: 1.5rem; }
+      .page-header { padding: 0.75rem 1rem; }
+      .page-header h1 { font-size: 1rem; }
+    }
+
+    /* ============================================================
+       Reduced Motion
+       ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      .btn-alive::before { animation: none; }
+      .btn-alive--sm::before { animation: none; }
+      .stagger-heading .letter {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .seq-card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .seq-card .offering-card__label,
+      .seq-card .offering-card__icon,
+      .seq-card .offering-card__title,
+      .seq-card .offering-card__desc,
+      .seq-card .btn-alive {
+        opacity: 1;
+        transition: none;
+      }
+      .typewriter-cursor { animation: none; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       Header
+       ============================================================ -->
+  <header class="page-header">
+    <h1>Consultates <span>Brand Guidelines</span></h1>
+    <div class="theme-toggle" id="themeToggle" role="button" tabindex="0" aria-label="Toggle theme">
+      <span class="theme-toggle__label" id="themeLabel">Light</span>
+      <div class="theme-toggle__track">
+        <div class="theme-toggle__thumb"></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         Section: Anti-Slop Rules
+         ============================================================ -->
+    <section id="anti-slop">
+      <div class="container">
+        <h2 class="section-title">Design Principles &mdash; v2.0 Anti-Slop Rules</h2>
+        <p class="section-desc">These rules exist because AI-generated UI has recognisable patterns. If a design choice matches one of these patterns, redo it. The site should look like it was built by someone who gives a damn.</p>
+
+        <div class="rules-grid">
+          <div class="rule-item">
+            <div class="rule-number">01</div>
+            <div class="rule-content">
+              <strong>No gradient buttons</strong>
+              <p>Gradient pills are AI marketing cliche. Use underline-draw + glow (btn-alive).</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-number">02</div>
+            <div class="rule-content">
+              <strong>No pill-shaped buttons</strong>
+              <p>border-radius: 9999px only for actual circles. Buttons use btn-alive (no border-radius at all).</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-number">03</div>
+            <div class="rule-content">
+              <strong>No eyebrow labels</strong>
+              <p>Small + uppercase + letter-spacing above headings is an AI slop pattern. Only use mono labels for card categorisation, never above section headings.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-number">04</div>
+            <div class="rule-content">
+              <strong>No generic fade-up animations</strong>
+              <p>Use letter stagger, typewriter, sequential reveals. If it looks like default Framer Motion whileInView fadeUp, redo it.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-number">05</div>
+            <div class="rule-content">
+              <strong>No glassmorphism</strong>
+              <p>No backdrop-filter outside the navigation bar. Frosted glass everywhere is an AI tell.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-number">06</div>
+            <div class="rule-content">
+              <strong>No dramatic shadows</strong>
+              <p>blur > 20px only on card hover states. Dramatic ambient shadows on static elements are not used.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-number">07</div>
+            <div class="rule-content">
+              <strong>No decorative copy</strong>
+              <p>Don't explain what the UI does. No "Click here to explore our offerings" or "Scroll down to learn more."</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-number">08</div>
+            <div class="rule-content">
+              <strong>No transform-on-hover except btn-alive</strong>
+              <p>Magnetic hover on btn-alive is intentional design. Random scale/rotate on hover elsewhere is not.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-number">09</div>
+            <div class="rule-content">
+              <strong>Colors stay flat</strong>
+              <p>Not blended into gradients. Use token colours as distinct, intentional values.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-number">10</div>
+            <div class="rule-content">
+              <strong>Icon containers: cream bg + purple border</strong>
+              <p>Background: #F6F2EB (cream). Border: 1.5px solid var(--primary). Not gradient backgrounds.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-number">11</div>
+            <div class="rule-content">
+              <strong>Dark CTA = hero mirror</strong>
+              <p>Same letter stagger heading, same btn-alive--on-dark. Dark sections must not use different button styles.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-number">12</div>
+            <div class="rule-content">
+              <strong>Sequential, not simultaneous</strong>
+              <p>Cards animate L-to-R. Content within each card reveals in order: label/icon, title stagger, typewriter desc, CTA pulse.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-number">13</div>
+            <div class="rule-content">
+              <strong>Mono labels for categorisation</strong>
+              <p>IBM Plex Mono, 11px, 500 weight, 0.08em letter-spacing, uppercase, Royal Purple. Used on cards, not above sections.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-number">14</div>
+            <div class="rule-content">
+              <strong>Reduced motion is first-class</strong>
+              <p>All animations have prefers-reduced-motion fallback. Content visible immediately, no motion, no cursor blink.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section: btn-alive System (Live)
+         ============================================================ -->
+    <section id="btn-alive">
+      <div class="container">
+        <h2 class="section-title">btn-alive System</h2>
+        <p class="section-desc">The primary CTA pattern. Underline draws on hover via clip-path, radial glow pulses behind the text. No background, no border-radius, no gradient.</p>
+
+        <h3 class="subsection-title">On Light Background</h3>
+        <div class="demo-surface demo-surface--light">
+          <span class="demo-label demo-label--light">Light surface</span>
+          <a href="#" class="btn-alive btn-alive--lg" onclick="return false">
+            Book a Discovery Call          </a>
+          <a href="#" class="btn-alive" onclick="return false">
+            Learn More          </a>
+          <a href="#" class="btn-alive btn-alive--sm" onclick="return false">
+            View Details          </a>
+        </div>
+
+        <h3 class="subsection-title">On Dark Background (Hero / Stakes)</h3>
+        <div class="demo-surface demo-surface--dark">
+          <span class="demo-label demo-label--dark">Hero surface</span>
+          <a href="#" class="btn-alive btn-alive--lg btn-alive--on-dark" onclick="return false">
+            Book a Discovery Call          </a>
+          <a href="#" class="btn-alive btn-alive--on-dark" onclick="return false">
+            Learn More          </a>
+          <a href="#" class="btn-alive btn-alive--sm btn-alive--on-dark" onclick="return false">
+            View Details          </a>
+        </div>
+
+        <div class="demo-surface demo-surface--stakes">
+          <span class="demo-label demo-label--dark">Stakes surface</span>
+          <a href="#" class="btn-alive btn-alive--lg btn-alive--on-dark" onclick="return false">
+            Start the Conversation          </a>
+        </div>
+
+        <h3 class="subsection-title">What NOT to do</h3>
+        <div class="usage-do-dont">
+          <div class="usage-box usage-box--do">
+            <div class="usage-box__header">Correct</div>
+            <a href="#" class="btn-alive btn-alive--sm" onclick="return false" style="font-size: 0.875rem;">
+              Book a Call            </a>
+            <p style="margin-top: 1rem;">btn-alive with underline-draw and glow.</p>
+          </div>
+          <div class="usage-box usage-box--dont">
+            <div class="usage-box__header">Wrong &mdash; AI Slop</div>
+            <button class="slop-btn">Get Started Today</button>
+            <p style="margin-top: 1rem;">Gradient pill button. This is the single most recognisable AI-generated UI pattern.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section: Letter Stagger Animation (Live)
+         ============================================================ -->
+    <section id="letter-stagger">
+      <div class="container">
+        <h2 class="section-title">Letter Stagger Animation</h2>
+        <p class="section-desc">Used on hero headings and dark CTA section headings. Letters animate in one by one with translateY + opacity. Mono-directional, L-to-R.</p>
+
+        <h3 class="subsection-title">Light Surface</h3>
+        <div class="demo-surface demo-surface--light">
+          <span class="demo-label demo-label--light">Letter stagger</span>
+          <div style="width: 100%;">
+            <div class="stagger-heading type-specimen__sample--section" id="staggerDemo1" data-text="AI that works for you."></div>
+            <button class="play-btn" onclick="playStagger('staggerDemo1')" style="margin-top: 1.5rem;">
+              <i class="ph-duotone ph-play"></i> Play Animation
+            </button>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Dark CTA Surface (Hero Mirror)</h3>
+        <div class="demo-surface demo-surface--dark">
+          <span class="demo-label demo-label--dark">Dark CTA stagger</span>
+          <div style="width: 100%;">
+            <div class="stagger-heading type-specimen__sample--section" id="staggerDemo2" data-text="Ready to move?" style="color: #E2E0EC;"></div>
+            <div style="margin-top: 1.5rem;">
+              <button class="play-btn" onclick="playStagger('staggerDemo2')" style="border-color: #8B6CC7; color: #8B6CC7;">
+                <i class="ph-duotone ph-play"></i> Play Animation
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section: Card Components (Live)
+         ============================================================ -->
+    <section id="cards">
+      <div class="container">
+        <h2 class="section-title">Card Components</h2>
+        <p class="section-desc">Cards hover with translateY(-4px), accent border, and elevated shadow. Icon containers use cream background with purple border &mdash; never gradients.</p>
+
+        <h3 class="subsection-title">Offering Cards</h3>
+        <div class="demo-card-grid">
+          <div class="offering-card">
+            <div class="offering-card__icon">
+              <i class="ph-duotone ph-chats-circle"></i>
+            </div>
+            <div class="offering-card__label">Advisory</div>
+            <div class="offering-card__title">AI Advisory for Leaders</div>
+            <div class="offering-card__desc">Confidential one-on-one sessions for business leaders navigating AI transformation.</div>
+            <a href="#" class="btn-alive btn-alive--sm" onclick="return false">
+              Learn More            </a>
+          </div>
+          <div class="offering-card">
+            <div class="offering-card__icon">
+              <i class="ph-duotone ph-users-three"></i>
+            </div>
+            <div class="offering-card__label">Training</div>
+            <div class="offering-card__title">AI Training for Teams</div>
+            <div class="offering-card__desc">Structured programmes that turn your team into confident AI practitioners.</div>
+            <a href="#" class="btn-alive btn-alive--sm" onclick="return false">
+              Learn More            </a>
+          </div>
+          <div class="offering-card">
+            <div class="offering-card__icon">
+              <i class="ph-duotone ph-graph"></i>
+            </div>
+            <div class="offering-card__label">Fractional</div>
+            <div class="offering-card__title">Fractional Exec Support</div>
+            <div class="offering-card__desc">Senior commercial leadership embedded in your business, without the full-time cost.</div>
+            <a href="#" class="btn-alive btn-alive--sm" onclick="return false">
+              Learn More            </a>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Icon Container &mdash; Do vs Don't</h3>
+        <div class="usage-do-dont">
+          <div class="usage-box usage-box--do">
+            <div class="usage-box__header">Correct</div>
+            <div class="offering-card__icon" style="margin-top: 0.5rem;">
+              <i class="ph-duotone ph-lightbulb"></i>
+            </div>
+            <p style="margin-top: 0.75rem;">Cream bg (#F6F2EB) + 1.5px purple border. Flat, intentional.</p>
+          </div>
+          <div class="usage-box usage-box--dont">
+            <div class="usage-box__header">Wrong &mdash; AI Slop</div>
+            <div class="slop-icon-container">
+              <i class="ph-duotone ph-lightbulb"></i>
+            </div>
+            <p style="margin-top: 0.75rem;">Gradient background icon container. Looks like every AI landing page.</p>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Use Case Cards</h3>
+        <div class="demo-card-grid">
+          <div class="usecase-card">
+            <div class="usecase-card__label">Advisory</div>
+            <div class="usecase-card__title">Confidential AI Strategy Sessions</div>
+            <div class="usecase-card__desc">One-on-one sessions for business leaders and entrepreneurs navigating AI decisions.</div>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-card__label">Training</div>
+            <div class="usecase-card__title">Lead with AI PRO Cohorts</div>
+            <div class="usecase-card__desc">Gary lectures Lead with AI PRO, running agentic cohorts for execs and solopreneurs.</div>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-card__label">Fractional</div>
+            <div class="usecase-card__title">Fractional CRO at SkyDeck AI</div>
+            <div class="usecase-card__desc">GTM, sales, and customer success leadership embedded in a fast-moving AI startup.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section: Sequential Card Reveal (Live)
+         ============================================================ -->
+    <section id="sequential-reveal">
+      <div class="container">
+        <h2 class="section-title">Sequential Card Reveal</h2>
+        <p class="section-desc">Cards animate L-to-R. Within each card, content reveals in order: label/icon together, then title staggers in, then description typewriters, then CTA pulses on.</p>
+
+        <button class="play-btn" id="seqPlayBtn" onclick="playSequentialReveal()">
+          <i class="ph-duotone ph-play"></i> Play Animation
+        </button>
+
+        <div class="demo-card-grid" id="seqCardGrid">
+          <div class="seq-card offering-card" data-seq="0">
+            <div class="offering-card__icon">
+              <i class="ph-duotone ph-chats-circle"></i>
+            </div>
+            <div class="offering-card__label">Advisory</div>
+            <div class="offering-card__title seq-title" data-text="AI Advisory for Leaders"></div>
+            <div class="offering-card__desc seq-desc" data-text="Confidential sessions for leaders navigating AI."></div>
+            <a href="#" class="btn-alive btn-alive--sm" onclick="return false">
+              Learn More            </a>
+          </div>
+          <div class="seq-card offering-card" data-seq="1">
+            <div class="offering-card__icon">
+              <i class="ph-duotone ph-users-three"></i>
+            </div>
+            <div class="offering-card__label">Training</div>
+            <div class="offering-card__title seq-title" data-text="AI Training for Teams"></div>
+            <div class="offering-card__desc seq-desc" data-text="Turn your team into confident AI practitioners."></div>
+            <a href="#" class="btn-alive btn-alive--sm" onclick="return false">
+              Learn More            </a>
+          </div>
+          <div class="seq-card offering-card" data-seq="2">
+            <div class="offering-card__icon">
+              <i class="ph-duotone ph-graph"></i>
+            </div>
+            <div class="offering-card__label">Fractional</div>
+            <div class="offering-card__title seq-title" data-text="Fractional Exec Support"></div>
+            <div class="offering-card__desc seq-desc" data-text="Senior leadership embedded in your business."></div>
+            <a href="#" class="btn-alive btn-alive--sm" onclick="return false">
+              Learn More            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section: Color Palette
+         ============================================================ -->
+    <section id="colors">
+      <div class="container">
+        <h2 class="section-title">Color Palette</h2>
+        <p class="section-desc">All colours are CSS custom properties. They swap automatically with the theme toggle above. The site defaults to light theme.</p>
+
+        <h3 class="subsection-title">Core Tokens</h3>
+        <div class="color-grid">
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--primary);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Primary</div>
+              <div class="color-card__value">var(--primary)</div>
+              <div class="color-card__value" data-live-color="primary"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--primary-hover);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Primary Hover</div>
+              <div class="color-card__value">var(--primary-hover)</div>
+              <div class="color-card__value" data-live-color="primary-hover"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--background);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Background</div>
+              <div class="color-card__value">var(--background)</div>
+              <div class="color-card__value" data-live-color="background"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--foreground);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Foreground</div>
+              <div class="color-card__value">var(--foreground)</div>
+              <div class="color-card__value" data-live-color="foreground"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--secondary);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Secondary</div>
+              <div class="color-card__value">var(--secondary)</div>
+              <div class="color-card__value" data-live-color="secondary"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--accent);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Accent</div>
+              <div class="color-card__value">var(--accent)</div>
+              <div class="color-card__value" data-live-color="accent"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--muted);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Muted</div>
+              <div class="color-card__value">var(--muted)</div>
+              <div class="color-card__value" data-live-color="muted"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--border);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Border</div>
+              <div class="color-card__value">var(--border)</div>
+              <div class="color-card__value" data-live-color="border"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--destructive);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Destructive</div>
+              <div class="color-card__value">var(--destructive)</div>
+              <div class="color-card__value" data-live-color="destructive"></div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Foreground Tokens</h3>
+        <div class="color-grid">
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--secondary-foreground);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Secondary Foreground</div>
+              <div class="color-card__value">var(--secondary-foreground)</div>
+              <div class="color-card__value" data-live-color="secondary-foreground"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--muted-foreground);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Muted Foreground</div>
+              <div class="color-card__value">var(--muted-foreground)</div>
+              <div class="color-card__value" data-live-color="muted-foreground"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--accent-foreground);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Accent Foreground</div>
+              <div class="color-card__value">var(--accent-foreground)</div>
+              <div class="color-card__value" data-live-color="accent-foreground"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--icon-duotone);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Icon Duotone</div>
+              <div class="color-card__value">var(--icon-duotone)</div>
+              <div class="color-card__value" data-live-color="icon-duotone"></div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Hero / Stakes / Dark Section Tokens</h3>
+        <div class="color-grid">
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--hero-bg);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Hero Background</div>
+              <div class="color-card__value">var(--hero-bg)</div>
+              <div class="color-card__value" data-live-color="hero-bg"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--stakes-bg);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Stakes Background</div>
+              <div class="color-card__value">var(--stakes-bg)</div>
+              <div class="color-card__value" data-live-color="stakes-bg"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--stakes-accent);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Stakes Accent</div>
+              <div class="color-card__value">var(--stakes-accent)</div>
+              <div class="color-card__value" data-live-color="stakes-accent"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--hero-fg);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Hero Foreground</div>
+              <div class="color-card__value">var(--hero-fg)</div>
+              <div class="color-card__value" data-live-color="hero-fg"></div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Footer Tokens</h3>
+        <div class="color-grid">
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--footer-bg);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Footer Background</div>
+              <div class="color-card__value">var(--footer-bg)</div>
+              <div class="color-card__value" data-live-color="footer-bg"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--footer-text);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Footer Text</div>
+              <div class="color-card__value">var(--footer-text)</div>
+              <div class="color-card__value" data-live-color="footer-text"></div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-card__swatch" style="background: var(--footer-link);"></div>
+            <div class="color-card__info">
+              <div class="color-card__name">Footer Link</div>
+              <div class="color-card__value">var(--footer-link)</div>
+              <div class="color-card__value" data-live-color="footer-link"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section: Light / Dark Mapping
+         ============================================================ -->
+    <section id="mapping">
+      <div class="container">
+        <h2 class="section-title">Light / Dark Mapping Reference</h2>
+        <p class="section-desc">Every token has a light and dark value. The toggle swaps them via data-theme attribute on the html element.</p>
+
+        <table class="mapping-table">
+          <thead>
+            <tr>
+              <th>Token</th>
+              <th>Light</th>
+              <th>Dark</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>--primary</code></td>
+              <td><span class="swatch-inline" style="background:#5C3B9C;"></span>#5C3B9C</td>
+              <td><span class="swatch-inline" style="background:#8B6CC7;"></span>#8B6CC7</td>
+            </tr>
+            <tr>
+              <td><code>--background</code></td>
+              <td><span class="swatch-inline" style="background:#FFFFFF;"></span>#FFFFFF</td>
+              <td><span class="swatch-inline" style="background:#0D1117;"></span>#0D1117</td>
+            </tr>
+            <tr>
+              <td><code>--foreground</code></td>
+              <td><span class="swatch-inline" style="background:#1A253F;"></span>#1A253F</td>
+              <td><span class="swatch-inline" style="background:#E2E0EC;"></span>#E2E0EC</td>
+            </tr>
+            <tr>
+              <td><code>--secondary</code></td>
+              <td><span class="swatch-inline" style="background:#F6F2EB;"></span>#F6F2EB</td>
+              <td><span class="swatch-inline" style="background:#1E2333;"></span>#1E2333</td>
+            </tr>
+            <tr>
+              <td><code>--accent</code></td>
+              <td><span class="swatch-inline" style="background:#D4C8E8;"></span>#D4C8E8</td>
+              <td><span class="swatch-inline" style="background:#2A2540;"></span>#2A2540</td>
+            </tr>
+            <tr>
+              <td><code>--muted</code></td>
+              <td><span class="swatch-inline" style="background:#F0EFF4;"></span>#F0EFF4</td>
+              <td><span class="swatch-inline" style="background:#1E2333;"></span>#1E2333</td>
+            </tr>
+            <tr>
+              <td><code>--border</code></td>
+              <td><span class="swatch-inline" style="background:#E2DFE8;"></span>#E2DFE8</td>
+              <td><span class="swatch-inline" style="background:#1E2333;"></span>#1E2333</td>
+            </tr>
+            <tr>
+              <td><code>--secondary-foreground</code></td>
+              <td><span class="swatch-inline" style="background:#555869;"></span>#555869</td>
+              <td><span class="swatch-inline" style="background:#C5C3D4;"></span>#C5C3D4</td>
+            </tr>
+            <tr>
+              <td><code>--muted-foreground</code></td>
+              <td><span class="swatch-inline" style="background:#8e8fa0;"></span>#8e8fa0</td>
+              <td><span class="swatch-inline" style="background:#7A7B90;"></span>#7A7B90</td>
+            </tr>
+            <tr>
+              <td><code>--accent-foreground</code></td>
+              <td><span class="swatch-inline" style="background:#5C3B9C;"></span>#5C3B9C</td>
+              <td><span class="swatch-inline" style="background:#B89FDE;"></span>#B89FDE</td>
+            </tr>
+            <tr>
+              <td><code>--icon-duotone</code></td>
+              <td><span class="swatch-inline" style="background:#7C6B9B;"></span>#7C6B9B</td>
+              <td><span class="swatch-inline" style="background:#B89FDE;"></span>#B89FDE</td>
+            </tr>
+            <tr>
+              <td><code>--card</code></td>
+              <td><span class="swatch-inline" style="background:#FFFFFF;"></span>#FFFFFF</td>
+              <td><span class="swatch-inline" style="background:#161B26;"></span>#161B26</td>
+            </tr>
+            <tr>
+              <td><code>--stakes-accent</code></td>
+              <td><span class="swatch-inline" style="background:#8B6CC7;"></span>#8B6CC7</td>
+              <td><span class="swatch-inline" style="background:#B89FDE;"></span>#B89FDE</td>
+            </tr>
+            <tr>
+              <td><code>--stakes-bg</code></td>
+              <td><span class="swatch-inline" style="background:#141C74;"></span>#141C74</td>
+              <td><span class="swatch-inline" style="background:#0A0E14;"></span>#0A0E14</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section: Typography
+         ============================================================ -->
+    <section id="typography">
+      <div class="container">
+        <h2 class="section-title">Typography</h2>
+        <p class="section-desc">Three typefaces from the IBM Plex family, each with a specific role. Self-hosted as WOFF2 in production. Loaded from Google Fonts on this reference page.</p>
+
+        <div class="type-specimen">
+          <div class="type-specimen__label">Hero &mdash; IBM Plex Serif 700</div>
+          <div class="type-specimen__sample--hero">AI that works for you.</div>
+          <div class="type-specimen__meta">font-size: clamp(2.75rem, 5.5vw, 4rem) | line-height: 1.08 | letter-spacing: -0.025em</div>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-specimen__label">Section Heading &mdash; IBM Plex Serif 600</div>
+          <div class="type-specimen__sample--section">What We Do</div>
+          <div class="type-specimen__meta">font-size: clamp(1.75rem, 3vw, 2.5rem) | line-height: 1.15 | letter-spacing: -0.02em</div>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-specimen__label">Subheading &mdash; IBM Plex Sans 600</div>
+          <div class="type-specimen__sample--subhead">Strategic AI Consulting</div>
+          <div class="type-specimen__meta">font-size: clamp(1.125rem, 2vw, 1.5rem) | line-height: 1.35</div>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-specimen__label">Body Large &mdash; IBM Plex Sans 400</div>
+          <div class="type-specimen__sample--body-lg">Gary Tate helps business leaders adopt AI with confidence. Not hype, not theory &mdash; working systems that ship.</div>
+          <div class="type-specimen__meta">font-size: clamp(1.0625rem, 1.5vw, 1.25rem) | line-height: 1.65</div>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-specimen__label">Body &mdash; IBM Plex Sans 400</div>
+          <div class="type-specimen__sample--body">With 10 years in military engineering and 10 years leading commercial teams across 16 countries, Gary brings a rare combination of technical depth and business reality to every engagement.</div>
+          <div class="type-specimen__meta">font-size: 1rem | line-height: 1.7</div>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-specimen__label">Caption &mdash; IBM Plex Sans 500</div>
+          <div class="type-specimen__sample--caption">15-minute discovery call. No pitch, just clarity.</div>
+          <div class="type-specimen__meta">font-size: 0.875rem | line-height: 1.5 | letter-spacing: 0.01em</div>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-specimen__label">Mono Label &mdash; IBM Plex Mono 500</div>
+          <div class="type-specimen__sample--mono">Advisory</div>
+          <div class="type-specimen__meta">font-size: 11px | weight: 500 | letter-spacing: 0.08em | uppercase | color: var(--primary)</div>
+        </div>
+
+        <div class="type-specimen">
+          <div class="type-specimen__label">Stat &mdash; IBM Plex Mono 700</div>
+          <div class="type-specimen__sample--stat">87%</div>
+          <div class="type-specimen__meta">font-size: clamp(3.5rem, 7vw, 5.5rem) | line-height: 1.0 | letter-spacing: -0.02em</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section: Icon Pack
+         ============================================================ -->
+    <section id="icons">
+      <div class="container">
+        <h2 class="section-title">Icon Pack &mdash; Phosphor Duotone</h2>
+        <p class="section-desc">All icons use Phosphor Icons in the duotone weight. Coloured with var(--icon-duotone). Loaded from CDN on this reference page; in production use @phosphor-icons/react.</p>
+
+        <div class="icon-grid">
+          <div class="icon-item">
+            <i class="ph-duotone ph-chats-circle"></i>
+            <span>chats-circle</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-users-three"></i>
+            <span>users-three</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-graph"></i>
+            <span>graph</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-lightbulb"></i>
+            <span>lightbulb</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-rocket-launch"></i>
+            <span>rocket-launch</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-shield-check"></i>
+            <span>shield-check</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-chart-line-up"></i>
+            <span>chart-line-up</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-brain"></i>
+            <span>brain</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-strategy"></i>
+            <span>strategy</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-target"></i>
+            <span>target</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-handshake"></i>
+            <span>handshake</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-calendar-check"></i>
+            <span>calendar-check</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-envelope-simple"></i>
+            <span>envelope-simple</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-arrow-right"></i>
+            <span>arrow-right</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-check-circle"></i>
+            <span>check-circle</span>
+          </div>
+          <div class="icon-item">
+            <i class="ph-duotone ph-warning"></i>
+            <span>warning</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section: CSS Custom Properties Reference
+         ============================================================ -->
+    <section id="css-props">
+      <div class="container">
+        <h2 class="section-title">CSS Custom Properties</h2>
+        <p class="section-desc">The complete set of design tokens. These values update live when you toggle the theme.</p>
+
+        <h3 class="subsection-title">Spacing</h3>
+        <div class="props-grid">
+          <div class="props-grid__item">
+            <span class="props-grid__key">--section-py</span>
+            <span class="props-grid__val">clamp(5rem, 10vw, 8rem)</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--section-gap</span>
+            <span class="props-grid__val">clamp(1.5rem, 3vw, 2.5rem)</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--content-max</span>
+            <span class="props-grid__val">1140px</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--content-px</span>
+            <span class="props-grid__val">clamp(1.5rem, 4vw, 2.5rem)</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--card-padding</span>
+            <span class="props-grid__val">clamp(1.75rem, 3vw, 2.25rem)</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--card-radius</span>
+            <span class="props-grid__val">16px</span>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Animation</h3>
+        <div class="props-grid">
+          <div class="props-grid__item">
+            <span class="props-grid__key">--ease-out</span>
+            <span class="props-grid__val">cubic-bezier(0.16, 1, 0.3, 1)</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--ease-in-out</span>
+            <span class="props-grid__val">cubic-bezier(0.45, 0, 0.55, 1)</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--duration</span>
+            <span class="props-grid__val">0.7s</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--stagger</span>
+            <span class="props-grid__val">0.12s</span>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Type Scale</h3>
+        <div class="props-grid">
+          <div class="props-grid__item">
+            <span class="props-grid__key">--text-hero</span>
+            <span class="props-grid__val">clamp(2.75rem, 5.5vw, 4rem)</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--text-section</span>
+            <span class="props-grid__val">clamp(1.75rem, 3vw, 2.5rem)</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--text-subhead</span>
+            <span class="props-grid__val">clamp(1.125rem, 2vw, 1.5rem)</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--text-body-lg</span>
+            <span class="props-grid__val">clamp(1.0625rem, 1.5vw, 1.25rem)</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--text-body</span>
+            <span class="props-grid__val">1rem</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--text-sm</span>
+            <span class="props-grid__val">0.875rem</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--text-xs</span>
+            <span class="props-grid__val">0.8125rem</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--text-stat</span>
+            <span class="props-grid__val">clamp(3.5rem, 7vw, 5.5rem)</span>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Fonts</h3>
+        <div class="props-grid">
+          <div class="props-grid__item">
+            <span class="props-grid__key">--font-sans</span>
+            <span class="props-grid__val">'IBM Plex Sans'</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--font-serif</span>
+            <span class="props-grid__val">'IBM Plex Serif'</span>
+          </div>
+          <div class="props-grid__item">
+            <span class="props-grid__key">--font-mono</span>
+            <span class="props-grid__val">'IBM Plex Mono'</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Section: Usage Guidelines
+         ============================================================ -->
+    <section id="usage">
+      <div class="container">
+        <h2 class="section-title">Usage Guidelines</h2>
+
+        <h3 class="subsection-title">Buttons</h3>
+        <div class="usage-do-dont">
+          <div class="usage-box usage-box--do">
+            <div class="usage-box__header">Do</div>
+            <p>Use btn-alive for all CTA buttons. Add --lg for hero, --sm for cards, --on-dark for dark surfaces. The underline draws on hover, the glow pulses.</p>
+          </div>
+          <div class="usage-box usage-box--dont">
+            <div class="usage-box__header">Don't</div>
+            <p>Don't use gradient backgrounds, pill shapes, or filled buttons. Don't add scale/rotate on hover. Don't use a different button style on dark CTA sections.</p>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Section Headings</h3>
+        <div class="usage-do-dont">
+          <div class="usage-box usage-box--do">
+            <div class="usage-box__header">Do</div>
+            <p>Use IBM Plex Serif at the section scale. On dark backgrounds, use the letter-stagger animation (StaggerHeading component). Keep headings short and direct.</p>
+          </div>
+          <div class="usage-box usage-box--dont">
+            <div class="usage-box__header">Don't</div>
+            <p>Don't add an eyebrow label above section headings. Don't use generic fadeUp on dark section headings. Don't use IBM Plex Sans for section headings.</p>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Cards</h3>
+        <div class="usage-do-dont">
+          <div class="usage-box usage-box--do">
+            <div class="usage-box__header">Do</div>
+            <p>Use cream bg + purple border for icon containers. Animate cards sequentially L-to-R. Use mono labels for categorisation. Hover: translateY(-4px), accent border, elevated shadow.</p>
+          </div>
+          <div class="usage-box usage-box--dont">
+            <div class="usage-box__header">Don't</div>
+            <p>Don't use gradient icon containers. Don't animate all cards simultaneously. Don't use dramatic shadows on static cards. Don't add decorative text explaining the cards.</p>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Animations</h3>
+        <div class="usage-do-dont">
+          <div class="usage-box usage-box--do">
+            <div class="usage-box__header">Do</div>
+            <p>Use letter stagger for headings, typewriter for descriptions, sequential reveal for cards. All animations must have prefers-reduced-motion fallback. Use --ease-out for all transitions.</p>
+          </div>
+          <div class="usage-box usage-box--dont">
+            <div class="usage-box__header">Don't</div>
+            <p>Don't use generic fadeUp everywhere. Don't animate simultaneously when sequential is specified. Don't use different easing curves. Don't forget reduced-motion support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer style="background: var(--footer-bg); color: var(--footer-text); padding: 2rem; text-align: center; font-size: var(--text-sm); transition: background-color 0.3s ease;">
+    <p style="margin: 0; opacity: 0.6;">Consultates Brand Guidelines &mdash; v2.0</p>
+  </footer>
+
+  <!-- ============================================================
+       JavaScript
+       ============================================================ -->
+  <script>
+    // ---- Theme Toggle ----
+    var html = document.documentElement;
+    var toggle = document.getElementById('themeToggle');
+    var themeLabel = document.getElementById('themeLabel');
+
+    // Color hex values for live display
+    var colorMap = {
+      light: {
+        'primary': '#5C3B9C', 'primary-hover': '#4E3285', 'background': '#FFFFFF',
+        'foreground': '#1A253F', 'secondary': '#F6F2EB', 'accent': '#D4C8E8',
+        'muted': '#F0EFF4', 'border': '#E2DFE8', 'destructive': '#D94C4C',
+        'secondary-foreground': '#555869', 'muted-foreground': '#8e8fa0',
+        'accent-foreground': '#5C3B9C', 'icon-duotone': '#7C6B9B',
+        'hero-bg': '#0D1117', 'stakes-bg': '#141C74', 'stakes-accent': '#8B6CC7',
+        'hero-fg': '#E2E0EC', 'footer-bg': '#0D1117', 'footer-text': '#E2E0EC',
+        'footer-link': '#C5C3D4'
+      },
+      dark: {
+        'primary': '#8B6CC7', 'primary-hover': '#7D5FBA', 'background': '#0D1117',
+        'foreground': '#E2E0EC', 'secondary': '#1E2333', 'accent': '#2A2540',
+        'muted': '#1E2333', 'border': '#1E2333', 'destructive': '#D94C4C',
+        'secondary-foreground': '#C5C3D4', 'muted-foreground': '#7A7B90',
+        'accent-foreground': '#B89FDE', 'icon-duotone': '#B89FDE',
+        'hero-bg': '#0A0E14', 'stakes-bg': '#0A0E14', 'stakes-accent': '#B89FDE',
+        'hero-fg': '#E2E0EC', 'footer-bg': '#0D1117', 'footer-text': '#E2E0EC',
+        'footer-link': '#C5C3D4'
+      }
+    };
+
+    function updateLiveColors() {
+      var theme = html.getAttribute('data-theme') || 'light';
+      var els = document.querySelectorAll('[data-live-color]');
+      for (var i = 0; i < els.length; i++) {
+        var token = els[i].getAttribute('data-live-color');
+        els[i].textContent = colorMap[theme][token] || '';
+      }
+    }
+
+    toggle.addEventListener('click', function() {
+      var current = html.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      themeLabel.textContent = next === 'dark' ? 'Dark' : 'Light';
+      updateLiveColors();
+    });
+
+    toggle.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle.click();
+      }
+    });
+
+    updateLiveColors();
+
+    // ---- Letter Stagger ----
+    function initStaggerHeading(el) {
+      var text = el.getAttribute('data-text');
+      if (!text) return;
+      // Clear children safely
+      while (el.firstChild) el.removeChild(el.firstChild);
+      var words = text.split(' ');
+      for (var wi = 0; wi < words.length; wi++) {
+        var wordSpan = document.createElement('span');
+        wordSpan.className = 'word';
+        var chars = words[wi].split('');
+        for (var ci = 0; ci < chars.length; ci++) {
+          var letterSpan = document.createElement('span');
+          letterSpan.className = 'letter';
+          letterSpan.textContent = chars[ci];
+          wordSpan.appendChild(letterSpan);
+        }
+        el.appendChild(wordSpan);
+      }
+    }
+
+    function playStagger(id) {
+      var el = document.getElementById(id);
+      el.classList.remove('animate');
+      initStaggerHeading(el);
+      // Force reflow
+      void el.offsetWidth;
+      var letters = el.querySelectorAll('.letter');
+      for (var i = 0; i < letters.length; i++) {
+        letters[i].style.transitionDelay = (i * 0.04) + 's';
+      }
+      requestAnimationFrame(function() {
+        el.classList.add('animate');
+      });
+    }
+
+    // Initialize stagger headings on load
+    var staggerEls = document.querySelectorAll('.stagger-heading[data-text]');
+    for (var s = 0; s < staggerEls.length; s++) {
+      initStaggerHeading(staggerEls[s]);
+    }
+
+    // ---- Sequential Card Reveal ----
+    var seqRunning = false;
+
+    function playSequentialReveal() {
+      if (seqRunning) return;
+      seqRunning = true;
+
+      var cards = document.querySelectorAll('#seqCardGrid .seq-card');
+      var btn = document.getElementById('seqPlayBtn');
+      btn.style.opacity = '0.5';
+      btn.style.pointerEvents = 'none';
+
+      // Reset all cards
+      for (var r = 0; r < cards.length; r++) {
+        cards[r].classList.remove('revealed');
+        var visibles = cards[r].querySelectorAll('.step-visible');
+        for (var v = 0; v < visibles.length; v++) visibles[v].classList.remove('step-visible');
+        var titleEl = cards[r].querySelector('.seq-title');
+        var descEl = cards[r].querySelector('.seq-desc');
+        if (titleEl) { while (titleEl.firstChild) titleEl.removeChild(titleEl.firstChild); }
+        if (descEl) { while (descEl.firstChild) descEl.removeChild(descEl.firstChild); }
+        var btnAlive = cards[r].querySelector('.btn-alive');
+        if (btnAlive) btnAlive.style.opacity = '0';
+      }
+
+      var cardIndex = 0;
+      var cardDelay = 600;
+
+      function animateCard(card) {
+        var titleEl = card.querySelector('.seq-title');
+        var descEl = card.querySelector('.seq-desc');
+        var iconEl = card.querySelector('.offering-card__icon');
+        var labelEl = card.querySelector('.offering-card__label');
+        var btnEl = card.querySelector('.btn-alive');
+        var titleText = titleEl ? titleEl.getAttribute('data-text') : '';
+        var descText = descEl ? descEl.getAttribute('data-text') : '';
+
+        // Step 1: Card slides in
+        card.classList.add('revealed');
+
+        // Step 2: Label + Icon (200ms after card)
+        setTimeout(function() {
+          if (iconEl) { iconEl.style.opacity = '1'; iconEl.classList.add('step-visible'); }
+          if (labelEl) { labelEl.style.opacity = '1'; labelEl.classList.add('step-visible'); }
+        }, 200);
+
+        // Step 3: Title letter-by-letter (400ms after card)
+        setTimeout(function() {
+          if (titleEl && titleText) {
+            while (titleEl.firstChild) titleEl.removeChild(titleEl.firstChild);
+            titleEl.style.opacity = '1';
+            titleEl.classList.add('step-visible');
+            var chars = titleText.split('');
+            for (var ti = 0; ti < chars.length; ti++) {
+              (function(idx) {
+                setTimeout(function() {
+                  titleEl.textContent = titleText.substring(0, idx + 1);
+                }, idx * 30);
+              })(ti);
+            }
+          }
+        }, 400);
+
+        // Step 4: Description typewriter (after title finishes)
+        var typeDelay = 400 + (titleText.length * 30) + 200;
+        setTimeout(function() {
+          if (descEl && descText) {
+            while (descEl.firstChild) descEl.removeChild(descEl.firstChild);
+            descEl.style.opacity = '1';
+            descEl.classList.add('step-visible');
+            var cursor = document.createElement('span');
+            cursor.className = 'typewriter-cursor';
+            var charIdx = 0;
+            function typeChar() {
+              if (charIdx < descText.length) {
+                descEl.textContent = descText.substring(0, charIdx + 1);
+                descEl.appendChild(cursor);
+                charIdx++;
+                setTimeout(typeChar, 18);
+              } else {
+                setTimeout(function() { if (cursor.parentNode) cursor.parentNode.removeChild(cursor); }, 800);
+              }
+            }
+            typeChar();
+          }
+        }, typeDelay);
+
+        // Step 5: CTA fade in + underline pulse (matches site: fade 200ms, extend 400ms, retract 100ms)
+        var ctaFadeStart = typeDelay + (descText.length * 18) + 200;
+        var ctaFade = 200;
+        var ctaPulse = 500;
+        // Fade in the CTA
+        setTimeout(function() {
+          if (btnEl) {
+            btnEl.style.opacity = '1';
+            btnEl.classList.add('step-visible');
+          }
+        }, ctaFadeStart);
+        // Extend underline
+        setTimeout(function() {
+          if (btnEl) btnEl.classList.add('cta-pulse-extend');
+        }, ctaFadeStart + ctaFade);
+        // Retract underline
+        setTimeout(function() {
+          if (btnEl) {
+            btnEl.classList.remove('cta-pulse-extend');
+            btnEl.classList.add('cta-pulse-retract');
+          }
+        }, ctaFadeStart + ctaFade + 400);
+        // Done
+        var ctaDelay = ctaFadeStart + ctaFade + ctaPulse;
+        setTimeout(function() {
+          if (btnEl) {
+            btnEl.classList.remove('cta-pulse-retract');
+          }
+        }, ctaDelay);
+
+        return ctaDelay + 200;
+      }
+
+      function nextCard() {
+        if (cardIndex < cards.length) {
+          var duration = animateCard(cards[cardIndex]);
+          cardIndex++;
+          if (cardIndex < cards.length) {
+            setTimeout(nextCard, duration + cardDelay);
+          } else {
+            setTimeout(function() {
+              seqRunning = false;
+              btn.style.opacity = '1';
+              btn.style.pointerEvents = 'auto';
+            }, duration);
+          }
+        }
+      }
+
+      setTimeout(nextCard, 100);
+    }
+  </script>
+</body>
+</html>

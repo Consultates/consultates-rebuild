@@ -10,9 +10,33 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Consultates.com rebuild — a marketing site for Gary Tate's AI consulting business. Replacing a bloated WebWave site with a clean static site.
 
+## Build & Dev Commands
+
+```bash
+pnpm install          # install dependencies
+pnpm dev              # start dev server (localhost:4321)
+pnpm build            # production build to dist/
+pnpm preview          # preview production build
+```
+
+## Current Status
+
+**Phases 1-15 complete.** The site is structurally built and deployed to GitHub Pages.
+
+**Known issues:**
+1. Training page icons broken — gray dots instead of Phosphor icons in "What you get" cards
+2. Service page inconsistency — three different layouts for the same section types
+3. Soulless middle sections — 80% of page area is white/cream with no visual life
+4. About page dead zones — "A family business" and "Lead with AI PRO" have zero visual treatment
+5. Content slots empty — intentional whitespace reserved for rotating quotes/stats, currently blank
+
+**Not yet built:**
+- Phase 16: Contact page wiring (Google Apps Script → email + Google Sheet, TidyCal embed)
+- Phase 17: Blog polish (typography, reading experience, related posts)
+
 ## PRD (Single Source of Truth)
 
-**`PRD.md`** in this repo (symlinked from project directory) is the complete technical spec. It contains every route, every component, every color token, every animation value, all copy, and all technical decisions. **Read it before building anything.** All content, design tokens, layout CSS, animation configs, and dependency versions are in that document.
+**`PRD.md`** in this repo is the complete technical spec. It contains every route, every component, every color token, every animation value, all copy, and all technical decisions. **Read it before building anything.**
 
 **Animation stack:** GSAP ScrollTrigger (page-level scroll/snap, vanilla `<script>` in base layout) + Framer Motion (component animation in React islands via `whileInView`). They are decoupled — no cross-library communication.
 
@@ -31,48 +55,33 @@ Consultates.com rebuild — a marketing site for Gary Tate's AI consulting busin
 
 ## Brand Design System
 
-Color tokens, typography, and icon specs are defined in:
-`~/.openclaw/Mi6-IQ/reference/infrastructure/brand-theme/mission-control-brand-adaptation.md`
+**Brand guidelines (source of truth):** `docs/brand-guidelines.html` — combined light/dark theme reference with toggle, live btn-alive demos, letter stagger + sequential card reveal with play buttons, do/don't comparisons, all 14 anti-slop rules, color palette with live hex values. Open locally in a browser to view.
 
 Key brand colors:
 - Primary (light): `#5C3B9C` (Royal Purple) / (dark): `#8B6CC7` (Royal Purple Lifted)
 - Background (light): `#FFFFFF` / (dark): `#0D1117`
 - Theme: light default, system-aware, manual toggle
 
-## Project Reference Files
+## Key Components
 
-All content, screenshots, and planning docs live in the project directory (NOT this repo):
-`~/.openclaw/Mi6-IQ/projects/consultates-rebuild/`
-
-- `content/` — extracted page content as Markdown
-- `screenshots/` — current site screenshots for reference
-- `html/` — raw HTML exports from current site
-- `assets/` — logos, photos, blog images, StoryBrand template PDF
-- `PHASES.md` — phased build plan
-- `TECH-STACK.md` — tech stack decisions
-- `SITE-MAP.md` — site structure
-- `PROJECT-PLAN.md` — master project plan with all locked decisions
-- `DESIGN-BRIEF.md` — StoryBrand framework, section flow, content mapping
-
-## Gary Tate — Reference Material
-
-Profile data, CVs, and personal brand content:
-`~/.openclaw/Mi6-IQ/reference/gary-c-tate/`
-
-- `gary-cv-fractionalfirst.jsx` — CV card (AI/GTM-focused framing)
-- `gary-cv-strategic-commercial-leader.jsx` — CV card (cybersecurity/expansion-focused framing)
-- `gary-cv-whaleboss-v3.jsx` — CV card (whaleboss variant)
-
-These contain structured profile data: bio, key roles, personas, superpowers, skills, certifications, testimonials. Use as source material for site content.
-
-## Brand Assets
-
-- **Brand theme specs:** `~/.openclaw/Mi6-IQ/reference/infrastructure/brand-theme/`
-  - `consultates-brand-theme-light.html` — light theme reference (colors, typography, icon examples)
-  - `consultates-brand-theme-dark.html` — dark theme reference
-  - `mission-control-brand-adaptation.md` — full color mapping, typography, icon system
-- **Logos:** `~/.openclaw/Mi6-IQ/reference/infrastructure/brand-theme/Consultates Logos/`
-- **Head mark / favicon:** `~/.openclaw/Mi6-IQ/reference/infrastructure/brand-theme/Consultates Icons /`
+| File | Purpose |
+|---|---|
+| `src/styles/global.css` | Design system CSS — Tailwind 4 `@theme`, btn-alive classes, CTA pulse classes |
+| `src/components/islands/HeroIsland.tsx` | Letter stagger + CTA pulse — the visual benchmark |
+| `src/components/islands/OfferingCardsIsland.tsx` | Sequential card animation — the pattern template |
+| `src/components/islands/StaggerHeading.tsx` | Letter-stagger h2 for dark CTA sections |
+| `src/components/islands/StakesCTAPulse.tsx` | btn-alive--on-dark CTA component |
+| `src/components/islands/HowItWorksIsland.tsx` | Animated timeline with connecting lines |
+| `src/components/islands/UseCaseCardsIsland.tsx` | Use case cards with sequential reveal |
+| `src/components/islands/AuthorityCardsIsland.tsx` | Authority/trust cards |
+| `src/components/islands/CountUpStat.tsx` | Animated stat counter (uses MutationObserver for GSAP compat) |
+| `src/components/islands/StrokeDrawStats.tsx` | SVG stroke-draw stat icons |
+| `src/components/islands/SectionAnimator.tsx` | Section-level animation wrapper |
+| `src/components/islands/AnimatedSection.tsx` | Generic animated section wrapper |
+| `src/components/ThemeToggle.tsx` | Light/dark theme toggle |
+| `src/layouts/Base.astro` | Base layout — includes GSAP scroll-snap script |
+| `src/layouts/ServicePage.astro` | Shared layout for service pages |
+| `src/lib/animations.ts` | Shared Framer Motion variants |
 
 ## Scroll Animation — "Film Strip on a Spool"
 
@@ -84,16 +93,21 @@ The homepage scroll-snap system simulates a continuous film strip on a roller:
 
 One continuous physical motion — pull back, wind, push in — not a cut or a snap. Feels like turning a viewfinder. The snap `duration` controls how quickly the full sequence completes after scroll release. Too fast = roller skips. Too slow = feels stuck.
 
+**Do not touch the GSAP scroll-snap mechanics** unless explicitly asked.
+
 ## Homepage Design
 
 Follows **StoryBrand narrative framework**: empathy → problem → solution → proof → action.
-See `DESIGN-BRIEF.md` in the project directory for full section flow and content mapping.
 
 ## Integrations
 
 - **Booking:** TidyCal (links + embedded) — `tidycal.com/garyctate/15-minute-meeting`
 - **Contact form:** Google Apps Script → email + Google Sheet (wired up in later phase)
 - **Analytics:** Google Analytics GA4 (added in later phase)
+
+## Animation Sequencing Bug Warning
+
+**Do not use intermediary boolean state (`titleDone`/`descDone`) for animation sequencing in React.** They persist across viewport re-entries and cause stale `onComplete()` calls. Instead: call `onComplete()` directly from the interval/timeout callback, and add a reset effect when the animation phase regresses to `'waiting'`. See `READMEFIRST.md` for full context.
 
 ## Anti-Slop Design Rules (v2.0)
 
@@ -135,7 +149,7 @@ These rules are mandatory for any agent building components, pages, or sections.
 
 ### Reference
 - Anti-slop rules adapted from [Uncodixfy](https://github.com/cyxzdev/Uncodixfy) + project-specific decisions.
-- Brand guidelines (source of truth): `~/.openclaw/Mi6-IQ/reference/infrastructure/brand-theme/consultates-brand-guidelines.html`
+- Brand guidelines (source of truth): `docs/brand-guidelines.html`
 
 ## Navigation Structure
 
