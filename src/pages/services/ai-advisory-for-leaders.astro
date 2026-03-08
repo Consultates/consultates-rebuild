@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { SectionAnimator } from '../../components/islands/SectionAnimator';
 import { StakesCTAPulse } from '../../components/islands/StakesCTAPulse';
+import { StaggerHeading } from '../../components/islands/StaggerHeading';
 import { TIDYCAL_URL } from '../../config';
 
 const sectionPadding = 'padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);';
@@ -37,14 +38,14 @@ const scenarios = [
 ];
 ---
 
-<Base title="AI Coaching for Leaders — Consultates" description="One-to-one AI coaching sessions for business leaders. You bring your situation, you leave with a plan you can act on.">
+<Base title="AI Advisory for Leaders — Consultates" description="One-to-one AI advisory sessions for business leaders. You bring your situation, you leave with a plan you can act on.">
 
   <!-- Hero: centered, minimal, conversational -->
   <section style={sectionPadding}>
     <div style="max-width: 1200px; margin: 0 auto;">
       <SectionAnimator client:visible>
         <div style="text-align: center;">
-          <h1 class="text-hero" style="max-width: 700px; margin: 0 auto;">AI Coaching for Leaders</h1>
+          <h1 class="text-hero" style="max-width: 700px; margin: 0 auto;">AI Advisory for Leaders</h1>
           <p class="text-body-lg text-muted-foreground mt-4" style="max-width: 600px; margin: 0 auto;">
             One-to-one sessions. You bring your real situation — you leave with a plan you can act on.
           </p>
@@ -169,11 +170,7 @@ const scenarios = [
   <section style="background: #0D1117;">
     <div class="glow corner-marks max-w-[800px] mx-auto text-center"
          style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem); --corner-color: rgba(139,108,199,0.4);">
-      <SectionAnimator client:visible>
-        <h2 class="text-section" style="color: #FFFFFF;">
-          Ready for <em style="font-style: normal; color: #8B6CC7;">clarity</em> on AI?
-        </h2>
-      </SectionAnimator>
+      <StaggerHeading client:visible text="Ready for <em>clarity</em> on AI?" className="text-section" style={{ color: '#FFFFFF' }} />
       <div class="mt-8">
         <StakesCTAPulse client:visible href={TIDYCAL_URL} text="Book a Free Call" />
       </div>

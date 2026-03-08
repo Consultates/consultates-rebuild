@@ -1,9 +1,6 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   useReducedMotion,
-  getVariant,
-  scaleIn,
   viewportConfig,
 } from '../../lib/animations';
 
@@ -12,15 +9,16 @@ interface StakesCTAPulseProps {
   text: string;
 }
 
+const ease = [0.25, 0.1, 0.25, 1];
+
 /**
- * CTA button with continuous pulse animation.
- * Initial scaleIn with 600ms delay, then infinite subtle pulse.
+ * CTA button for dark sections — mirrors the hero CTA exactly.
+ * Uses btn-alive--on-dark (underline-draw + magnetic hover).
+ * Entry: scaleIn with 0.6s delay on viewport.
  * Respects reduced motion — renders static button.
  */
 export function StakesCTAPulse({ href, text }: StakesCTAPulseProps) {
   const reducedMotion = useReducedMotion();
-  const [pulsing, setPulsing] = useState(false);
-  const v = getVariant(scaleIn, reducedMotion);
 
   if (reducedMotion) {
     return (
@@ -28,8 +26,7 @@ export function StakesCTAPulse({ href, text }: StakesCTAPulseProps) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center font-sans font-semibold rounded-full h-12 px-8 text-body-lg transition-all duration-150 hover:scale-[1.02]"
-        style={{ background: '#5C3B9C', color: '#FFFFFF' }}
+        className="btn-alive btn-alive--lg btn-alive--on-dark"
       >
         {text}
       </a>
@@ -37,36 +34,20 @@ export function StakesCTAPulse({ href, text }: StakesCTAPulseProps) {
   }
 
   return (
-    <motion.a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center justify-center font-sans font-semibold rounded-full h-12 px-8 text-body-lg transition-colors duration-150"
-      style={{ background: '#5C3B9C', color: '#FFFFFF' }}
-      variants={v}
-      initial="initial"
-      whileInView="animate"
+    <motion.div
+      initial={{ scale: 0.95, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
       viewport={viewportConfig}
-      transition={{ delay: 0.6 }}
-      onAnimationComplete={() => setPulsing(true)}
-      animate={
-        pulsing
-          ? { scale: [1, 1.05, 1] }
-          : undefined
-      }
-      {...(pulsing
-        ? {
-            transition: {
-              duration: 0.4,
-              ease: 'easeInOut',
-              repeat: Infinity,
-              repeatDelay: 2,
-            },
-          }
-        : {})}
-      whileHover={{ scale: 1.02, background: '#4E3285' }}
+      transition={{ duration: 0.5, ease, delay: 0.6 }}
     >
-      {text}
-    </motion.a>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-alive btn-alive--lg btn-alive--on-dark"
+      >
+        {text}
+      </a>
+    </motion.div>
   );
 }

@@ -22,7 +22,7 @@ const cards: CardData[] = [
     label: 'Advisory',
     title: 'Individual Advisory',
     description: 'Confidential, one-to-one sessions for business leaders and entrepreneurs who need to make sense of a fast-moving landscape. No sales pitch \u2014 just honest guidance from someone who\u2019s been building in this space every day.',
-    href: '/services/ai-coaching-for-leaders',
+    href: '/services/ai-advisory-for-leaders',
   },
   {
     label: 'Training',

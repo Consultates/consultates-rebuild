@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { SectionAnimator } from '../components/islands/SectionAnimator';
 import { StakesCTAPulse } from '../components/islands/StakesCTAPulse';
+import { StaggerHeading } from '../components/islands/StaggerHeading';
 import { TIDYCAL_URL } from '../config';
 ---
 
@@ -94,7 +95,7 @@ import { TIDYCAL_URL } from '../config';
               <span class="timeline-era timeline-era--summary">Why it matters</span>
             </div>
             <div class="timeline-content">
-              <p class="text-body text-muted-foreground">Most AI consultants fall into one camp: technical people who can't explain it to a boardroom, business people who've never built anything, or trainers teaching from slides they didn't write. Gary does all three. That's why the consulting, the training, and the leadership all carry weight.</p>
+              <p class="text-body text-muted-foreground">Most AI consultants are one thing: technical people who can't explain it to a boardroom, or business people who've never built anything, or trainers teaching from slides they didn't write. Gary builds production AI, closes enterprise deals, and trains executive cohorts from his own material. That's why the consulting, the training, and the leadership all carry weight.</p>
             </div>
           </div>
         </SectionAnimator>
@@ -129,11 +130,7 @@ import { TIDYCAL_URL } from '../config';
   <!-- Section 5 — Dark CTA -->
   <section style="background: #0D1117;">
     <div class="glow corner-marks max-w-[800px] mx-auto text-center" style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem); --corner-color: rgba(139,108,199,0.4);">
-      <SectionAnimator client:visible>
-        <h2 class="text-section" style="color: #FFFFFF;">
-          Ready to <em style="font-style: normal; color: #8B6CC7;">talk</em>?
-        </h2>
-      </SectionAnimator>
+      <StaggerHeading client:visible text="Ready to <em>talk</em>?" className="text-section" style={{ color: '#FFFFFF' }} />
       <div class="mt-8">
         <StakesCTAPulse
           client:visible

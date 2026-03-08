@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { SectionAnimator } from '../../components/islands/SectionAnimator';
 import { StakesCTAPulse } from '../../components/islands/StakesCTAPulse';
+import { StaggerHeading } from '../../components/islands/StaggerHeading';
 import { TIDYCAL_URL } from '../../config';
 
 const sectionPadding = 'padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);';
@@ -17,7 +18,7 @@ const outcomes = [
   },
   {
     title: 'Team & Network',
-    desc: 'Coaching your team and opening doors through a global network built over 16 countries',
+    desc: 'Advising your team and opening doors through a global network built over 16 countries',
   },
 ];
 
@@ -152,11 +153,7 @@ const whoItsFor = [
   <section style="background: #0D1117;">
     <div class="glow corner-marks max-w-[800px] mx-auto text-center"
          style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem); --corner-color: rgba(139,108,199,0.4);">
-      <SectionAnimator client:visible>
-        <h2 class="text-section" style="color: #FFFFFF;">
-          Ready for <em style="font-style: normal; color: #8B6CC7;">experienced</em> GTM leadership?
-        </h2>
-      </SectionAnimator>
+      <StaggerHeading client:visible text="Ready for <em>experienced</em> GTM leadership?" className="text-section" style={{ color: '#FFFFFF' }} />
       <div class="mt-8">
         <StakesCTAPulse client:visible href={TIDYCAL_URL} text="Book a Free Call" />
       </div>

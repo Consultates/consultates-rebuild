@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useReducedMotion } from '../../lib/animations';
 
@@ -63,6 +63,7 @@ export default function HeroIsland({
   ctaText,
 }: HeroIslandProps) {
   const reducedMotion = useReducedMotion();
+  const ctaRef = useRef<HTMLAnchorElement>(null);
   const [animationPhase, setAnimationPhase] = useState<
     'waiting' | 'staggering' | 'complete'
   >(reducedMotion ? 'complete' : 'waiting');
@@ -89,6 +90,21 @@ export default function HeroIsland({
   const lastLetterDone = 1.0 + staggerDuration + 0.4; // initial + stagger + last letter's 400ms fade
   const paragraphDelay = lastLetterDone + 0.3;
   const ctaDelay = paragraphDelay + 0.6;
+
+  // CTA pulse: underline extend + glow after scaleIn finishes
+  useEffect(() => {
+    if (reducedMotion) return;
+    const pulseStart = (ctaDelay + 0.5) * 1000; // after scaleIn completes
+    const el = ctaRef.current;
+    if (!el) return;
+    const t1 = setTimeout(() => { el.classList.add('cta-pulse-extend'); }, pulseStart);
+    const t2 = setTimeout(() => {
+      el.classList.remove('cta-pulse-extend');
+      el.classList.add('cta-pulse-retract');
+    }, pulseStart + 400);
+    const t3 = setTimeout(() => { el.classList.remove('cta-pulse-retract'); }, pulseStart + 500);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+  }, [ctaDelay, reducedMotion]);
 
   const renderHeadline = () =>
     headlineParts.map((part, i) => {
@@ -188,6 +204,7 @@ export default function HeroIsland({
         transition={{ duration: 0.5, ease, delay: ctaDelay }}
       >
         <a
+          ref={ctaRef}
           href={ctaHref}
           target="_blank"
           rel="noopener noreferrer"

@@ -21,7 +21,7 @@ const STEPS: Step[] = [
   {
     number: '03',
     title: 'We do the work together',
-    description: 'Coaching, training, or hands-on leadership. One accountable team, start to finish.',
+    description: 'Advisory, training, or hands-on leadership. One accountable team, start to finish.',
   },
 ];
 

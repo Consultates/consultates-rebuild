@@ -62,7 +62,7 @@ const cards: CardData[] = [
   {
     title: 'AI Advisory for Leaders',
     description: 'One-to-one sessions for leaders who need clarity on AI. You bring your situation \u2014 you leave with a plan you can act on.',
-    href: '/services/ai-coaching-for-leaders',
+    href: '/services/ai-advisory-for-leaders',
     icon: icons.advisory,
   },
   {
@@ -184,7 +184,7 @@ function AnimatedCard({
         animate={showIcon ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
         transition={{ duration: 0.3, ease }}
       >
-        <div className="absolute inset-0 rounded-[12px]" style={{ background: 'linear-gradient(135deg, var(--muted) 0%, var(--accent) 100%)' }} />
+        <div className="absolute inset-0 rounded-[12px]" style={{ background: 'var(--secondary)', border: '1.5px solid var(--primary)' }} />
         <div className="relative z-10">{card.icon}</div>
       </motion.div>
 
@@ -348,7 +348,7 @@ export default function OfferingCardsIsland() {
           <a key={i} href={card.href} style={cardStyle}
       className="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
             <div className="mb-6 relative flex items-center justify-center text-primary" style={{ width: 48, height: 48, borderRadius: 12 }}>
-              <div className="absolute inset-0 rounded-[12px]" style={{ background: 'linear-gradient(135deg, var(--muted) 0%, var(--accent) 100%)' }} />
+              <div className="absolute inset-0 rounded-[12px]" style={{ background: 'var(--secondary)', border: '1.5px solid var(--primary)' }} />
               <div className="relative z-10">{card.icon}</div>
             </div>
             <h3 className="font-serif mb-3" style={{ fontSize: 'var(--text-subhead)', lineHeight: 'var(--lh-subhead)', fontWeight: 600, letterSpacing: '-0.01em', color: 'var(--foreground)' }}>{card.title}</h3>
