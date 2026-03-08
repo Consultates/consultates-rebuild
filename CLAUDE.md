@@ -33,9 +33,9 @@ pnpm preview          # preview production build
 **Not yet built:**
 - Phase 17: Blog polish (typography, reading experience, related posts)
 
-## PRD
+## PRD (Copy & Routes Only)
 
-**`PRD.md`** in this repo is the technical spec for routes, components, and copy. **The website design doc (see Design Authority above) overrides the PRD for all design decisions.** The PRD is authoritative for copy and routes only.
+**`PRD.md`** contains Gary's approved copy and route definitions. The old PRD (`PRD.obsoleted.md`) tried to be a design doc — ignore it. All design decisions live in the website design doc (see Design Authority above).
 
 **Animation stack:** GSAP ScrollTrigger (page-level scroll/snap, vanilla `<script>` in base layout) + Framer Motion (component animation in React islands via `whileInView`). They are decoupled — no cross-library communication.
 
