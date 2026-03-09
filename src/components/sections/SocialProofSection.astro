@@ -1,20 +1,20 @@
 ---
 /**
  * Social Proof section — homepage.
- * Logo ticker (CSS) + film-strip quote carousel (React island).
+ * Logo ticker on cream (bg-secondary) + film-strip quote carousel on white (bg-background).
  */
 import LogoTicker from '../LogoTicker.astro';
 import SocialProofIsland from '../islands/SocialProofIsland';
 ---
 
-<section id="section-proof" class="bg-secondary">
-  <div style="padding: clamp(3rem, 6vw, 6rem) 0;">
-    {/* Logo ticker — full width, bleeds to edges */}
+<section id="section-proof">
+  {/* Logo ticker — cream background */}
+  <div class="bg-secondary" style="padding: clamp(1rem, 2vw, 1.5rem) 0;">
     <LogoTicker />
+  </div>
 
-    {/* Quote carousel */}
-    <div style="padding: clamp(2rem, 4vw, 4rem) clamp(1.5rem, 5vw, 8rem) 0;">
-      <SocialProofIsland client:visible />
-    </div>
+  {/* Quote carousel — white background */}
+  <div class="bg-background" style="padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 8rem);">
+    <SocialProofIsland client:visible />
   </div>
 </section>

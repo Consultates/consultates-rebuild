@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { useReducedMotion } from '../../lib/animations';
 import { homepageQuotes, type Reference } from '../../data/social-proof';
 
@@ -9,84 +9,113 @@ const AUTO_ADVANCE_MS = 8000;
 /**
  * Film-strip quote carousel.
  *
- * Transition mimics the homepage vertical scroll-snap but horizontal:
- * zoom-out (scale down + fade) → wind (translateX) → zoom-in (scale up + fade in).
+ * The "strip" is a single flex container holding two quotes side by side
+ * (current + next), each 100% viewport width. The viewport clips to show one.
  *
- * Uses Framer Motion AnimatePresence with custom variants keyed to direction.
+ * Transition on this ONE element:
+ * 1. ZOOM OUT — strip scales to 0.85 (current quote visibly shrinks, still readable)
+ * 2. WIND — strip slides horizontally by one frame width (you see current exit
+ *    and next enter, both scaled down — the film strip moving on the spool)
+ * 3. ZOOM IN — strip scales back to 1 (new quote fills the frame)
+ *
+ * After zoom-in completes, we swap: next becomes current, strip resets to x:0.
  */
 export default function SocialProofIsland() {
   const reducedMotion = useReducedMotion();
   const [currentIdx, setCurrentIdx] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 = right, -1 = left
+  const [nextIdx, setNextIdx] = useState<number | null>(null);
+  const [direction, setDirection] = useState(1);
+  const [transitioning, setTransitioning] = useState(false);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const strip = useAnimation();
 
   const quotes = homepageQuotes;
 
-  const goTo = useCallback((nextIdx: number) => {
-    setDirection(nextIdx > currentIdx ? 1 : -1);
-    setCurrentIdx(nextIdx);
-  }, [currentIdx]);
+  const runTransition = useCallback(async (targetIdx: number, dir: number) => {
+    if (transitioning) return;
+    setTransitioning(true);
+    setNextIdx(targetIdx);
+    setDirection(dir);
+
+    // Reset strip to starting position (current quote visible)
+    // dir > 0 (next): next quote is to the right, strip at x: 0%
+    // dir < 0 (prev): next quote is to the left, strip at x: -50% (showing right half = current)
+    if (dir > 0) {
+      strip.set({ x: '0%', scale: 1 });
+    } else {
+      strip.set({ x: '-50%', scale: 1 });
+    }
+
+    // Allow React to render the two-quote strip before animating
+    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+
+    // Phase 1: ZOOM OUT — scale down, content stays visible
+    await strip.start({
+      scale: 0.85,
+      transition: { duration: 0.3, ease },
+    });
+
+    // Phase 2: WIND — slide the strip by one frame
+    // dir > 0: slide left (0% → -50%) to reveal next quote on the right
+    // dir < 0: slide right (-50% → 0%) to reveal next quote on the left
+    await strip.start({
+      x: dir > 0 ? '-50%' : '0%',
+      transition: { duration: 0.45, ease },
+    });
+
+    // Phase 3: ZOOM IN — scale back up
+    await strip.start({
+      scale: 1,
+      transition: { duration: 0.3, ease },
+    });
+
+    // Swap: make next the new current, remove the second quote
+    setCurrentIdx(targetIdx);
+    setNextIdx(null);
+    strip.set({ x: '0%', scale: 1 });
+    setTransitioning(false);
+  }, [transitioning, strip]);
 
   const goNext = useCallback(() => {
-    setDirection(1);
-    setCurrentIdx(prev => (prev + 1) % quotes.length);
-  }, [quotes.length]);
+    const target = (currentIdx + 1) % quotes.length;
+    runTransition(target, 1);
+  }, [currentIdx, quotes.length, runTransition]);
 
   const goPrev = useCallback(() => {
-    setDirection(-1);
-    setCurrentIdx(prev => (prev - 1 + quotes.length) % quotes.length);
-  }, [quotes.length]);
+    const target = (currentIdx - 1 + quotes.length) % quotes.length;
+    runTransition(target, -1);
+  }, [currentIdx, quotes.length, runTransition]);
+
+  const goTo = useCallback((targetIdx: number) => {
+    if (targetIdx === currentIdx) return;
+    runTransition(targetIdx, targetIdx > currentIdx ? 1 : -1);
+  }, [currentIdx, runTransition]);
 
   // Auto-advance timer
   useEffect(() => {
-    if (reducedMotion || paused) return;
+    if (reducedMotion || paused || transitioning) return;
     timerRef.current = setTimeout(goNext, AUTO_ADVANCE_MS);
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [currentIdx, paused, reducedMotion, goNext]);
-
-  const quote = quotes[currentIdx];
-
-  /**
-   * Film-strip variants — horizontal version of the vertical scroll-snap.
-   *
-   * Enter: start off-screen in scroll direction, scaled down → animate to center, full scale
-   * Exit: scale down, slide out in opposite direction
-   */
-  const variants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? 300 : -300,
-      scale: 0.92,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      scale: 1,
-      opacity: 1,
-      transition: { duration: 0.7, ease },
-    },
-    exit: (dir: number) => ({
-      x: dir > 0 ? -300 : 300,
-      scale: 0.92,
-      opacity: 0,
-      transition: { duration: 0.5, ease },
-    }),
-  };
+  }, [currentIdx, paused, reducedMotion, goNext, transitioning]);
 
   if (reducedMotion) {
     return (
       <div className="relative">
-        <QuoteCard quote={quote} />
-        <NavDots
-          total={quotes.length}
-          current={currentIdx}
-          onSelect={goTo}
-        />
+        <QuoteCard quote={quotes[currentIdx]} />
+        <NavDots total={quotes.length} current={currentIdx} onSelect={(i) => setCurrentIdx(i)} />
       </div>
     );
   }
+
+  // Build the strip: two quotes side by side
+  // dir > 0 (going next): [current] [next] — strip starts at x:0%, slides to x:-50%
+  // dir < 0 (going prev): [next] [current] — strip starts at x:-50%, slides to x:0%
+  const leftQuote = nextIdx !== null && direction < 0 ? quotes[nextIdx] : quotes[currentIdx];
+  const rightQuote = nextIdx !== null && direction > 0 ? quotes[nextIdx] : quotes[currentIdx];
+  const showTwoQuotes = nextIdx !== null;
 
   return (
     <div
@@ -94,27 +123,31 @@ export default function SocialProofIsland() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Carousel viewport */}
+      {/* Viewport — clips the strip to show one quote at a time */}
       <div className="relative overflow-hidden" style={{ minHeight: '280px' }}>
-        <AnimatePresence initial={false} custom={direction} mode="wait">
-          <motion.div
-            key={currentIdx}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            className="w-full"
-          >
-            <QuoteCard quote={quote} />
-          </motion.div>
-        </AnimatePresence>
+        <motion.div
+          animate={strip}
+          style={{
+            display: 'flex',
+            width: showTwoQuotes ? '200%' : '100%',
+          }}
+        >
+          <div style={{ width: showTwoQuotes ? '50%' : '100%', flexShrink: 0 }}>
+            <QuoteCard quote={leftQuote} />
+          </div>
+          {showTwoQuotes && (
+            <div style={{ width: '50%', flexShrink: 0 }}>
+              <QuoteCard quote={rightQuote} />
+            </div>
+          )}
+        </motion.div>
       </div>
 
       {/* Navigation arrows */}
       <button
         onClick={goPrev}
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+        disabled={transitioning}
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors disabled:opacity-30"
         style={{ background: 'color-mix(in srgb, var(--foreground) 5%, transparent)' }}
         aria-label="Previous quote"
       >
@@ -124,7 +157,8 @@ export default function SocialProofIsland() {
       </button>
       <button
         onClick={goNext}
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+        disabled={transitioning}
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors disabled:opacity-30"
         style={{ background: 'color-mix(in srgb, var(--foreground) 5%, transparent)' }}
         aria-label="Next quote"
       >
@@ -138,6 +172,7 @@ export default function SocialProofIsland() {
         total={quotes.length}
         current={currentIdx}
         onSelect={goTo}
+        disabled={transitioning}
       />
     </div>
   );
@@ -146,7 +181,7 @@ export default function SocialProofIsland() {
 function QuoteCard({ quote }: { quote: Reference }) {
   return (
     <div className="max-w-[800px] mx-auto text-center px-8">
-      {/* Category pill */}
+      {/* Role pill */}
       <span
         className="inline-block text-xs font-semibold tracking-wider uppercase rounded-full px-3 py-1 mb-6"
         style={{
@@ -154,7 +189,7 @@ function QuoteCard({ quote }: { quote: Reference }) {
           color: 'var(--primary)',
         }}
       >
-        {quote.categoryLabel}
+        As {quote.categoryLabel}
       </span>
 
       {/* Quote text */}
@@ -194,10 +229,12 @@ function NavDots({
   total,
   current,
   onSelect,
+  disabled,
 }: {
   total: number;
   current: number;
   onSelect: (idx: number) => void;
+  disabled?: boolean;
 }) {
   return (
     <div className="flex justify-center gap-2 mt-8">
@@ -205,6 +242,7 @@ function NavDots({
         <button
           key={i}
           onClick={() => onSelect(i)}
+          disabled={disabled}
           className="w-2.5 h-2.5 rounded-full transition-all duration-300"
           style={{
             background: i === current

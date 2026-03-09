@@ -30,7 +30,7 @@ export const allReferences: Reference[] = [
     name: 'Alexandros Lioumbis',
     title: 'Future of Work/IP/AI/Innovations | Founder & Patent Attorney',
     category: 'ai',
-    categoryLabel: 'Agentic AI',
+    categoryLabel: 'Agentic AI Advisor',
     quote: "There are people who use AI, there are people who understand AI, there are people who use Agents and understand Agentic AI. And then, there\u00B4s Gary. Gary\u00B4s AI expertise in business automation allows him to transform, integrate and redefine processes with the use of Agents and Agentic AI systems, while having the ability to explain, teach and communicate the concepts effortlessly to the broader business world. Gary is \"the\" go-to guy for Agentic AI. Hands down.",
   },
   // === AI + Sales (bridges both) ===
@@ -38,7 +38,7 @@ export const allReferences: Reference[] = [
     name: 'Dave Mommen',
     title: 'Managing Partner @ GenerativeLeads AI',
     category: 'ai+sales',
-    categoryLabel: 'AI + Sales',
+    categoryLabel: 'Fractional CEO at an AI First Company',
     quote: "I worked with Gary at GenerativeLeads.ai and I have experienced first-hand how he blends sales leadership with deep expertise in AI. Having built and led sales organizations across APAC myself, I can say Gary brings a rare ability to connect strategy with execution. He helped shape our product direction and pushed us to operate at a higher standard. His wide global network not only allowed us to sell more, and faster, but also helped us to validate our strategy and ideas for the business. What I value most is that he\u2019s a genuine partner\u2014focused on results, but always bringing people along in the process.",
   },
   // === Sales Category ===
@@ -58,9 +58,9 @@ export const allReferences: Reference[] = [
   },
   {
     name: 'Evan Davidson',
-    title: 'Former Cylance (managed Gary directly)',
+    title: 'VP of Sales APAC @ Cylance',
     category: 'sales',
-    categoryLabel: 'Sales Leadership',
+    categoryLabel: 'Head of Sales, SE Asia',
     quote: "Gary led our MSSP and enterprise sales efforts at Cylance across SE Asia and Greater China, reporting to me. This region is challenging in its diversity and reach which Gary inherited but quickly brought structure, a strong work ethic to help start moving the business forward. He understands complex enterprise selling & partner management which is important in this region as you scale a product like Cylance. He operated in a confident and professional way hitting his objectives for the region requiring little management over sight. If you need someone who can own a region and drive results, Gary is a very strong consideration for any sales leader looking for a results driven individual.",
   },
 ];
