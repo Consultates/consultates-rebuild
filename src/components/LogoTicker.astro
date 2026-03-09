@@ -1,0 +1,98 @@
+---
+/**
+ * LogoTicker — infinite horizontal scrolling logo bar.
+ * Pure CSS animation, no JS. Logos rendered grayscale.
+ *
+ * Usage: <LogoTicker />
+ */
+
+interface Logo {
+  name: string;
+  src: string;
+  alt: string;
+}
+
+const logos: Logo[] = [
+  { name: 'Juniper Networks', src: '/logos/juniper.svg', alt: 'Juniper Networks' },
+  { name: 'Ciena', src: '/logos/ciena.svg', alt: 'Ciena' },
+  { name: 'Cylance', src: '/logos/cylance.svg', alt: 'BlackBerry Cylance' },
+  { name: 'Wedge Networks', src: '/logos/wedge.svg', alt: 'Wedge Networks' },
+  { name: 'GenerativeLeads', src: '/logos/generativeleads.svg', alt: 'GenerativeLeads AI' },
+  { name: 'FlexOS', src: '/logos/flexos.svg', alt: 'FlexOS' },
+  { name: 'Lead with AI PRO', src: '/logos/leadwithai.svg', alt: 'Lead with AI PRO' },
+  { name: 'Ace Pacific', src: '/logos/acepacific.svg', alt: 'Ace Pacific Group' },
+  { name: 'Ericsson', src: '/logos/ericsson.svg', alt: 'Ericsson' },
+  { name: 'BlackBerry', src: '/logos/blackberry.svg', alt: 'BlackBerry' },
+];
+---
+
+<div class="logo-ticker-wrapper">
+  <p class="text-caption text-muted-foreground text-center mb-4 tracking-wide uppercase">
+    Worked with leaders from
+  </p>
+  <div class="logo-ticker" aria-label="Companies Gary has worked with">
+    <div class="logo-ticker__track">
+      {/* Render logos twice for seamless loop */}
+      {[...logos, ...logos].map((logo, i) => (
+        <img
+          key={i}
+          src={logo.src}
+          alt={logo.alt}
+          class="logo-ticker__logo"
+          loading="lazy"
+        />
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .logo-ticker-wrapper {
+    padding: 2rem 0;
+  }
+  .logo-ticker {
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+  }
+  .logo-ticker__track {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    width: max-content;
+    animation: ticker-scroll 30s linear infinite;
+  }
+  .logo-ticker__logo {
+    height: 28px;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+    flex-shrink: 0;
+  }
+  .logo-ticker__logo:hover {
+    opacity: 0.8;
+    filter: grayscale(50%);
+  }
+  @keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-ticker__track {
+      animation: none;
+    }
+  }
+</style>
