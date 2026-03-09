@@ -9,8 +9,26 @@ import HowItWorksSection from '../components/sections/HowItWorksSection.astro';
 import SocialProofSection from '../components/sections/SocialProofSection.astro';
 import WhyConsultatesSection from '../components/sections/WhyConsultatesSection.astro';
 import StakesCTASection from '../components/sections/StakesCTASection.astro';
-import TransitionalCTAsSection from '../components/sections/TransitionalCTAsSection.astro';
 import ScrollIndicator from '../components/ScrollIndicator.astro';
+import BlogCarouselIsland from '../components/islands/BlogCarouselIsland';
+import { getCollection } from 'astro:content';
+import { getCategoryBySlug } from '../data/blog-categories';
+
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const blogPosts = posts.map(post => {
+  const cat = getCategoryBySlug(post.data.category);
+  return {
+    title: post.data.title,
+    href: '/blog/' + post.id.replace(/\.md$/, ''),
+    image: post.data.image,
+    categoryLabel: cat?.label || post.data.category,
+    categoryIcon: cat?.icon || 'ph-article',
+  };
+});
 ---
 
 <Base title="Consultates — AI Consulting for Business Leaders" description="Clarity on AI for leaders, teams, and companies. One-to-one advisory, hands-on training, and fractional executive support from someone who builds with AI every day.">
@@ -22,5 +40,12 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
   <div class="scroll-section" data-section-label="Testimonials"><SocialProofSection /><ScrollIndicator /><TrustBar /></div>
   <div class="scroll-section" data-section-label="Why Consultates"><WhyConsultatesSection /><ScrollIndicator /><TrustBar /></div>
   <div class="scroll-section" data-section-label="Get Started"><StakesCTASection /><ScrollIndicator /><TrustBar /></div>
-  <div class="scroll-section" data-section-label="Transitional"><TransitionalCTAsSection /></div>
+
+  {/* Blog highlights — outside scroll-snap, normal page flow */}
+  <section class="bg-secondary" style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 class="text-section font-serif mb-10">Not ready to book? Start here.</h2>
+      <BlogCarouselIsland client:visible posts={blogPosts} />
+    </div>
+  </section>
 </Base>
