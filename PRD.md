@@ -101,10 +101,53 @@ Block 2:
 - Step 3: `We do the work together` — `Coaching, training, or hands-on leadership. One accountable team, start to finish.`
 - CTA: `Book a Free Call`
 
-**Social Proof**
-- Quote: `"I originally hired him into Cyan when we were launching our international expansion. He joined as an SE and subsequently went on to head up pre-sales for APAC, then he successfully transitioned from pre-sales to sales and sales leadership. With Wedge Networks, Gary has demonstrated remarkable skill and resilience at introducing a small but innovative start-up into major accounts, competing against well-established Tier 1 incumbents. His strong work ethic, personal networking, and technical prowess have enabled him to enter new markets with minimal support to land key accounts."`
+**Social Proof — LinkedIn References**
+
+*Category: AI*
+
+Reference 1:
+- Name: `Anastasia Fischer`
+- Title: `Strategic Growth Leader | Nonprofit & Climate Innovation | Partnerships · Digital & Business Strategy · Marketing & Communications`
+- Relationship: Client
+- Quote: `"Gary is a great communicator and a very nice guy who really knows AI agents and agentic systems. I learned a lot from him, and really enjoyed the clarity of his approach. I highly recommend working with him!"`
+
+Reference 2:
+- Name: `Julie Lee (李以琼), IHRP SP, MHCL`
+- Title: `Group HR Director | Former Fractional CHRO | HR Advisor`
+- Relationship: Client
+- Quote: `"I invited Gary to give a talk about how to utilise AI to enhance our sales team productivity during a town hall meeting. It was eye-opening and educational and the session had helped people see the possibility of AI adoption beyond just an alternative to google and drafting/writing. I highly recommend Gary to anyone who is looking to expand the use of AI in their organisations."`
+
+Reference 3:
+- Name: `Alexandros Lioumbis`
+- Title: `Future of Work/IP/AI/Innovations | Founder | Patent Manager | European Patent Attorney`
+- Relationship: Client
+- Quote: `"There are people who use AI, there are people who understand AI, there are people who use Agents and understand Agentic AI. And then, there´s Gary. Gary´s AI expertise in business automation allows him to transform, integrate and redefine processes with the use of Agents and Agentic AI systems, while having the ability to explain, teach and communicate the concepts effortlessly to the broader business world. Gary is "the" go-to guy for Agentic AI. Hands down."`
+
+Reference 4 (AI + Sales):
+- Name: `Dave Mommen`
+- Title: `Managing Partner @ GenerativeLeads AI`
+- Relationship: Colleague
+- Quote: `"I worked with Gary at GenerativeLeads.ai and I have experienced first-hand how he blends sales leadership with deep expertise in AI. Having built and led sales organizations across APAC myself, I can say Gary brings a rare ability to connect strategy with execution. He helped shape our product direction and pushed us to operate at a higher standard. His wide global network not only allowed us to sell more, and faster, but also helped us to validate our strategy and ideas for the business. What I value most is that he's a genuine partner—focused on results, but always bringing people along in the process."`
+
+*Category: Sales*
+
+Reference 5:
+- Name: `Danny Tan`
+- Title: `Director Asia Pacific @ Ace Pacific Group`
+- Relationship: Partner
+- Quote: `"I have partnered with Gary across three companies over the past 10 years, and every organization he leaves feels his absence because he always makes a huge impact. Working with Gary has been nothing but fantastic. As partners, we go all out to work, win, and deliver the best solutions for clients. Gary is meticulous and patient when needed, and precise when it comes to orchestrating deals. His ability to bring people together, keep the focus on outcomes, and build trust across teams and customers makes him stand out as a leader and a partner. He's simply a great guy to have on your side."`
+
+Reference 6:
 - Name: `Frank Wiener`
 - Title: `CMO and Director of Product Marketing (retired)`
+- Relationship: Manager (hired Gary at Cyan)
+- Quote: `"I've had the pleasure of working with Gary at two different companies. I originally hired him into Cyan when we were launching our international expansion. He joined as an SE and subsequently went on to head up pre-sales for Cyan's APAC region, then he successfully transitioned from pre-sales to sales and sales leadership as the RSM for SE Asia. With Wedge Networks, as VP of Sales for APAC, Gary has demonstrated remarkable skill and resilience at introducing a small but innovative start-up into major accounts, competing against well-established Tier 1 incumbents. His strong work ethic, personal networking, and technical prowess have enabled him to enter new markets with minimal support to land key accounts."`
+
+Reference 7:
+- Name: `Evan Davidson`
+- Title: `Former Cylance (managed Gary directly)`
+- Relationship: Manager
+- Quote: `"Gary led our MSSP and enterprise sales efforts at Cylance across SE Asia and Greater China, reporting to me. This region is challenging in its diversity and reach which Gary inherited but quickly brought structure, a strong work ethic to help start moving the business forward. He understands complex enterprise selling & partner management which is important in this region as you scale a product like Cylance. He operated in a confident and professional way hitting his objectives for the region requiring little management over sight. If you need someone who can own a region and drive results, Gary is a very strong consideration for any sales leader looking for a results driven individual."`
 
 **Why Consultates?**
 - Column 1: `20 years building technology` — `Military electronics and cryptography in the Royal Air Force. Telecoms and internet infrastructure. 8 years at Juniper Networks in Silicon Valley. 5 years leading systems engineering at Cyan. He built the systems AI runs on.`
