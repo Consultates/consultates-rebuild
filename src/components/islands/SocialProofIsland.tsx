@@ -123,6 +123,23 @@ export default function SocialProofIsland() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
+      {/* Decorative quote mark */}
+      <span
+        className="absolute font-serif font-bold select-none pointer-events-none"
+        style={{
+          fontSize: 'clamp(6rem, 12vw, 10rem)',
+          lineHeight: 1,
+          top: '-0.5rem',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          color: 'var(--primary)',
+          opacity: 0.08,
+        }}
+        aria-hidden="true"
+      >
+        &ldquo;
+      </span>
+
       {/* Carousel viewport — swipe to navigate on touch */}
       <div
         className="relative overflow-hidden"
