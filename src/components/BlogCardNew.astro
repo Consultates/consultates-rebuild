@@ -1,0 +1,93 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  image?: string;
+  categorySlug: string;
+  categoryLabel: string;
+  categoryIcon: string;
+  date?: string;
+  readingTime?: number;
+  excerpt?: string;
+  compact?: boolean;
+}
+
+const {
+  title,
+  href,
+  image,
+  categorySlug,
+  categoryLabel,
+  categoryIcon,
+  date,
+  readingTime,
+  excerpt,
+  compact = false,
+} = Astro.props;
+
+const placeholderImage = '/images/blog/placeholder.webp';
+---
+
+<a
+  href={href}
+  class="blog-card block bg-card border border-border rounded-xl overflow-hidden transition-all duration-200 hover:border-primary hover:shadow-[var(--card-shadow-hover)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+>
+  {/* Featured image */}
+  <div class="blog-card__image">
+    <img
+      src={image || placeholderImage}
+      alt=""
+      loading="lazy"
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  {/* Content */}
+  <div class="p-5">
+    {/* Category pill */}
+    <span class="blog-card__pill">
+      <i class={`ph-duotone ${categoryIcon}`} style="font-size: 0.875rem;"></i>
+      {categoryLabel}
+    </span>
+
+    {/* Title */}
+    <h3 class="text-sub font-serif text-card-foreground mt-3 line-clamp-2">{title}</h3>
+
+    {/* Date + reading time (full variant only) */}
+    {!compact && date && (
+      <p class="text-cite text-muted-foreground mt-2" style="font-family: var(--font-mono);">
+        {date}{readingTime ? ` · ${readingTime} min read` : ''}
+      </p>
+    )}
+
+    {/* Excerpt (full variant only) */}
+    {!compact && excerpt && (
+      <p class="text-body text-muted-foreground mt-2 line-clamp-3">{excerpt}</p>
+    )}
+
+    {/* Read link */}
+    <span class="inline-block text-body font-medium text-primary mt-3">Read &rarr;</span>
+  </div>
+</a>
+
+<style>
+  .blog-card__image {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--secondary);
+  }
+
+  .blog-card__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+    color: var(--primary);
+  }
+</style>
