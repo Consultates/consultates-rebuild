@@ -90,6 +90,14 @@ const logos: Logo[] = [
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
+  @media (max-width: 768px) {
+    .logo-ticker__track {
+      gap: 2.5rem;
+    }
+    .logo-ticker__logo {
+      height: 22px;
+    }
+  }
   @media (prefers-reduced-motion: reduce) {
     .logo-ticker__track {
       animation: none;

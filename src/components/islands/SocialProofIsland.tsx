@@ -123,8 +123,26 @@ export default function SocialProofIsland() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Viewport — clips the strip to show one quote at a time */}
-      <div className="relative overflow-hidden" style={{ minHeight: '280px' }}>
+      {/* Carousel viewport — swipe to navigate on touch */}
+      <div
+        className="relative overflow-hidden"
+        style={{ minHeight: '200px' }}
+        onTouchStart={(e) => {
+          const touch = e.touches[0];
+          (e.currentTarget as any)._touchStartX = touch.clientX;
+        }}
+        onTouchEnd={(e) => {
+          const startX = (e.currentTarget as any)._touchStartX;
+          if (startX === undefined) return;
+          const endX = e.changedTouches[0].clientX;
+          const diff = startX - endX;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) goNext();
+            else goPrev();
+          }
+          delete (e.currentTarget as any)._touchStartX;
+        }}
+      >
         <motion.div
           animate={strip}
           style={{
@@ -143,11 +161,11 @@ export default function SocialProofIsland() {
         </motion.div>
       </div>
 
-      {/* Navigation arrows */}
+      {/* Desktop: arrows on sides. Mobile: arrows flanking dots below. */}
       <button
         onClick={goPrev}
         disabled={transitioning}
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors disabled:opacity-30"
+        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full items-center justify-center text-muted-foreground hover:text-foreground transition-colors disabled:opacity-30"
         style={{ background: 'color-mix(in srgb, var(--foreground) 5%, transparent)' }}
         aria-label="Previous quote"
       >
@@ -158,7 +176,7 @@ export default function SocialProofIsland() {
       <button
         onClick={goNext}
         disabled={transitioning}
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors disabled:opacity-30"
+        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full items-center justify-center text-muted-foreground hover:text-foreground transition-colors disabled:opacity-30"
         style={{ background: 'color-mix(in srgb, var(--foreground) 5%, transparent)' }}
         aria-label="Next quote"
       >
@@ -167,11 +185,13 @@ export default function SocialProofIsland() {
         </svg>
       </button>
 
-      {/* Navigation dots */}
+      {/* Mobile: arrows + dots in a row. Desktop: dots only (arrows on sides). */}
       <NavDots
         total={quotes.length}
         current={currentIdx}
         onSelect={goTo}
+        onPrev={goPrev}
+        onNext={goNext}
         disabled={transitioning}
       />
     </div>
@@ -229,31 +249,65 @@ function NavDots({
   total,
   current,
   onSelect,
+  onPrev,
+  onNext,
   disabled,
 }: {
   total: number;
   current: number;
   onSelect: (idx: number) => void;
+  onPrev?: () => void;
+  onNext?: () => void;
   disabled?: boolean;
 }) {
   return (
-    <div className="flex justify-center gap-2 mt-8">
-      {Array.from({ length: total }).map((_, i) => (
+    <div className="flex justify-center items-center gap-3 mt-8">
+      {/* Mobile prev arrow */}
+      {onPrev && (
         <button
-          key={i}
-          onClick={() => onSelect(i)}
+          onClick={onPrev}
           disabled={disabled}
-          className="w-2.5 h-2.5 rounded-full transition-all duration-300"
-          style={{
-            background: i === current
-              ? 'var(--primary)'
-              : 'color-mix(in srgb, var(--foreground) 20%, transparent)',
-            transform: i === current ? 'scale(1.3)' : 'scale(1)',
-          }}
-          aria-label={`Go to quote ${i + 1}`}
-          aria-current={i === current ? 'true' : undefined}
-        />
-      ))}
+          className="md:hidden w-11 h-11 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors disabled:opacity-30"
+          style={{ background: 'color-mix(in srgb, var(--foreground) 5%, transparent)' }}
+          aria-label="Previous quote"
+        >
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 4l-6 6 6 6" />
+          </svg>
+        </button>
+      )}
+      <div className="flex gap-2">
+        {Array.from({ length: total }).map((_, i) => (
+          <button
+            key={i}
+            onClick={() => onSelect(i)}
+            disabled={disabled}
+            className="w-2.5 h-2.5 rounded-full transition-all duration-300"
+            style={{
+              background: i === current
+                ? 'var(--primary)'
+                : 'color-mix(in srgb, var(--foreground) 20%, transparent)',
+              transform: i === current ? 'scale(1.3)' : 'scale(1)',
+            }}
+            aria-label={`Go to quote ${i + 1}`}
+            aria-current={i === current ? 'true' : undefined}
+          />
+        ))}
+      </div>
+      {/* Mobile next arrow */}
+      {onNext && (
+        <button
+          onClick={onNext}
+          disabled={disabled}
+          className="md:hidden w-11 h-11 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors disabled:opacity-30"
+          style={{ background: 'color-mix(in srgb, var(--foreground) 5%, transparent)' }}
+          aria-label="Next quote"
+        >
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M8 4l6 6-6 6" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }
