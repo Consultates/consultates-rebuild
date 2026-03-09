@@ -4,6 +4,8 @@ date: 2025-04-30
 author: "Gary Tate"
 excerpt: "Ever since I started using generative AI tools, I've been both amazed and nervous. The rapid rise of AI tools has sparked serious questions about safety and security."
 draft: false
+category: "ai-safety"
+tags: ["security", "privacy", "trust"]
 ---
 
 Ever since I started using generative AI tools, I've been both amazed and nervous. On one hand, they help me write faster, brainstorm ideas, and automate things I used to spend hours on. On the other, even with years of experience, I can't help but worry: What if I share something sensitive? What if the AI behaves unexpectedly? Can I really trust it?

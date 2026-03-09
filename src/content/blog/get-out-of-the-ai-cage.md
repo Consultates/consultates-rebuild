@@ -4,6 +4,8 @@ date: 2025-04-27
 author: "Gary Tate"
 excerpt: "If you've already tried AI tools and walked away thinking \"This isn't for me,\" you're not alone. Most people give up too early."
 draft: false
+category: "getting-started"
+tags: ["adoption", "beginners", "prompting"]
 ---
 
 ## Tried AI and Gave Up?

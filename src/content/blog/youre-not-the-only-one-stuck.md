@@ -4,6 +4,8 @@ date: 2025-04-29
 author: "Gary Tate"
 excerpt: "If AI feels like something for \"tech people,\" you're not alone. You don't need a tech background to get started---you just need to learn enough to spot the right tools."
 draft: false
+category: "getting-started"
+tags: ["adoption", "beginners"]
 ---
 
 You're not behind---you're just starting. Let's take the pressure off and show you how to start smart.
