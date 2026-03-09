@@ -87,3 +87,19 @@ export const homepageQuotes: Reference[] = [
 export function getByCategory(cat: Reference['category']): Reference[] {
   return allReferences.filter(r => r.category === cat || r.category === 'ai+sales');
 }
+
+/** Service page testimonials — curated per service */
+export const advisoryTestimonials: Reference[] = [
+  allReferences.find(r => r.name === 'Anastasia Fischer')!,
+  allReferences.find(r => r.name === 'Alexandros Lioumbis')!,
+];
+
+export const trainingTestimonials: Reference[] = [
+  allReferences.find(r => r.name === 'Julie Lee')!,
+  allReferences.find(r => r.name === 'Anastasia Fischer')!,
+];
+
+export const fractionalTestimonials: Reference[] = [
+  allReferences.find(r => r.name === 'Dave Mommen')!,
+  allReferences.find(r => r.name === 'Danny Tan')!,
+];

@@ -1,142 +1,92 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SectionAnimator } from '../components/islands/SectionAnimator';
-import { StakesCTAPulse } from '../components/islands/StakesCTAPulse';
-import { StaggerHeading } from '../components/islands/StaggerHeading';
-import { TIDYCAL_URL } from '../config';
 ---
 
 <Base title="About Gary Tate — Consultates" description="Engineer. Commercial leader. AI practitioner. 35 years across military electronics, enterprise sales, and production AI — now helping leaders make sense of it.">
 
-  <!-- Section 1 — Hero (asymmetric two-column) -->
-  <section style="padding: var(--section-py) var(--content-px);">
-    <div style="max-width: var(--content-max); margin: 0 auto;">
-      <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 items-center">
-        <div class="flex justify-center lg:justify-start">
-          <img
-            src="/images/gary-tate.webp"
-            alt="Gary Tate"
-            width="200"
-            height="200"
-            class="rounded-full object-cover"
-          />
-        </div>
-        <div>
-          <h1 class="text-hero">Engineer. Commercial leader. AI practitioner.</h1>
-          <p class="text-body-lg text-muted-foreground mt-4">35 years across military electronics, enterprise sales leadership, and production AI.</p>
-        </div>
-      </div>
+  <!-- Section 1 — Hero (dark, photo background placeholder) -->
+  <section class="about-hero bg-dots">
+    <!-- TODO: Replace placeholder with actual hero photo -->
+    <!-- <img src="/images/about-hero.webp" alt="" class="about-hero__bg" /> -->
+    <div class="about-hero__overlay"></div>
+    <div class="about-hero__content">
+        <h1 class="text-hero" style="color: #FFFFFF;">Engineer. Commercial leader.<br/>AI practitioner.</h1>
+        <p class="text-body-lg" style="color: var(--hero-muted); max-width: 580px;">35 years across military electronics, Silicon Valley coding, enterprise sales leadership, and production AI.</p>
     </div>
   </section>
 
-  <!-- Section 2 — The Story (editorial timeline) -->
+  <!-- Section 2 — How We Work + Personal Message (combined, photo right) -->
   <section style="padding: var(--section-py) var(--content-px);">
+    <div style="max-width: var(--content-max); margin: 0 auto;">
+        <div class="founder-section">
+          <div class="founder-section__text">
+            <h2 class="founder-heading">How we work</h2>
+            <p class="text-body text-secondary-foreground mb-10">We run a family consultancy and scale through established partners. Together we bring care and a personal touch to every engagement. You get one accountable team from start to finish.</p>
+
+            <h2 class="founder-heading">A personal message from our founder</h2>
+            <div class="founder-letter">
+              <p>You don't need to start from scratch. The hard-won skills and experience you already have translate perfectly to working with AI, and I can show you how to apply them effectively.</p>
+              <p>I'm Gary C., and if you're here, you're exploring how AI fits into your business.</p>
+              <p>I've been where you are. Using AI in my own businesses has saved us time and money and helped us grow, and I learned through continuous learning and trial and error what works and what to avoid. That hard-won experience means you get there faster, with fewer wrong turns.</p>
+              <p>I wrote my first code at age 10 in the 80s on a computer I built with my dad. Back then there were no mobile phones, no Internet, and just a handful of TV channels. Since then I've witnessed every major paradigm shift: personal computers, the Internet, social media. AI is on another level, its arrival is unlike anything before, and a shift none of us can afford to ignore. Each shift taught me that early adopters who move with intentionality consistently outperform those who wait. AI follows the same pattern, just faster.</p>
+              <p>I've lived and worked in sixteen countries across five continents, and that breadth of experience makes me better at meeting people where they are. I've sat across the table from every kind of leader, in every kind of business, and my goal is always the same: make AI practical and approachable, so you gain clear choices and the confidence to move forward.</p>
+              <p>Let's put AI to work for you.</p>
+            </div>
+          </div>
+          <div class="founder-section__photo">
+            <img
+              src="/images/Me-for-Website-450x600.webp"
+              alt="Gary Tate"
+              width="450"
+              height="600"
+              class="founder-section__img"
+            />
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Section 3 — The Story (editorial timeline) -->
+  <section class="bg-secondary" style="padding: var(--section-py) var(--content-px);">
     <div style="max-width: var(--content-max); margin: 0 auto;">
       <h2 class="text-section mb-12">The through-line</h2>
 
-      <div class="timeline-container">
-        <!-- Entry 1: 1980s -->
-        <SectionAnimator client:visible>
-          <div class="timeline-entry">
-            <div class="timeline-marker">
-              <span class="timeline-dot"></span>
-              <span class="timeline-era">1980s</span>
-            </div>
-            <div class="timeline-content">
-              <p class="text-body text-muted-foreground">Gary started coding at 10. He joined the Royal Air Force and spent a decade in military electronics, telecoms, cryptography, and secure communications — physical systems where mistakes aren't theoretical.</p>
-            </div>
-          </div>
-        </SectionAnimator>
-
-        <!-- Entry 2: 1990s -->
-        <SectionAnimator client:visible delay={0.1}>
-          <div class="timeline-entry">
-            <div class="timeline-marker">
-              <span class="timeline-dot"></span>
-              <span class="timeline-era">1990s</span>
-            </div>
-            <div class="timeline-content">
-              <p class="text-body text-muted-foreground">Then another decade building telecoms and internet infrastructure. His own company first, then 8 years as a Senior Systems Engineer at Juniper Networks in Silicon Valley. Later, 5 years as Director of Systems Engineering at Cyan.</p>
-            </div>
-          </div>
-        </SectionAnimator>
-
-        <!-- Entry 3: 2000s -->
-        <SectionAnimator client:visible delay={0.2}>
-          <div class="timeline-entry">
-            <div class="timeline-marker">
-              <span class="timeline-dot"></span>
-              <span class="timeline-era">2000s</span>
-            </div>
-            <div class="timeline-content">
-              <p class="text-body text-muted-foreground">He moved from engineering into sales — not because he stopped being technical, but because he could sit in front of a CRO and explain the technology in terms that closed deals. Systems engineer → Director → MD Sales → VP Sales (three times) → CRO. Always deep-tech companies — cybersecurity, AI, enterprise SaaS, networking infrastructure. 16 countries. He built entire sales organisations from zero.</p>
-            </div>
-          </div>
-        </SectionAnimator>
-
-        <!-- Entry 4: Today -->
-        <SectionAnimator client:visible delay={0.3}>
-          <div class="timeline-entry">
-            <div class="timeline-marker">
-              <span class="timeline-dot"></span>
-              <span class="timeline-era">Today</span>
-            </div>
-            <div class="timeline-content">
-              <p class="text-body text-muted-foreground">Today, Gary ships production applications with AI agents. He designs agentic workflows with real API integrations. He builds alone what would have taken a small team two years ago.</p>
-            </div>
-          </div>
-        </SectionAnimator>
-
-        <!-- Entry 5: Why it matters -->
-        <SectionAnimator client:visible delay={0.4}>
-          <div class="timeline-entry">
-            <div class="timeline-marker">
-              <span class="timeline-dot"></span>
-              <span class="timeline-era timeline-era--summary">Why it matters</span>
-            </div>
-            <div class="timeline-content">
-              <p class="text-body text-muted-foreground">Most AI consultants are one thing: technical people who can't explain it to a boardroom, or business people who've never built anything, or trainers teaching from slides they didn't write. Gary builds production AI, closes enterprise deals, and trains executive cohorts from his own material. That's why the consulting, the training, and the leadership all carry weight.</p>
-            </div>
-          </div>
-        </SectionAnimator>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3 — Family Business (warm card) -->
-  <section style="padding: var(--section-py) var(--content-px);">
-    <div style="max-width: var(--content-max); margin: 0 auto;">
-      <SectionAnimator client:visible>
-        <div class="family-card">
-          <h2 class="text-section mb-6">A family business</h2>
-          <p class="text-body text-secondary-foreground">Consultates is Gary and Trinh Tate. They don't scale through volume. They scale through trust. You get one accountable team from start to finish — not a rotating cast of consultants.</p>
+      <div class="timeline">
+        <div class="timeline__entry" data-reveal>
+          <span class="timeline__era">1980s</span>
+          <span class="timeline__dot"></span>
+          <p class="text-body text-secondary-foreground">I started coding at 10.</p>
         </div>
-      </SectionAnimator>
-    </div>
-  </section>
 
-  <!-- Section 4 — Lead with AI PRO (accent banner) -->
-  <section style="padding: var(--section-py) var(--content-px);">
-    <div style="max-width: var(--content-max); margin: 0 auto;">
-      <SectionAnimator client:visible>
-        <div class="aipro-banner">
-          <h2 class="text-section mb-6">Lead with AI PRO</h2>
-          <p class="text-body text-muted-foreground">Gary is a guest lecturer and hosts monthly agentic briefings through Lead with AI PRO — a platform with 3× weekly analyst briefings, tutorials, and an active WhatsApp community. His sessions feature live demos of OpenClaw (his own agentic framework) and synthesise what the leading voices in AI — Karpathy, Amodei, Suleiman, Roose — are saying, translated for non-technical leaders.</p>
+        <div class="timeline__entry" data-reveal>
+          <span class="timeline__era">1990s</span>
+          <span class="timeline__dot"></span>
+          <p class="text-body text-secondary-foreground">Royal Air Force — a decade in military electronics, telecoms, cryptography, and secure communications. Physical systems where mistakes aren't theoretical. Started my own company after leaving in 1997.</p>
         </div>
-      </SectionAnimator>
-    </div>
-  </section>
 
-  <!-- Section 5 — Dark CTA -->
-  <section style="background: #0D1117;">
-    <div class="glow corner-marks max-w-[800px] mx-auto text-center" style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem); --corner-color: rgba(139,108,199,0.4);">
-      <StaggerHeading client:visible text="Ready to <em>talk</em>?" className="text-section" style={{ color: '#FFFFFF' }} />
-      <div class="mt-8">
-        <StakesCTAPulse
-          client:visible
-          href={TIDYCAL_URL}
-          text="Book a Free Call"
-        />
+        <div class="timeline__entry" data-reveal>
+          <span class="timeline__era">2000s</span>
+          <span class="timeline__dot"></span>
+          <p class="text-body text-secondary-foreground">Silicon Valley. 8 years as a member of technical staff coding at Juniper Networks. Then Systems Engineering Director at Cyan.</p>
+        </div>
+
+        <div class="timeline__entry" data-reveal>
+          <span class="timeline__era">2010s</span>
+          <span class="timeline__dot"></span>
+          <p class="text-body text-secondary-foreground">Moved to Asia and transitioned into sales — not because I stopped being technical, but because I could sit in front of a CEO, CTO or CISO and explain the technology in terms that closed deals. MD Sales, VP Sales (three times), CRO — building entire sales organisations from zero. Always deep-tech companies: networking infrastructure, enterprise SaaS, cybersecurity, AI.</p>
+        </div>
+
+        <div class="timeline__entry" data-reveal>
+          <span class="timeline__era">Today</span>
+          <span class="timeline__dot"></span>
+          <p class="text-body text-secondary-foreground">Today I run AI advisories, I train leaders, I build AI applications, and I serve as a fractional AI executive.</p>
+        </div>
+
+        <div class="timeline__entry" data-reveal>
+          <span class="timeline__era timeline__era--wide">Why it matters</span>
+          <span class="timeline__dot"></span>
+          <p class="text-body text-secondary-foreground">Most AI consultants are one thing: technical people who can't explain it to a boardroom, or business people who've never built anything, or trainers teaching from slides they didn't write. I've closed enterprise deals, I train executive cohorts from my own material, and I build production-ready AI applications. That's why the consulting, the training, and the leadership all carry weight.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -144,116 +94,241 @@ import { TIDYCAL_URL } from '../config';
 </Base>
 
 <style>
-  /* Timeline */
-  .timeline-container {
+  /* ============================================================
+     Hero — dark with placeholder for background photo
+     ============================================================ */
+  .about-hero {
+    background: var(--hero-bg, #0D1117);
     position: relative;
-    padding-left: 80px;
+    overflow: hidden;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(6rem, 14vw, 10rem) var(--content-px) clamp(4rem, 8vw, 6rem);
   }
 
-  .timeline-container::before {
+  /* Radial purple glow — same as homepage hero */
+  .about-hero::before {
     content: '';
     position: absolute;
-    left: 60px;
-    top: 8px;
-    bottom: 8px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(92,59,156,0.20) 0%, rgba(92,59,156,0.08) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Placeholder background image — uncomment and use when photo is ready */
+  .about-hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .about-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--hero-bg, #0D1117);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .about-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: var(--content-max, 1140px);
+    width: 100%;
+  }
+
+  /* ============================================================
+     Timeline — CSS Grid, no absolute positioning
+     ============================================================ */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  /* Vertical line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 72px;
+    top: 12px;
+    bottom: 12px;
     width: 2px;
     background: var(--border);
   }
 
-  .timeline-entry {
-    position: relative;
-    padding-bottom: 2rem;
+  .timeline__entry {
+    display: grid;
+    grid-template-columns: 60px 24px 1fr;
+    gap: 0 1rem;
+    align-items: start;
+    padding-bottom: 2.5rem;
   }
 
-  .timeline-entry:last-child {
+  .timeline__entry:last-child {
     padding-bottom: 0;
   }
 
-  .timeline-marker {
-    position: absolute;
-    left: -80px;
-    top: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 40px;
+  .timeline__era {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--muted-foreground);
+    text-align: right;
+    line-height: 1.7;
+    padding-top: 1px;
   }
 
-  .timeline-dot {
+  .timeline__era--wide {
+    font-size: 0.65rem;
+  }
+
+  .timeline__dot {
     display: block;
     width: 12px;
     height: 12px;
     border-radius: 50%;
     border: 2px solid var(--primary);
-    background: var(--background);
-    position: absolute;
-    left: -26px;
-    top: 4px;
+    background: var(--secondary);
+    margin-top: 6px;
+    justify-self: center;
   }
 
-  .timeline-era {
-    position: absolute;
-    left: -80px;
-    top: 0;
-    width: 44px;
-    font-family: var(--font-mono), monospace;
-    font-size: 0.75rem;
-    color: var(--muted-foreground);
-    text-align: right;
-    line-height: 1.6;
-  }
-
-  .timeline-era--summary {
-    width: 80px;
-    left: -116px;
-    font-size: 0.7rem;
-  }
-
-  .timeline-content {
-    /* Content flows in normal document flow at the padded-left position */
-  }
-
-  /* Mobile adjustments */
+  /* Mobile */
   @media (max-width: 640px) {
-    .timeline-container {
-      padding-left: 60px;
+    .timeline::before {
+      left: 52px;
     }
 
-    .timeline-container::before {
-      left: 40px;
+    .timeline__entry {
+      grid-template-columns: 40px 24px 1fr;
     }
 
-    .timeline-dot {
-      left: -26px;
-    }
-
-    .timeline-era {
-      left: -60px;
-      width: 30px;
+    .timeline__era {
       font-size: 0.65rem;
     }
 
-    .timeline-era--summary {
-      width: 56px;
-      left: -60px;
+    .timeline__era--wide {
       font-size: 0.6rem;
     }
   }
 
-  /* Family business card */
-  .family-card {
-    background: var(--secondary);
-    border-radius: var(--card-radius);
-    padding: var(--card-padding);
-    box-shadow: var(--card-shadow);
+  /* ============================================================
+     Founder Section — text left, photo right (50/50)
+     ============================================================ */
+  .founder-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    align-items: start;
   }
 
-  /* AI PRO banner */
-  .aipro-banner {
-    background: var(--card);
-    border-left: 4px solid var(--primary);
-    border-radius: var(--card-radius);
-    padding: var(--card-padding);
-    box-shadow: var(--card-shadow);
+  .founder-heading {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+  }
+
+  .founder-section__img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: sticky;
+    top: 6rem;
+  }
+
+  .founder-letter {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+    color: var(--secondary-foreground);
+    font-style: italic;
+  }
+
+  .founder-letter p {
+    margin-bottom: 1.25rem;
+  }
+
+  .founder-letter p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Mobile — stack photo above text */
+  @media (max-width: 768px) {
+    .founder-section {
+      grid-template-columns: 1fr;
+    }
+
+    .founder-section__photo {
+      order: -1;
+    }
+
+    .founder-section__img {
+      position: static;
+    }
+  }
+
+  /* ============================================================
+     Timeline scroll reveal — opacity only, no translateY
+     ============================================================ */
+  .timeline__entry[data-reveal] {
+    opacity: 0;
+    transition: opacity 0.6s var(--ease-out);
+  }
+
+  .timeline__entry[data-reveal].is-visible {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .timeline__entry[data-reveal] {
+      opacity: 1;
+      transition: none;
+    }
   }
 </style>
+
+<script>
+  // Wait one frame so the browser paints opacity:0 first,
+  // then start observing. Stagger entries that are already
+  // in view so they don't all appear at the same instant.
+  requestAnimationFrame(() => {
+    const entries = document.querySelectorAll('.timeline__entry[data-reveal]');
+    if (!entries.length) return;
+
+    let staggerIndex = 0;
+
+    const observer = new IntersectionObserver(
+      (items) => {
+        items.forEach((item) => {
+          if (item.isIntersecting) {
+            const el = item.target as HTMLElement;
+            const delay = staggerIndex * 200;
+            staggerIndex++;
+            setTimeout(() => el.classList.add('is-visible'), delay);
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    entries.forEach((entry) => observer.observe(entry));
+  });
+</script>

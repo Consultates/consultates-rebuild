@@ -1,22 +1,24 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { SectionAnimator } from '../../components/islands/SectionAnimator';
+import SocialProofIsland from '../../components/islands/SocialProofIsland';
 import { StakesCTAPulse } from '../../components/islands/StakesCTAPulse';
 import { StaggerHeading } from '../../components/islands/StaggerHeading';
 import { TIDYCAL_URL } from '../../config';
-
-const sectionPadding = 'padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);';
+import { advisoryTestimonials } from '../../data/social-proof';
 
 const outcomes = [
   {
+    icon: 'ph-shield-check',
     title: 'A confidential sounding board',
     desc: "Gary has sat across from C-suite executives for 15 years. The coaching isn't theoretical — it comes from someone who builds with AI every day.",
   },
   {
+    icon: 'ph-crosshair',
     title: 'Your situation, your agenda',
     desc: "Each session starts with where you are right now. What you're trying to figure out. What's keeping you up at night about AI.",
   },
   {
+    icon: 'ph-list-checks',
     title: "Specific next steps, not general advice",
     desc: "You leave with actionable steps you can implement immediately. No fixed curriculum — the agenda is your situation.",
   },
@@ -40,128 +42,84 @@ const scenarios = [
 
 <Base title="AI Advisory for Leaders — Consultates" description="One-to-one AI advisory sessions for business leaders. You bring your situation, you leave with a plan you can act on.">
 
-  <!-- Hero: centered, minimal, conversational -->
-  <section style={sectionPadding}>
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <SectionAnimator client:visible>
-        <div style="text-align: center;">
-          <h1 class="text-hero" style="max-width: 700px; margin: 0 auto;">AI Advisory for Leaders</h1>
-          <p class="text-body-lg text-muted-foreground mt-4" style="max-width: 600px; margin: 0 auto;">
-            One-to-one sessions. You bring your real situation — you leave with a plan you can act on.
-          </p>
-        </div>
-      </SectionAnimator>
+  <!-- Hero: dark -->
+  <section class="svc-hero bg-dots">
+    <div class="svc-hero__glow"></div>
+    <div class="svc-hero__content">
+      <h1 class="text-hero font-serif" style="color: #FFFFFF; max-width: 820px; margin: 0 auto;">AI Advisory for Leaders</h1>
+      <p class="text-body-lg mt-4" style="color: var(--hero-muted); max-width: 600px; margin: 0 auto;">
+        One-to-one sessions. You bring your real situation — you leave with a plan you can act on.
+      </p>
     </div>
   </section>
 
-  <!-- What You Get: numbered checklist with left accent -->
-  <section style={sectionPadding}>
-    <div style="max-width: 1200px; margin: 0 auto;">
+  <!-- What You Get -->
+  <section class="svc-section">
+    <div class="svc-container">
       <h2 class="text-section mb-8">What you get</h2>
-      <div style="max-width: 700px; border-left: 2px solid var(--border);">
-        {outcomes.map((item, i) => (
-          <SectionAnimator client:visible delay={i * 0.15}>
-            <div style="padding-left: 1.5rem; padding-bottom: 2rem; display: flex; gap: 1rem; align-items: flex-start;">
-              <div style={`
-                min-width: 32px; width: 32px; height: 32px;
-                border: 2px solid var(--primary); border-radius: 50%;
-                display: flex; align-items: center; justify-content: center;
-                font-family: 'IBM Plex Mono', monospace; font-size: 0.875rem;
-                color: var(--primary); flex-shrink: 0;
-              `}>
-                {i + 1}
-              </div>
-              <div>
-                <h3 class="text-sub font-serif mb-1">{item.title}</h3>
-                <p class="text-body text-muted-foreground">{item.desc}</p>
-              </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-stagger>
+        {outcomes.map((item) => (
+          <div class="svc-card" data-reveal>
+            <div class="svc-icon-circle">
+              <i class={`ph-duotone ${item.icon}`}></i>
             </div>
-          </SectionAnimator>
+            <h3 class="text-sub font-serif mb-2">{item.title}</h3>
+            <p class="text-body text-muted-foreground">{item.desc}</p>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Who It's For: scenario cards -->
-  <section style={sectionPadding}>
-    <div style="max-width: 1200px; margin: 0 auto;">
+  <!-- Who It's For -->
+  <section class="svc-section bg-secondary">
+    <div class="svc-container">
       <h2 class="text-section mb-8">Who it's for</h2>
-      <SectionAnimator client:visible>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {scenarios.map((s) => (
-            <div style={`
-              background: var(--secondary);
-              border-radius: var(--card-radius);
-              padding: var(--card-padding);
-            `}>
-              <h3 class="text-sub font-serif mb-2">{s.label}</h3>
-              <p class="text-body text-muted-foreground">{s.desc}</p>
-            </div>
-          ))}
-        </div>
-      </SectionAnimator>
-    </div>
-  </section>
-
-  <!-- Testimonial: cream background with decorative quote -->
-  <section style={`${sectionPadding} background: var(--secondary);`}>
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <SectionAnimator client:visible>
-        <div style="position: relative; max-width: 700px; margin: 0 auto;">
-          <span style="position: absolute; top: -1.5rem; left: -0.5rem; font-size: 6rem; font-family: 'IBM Plex Serif', serif; color: var(--primary); opacity: 0.2; line-height: 1; pointer-events: none;" aria-hidden="true">&ldquo;</span>
-          <blockquote class="text-body-lg" style="position: relative; z-index: 1; font-style: italic; padding-top: 1rem;">
-            Gary helped me understand exactly where AI fits in my business — not in theory, but in practice. One session gave me more clarity than months of reading articles.
-          </blockquote>
-          <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
-            <div style={`
-              width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0;
-              background: color-mix(in srgb, var(--primary) 10%, transparent);
-              display: flex; align-items: center; justify-content: center;
-            `}>
-              <span class="text-primary font-serif" style="font-size: 1.25rem; font-weight: 600;">MR</span>
-            </div>
-            <div>
-              <p class="text-body" style="font-weight: 600;">Marketing Director</p>
-              <p class="text-caption text-muted-foreground">SaaS Company</p>
-            </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-stagger>
+        {scenarios.map((s) => (
+          <div class="svc-card svc-card--flat" data-reveal>
+            <h3 class="text-sub font-serif mb-2">{s.label}</h3>
+            <p class="text-body text-muted-foreground">{s.desc}</p>
           </div>
-        </div>
-      </SectionAnimator>
+        ))}
+      </div>
     </div>
   </section>
 
-  <!-- How It Works: connecting line -->
-  <section style={sectionPadding}>
-    <div style="max-width: 1200px; margin: 0 auto;">
+  <!-- Testimonials: carousel -->
+  <section class="svc-section">
+    <div class="svc-container">
+      <h2 class="text-section mb-10">What clients say</h2>
+      <SocialProofIsland client:visible quotes={advisoryTestimonials} />
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="svc-section bg-secondary">
+    <div class="svc-container">
       <h2 class="text-section mb-12">How it works</h2>
-      <div class="hiw-steps">
-        <SectionAnimator client:visible delay={0}>
-          <div class="hiw-step">
-            <div class="hiw-node">1</div>
-            <div class="hiw-content">
-              <h3 class="text-sub font-serif mb-2">We talk</h3>
-              <p class="text-body text-muted-foreground">Tell me where you are and what you're trying to figure out. No preparation needed.</p>
-            </div>
+      <div class="hiw-steps" data-stagger>
+        <div class="hiw-step" data-reveal>
+          <div class="hiw-node">1</div>
+          <div class="hiw-content">
+            <h3 class="text-sub font-serif mb-2">We talk</h3>
+            <p class="text-body text-muted-foreground">Tell me where you are and what you're trying to figure out. No preparation needed.</p>
           </div>
-        </SectionAnimator>
-        <SectionAnimator client:visible delay={0.15}>
-          <div class="hiw-step">
-            <div class="hiw-node">2</div>
-            <div class="hiw-content">
-              <h3 class="text-sub font-serif mb-2">You get a plan</h3>
-              <p class="text-body text-muted-foreground">Specific to your business, your team, and your goals. Not a template.</p>
-            </div>
+        </div>
+        <div class="hiw-step" data-reveal>
+          <div class="hiw-node">2</div>
+          <div class="hiw-content">
+            <h3 class="text-sub font-serif mb-2">You get a plan</h3>
+            <p class="text-body text-muted-foreground">Specific to your business, your team, and your goals. Not a template.</p>
           </div>
-        </SectionAnimator>
-        <SectionAnimator client:visible delay={0.3}>
-          <div class="hiw-step">
-            <div class="hiw-node">3</div>
-            <div class="hiw-content">
-              <h3 class="text-sub font-serif mb-2">You act</h3>
-              <p class="text-body text-muted-foreground">You leave with specific next steps you can implement immediately. Not a template — a plan.</p>
-            </div>
+        </div>
+        <div class="hiw-step" data-reveal>
+          <div class="hiw-node">3</div>
+          <div class="hiw-content">
+            <h3 class="text-sub font-serif mb-2">You act</h3>
+            <p class="text-body text-muted-foreground">You leave with specific next steps you can implement immediately — not a deck, a plan.</p>
           </div>
-        </SectionAnimator>
+        </div>
       </div>
     </div>
   </section>
@@ -179,6 +137,82 @@ const scenarios = [
 </Base>
 
 <style>
+  .svc-hero {
+    background: var(--hero-bg, #0D1117);
+    position: relative;
+    overflow: hidden;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(6rem, 14vw, 10rem) var(--content-px) clamp(4rem, 8vw, 6rem);
+  }
+
+  .svc-hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(92,59,156,0.20) 0%, rgba(92,59,156,0.08) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .svc-hero__glow {
+    position: absolute;
+    inset: 0;
+    background: var(--hero-bg, #0D1117);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .svc-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: var(--content-max, 1140px);
+    width: 100%;
+    text-align: center;
+  }
+
+  .svc-section {
+    padding: clamp(4rem, 8vw, 8rem) var(--content-px);
+  }
+
+  .svc-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .svc-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    border-top: 3px solid var(--primary);
+  }
+
+  .svc-card--flat {
+    border-top: 1px solid var(--border);
+    background: var(--card);
+  }
+
+  .svc-icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--secondary);
+    border: 2px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
   .hiw-steps {
     position: relative;
     display: flex;
@@ -208,7 +242,7 @@ const scenarios = [
     height: 48px;
     border-radius: 50%;
     border: 2px solid var(--primary);
-    background: var(--background);
+    background: var(--secondary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -251,4 +285,43 @@ const scenarios = [
       padding-top: 0;
     }
   }
+
+  [data-reveal] {
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+      opacity: 1;
+      transition: none;
+    }
+  }
 </style>
+
+<script>
+  requestAnimationFrame(() => {
+    const items = document.querySelectorAll('[data-reveal]');
+    if (!items.length) return;
+    let staggerIndex = 0;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            const delay = staggerIndex * 150;
+            staggerIndex++;
+            setTimeout(() => el.classList.add('is-visible'), delay);
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    items.forEach((item) => observer.observe(item));
+  });
+</script>

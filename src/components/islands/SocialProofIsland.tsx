@@ -20,7 +20,11 @@ const AUTO_ADVANCE_MS = 8000;
  *
  * After zoom-in completes, we swap: next becomes current, strip resets to x:0.
  */
-export default function SocialProofIsland() {
+interface Props {
+  quotes?: Reference[];
+}
+
+export default function SocialProofIsland({ quotes: quotesProp }: Props = {}) {
   const reducedMotion = useReducedMotion();
   const [currentIdx, setCurrentIdx] = useState(0);
   const [nextIdx, setNextIdx] = useState<number | null>(null);
@@ -30,7 +34,7 @@ export default function SocialProofIsland() {
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const strip = useAnimation();
 
-  const quotes = homepageQuotes;
+  const quotes = quotesProp || homepageQuotes;
 
   const runTransition = useCallback(async (targetIdx: number, dir: number) => {
     if (transitioning) return;
