@@ -123,17 +123,16 @@ export default function SocialProofIsland() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Decorative quote mark */}
+      {/* Decorative quote mark — top-left watermark, outside the animated strip */}
       <span
         className="absolute font-serif font-bold select-none pointer-events-none"
         style={{
-          fontSize: 'clamp(6rem, 12vw, 10rem)',
+          fontSize: 'clamp(5rem, 10vw, 8rem)',
           lineHeight: 1,
-          top: '-0.5rem',
-          left: '50%',
-          transform: 'translateX(-50%)',
+          top: '-1rem',
+          left: 'clamp(1rem, 4vw, 3rem)',
           color: 'var(--primary)',
-          opacity: 0.08,
+          opacity: 0.07,
         }}
         aria-hidden="true"
       >
@@ -217,7 +216,7 @@ export default function SocialProofIsland() {
 
 function QuoteCard({ quote }: { quote: Reference }) {
   return (
-    <div className="max-w-[800px] mx-auto text-center px-8">
+    <div className="max-w-[800px] mx-auto text-center px-4 md:px-8">
       {/* Role pill */}
       <span
         className="inline-block text-xs font-semibold tracking-wider uppercase rounded-full px-3 py-1 mb-6"
@@ -233,7 +232,7 @@ function QuoteCard({ quote }: { quote: Reference }) {
       <blockquote>
         <p
           className="font-serif italic text-foreground"
-          style={{ fontSize: 'clamp(1.125rem, 2vw, 1.375rem)', lineHeight: 1.7 }}
+          style={{ fontSize: 'clamp(0.95rem, 2vw, 1.375rem)', lineHeight: 1.7 }}
         >
           &ldquo;{quote.quote}&rdquo;
         </p>
@@ -242,16 +241,30 @@ function QuoteCard({ quote }: { quote: Reference }) {
       {/* Attribution */}
       <div className="flex items-center justify-center gap-4 mt-6">
         <div
-          className="flex items-center justify-center rounded-full shrink-0"
+          className="rounded-full shrink-0 flex items-center justify-center"
           style={{
-            width: 48,
-            height: 48,
-            background: 'color-mix(in srgb, var(--primary) 10%, transparent)',
+            width: 52,
+            height: 52,
+            padding: 2,
+            background: 'var(--primary)',
           }}
         >
-          <span className="font-sans font-semibold text-primary text-sm">
-            {quote.name.split(' ').map(w => w[0]).join('')}
-          </span>
+          {quote.photo ? (
+            <img
+              src={quote.photo}
+              alt={quote.name}
+              className="w-full h-full rounded-full object-cover"
+            />
+          ) : (
+            <div
+              className="w-full h-full rounded-full flex items-center justify-center"
+              style={{ background: 'color-mix(in srgb, var(--primary) 15%, var(--background))' }}
+            >
+              <span className="font-sans font-semibold text-primary text-sm">
+                {quote.name.split(' ').map(w => w[0]).join('')}
+              </span>
+            </div>
+          )}
         </div>
         <div className="text-left">
           <p className="text-body font-semibold text-foreground">{quote.name}</p>
