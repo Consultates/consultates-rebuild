@@ -66,6 +66,7 @@ const isServicesActive = currentPath.startsWith('/services');
       {isHomepage ? (
         <div class="relative group">
           <button
+            id="home-nav-btn"
             class:list={[
               'text-body font-medium text-foreground hover:text-primary transition-colors duration-150 flex items-center gap-1',
               'border-b-2 border-primary pb-1',
@@ -340,6 +341,14 @@ const isServicesActive = currentPath.startsWith('/services');
   homeToggle?.addEventListener('click', (e) => {
     e.preventDefault();
     homeSubmenu?.classList.toggle('hidden');
+  });
+
+  // Home button on homepage — clicking scrolls to hero (section 0)
+  const homeNavBtn = document.getElementById('home-nav-btn');
+  homeNavBtn?.addEventListener('click', () => {
+    if (typeof (window as any).scrollToSection === 'function') {
+      (window as any).scrollToSection(0);
+    }
   });
 
   // Section navigation buttons — both desktop and mobile

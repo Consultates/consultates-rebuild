@@ -186,18 +186,113 @@ const { title, description = 'AI consulting for business leaders. Advisory, trai
         });
       }
 
-      // Expose programmatic section navigation for the nav dropdown.
-      // Scrolls to the correct scroll position — GSAP scrub animates
-      // through each intermediate section automatically (film-strip effect).
+      // Programmatic section navigation — bypasses the scrub timeline
+      // to produce a clean 3-phase jump: zoom-out → roll each frame past → zoom-in.
+      //
+      // Why bypass? The master timeline encodes zoom-in/zoom-out at every
+      // section boundary. Scrolling through it plays every intermediate cycle.
+      // We want: one pull-back, each frame rolling past at 0.8 scale, one push-in.
+      //
+      // We disable the ScrollTrigger with reset=false to keep the pin in place,
+      // run a custom timeline, then re-enable at the correct scroll position.
       const st = master.scrollTrigger!;
-      (window as any).scrollToSection = (index: number) => {
-        if (index < 0 || index >= sectionCount) return;
-        const targetScroll = st.start + (st.end - st.start) * snapPoints[index];
-        const distance = Math.abs(index - Math.round(st.progress * (sectionCount - 1)));
-        gsap.to(window, {
-          scrollTo: targetScroll,
-          duration: Math.max(1.2, distance * 0.8),
-          ease: 'power1.inOut',
+      let isJumping = false;
+
+      (window as any).scrollToSection = (targetIndex: number) => {
+        if (targetIndex < 0 || targetIndex >= sectionCount || isJumping) return;
+
+        const currentIndex = Math.round(st.progress * (sectionCount - 1));
+        if (targetIndex === currentIndex) return;
+
+        isJumping = true;
+        const direction = targetIndex > currentIndex ? 1 : -1;
+        const cur = sections[currentIndex] as HTMLElement;
+        const dest = sections[targetIndex] as HTMLElement;
+        const slideY = 90; // yPercent gap between cards at 0.8 scale
+
+        // Disable ScrollTrigger but keep pin in place (reset=false)
+        st.disable(false);
+
+        // Build the jump animation
+        const jump = gsap.timeline({
+          onComplete: () => {
+            // Reset all sections to the state the master timeline expects
+            // at the destination snap point so scrub resumes correctly.
+            sections.forEach((s, i) => {
+              const el = s as HTMLElement;
+              if (i === targetIndex) {
+                gsap.set(el, { scale: 1, borderRadius: '0px', yPercent: 0, opacity: 1 });
+              } else if (i < targetIndex) {
+                // Sections before destination: off-screen above, hidden
+                gsap.set(el, { scale: 1, borderRadius: '0px', yPercent: -90, opacity: 0 });
+              } else {
+                // Sections after destination: off-screen below, ready
+                gsap.set(el, { scale: 1, borderRadius: '0px', yPercent: 100, opacity: 1 });
+              }
+            });
+
+            // Sync master timeline to destination progress
+            master.progress(snapPoints[targetIndex]);
+
+            // Set scroll to the exact snap position BEFORE re-enabling
+            const targetScroll = st.start + (st.end - st.start) * snapPoints[targetIndex];
+            window.scrollTo(0, targetScroll);
+
+            // Re-enable without reset or refresh (we've already positioned everything)
+            st.enable(false, false);
+
+            isJumping = false;
+          },
+        });
+
+        // ── Phase 1: Zoom out current section ──
+        jump.to(cur, {
+          scale: 0.8, borderRadius: '16px',
+          duration: 0.4, ease: 'power2.inOut',
+        });
+
+        // ── Phase 2: Roll each intermediate frame past at 0.8 scale ──
+        // Each section slides in from one side and out the other, like
+        // frames on a film strip winding past the projector gate.
+        let prev = cur;
+        const stepCount = Math.abs(targetIndex - currentIndex);
+        const rollPerFrame = Math.max(0.15, Math.min(0.35, 1.0 / stepCount));
+
+        for (let step = 1; step <= stepCount; step++) {
+          const frameIndex = currentIndex + step * direction;
+          const frame = sections[frameIndex] as HTMLElement;
+
+          // Position next frame just off-screen in the scroll direction
+          jump.set(frame, {
+            yPercent: direction * slideY,
+            scale: 0.8,
+            borderRadius: '16px',
+            opacity: 1,
+          });
+
+          // Slide both: previous exits, new frame enters
+          jump.to(prev, {
+            yPercent: -direction * slideY,
+            duration: rollPerFrame,
+            ease: 'none',
+          });
+          jump.to(frame, {
+            yPercent: 0,
+            duration: rollPerFrame,
+            ease: 'none',
+          }, '<');
+
+          // Hide the frame that just exited
+          jump.set(prev, { opacity: 0 });
+
+          prev = frame;
+        }
+
+        // ── Phase 3: Zoom in on the destination ──
+        jump.call(() => { dest.setAttribute('data-active', ''); });
+        jump.to(dest, {
+          scale: 1, borderRadius: '0px',
+          duration: 0.4, ease: 'power2.inOut',
         });
       };
 
