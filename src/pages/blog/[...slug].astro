@@ -1,6 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
+import BlogCardNew from '../../components/BlogCardNew.astro';
 import { getCollection } from 'astro:content';
+import { getCategoryBySlug } from '../../data/blog-categories';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -23,19 +25,117 @@ const formattedDate = post.data.date.toLocaleDateString('en-GB', {
 });
 
 const description = post.data.excerpt || (post.body ? post.body.slice(0, 160) : '');
+const cat = getCategoryBySlug(post.data.category);
+const placeholderImage = '/images/blog/placeholder.webp';
+
+// Related posts: same category, excluding current, max 3
+const allPosts = (await getCollection('blog'))
+  .filter(p => !p.data.draft && p.id !== post.id)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const relatedPosts = allPosts
+  .filter(p => p.data.category === post.data.category)
+  .slice(0, 3);
+
+// If not enough same-category posts, fill with latest
+const fillerPosts = relatedPosts.length < 3
+  ? allPosts.filter(p => !relatedPosts.some(r => r.id === p.id)).slice(0, 3 - relatedPosts.length)
+  : [];
+
+const related = [...relatedPosts, ...fillerPosts];
 ---
 
 <Base title={`${post.data.title} — Consultates Blog`} description={description}>
   <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
     <div style="max-width: 720px; margin: 0 auto;">
-      <a href="/blog" class="text-body text-primary hover:underline mb-4 inline-block">&larr; Back to Blog</a>
-      <h1 class="text-hero">{post.data.title}</h1>
-      <p class="text-cite text-muted-foreground mb-8">
-        {formattedDate} &middot; {readingTime} min read
-      </p>
-      <div class="prose prose-lg max-w-none">
+      <a href="/blog" class="text-body text-primary hover:underline mb-6 inline-block">&larr; Back to Blog</a>
+
+      {/* Featured image */}
+      <div style="aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--card-radius, 16px); background: var(--secondary); margin-bottom: 2rem;">
+        <img
+          src={post.data.image || placeholderImage}
+          alt=""
+          style="width: 100%; height: 100%; object-fit: cover;"
+        />
+      </div>
+
+      {/* Category pill + meta */}
+      <div class="flex items-center gap-3 mb-4">
+        {cat && (
+          <span class="blog-post__pill">
+            <i class={`ph-duotone ${cat.icon}`} style="font-size: 0.875rem;"></i>
+            {cat.label}
+          </span>
+        )}
+        <span class="text-cite text-muted-foreground" style="font-family: var(--font-mono);">
+          {formattedDate} &middot; {readingTime} min read
+        </span>
+      </div>
+
+      <h1 class="text-hero font-serif">{post.data.title}</h1>
+
+      <div class="prose prose-lg max-w-none mt-8">
         <Content />
       </div>
     </div>
   </section>
+
+  {/* Related posts */}
+  {related.length > 0 && (
+    <section class="bg-secondary" style="padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 8rem);">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 class="text-section font-serif mb-8">Keep reading</h2>
+        <div class="blog-related-grid">
+          {related.map(p => {
+            const pCat = getCategoryBySlug(p.data.category);
+            return (
+              <BlogCardNew
+                title={p.data.title}
+                href={'/blog/' + p.id.replace(/\.md$/, '')}
+                image={p.data.image}
+                categorySlug={p.data.category}
+                categoryLabel={pCat?.label || p.data.category}
+                categoryIcon={pCat?.icon || 'ph-article'}
+                compact={true}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
 </Base>
+
+<style>
+  .blog-post__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+    color: var(--primary);
+  }
+
+  .blog-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1023px) {
+    .blog-related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 639px) {
+    .blog-related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
