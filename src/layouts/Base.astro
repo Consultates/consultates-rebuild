@@ -64,8 +64,9 @@ const { title, description = 'AI consulting for business leaders. Advisory, trai
   <script>
     import gsap from 'gsap';
     import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
     // Gate: only run on desktop AND no reduced motion
     const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
@@ -185,7 +186,34 @@ const { title, description = 'AI consulting for business leaders. Advisory, trai
         });
       }
 
+      // Expose programmatic section navigation for the nav dropdown.
+      // Scrolls to the correct scroll position — GSAP scrub animates
+      // through each intermediate section automatically (film-strip effect).
+      const st = master.scrollTrigger!;
+      (window as any).scrollToSection = (index: number) => {
+        if (index < 0 || index >= sectionCount) return;
+        const targetScroll = st.start + (st.end - st.start) * snapPoints[index];
+        const distance = Math.abs(index - Math.round(st.progress * (sectionCount - 1)));
+        gsap.to(window, {
+          scrollTo: targetScroll,
+          duration: Math.max(1.2, distance * 0.8),
+          ease: 'power1.inOut',
+        });
+      };
+
       } // sections.length > 0 guard
+    }
+
+    // Mobile fallback: smooth-scroll to section by index (no GSAP snap on mobile)
+    if (!isDesktop || prefersReducedMotion) {
+      const sections = document.querySelectorAll<HTMLElement>('.scroll-section');
+      if (sections.length > 0) {
+        (window as any).scrollToSection = (index: number) => {
+          const target = sections[index];
+          if (!target) return;
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        };
+      }
     }
   </script>
 <script>
