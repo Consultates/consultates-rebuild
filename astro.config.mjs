@@ -5,8 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://consultates.github.io',
-  base: '/consultates-rebuild',
+  site: 'https://consultates.com',
   output: 'static',
   integrations: [react(), sitemap()],
   vite: {
