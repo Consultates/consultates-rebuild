@@ -2,8 +2,36 @@
 import AuthorityCardsIsland from '../islands/AuthorityCardsIsland';
 ---
 
-<section id="section-why" style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
-  <div class="max-w-[1200px] mx-auto">
+<section id="section-why" class="why-section bg-dots">
+  <div class="max-w-[1200px] mx-auto" style="padding: 0 clamp(1.5rem, 5vw, 8rem);">
+    <div class="text-center" style="margin-bottom: 2.5rem;">
+      <h2 class="text-section text-foreground mb-4">Why Consultates?</h2>
+      <p class="text-body-lg mx-auto" style="max-width: 580px; color: var(--secondary-foreground);">
+        Gary Tate brings a rare combination — deep technical experience, real sales leadership, and daily AI practice.
+      </p>
+    </div>
+
     <AuthorityCardsIsland client:visible />
   </div>
 </section>
+
+<style>
+  .why-section {
+    padding: var(--section-py) 0;
+    background: var(--secondary);
+    position: relative;
+  }
+
+  /* Subtle top/bottom border to separate from adjacent sections */
+  .why-section::before,
+  .why-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  }
+  .why-section::before { top: 0; }
+  .why-section::after { bottom: 0; }
+</style>
