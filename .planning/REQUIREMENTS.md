@@ -9,8 +9,8 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 
 ### Bug Fixes
 
-- [ ] **FIX-01**: Stakes (NegativeStakes) section added to Home nav dropdown `homeSections` array with correct index, label, description, and Phosphor icon
-- [ ] **FIX-02**: FormInput icon padding bug fixed — `iconPaddingClass` applied to the input element so text does not overlap icons
+- [x] **FIX-01**: Stakes (NegativeStakes) section added to Home nav dropdown `homeSections` array with correct index, label, description, and Phosphor icon
+- [x] **FIX-02**: FormInput icon padding bug fixed — `iconPaddingClass` applied to the input element so text does not overlap icons
 
 ### Footer
 
@@ -30,7 +30,7 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 
 ### Cleanup
 
-- [ ] **CLN-01**: Three dummy blog posts removed (strategy, tools-tactics, ai-safety categories added for grid threshold testing)
+- [x] **CLN-01**: Three dummy blog posts removed (strategy, tools-tactics, ai-safety categories added for grid threshold testing)
 
 ## Future Requirements
 
@@ -59,8 +59,8 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FIX-01 | Phase 18 | Pending |
-| FIX-02 | Phase 18 | Pending |
+| FIX-01 | Phase 18 | Complete |
+| FIX-02 | Phase 18 | Complete |
 | FOOT-01 | Phase 20 | Pending |
 | FOOT-02 | Phase 20 | Pending |
 | HP-01 | Phase 19 | Pending |
@@ -68,7 +68,7 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 | HP-03 | Phase 19 | Pending |
 | INT-01 | Phase 21 | Pending |
 | INT-02 | Phase 21 | Pending |
-| CLN-01 | Phase 18 | Pending |
+| CLN-01 | Phase 18 | Complete |
 
 **Coverage:**
 - v1 requirements: 10 total

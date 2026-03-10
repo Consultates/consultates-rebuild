@@ -41,18 +41,12 @@ Phase 17: Blog — Blog index redesign, category filtering, carousel, post templ
 
 **Milestone Goal:** Bring every page to the visual standard set by the hero — fix bugs, polish the homepage middle sections, redesign the footer, and wire up integrations so the site is fully operational.
 
-#### Phase 18: Fixes & Cleanup
+#### ✅ Phase 18: Fixes & Cleanup — COMPLETE 2026-03-10
 **Goal**: Eliminate known bugs and remove test content so the live site has no visible defects
-**Depends on**: Nothing (independent fixes)
 **Requirements**: FIX-01, FIX-02, CLN-01
-**Success Criteria** (what must be TRUE):
-  1. Home nav dropdown (desktop and mobile) shows Stakes section with correct label, description, and icon — clicking it navigates to the NegativeStakes section
-  2. Contact form inputs with icons have visible padding so typed text never overlaps the icon
-  3. Blog index and homepage blog carousel show only real blog posts — no dummy/test content remains in the content directory
-**Plans**: 1 plan
 
 Plans:
-- [ ] 18-01-PLAN.md — Bug fixes (Stakes nav, FormInput padding) and dummy blog post cleanup
+- [x] 18-01-PLAN.md — Bug fixes (Stakes nav, FormInput padding) and dummy blog post cleanup
 
 #### Phase 19: Homepage Polish
 **Goal**: The homepage middle sections match the visual quality of the hero and stakes sections — no more "soulless" white/cream gaps
@@ -104,7 +98,7 @@ Plans:
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
-| 18. Fixes & Cleanup | v3.0 | 0/1 | Not started | - |
+| 18. Fixes & Cleanup | v3.0 | 1/1 | ✓ Complete | 2026-03-10 |
 | 19. Homepage Polish | v3.0 | 0/3 | Not started | - |
 | 20. Footer | v3.0 | 0/1 | Not started | - |
 | 21. Integrations | v3.0 | 0/2 | Not started | - |
