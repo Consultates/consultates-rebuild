@@ -62,9 +62,9 @@ const isServicesActive = currentPath.startsWith('/services');
     <!-- Desktop Links -->
     <div class="hidden md:flex items-center gap-6">
 
-      <!-- Home — dropdown on homepage, plain link elsewhere -->
-      {isHomepage ? (
-        <div class="relative group">
+      <!-- Home — always shows dropdown with section navigation -->
+      <div class="relative group">
+        {isHomepage ? (
           <button
             id="home-nav-btn"
             class:list={[
@@ -80,15 +80,25 @@ const isServicesActive = currentPath.startsWith('/services');
               <path d="M215.39,92.94A8,8,0,0,0,208,88H48a8,8,0,0,0-5.66,13.66l80,80a8,8,0,0,0,11.32,0l80-80A8,8,0,0,0,215.39,92.94ZM128,164.69,67.31,104H188.69Z"></path>
             </svg>
           </button>
+        ) : (
+          <a
+            href="/"
+            class="text-body font-medium text-foreground hover:text-primary transition-colors duration-150 flex items-center gap-1"
+          >
+            Home
+            <!-- Phosphor CaretDown duotone -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" class="transition-transform duration-200 group-hover:rotate-180">
+              <path d="M208,96l-80,80L48,96Z" opacity="0.2"></path>
+              <path d="M215.39,92.94A8,8,0,0,0,208,88H48a8,8,0,0,0-5.66,13.66l80,80a8,8,0,0,0,11.32,0l80-80A8,8,0,0,0,215.39,92.94ZM128,164.69,67.31,104H188.69Z"></path>
+            </svg>
+          </a>
+        )}
 
-          <!-- Section Navigation Panel -->
-          <div class="absolute top-full left-0 mt-1 bg-card border border-border rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.1)] p-4 min-w-[280px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-1 group-hover:translate-y-0">
-            {homeSections.map((section) => (
-              <button
-                type="button"
-                data-section-index={section.index}
-                class="nav-section-btn w-full text-left flex gap-3 items-start p-3 rounded-lg hover:bg-muted transition-colors"
-              >
+        <!-- Section Navigation Panel -->
+        <div class="absolute top-full left-0 mt-1 bg-card border border-border rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.1)] p-4 min-w-[280px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-1 group-hover:translate-y-0">
+          {homeSections.map((section) => {
+            const itemContent = (
+              <Fragment>
                 {section.icon === 'squares-four' && (
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256" class="shrink-0 text-primary">
                     <path d="M112,56v48a8,8,0,0,1-8,8H56a8,8,0,0,1-8-8V56a8,8,0,0,1,8-8h48A8,8,0,0,1,112,56Zm88-8H152a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48Zm-96,96H56a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V152A8,8,0,0,0,104,144Zm96,0H152a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V152A8,8,0,0,0,200,144Z" opacity="0.2"></path>
@@ -129,18 +139,27 @@ const isServicesActive = currentPath.startsWith('/services');
                   <span class="text-body font-medium text-foreground">{section.label}</span>
                   <span class="block text-caption text-muted-foreground">{section.desc}</span>
                 </div>
+              </Fragment>
+            );
+            return isHomepage ? (
+              <button
+                type="button"
+                data-section-index={section.index}
+                class="nav-section-btn w-full text-left flex gap-3 items-start p-3 rounded-lg hover:bg-muted transition-colors"
+              >
+                {itemContent}
               </button>
-            ))}
-          </div>
+            ) : (
+              <a
+                href={`/?section=${section.index}`}
+                class="w-full flex gap-3 items-start p-3 rounded-lg hover:bg-muted transition-colors"
+              >
+                {itemContent}
+              </a>
+            );
+          })}
         </div>
-      ) : (
-        <a
-          href="/"
-          class="text-body font-medium text-foreground hover:text-primary transition-colors duration-150"
-        >
-          Home
-        </a>
-      )}
+      </div>
 
       <!-- Services Dropdown -->
       <div class="relative group">
@@ -241,18 +260,18 @@ const isServicesActive = currentPath.startsWith('/services');
     </svg>
   </button>
 
-  <!-- Mobile: Home with section sub-items on homepage -->
-  {isHomepage ? (
-    <div class="flex flex-col items-center gap-2">
-      <button id="home-toggle-mobile" class="text-[1.125rem] font-medium text-primary transition-colors flex items-center gap-1">
-        Home
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
-          <path d="M208,96l-80,80L48,96Z" opacity="0.2"></path>
-          <path d="M215.39,92.94A8,8,0,0,0,208,88H48a8,8,0,0,0-5.66,13.66l80,80a8,8,0,0,0,11.32,0l80-80A8,8,0,0,0,215.39,92.94ZM128,164.69,67.31,104H188.69Z"></path>
-        </svg>
-      </button>
-      <div id="home-submenu-mobile" class="hidden flex flex-col items-center gap-2 mt-1">
-        {homeSections.map((section) => (
+  <!-- Mobile: Home with expandable section sub-items (all pages) -->
+  <div class="flex flex-col items-center gap-2">
+    <button id="home-toggle-mobile" class:list={['text-[1.125rem] font-medium transition-colors flex items-center gap-1', isHomepage ? 'text-primary' : 'text-foreground hover:text-primary']}>
+      Home
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
+        <path d="M208,96l-80,80L48,96Z" opacity="0.2"></path>
+        <path d="M215.39,92.94A8,8,0,0,0,208,88H48a8,8,0,0,0-5.66,13.66l80,80a8,8,0,0,0,11.32,0l80-80A8,8,0,0,0,215.39,92.94ZM128,164.69,67.31,104H188.69Z"></path>
+      </svg>
+    </button>
+    <div id="home-submenu-mobile" class="hidden flex flex-col items-center gap-2 mt-1">
+      {homeSections.map((section) => (
+        isHomepage ? (
           <button
             type="button"
             data-section-index={section.index}
@@ -260,12 +279,17 @@ const isServicesActive = currentPath.startsWith('/services');
           >
             {section.label}
           </button>
-        ))}
-      </div>
+        ) : (
+          <a
+            href={`/?section=${section.index}`}
+            class="text-body text-muted-foreground hover:text-primary transition-colors"
+          >
+            {section.label}
+          </a>
+        )
+      ))}
     </div>
-  ) : (
-    <a href="/" class="text-[1.125rem] font-medium text-foreground hover:text-primary transition-colors">Home</a>
-  )}
+  </div>
 
   <!-- Services with sub-items -->
   <div class="flex flex-col items-center gap-2">

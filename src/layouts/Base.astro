@@ -300,30 +300,35 @@ const { title, description = 'AI consulting for business leaders. Advisory, trai
         });
       };
 
-      // Restore section on reload
-      const savedIdx = sessionStorage.getItem('consultates-section');
-      if (savedIdx) {
-        const idx = parseInt(savedIdx, 10);
-        if (idx > 0 && idx < sectionCount) {
-          // Jump to saved section without animation
-          sections.forEach((s, i) => {
-            const el = s as HTMLElement;
-            if (i === idx) {
-              gsap.set(el, { scale: 1, borderRadius: '0px', yPercent: 0, opacity: 1 });
-              el.setAttribute('data-active', '');
-            } else if (i < idx) {
-              gsap.set(el, { scale: 1, borderRadius: '0px', yPercent: -90, opacity: 0 });
-              el.removeAttribute('data-active');
-            } else {
-              gsap.set(el, { scale: 1, borderRadius: '0px', yPercent: 100, opacity: 1 });
-              el.removeAttribute('data-active');
-            }
-          });
-          // First section was marked active on init — clear it if we're not on it
-          if (idx !== 0) sections[0].removeAttribute('data-active');
-          master.progress(snapPoints[idx]);
-          const targetScroll = st.start + (st.end - st.start) * snapPoints[idx];
-          window.scrollTo(0, targetScroll);
+      // Check for URL section param (cross-page navigation takes priority)
+      const urlSectionParam = new URLSearchParams(window.location.search).get('section');
+
+      // Restore section on reload (skip if URL param present — cross-page nav takes priority)
+      if (!urlSectionParam) {
+        const savedIdx = sessionStorage.getItem('consultates-section');
+        if (savedIdx) {
+          const idx = parseInt(savedIdx, 10);
+          if (idx > 0 && idx < sectionCount) {
+            // Jump to saved section without animation
+            sections.forEach((s, i) => {
+              const el = s as HTMLElement;
+              if (i === idx) {
+                gsap.set(el, { scale: 1, borderRadius: '0px', yPercent: 0, opacity: 1 });
+                el.setAttribute('data-active', '');
+              } else if (i < idx) {
+                gsap.set(el, { scale: 1, borderRadius: '0px', yPercent: -90, opacity: 0 });
+                el.removeAttribute('data-active');
+              } else {
+                gsap.set(el, { scale: 1, borderRadius: '0px', yPercent: 100, opacity: 1 });
+                el.removeAttribute('data-active');
+              }
+            });
+            // First section was marked active on init — clear it if we're not on it
+            if (idx !== 0) sections[0].removeAttribute('data-active');
+            master.progress(snapPoints[idx]);
+            const targetScroll = st.start + (st.end - st.start) * snapPoints[idx];
+            window.scrollTo(0, targetScroll);
+          }
         }
       }
 
@@ -339,6 +344,28 @@ const { title, description = 'AI consulting for business leaders. Advisory, trai
           if (!target) return;
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         };
+      }
+    }
+
+    // URL param auto-scroll: /?section=2 scrolls to that section on load
+    // Works with both desktop (GSAP) and mobile (scrollIntoView) paths
+    {
+      const sectionParam = new URLSearchParams(window.location.search).get('section');
+      if (sectionParam !== null) {
+        const sectionIndex = parseInt(sectionParam, 10);
+        const allSections = document.querySelectorAll<HTMLElement>('.scroll-section');
+        if (!isNaN(sectionIndex) && sectionIndex >= 0 && sectionIndex < allSections.length && (window as any).scrollToSection) {
+          // Clear sessionStorage so reload doesn't fight with URL param
+          sessionStorage.removeItem('consultates-section');
+          // Clean up URL so param doesn't persist on reload
+          history.replaceState(null, '', window.location.pathname);
+          // Delay to ensure GSAP timeline is fully ready
+          requestAnimationFrame(() => {
+            setTimeout(() => {
+              (window as any).scrollToSection(sectionIndex);
+            }, 100);
+          });
+        }
       }
     }
   </script>
