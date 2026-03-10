@@ -136,6 +136,10 @@ const { title, description = 'AI consulting for business leaders. Advisory, trai
             ease: 'power2.inOut',
           },
           onUpdate: (self: any) => {
+            // Save current section for reload restore
+            const idx = Math.round(self.progress * (sectionCount - 1));
+            sessionStorage.setItem('consultates-section', String(idx));
+
             if (!scrollIndicator) return;
             if (self.progress > 0.02 && !indicatorHidden) {
               indicatorHidden = true;
@@ -295,6 +299,33 @@ const { title, description = 'AI consulting for business leaders. Advisory, trai
           duration: 0.4, ease: 'power2.inOut',
         });
       };
+
+      // Restore section on reload
+      const savedIdx = sessionStorage.getItem('consultates-section');
+      if (savedIdx) {
+        const idx = parseInt(savedIdx, 10);
+        if (idx > 0 && idx < sectionCount) {
+          // Jump to saved section without animation
+          sections.forEach((s, i) => {
+            const el = s as HTMLElement;
+            if (i === idx) {
+              gsap.set(el, { scale: 1, borderRadius: '0px', yPercent: 0, opacity: 1 });
+              el.setAttribute('data-active', '');
+            } else if (i < idx) {
+              gsap.set(el, { scale: 1, borderRadius: '0px', yPercent: -90, opacity: 0 });
+              el.removeAttribute('data-active');
+            } else {
+              gsap.set(el, { scale: 1, borderRadius: '0px', yPercent: 100, opacity: 1 });
+              el.removeAttribute('data-active');
+            }
+          });
+          // First section was marked active on init — clear it if we're not on it
+          if (idx !== 0) sections[0].removeAttribute('data-active');
+          master.progress(snapPoints[idx]);
+          const targetScroll = st.start + (st.end - st.start) * snapPoints[idx];
+          window.scrollTo(0, targetScroll);
+        }
+      }
 
       } // sections.length > 0 guard
     }

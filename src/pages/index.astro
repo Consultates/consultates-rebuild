@@ -32,20 +32,23 @@ const blogPosts = posts.map(post => {
 ---
 
 <Base title="Consultates — AI Consulting for Business Leaders" description="Clarity on AI for leaders, teams, and companies. One-to-one advisory, hands-on training, and fractional executive support from someone who builds with AI every day.">
-  <div class="scroll-section" data-section-label="Hero"><HeroSection /><TrustBar /></div>
-  <div class="scroll-section" data-section-label="Stakes"><NegativeStakes /><ScrollIndicator /><TrustBar /></div>
-  <div class="scroll-section" data-section-label="What We Offer"><OfferingSection /><ScrollIndicator /><TrustBar /></div>
-  <div class="scroll-section" data-section-label="Use Cases"><UseCasesSection /><ScrollIndicator /><TrustBar /></div>
-  <div class="scroll-section" data-section-label="How It Works"><HowItWorksSection /><ScrollIndicator /><TrustBar /></div>
-  <div class="scroll-section" data-section-label="Testimonials"><SocialProofSection /><ScrollIndicator /><TrustBar /></div>
-  <div class="scroll-section" data-section-label="Why Consultates"><WhyConsultatesSection /><ScrollIndicator /><TrustBar /></div>
-  <div class="scroll-section" data-section-label="Get Started"><StakesCTASection /><ScrollIndicator /><TrustBar /></div>
-
-  {/* Blog highlights — outside scroll-snap, normal page flow */}
-  <section class="bg-secondary" style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <h2 class="text-section font-serif mb-10">Not ready to book? Start here.</h2>
-      <BlogCarouselIsland client:visible posts={blogPosts} />
+  <div id="scroll-snap-container">
+    <div class="scroll-section" data-section-label="Hero"><HeroSection /><TrustBar /></div>
+    <div class="scroll-section" data-section-label="Stakes"><NegativeStakes /><ScrollIndicator /><TrustBar /></div>
+    <div class="scroll-section" data-section-label="What We Offer"><OfferingSection /><ScrollIndicator /><TrustBar /></div>
+    <div class="scroll-section" data-section-label="Use Cases"><UseCasesSection /><ScrollIndicator /><TrustBar /></div>
+    <div class="scroll-section" data-section-label="How It Works"><HowItWorksSection /><ScrollIndicator /><TrustBar /></div>
+    <div class="scroll-section" data-section-label="Testimonials"><SocialProofSection /><ScrollIndicator /><TrustBar /></div>
+    <div class="scroll-section" data-section-label="Why Consultates"><WhyConsultatesSection /><ScrollIndicator /><TrustBar /></div>
+    <div class="scroll-section" data-section-label="Get Started">
+      <StakesCTASection />
+      <section class="bg-secondary" style="padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 5vw, 8rem);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+          <h2 class="text-sub font-serif mb-6 text-center">Not ready to book? Start here.</h2>
+          <BlogCarouselIsland client:visible posts={blogPosts} />
+        </div>
+      </section>
+      <ScrollIndicator /><TrustBar />
     </div>
-  </section>
+  </div>
 </Base>

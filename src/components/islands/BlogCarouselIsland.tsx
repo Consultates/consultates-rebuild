@@ -1,9 +1,10 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useLayoutEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useReducedMotion } from '../../lib/animations';
 
 const ease = [0.25, 0.1, 0.25, 1] as const;
 const AUTO_ADVANCE_MS = 8000;
+const GAP = 24; // 1.5rem
 
 export interface BlogCardData {
   title: string;
@@ -17,58 +18,70 @@ interface Props {
   posts: BlogCardData[];
 }
 
+/** Wrap index into [0, length) */
+const wrap = (i: number, length: number) => ((i % length) + length) % length;
+
 export default function BlogCarouselIsland({ posts }: Props) {
   const reducedMotion = useReducedMotion();
   const [currentIdx, setCurrentIdx] = useState(0);
-  const [nextIdx, setNextIdx] = useState<number | null>(null);
-  const [direction, setDirection] = useState(1);
   const [transitioning, setTransitioning] = useState(false);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const strip = useAnimation();
+
+  if (!posts || posts.length === 0) {
+    return null;
+  }
+
+  // Get card width from container: 3 visible cards with 2 gaps
+  const getCardWidth = () => {
+    if (!containerRef.current) return 300;
+    return (containerRef.current.offsetWidth - 2 * GAP) / 3;
+  };
 
   const runTransition = useCallback(async (targetIdx: number, dir: number) => {
     if (transitioning) return;
     setTransitioning(true);
-    setNextIdx(targetIdx);
-    setDirection(dir);
 
-    if (dir > 0) {
-      strip.set({ x: '0%', scale: 1 });
-    } else {
-      strip.set({ x: '-50%', scale: 1 });
-    }
+    const cw = getCardWidth();
+    const shiftX = dir * (cw + GAP);
 
+    // Reset to base position
+    strip.set({ x: 0, scale: 1 });
     await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
 
+    // Phase 1: Zoom out — pull back to reveal the reel
     await strip.start({
       scale: 0.85,
       transition: { duration: 0.3, ease },
     });
 
+    // Phase 2: Wind — slide the strip to the next frame
     await strip.start({
-      x: dir > 0 ? '-50%' : '0%',
+      x: -shiftX,
       transition: { duration: 0.45, ease },
     });
 
+    // Phase 3: Zoom in — push into the new frame
     await strip.start({
       scale: 1,
       transition: { duration: 0.3, ease },
     });
 
+    // Reset: update index, strip snaps back to base CSS position
     setCurrentIdx(targetIdx);
-    setNextIdx(null);
-    strip.set({ x: '0%', scale: 1 });
+    strip.set({ x: 0, scale: 1 });
     setTransitioning(false);
   }, [transitioning, strip]);
 
   const goNext = useCallback(() => {
-    const target = (currentIdx + 1) % posts.length;
+    const target = wrap(currentIdx + 1, posts.length);
     runTransition(target, 1);
   }, [currentIdx, posts.length, runTransition]);
 
   const goPrev = useCallback(() => {
-    const target = (currentIdx - 1 + posts.length) % posts.length;
+    const target = wrap(currentIdx - 1, posts.length);
     runTransition(target, -1);
   }, [currentIdx, posts.length, runTransition]);
 
@@ -77,6 +90,7 @@ export default function BlogCarouselIsland({ posts }: Props) {
     runTransition(targetIdx, targetIdx > currentIdx ? 1 : -1);
   }, [currentIdx, runTransition]);
 
+  // Auto-advance
   useEffect(() => {
     if (reducedMotion || paused || transitioning) return;
     timerRef.current = setTimeout(goNext, AUTO_ADVANCE_MS);
@@ -85,18 +99,20 @@ export default function BlogCarouselIsland({ posts }: Props) {
     };
   }, [currentIdx, paused, reducedMotion, goNext, transitioning]);
 
+  // Reduced motion: static card + dots
   if (reducedMotion) {
     return (
       <div className="relative">
-        <BlogCard post={posts[currentIdx]} />
+        <div style={{ maxWidth: '540px', margin: '0 auto' }}>
+          <BlogCard post={posts[currentIdx]} />
+        </div>
         <NavDots total={posts.length} current={currentIdx} onSelect={(i) => setCurrentIdx(i)} />
       </div>
     );
   }
 
-  const leftPost = nextIdx !== null && direction < 0 ? posts[nextIdx] : posts[currentIdx];
-  const rightPost = nextIdx !== null && direction > 0 ? posts[nextIdx] : posts[currentIdx];
-  const showTwo = nextIdx !== null;
+  // Build 5-card strip: [i-2, i-1, i, i+1, i+2] — circular
+  const stripIndices = [-2, -1, 0, 1, 2].map(o => wrap(currentIdx + o, posts.length));
 
   return (
     <div
@@ -104,9 +120,10 @@ export default function BlogCarouselIsland({ posts }: Props) {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
+      {/* Viewport — clips the strip, shows 3 cards */}
       <div
-        className="relative overflow-hidden"
-        style={{ minHeight: '200px' }}
+        ref={containerRef}
+        style={{ overflow: 'hidden', position: 'relative' }}
         onTouchStart={(e) => {
           const touch = e.touches[0];
           (e.currentTarget as any)._touchStartX = touch.clientX;
@@ -123,46 +140,79 @@ export default function BlogCarouselIsland({ posts }: Props) {
           delete (e.currentTarget as any)._touchStartX;
         }}
       >
+        {/* Film strip — 5 cards, offset via margin-left so cards [1,2,3] are visible */}
         <motion.div
           animate={strip}
           style={{
             display: 'flex',
-            width: showTwo ? '200%' : '100%',
+            gap: `${GAP}px`,
+            // Strip width = 5 cards + 4 gaps. Each card = 1/3 container.
+            // So strip = 5/3 * container + 4 * gap - (5/3 - 1) * gap... simplified:
+            width: `calc((500% + ${2 * GAP}px) / 3)`,
+            // Shift left by 1 card+gap to center cards [1,2,3] in viewport
+            marginLeft: `calc(-1 * (100% + ${GAP}px) / 3)`,
           }}
         >
-          <div style={{ width: showTwo ? '50%' : '100%', flexShrink: 0 }}>
-            <BlogCard post={leftPost} />
-          </div>
-          {showTwo && (
-            <div style={{ width: '50%', flexShrink: 0 }}>
-              <BlogCard post={rightPost} />
+          {stripIndices.map((postIdx, i) => (
+            <div key={i} style={{ flex: '1 0 0', minWidth: 0 }}>
+              <BlogCard post={posts[postIdx]} />
             </div>
-          )}
+          ))}
         </motion.div>
-      </div>
 
-      <button
-        onClick={goPrev}
-        disabled={transitioning}
-        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full items-center justify-center text-muted-foreground hover:text-foreground transition-colors disabled:opacity-30"
-        style={{ background: 'color-mix(in srgb, var(--foreground) 5%, transparent)' }}
-        aria-label="Previous post"
-      >
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 4l-6 6 6 6" />
-        </svg>
-      </button>
-      <button
-        onClick={goNext}
-        disabled={transitioning}
-        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full items-center justify-center text-muted-foreground hover:text-foreground transition-colors disabled:opacity-30"
-        style={{ background: 'color-mix(in srgb, var(--foreground) 5%, transparent)' }}
-        aria-label="Next post"
-      >
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M8 4l6 6-6 6" />
-        </svg>
-      </button>
+        {/* Left fade gradient */}
+        <div
+          style={{
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            bottom: 0,
+            width: '33.33%',
+            background: 'linear-gradient(to right, var(--secondary), transparent)',
+            pointerEvents: 'none',
+            zIndex: 2,
+          }}
+        />
+
+        {/* Right fade gradient */}
+        <div
+          style={{
+            position: 'absolute',
+            right: 0,
+            top: 0,
+            bottom: 0,
+            width: '33.33%',
+            background: 'linear-gradient(to left, var(--secondary), transparent)',
+            pointerEvents: 'none',
+            zIndex: 2,
+          }}
+        />
+        {/* Left arrow */}
+        <button
+          onClick={goPrev}
+          disabled={transitioning}
+          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full items-center justify-center text-muted-foreground hover:text-foreground transition-colors disabled:opacity-30"
+          style={{ background: 'color-mix(in srgb, var(--foreground) 8%, transparent)', zIndex: 3 }}
+          aria-label="Previous post"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 4l-6 6 6 6" />
+          </svg>
+        </button>
+
+        {/* Right arrow */}
+        <button
+          onClick={goNext}
+          disabled={transitioning}
+          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full items-center justify-center text-muted-foreground hover:text-foreground transition-colors disabled:opacity-30"
+          style={{ background: 'color-mix(in srgb, var(--foreground) 8%, transparent)', zIndex: 3 }}
+          aria-label="Next post"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M8 4l6 6-6 6" />
+          </svg>
+        </button>
+      </div>
 
       <NavDots
         total={posts.length}
@@ -182,14 +232,20 @@ function BlogCard({ post }: { post: BlogCardData }) {
   return (
     <a
       href={post.href}
-      className="block max-w-[500px] mx-auto"
-      style={{ textDecoration: 'none', color: 'inherit' }}
+      className="block"
+      style={{
+        textDecoration: 'none',
+        color: 'inherit',
+        background: 'var(--card)',
+        borderRadius: 'var(--card-radius, 16px)',
+        border: '1px solid var(--border)',
+        overflow: 'hidden',
+      }}
     >
       <div
         style={{
           aspectRatio: '16 / 9',
           overflow: 'hidden',
-          borderRadius: 'var(--card-radius, 16px) var(--card-radius, 16px) 0 0',
           background: 'var(--secondary)',
         }}
       >
@@ -225,6 +281,7 @@ function BlogCard({ post }: { post: BlogCardData }) {
             color: 'var(--card-foreground)',
             marginTop: '0.75rem',
             lineHeight: 1.4,
+            minHeight: '2.8em',
             display: '-webkit-box',
             WebkitLineClamp: 2,
             WebkitBoxOrient: 'vertical',
@@ -233,16 +290,8 @@ function BlogCard({ post }: { post: BlogCardData }) {
         >
           {post.title}
         </h3>
-        <span
-          style={{
-            display: 'inline-block',
-            marginTop: '0.75rem',
-            fontSize: '1rem',
-            fontWeight: 500,
-            color: 'var(--primary)',
-          }}
-        >
-          Read →
+        <span className="btn-alive btn-alive--sm" style={{ marginTop: '0.75rem' }}>
+          Read
         </span>
       </div>
     </a>
@@ -265,7 +314,7 @@ function NavDots({
   disabled?: boolean;
 }) {
   return (
-    <div className="flex justify-center items-center gap-3 mt-8">
+    <div className="flex justify-center items-center gap-3 mt-3">
       {onPrev && (
         <button
           onClick={onPrev}
