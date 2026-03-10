@@ -59,7 +59,7 @@ const iconPaddingClass = icon && !textarea ? 'pl-10' : '';
       placeholder={placeholder}
       required={required}
       disabled={disabled}
-      class={fieldClasses}
+      class:list={[fieldClasses, iconPaddingClass]}
     />
   )}
   {error && <p class="text-cite text-destructive">{error}</p>}
