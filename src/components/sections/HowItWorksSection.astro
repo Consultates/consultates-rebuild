@@ -2,6 +2,33 @@
 import { HowItWorksIsland } from '../islands/HowItWorksIsland';
 ---
 
-<section id="section-how">
-  <HowItWorksIsland client:visible />
+<section id="section-how" class="hiw-section">
+  <div class="max-w-[1200px] mx-auto" style="padding: 0 clamp(1.5rem, 5vw, 8rem);">
+    <div class="text-center" style="margin-bottom: 2.5rem;">
+      <h2 class="text-section text-foreground">How It Works</h2>
+    </div>
+
+    <HowItWorksIsland client:visible />
+  </div>
 </section>
+
+<style>
+  .hiw-section {
+    padding: clamp(2rem, 4vw, 3.5rem) 0;
+    background: var(--secondary);
+    position: relative;
+  }
+
+  /* Subtle top/bottom border to separate from adjacent sections */
+  .hiw-section::before,
+  .hiw-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  }
+  .hiw-section::before { top: 0; }
+  .hiw-section::after { bottom: 0; }
+</style>
