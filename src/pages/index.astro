@@ -45,13 +45,13 @@ const blogPosts = posts.map(post => {
 
 <Base title="Consultates — AI Consulting for Business Leaders" description="Clarity on AI for leaders, teams, and companies. One-to-one advisory, hands-on training, and fractional executive support from someone who builds with AI every day.">
   <div id="scroll-snap-container">
-    <div class="scroll-section" data-section-label="Hero"><HeroSection /><TrustBar /></div>
-    <div class="scroll-section" data-section-label="Stakes"><NegativeStakes /><ScrollIndicator /><TrustBar /></div>
-    <div class="scroll-section" data-section-label="What We Offer"><OfferingSection /><ScrollIndicator /><TrustBar /></div>
-    <div class="scroll-section" data-section-label="Use Cases"><UseCasesSection /><ScrollIndicator /><TrustBar /></div>
-    <div class="scroll-section" data-section-label="How It Works"><HowItWorksSection /><ScrollIndicator /><TrustBar /></div>
-    <div class="scroll-section" data-section-label="Testimonials"><SocialProofSection /><ScrollIndicator /><TrustBar /></div>
-    <div class="scroll-section" data-section-label="Why Consultates"><WhyConsultatesSection /><ScrollIndicator /><TrustBar /></div>
+    <div class="scroll-section" data-section-label="Hero"><HeroSection /></div>
+    <div class="scroll-section" data-section-label="Stakes"><NegativeStakes /></div>
+    <div class="scroll-section" data-section-label="What We Offer"><OfferingSection /></div>
+    <div class="scroll-section" data-section-label="Use Cases"><UseCasesSection /></div>
+    <div class="scroll-section" data-section-label="How It Works"><HowItWorksSection /></div>
+    <div class="scroll-section" data-section-label="Testimonials"><SocialProofSection /></div>
+    <div class="scroll-section" data-section-label="Why Consultates"><WhyConsultatesSection /></div>
     <div class="scroll-section" data-section-label="Get Started">
       <StakesCTASection />
       <section class="bg-secondary" style="padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 5vw, 8rem);">
@@ -60,7 +60,8 @@ const blogPosts = posts.map(post => {
           <BlogCarouselIsland client:visible posts={blogPosts} />
         </div>
       </section>
-      <ScrollIndicator /><TrustBar />
     </div>
   </div>
+  <ScrollIndicator />
+  <TrustBar />
 </Base>

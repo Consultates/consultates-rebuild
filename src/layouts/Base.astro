@@ -116,10 +116,6 @@ const { title, description = 'AI consulting for business leaders. Advisory, trai
         snapPoints.push(i / (sectionCount - 1));
       }
 
-      // Scroll indicator — fade out once user starts scrolling
-      const scrollIndicator = document.querySelector('[data-scroll-indicator]');
-      let indicatorHidden = false;
-
       const master = gsap.timeline({
         scrollTrigger: {
           trigger: container,
@@ -139,15 +135,6 @@ const { title, description = 'AI consulting for business leaders. Advisory, trai
             // Save current section for reload restore
             const idx = Math.round(self.progress * (sectionCount - 1));
             sessionStorage.setItem('consultates-section', String(idx));
-
-            if (!scrollIndicator) return;
-            if (self.progress > 0.02 && !indicatorHidden) {
-              indicatorHidden = true;
-              gsap.to(scrollIndicator, { opacity: 0, duration: 0.3, ease: 'power2.out' });
-            } else if (self.progress <= 0.02 && indicatorHidden) {
-              indicatorHidden = false;
-              gsap.to(scrollIndicator, { opacity: 0.6, duration: 0.3 });
-            }
           },
         },
       });
