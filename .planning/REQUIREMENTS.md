@@ -59,22 +59,22 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FIX-01 | - | Pending |
-| FIX-02 | - | Pending |
-| FOOT-01 | - | Pending |
-| FOOT-02 | - | Pending |
-| HP-01 | - | Pending |
-| HP-02 | - | Pending |
-| HP-03 | - | Pending |
-| INT-01 | - | Pending |
-| INT-02 | - | Pending |
-| CLN-01 | - | Pending |
+| FIX-01 | Phase 18 | Pending |
+| FIX-02 | Phase 18 | Pending |
+| FOOT-01 | Phase 20 | Pending |
+| FOOT-02 | Phase 20 | Pending |
+| HP-01 | Phase 19 | Pending |
+| HP-02 | Phase 19 | Pending |
+| HP-03 | Phase 19 | Pending |
+| INT-01 | Phase 21 | Pending |
+| INT-02 | Phase 21 | Pending |
+| CLN-01 | Phase 18 | Pending |
 
 **Coverage:**
 - v1 requirements: 10 total
-- Mapped to phases: 0
-- Unmapped: 10 ⚠️
+- Mapped to phases: 10
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-10*
-*Last updated: 2026-03-10 after initial definition*
+*Last updated: 2026-03-10 after roadmap creation*
