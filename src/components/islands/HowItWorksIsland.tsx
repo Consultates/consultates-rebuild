@@ -171,8 +171,7 @@ export function HowItWorksIsland() {
   return (
     <div
       ref={containerRef}
-      className="max-w-[1200px] mx-auto"
-      style={{ padding: 'clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem)' }}
+      style={{ padding: 0 }}
     >
       {/* Desktop: horizontal 3-column with connecting line */}
       <div className="hidden md:block">
