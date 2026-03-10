@@ -17,13 +17,14 @@ Running tracker of what's done, what needs work, and what's broken.
 - What We Offer: offering cards with sequential reveal
 - Use Cases: use case cards
 - Gary's nav avatar (right of CTA, desktop only)
+- Blog highlights in "Get Started" section: film-strip carousel with 3 latest posts, btn-alive links, category pills
+- Session restore: scroll position saved to sessionStorage, restored on reload
 
 **Needs work:**
 - [ ] **Stakes (NegativeStakes)** — missing from Home nav dropdown menu
 - [ ] **How It Works** — average, not finished
 - [ ] **Why Consultates** — needs complete redo
-- [ ] **Get Started (StakesCTA)** — not finished
-- [ ] **Transitional section** — needs complete redo (looks like blog placeholder)
+- [ ] **Get Started (StakesCTA)** — padding reduced but section still not polished
 
 ### About
 **Status: DONE (rebuilt 2026-03-09)**
@@ -60,9 +61,16 @@ Running tracker of what's done, what needs work, and what's broken.
 **Status: DONE**
 
 ### Blog Index
-**Status: NEEDS COMPLETE OVERHAUL (Phase 17)**
-- Current implementation is placeholder quality
-- Needs full redesign from scratch
+**Status: NEEDS REDESIGN — plan written, ready for next session**
+- Current: dark hero + 3-column card grid (Gary: "looks fucking shit")
+- Plan: replace with film-strip carousel (same as homepage) + category filter pills + "See more" link
+- See `docs/plans/2026-03-10-blog-index-redesign.md`
+
+### Blog Posts
+**Status: DONE (rebuilt 2026-03-10)**
+- Featured image at top, category pill, date/reading time
+- Improved prose typography (headings, links, blockquotes, code blocks)
+- Related posts section ("Keep reading") with compact cards
 
 ---
 
@@ -72,41 +80,26 @@ Running tracker of what's done, what needs work, and what's broken.
 
 ---
 
-## Design Doc Updates (2026-03-09)
+## Completed (2026-03-10)
 
-Website design doc (`website-design-v3.html`) was updated with GOSPEL sections for:
-- Testimonial Carousel (film-strip) — SocialProofIsland is the only carousel
-- Scroll Reveal (IntersectionObserver) — replaces SectionAnimator
-- Timeline Pattern — CSS Grid from About page
-- Service Page Structure — exact section order and component specs
-- SectionAnimator marked DEPRECATED
-
----
-
-## Completed This Session (2026-03-09)
-
-- [x] Homepage section navigation dropdown (Home menu with icons, descriptions)
-- [x] Film-strip scroll animation for nav jumps (zoom-out, roll frames, zoom-in)
-- [x] Purple silk video hero background (ping-pong loop, crossfade)
-- [x] Phosphor CaretDown duotone on all nav chevrons
-- [x] Home button scrolls to hero on homepage
-- [x] Mobile section navigation (tap-toggle submenu)
-- [x] About page rebuilt (dark hero, founder message, timeline, scroll reveals)
-- [x] Gary's nav avatar added to header (80x80 webp, right of CTA)
-- [x] All 3 service pages rebuilt with unified structure
-- [x] SocialProofIsland refactored to accept quotes prop
-- [x] Service testimonials curated in social-proof.ts
-- [x] Design doc updated with 4 GOSPEL component specs
-- [x] SectionAnimator deprecated in design doc
+- [x] Blog content schema extended (image, category, tags)
+- [x] BlogCardNew component (Maze-style, category pills, compact variant)
+- [x] BlogCarouselIsland — film-strip carousel with 5-card strip, gradient fades, arrows, dots
+- [x] Homepage blog highlights in "Get Started" scroll-section
+- [x] Blog post template with featured images, category, related posts
+- [x] Prose typography overhaul
+- [x] Scroll-section restore on reload (sessionStorage)
+- [x] Placeholder image: solid cream (replaced purple gradient)
+- [x] StakesCTA padding reduced for better viewport fit
+- [x] Scroll-sections wrapped in #scroll-snap-container
 
 ---
 
 ## Not Yet Built
 
-- [ ] Phase 17: Blog complete overhaul (current implementation is placeholder quality — needs full redesign)
+- [ ] Blog index redesign (film-strip carousel replacing dark hero + grid)
+- [ ] Footer redesign (Gary: "slop")
+- [ ] Homepage: How It Works, Why Consultates, Get Started polish
+- [ ] Stakes missing from Home nav dropdown
 
 ---
-
-## Not Yet Committed
-
-All changes from this session are unstaged. Needs git commit.
