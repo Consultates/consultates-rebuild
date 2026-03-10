@@ -8,26 +8,13 @@ A marketing site for Gary Tate's AI consulting business, replacing a bloated Web
 
 Business leaders can quickly understand what Consultates offers and book a free call — the site removes friction between "I need help with AI" and "I'm talking to someone who can help."
 
-## Current Milestone: v2.0 Visual Redesign
+## Current State
 
-**Goal:** Apply the complete design system from marketing-design-guidelines.html across all pages — hero with background video, design system type scale, texture overlays, alternating layouts, authority cards, animated timeline, and section-specific CSS treatments that were designed but never built in v1.0.
+**v2.0 Visual Redesign shipped 2026-03-10.** Site live at consultates.com with SSL via GitHub Pages.
 
-**Target features:**
-- Global CSS update: design system type scale, spacing vars, texture/ornament utilities, animation keyframes
-- Hero section: background video (monochrome), dark overlay, dot grid, radial glow, type scale up, pill CTA
-- Trust bar: standalone section below hero, visible on all devices, credential markers with dot separators
-- Negative stakes: three stats with text-stroke treatment, radial glow, pull quote
-- Offering section: design system cards with gradient icon containers, inset accent hover, serif titles
-- Use cases: alternating two-column layout, corner marks, mono labels, three use cases
-- How it works: animated timeline with GSAP, connecting line, sequential node fills
-- Social proof: photo placeholder, quote size up
-- Authority section: proper cards with stat callouts
-- Stakes CTA: radial glow, corner marks, accent-highlighted em
-- Transitional CTAs: three cards, section heading, serif titles
-- About page: asymmetric hero, editorial timeline, family business card
-- Service pages: individual layouts per service, structured outcomes, embedded testimonials
-- Contact page: card-style contact methods, styled form inputs
-- Blog: three-column index, improved post layout
+All pages rebuilt with full design system: cinematic silk video hero, design system type scale, texture overlays, animated timelines, film-strip carousels, editorial About page, unified service pages, blog index with category filtering. 137 files, ~13,500 lines added across 8 phases.
+
+**Next milestone:** v3.0 Polish & Ship — footer redesign, homepage middle section polish, nav/form bug fixes, integrations (GA4, contact form backend).
 
 ## Requirements
 
@@ -56,27 +43,44 @@ Business leaders can quickly understand what Consultates offers and book a free 
 - ✓ GSAP crash guard + footer fixes — Phase 9
 - ✓ CountUpStat MutationObserver for GSAP sections — Phase 9
 
+### Validated (v2.0)
+
+- ✓ Design system type scale, spacing, texture utilities, color tokens — Phase 10
+- ✓ Cinematic hero with silk video, dot grid, radial glow, pill CTA — Phase 10
+- ✓ Trust bar as standalone section, visible all devices — Phase 10
+- ✓ Negative stakes with text-stroke stats and stroke-draw animation — Phase 11
+- ✓ Offering cards with gradient icons, inset accent hover — Phase 11
+- ✓ Use case cards with sequential animation — Phase 12
+- ✓ Animated timeline How It Works (CSS transitions, no GSAP) — Phase 12
+- ✓ Film-strip testimonial carousel (SocialProofIsland) — Phase 13
+- ✓ Authority cards with stat callouts — Phase 13
+- ✓ Stakes CTA with radial glow, corner marks — Phase 13
+- ✓ About page with editorial timeline and founder message — Phase 14
+- ✓ Three service pages with unified structure — Phase 15
+- ✓ Contact page with card-style methods and styled form — Phase 16
+- ✓ Blog index with category filtering and film-strip carousel — Phase 17
+- ✓ Blog post template with featured images and prose typography — Phase 17
+- ✓ Cross-page Home section dropdown navigation — Phase 16-17 era
+- ✓ ScrollIndicator and TrustBar as fixed-position singletons — Phase 16-17 era
+- ✓ data-reveal scroll pattern (replaces SectionAnimator) — Phase 14
+
 ### Active
 
-See REQUIREMENTS.md for v2.0 scoped requirements.
+See REQUIREMENTS.md for v3.0 scoped requirements (to be created via /gsd:new-milestone).
 
 ### Out of Scope
 
-- Google Apps Script form backend — future milestone
-- Google Analytics — future milestone
-- Chat widget — not planned
-- TidyCal embed — links only for now
-- Cookie consent banner — future milestone
-- i18n / multilingual — not planned
-- OG image generation — use head mark as fallback
-- Copy/content rewrites — existing copy preserved as-is
-- StoryBrand narrative structure changes — section order unchanged
-- GSAP scroll-snap system changes — untouched
-- New dependencies — everything achievable with existing stack
+- Chat widget — not planned (not aligned with high-touch model)
+- i18n / multilingual — not planned (English-only audience)
+- E-commerce / payments — not planned
+- User accounts / auth — not planned
+- CMS / admin panel — Markdown + git is sufficient
+- Copy/content rewrites — Gary directs all copy
+- GSAP scroll-snap system changes — working, do not touch
 
 ## Context
 
-- **Current site:** consultates.com runs on WebWave — bloated, hard to maintain, doesn't reflect Gary's brand
+- **Current site:** consultates.com — live on GitHub Pages with SSL, rebuilt from WebWave
 - **Brand identity:** Royal Purple primary color, IBM Plex font family, Phosphor duotone icons
 - **Gary Tate:** Three identities — engineer (20yr military + infrastructure), commercial leader (15yr SE→CRO), AI practitioner (ships production apps daily with AI agents)
 - **Family business:** Gary and Trinh Tate. Scale through trust, not volume.
@@ -109,6 +113,11 @@ See REQUIREMENTS.md for v2.0 scoped requirements.
 | @layer utilities for type scale | Multi-property utilities cannot go in @theme block | ✓ Applied — Phase 1 |
 | Card layout for use cases (not alternating 2-col) | User preference — cards better match offering section pattern | ✓ Applied — Phase 12 |
 | Pure CSS transitions for timeline animation | No GSAP inside snap sections — avoids conflict with page-level scroll-snap | ✓ Applied — Phase 12 |
+| SectionAnimator deprecated | data-reveal + IntersectionObserver is simpler and avoids React hydration overhead | ✓ Applied — Phase 14 |
+| Service pages import Base.astro directly | No shared ServicePage.astro layout — each page is independent | ✓ Applied — Phase 15 |
+| ScrollIndicator/TrustBar as fixed singletons | Prevents mobile duplication bug, always visible regardless of scroll section | ✓ Applied — Phase 16 era |
+| Film-strip carousel pattern reused | Same zoom-out→wind→zoom-in animation for both testimonials and blog | ✓ Applied — Phases 13+17 |
+| Cross-page nav with URL params | `/?section=N` enables Home dropdown links from any page | ✓ Applied — Phase 16 era |
 
 ---
-*Last updated: 2026-03-07 after Phase 12*
+*Last updated: 2026-03-10 after v2.0 milestone*
