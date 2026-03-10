@@ -2,8 +2,8 @@
 gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Polish & Ship
-status: not_started
-stopped_at: v2.0 milestone completed, ready for v3.0 planning
+status: defining_requirements
+stopped_at: Requirements defined, roadmap next
 last_updated: "2026-03-10"
 last_activity: 2026-03-10 -- v2.0 milestone archived, ready for v3.0
 progress:
@@ -25,9 +25,10 @@ See: .planning/PROJECT.md (updated 2026-03-10)
 
 ## Current Position
 
-Phase: None yet (v3.0 not planned)
-Status: Ready to plan — run /gsd:new-milestone
-Last activity: 2026-03-10 — v2.0 milestone complete
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-03-10 — Milestone v3.0 started
 
 Progress: [░░░░░░░░░░] 0%
 

@@ -14,7 +14,20 @@ Business leaders can quickly understand what Consultates offers and book a free 
 
 All pages rebuilt with full design system: cinematic silk video hero, design system type scale, texture overlays, animated timelines, film-strip carousels, editorial About page, unified service pages, blog index with category filtering. 137 files, ~13,500 lines added across 8 phases.
 
-**Next milestone:** v3.0 Polish & Ship — footer redesign, homepage middle section polish, nav/form bug fixes, integrations (GA4, contact form backend).
+## Current Milestone: v3.0 Polish & Ship
+
+**Goal:** Bring every page to the visual standard set by the hero — polish the soulless homepage middle sections, redesign the footer, fix remaining bugs, and wire up integrations (GA4, contact form backend).
+
+**Target features:**
+- Footer redesign to match site-wide design system quality
+- Homepage How It Works section polish
+- Homepage Why Consultates section complete redo
+- Homepage Get Started/StakesCTA section polish
+- Stakes (NegativeStakes) added to nav dropdown
+- FormInput icon padding bug fixed
+- Contact form wired to Google Apps Script backend
+- Google Analytics GA4 tag added
+- Dummy blog posts removed
 
 ## Requirements
 
@@ -66,7 +79,7 @@ All pages rebuilt with full design system: cinematic silk video hero, design sys
 
 ### Active
 
-See REQUIREMENTS.md for v3.0 scoped requirements (to be created via /gsd:new-milestone).
+See REQUIREMENTS.md for v3.0 scoped requirements.
 
 ### Out of Scope
 
@@ -120,4 +133,4 @@ See REQUIREMENTS.md for v3.0 scoped requirements (to be created via /gsd:new-mil
 | Cross-page nav with URL params | `/?section=N` enables Home dropdown links from any page | ✓ Applied — Phase 16 era |
 
 ---
-*Last updated: 2026-03-10 after v2.0 milestone*
+*Last updated: 2026-03-10 after v3.0 milestone start*
