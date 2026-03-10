@@ -54,9 +54,9 @@ const blogPosts = posts.map(post => {
     <div class="scroll-section" data-section-label="Why Consultates"><WhyConsultatesSection /></div>
     <div class="scroll-section" data-section-label="Get Started">
       <StakesCTASection />
-      <section class="bg-secondary" style="padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 5vw, 8rem);">
+      <section style="background: #0D1117; padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 5vw, 8rem);">
         <div style="max-width: 1200px; margin: 0 auto;">
-          <h2 class="text-sub font-serif mb-6 text-center">Not ready to book? Start here.</h2>
+          <h2 class="text-sub font-serif mb-6 text-center" style="color: rgba(255,255,255,0.85);">Not ready to book? Start here.</h2>
           <BlogCarouselIsland client:visible posts={blogPosts} />
         </div>
       </section>
