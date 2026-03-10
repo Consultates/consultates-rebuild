@@ -49,10 +49,10 @@ Phase 17: Blog — Blog index redesign, category filtering, carousel, post templ
   1. Home nav dropdown (desktop and mobile) shows Stakes section with correct label, description, and icon — clicking it navigates to the NegativeStakes section
   2. Contact form inputs with icons have visible padding so typed text never overlaps the icon
   3. Blog index and homepage blog carousel show only real blog posts — no dummy/test content remains in the content directory
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 18-01: Bug fixes and content cleanup
+- [ ] 18-01-PLAN.md — Bug fixes (Stakes nav, FormInput padding) and dummy blog post cleanup
 
 #### Phase 19: Homepage Polish
 **Goal**: The homepage middle sections match the visual quality of the hero and stakes sections — no more "soulless" white/cream gaps
