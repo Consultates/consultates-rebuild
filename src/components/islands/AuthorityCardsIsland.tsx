@@ -34,6 +34,7 @@ const cards: CardData[] = [
 const cardStyle: React.CSSProperties = {
   background: 'var(--card)',
   border: '1px solid var(--border)',
+  borderTop: '3px solid var(--primary)',
   borderRadius: 'var(--card-radius)',
   padding: 'var(--card-padding)',
   boxShadow: 'var(--card-shadow)',
@@ -69,7 +70,7 @@ function AuthorityCard({
       >
         <p
           className="font-serif text-primary"
-          style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, marginBottom: '0.75rem' }}
+          style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, marginBottom: '0.75rem', letterSpacing: '-0.02em' }}
         >
           {card.stat}
         </p>
@@ -91,7 +92,7 @@ function AuthorityCard({
     >
       <p
         className="font-serif text-primary"
-        style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, marginBottom: '0.75rem' }}
+        style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, marginBottom: '0.75rem', letterSpacing: '-0.02em' }}
       >
         {card.stat}
       </p>
