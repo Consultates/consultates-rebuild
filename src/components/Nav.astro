@@ -33,6 +33,7 @@ const services = [
 ];
 
 const homeSections = [
+  { index: 1, label: 'Stakes', desc: 'What you risk by waiting', icon: 'warning' },
   { index: 2, label: 'What We Offer', desc: 'Advisory, training & leadership', icon: 'squares-four' },
   { index: 3, label: 'Use Cases', desc: 'Real scenarios, real results', icon: 'lightbulb' },
   { index: 4, label: 'How It Works', desc: 'From first call to impact', icon: 'list-numbers' },
@@ -99,6 +100,12 @@ const isServicesActive = currentPath.startsWith('/services');
           {homeSections.map((section) => {
             const itemContent = (
               <Fragment>
+                {section.icon === 'warning' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256" class="shrink-0 text-primary">
+                    <path d="M236.73,187.89,149.13,36.22h0a24.34,24.34,0,0,0-42.26,0L19.27,187.89A23.51,23.51,0,0,0,18,200.55,24.3,24.3,0,0,0,40.87,224H215.13A24.3,24.3,0,0,0,238,200.55,23.51,23.51,0,0,0,236.73,187.89Z" opacity="0.2"></path>
+                    <path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path>
+                  </svg>
+                )}
                 {section.icon === 'squares-four' && (
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256" class="shrink-0 text-primary">
                     <path d="M112,56v48a8,8,0,0,1-8,8H56a8,8,0,0,1-8-8V56a8,8,0,0,1,8-8h48A8,8,0,0,1,112,56Zm88-8H152a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48Zm-96,96H56a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V152A8,8,0,0,0,104,144Zm96,0H152a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V152A8,8,0,0,0,200,144Z" opacity="0.2"></path>
