@@ -82,7 +82,10 @@ The repo also contains:
 | `src/styles/global.css` | Design system CSS — Tailwind 4 `@theme`, btn-alive classes, CTA pulse classes |
 | `src/components/islands/HeroIsland.tsx` | Letter stagger + CTA pulse — the visual benchmark |
 | `src/components/islands/OfferingCardsIsland.tsx` | Sequential card animation — the pattern template |
-| `src/components/islands/StaggerHeading.tsx` | Letter-stagger h2 for dark CTA sections |
+| `src/components/islands/BlogCarouselIsland.tsx` | Film-strip blog card carousel — 5-card strip, zoom-out/wind/zoom-in animation, arrows, dots, auto-advance. Cards show image, category pill, title, date, excerpt, Read btn-alive |
+| `src/components/islands/BlogIndexIsland.tsx` | Blog index wrapper — category filter pills + BlogCarouselIsland. Dispatches `blog-category-change` custom event to sync with server-rendered grid |
+| `src/components/BlogCardNew.astro` | Blog card for server-rendered grids — equal-height flexbox, Read btn-alive bottom-right. Used in "All articles" grid |
+| `src/components/islands/StaggerHeading.tsx` | Letter-stagger h2 for dark CTA sections. Words wrapped in nowrap spans to prevent mid-word breaks |
 | `src/components/islands/StakesCTAPulse.tsx` | btn-alive--on-dark CTA component |
 | `src/components/islands/HowItWorksIsland.tsx` | Animated timeline with connecting lines |
 | `src/components/islands/UseCaseCardsIsland.tsx` | Use case cards with sequential reveal |

@@ -240,6 +240,8 @@
     font-weight: 700;
     line-height: var(--lh-hero);
     letter-spacing: var(--ls-hero);
+    word-break: normal;
+    overflow-wrap: anywhere;
   }
 
   .text-section {
@@ -248,6 +250,8 @@
     font-weight: 600;
     line-height: var(--lh-section);
     letter-spacing: var(--ls-section);
+    word-break: normal;
+    overflow-wrap: anywhere;
   }
 
   .text-sub {

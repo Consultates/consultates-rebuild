@@ -30,7 +30,7 @@ const placeholderImage = '/images/blog/placeholder.webp';
 
 <a
   href={href}
-  class="blog-card block bg-card border border-border rounded-xl overflow-hidden transition-all duration-200 hover:border-primary hover:shadow-[var(--card-shadow-hover)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+  class="blog-card flex flex-col bg-card border border-border rounded-xl overflow-hidden transition-all duration-200 hover:border-primary hover:shadow-[var(--card-shadow-hover)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring h-full"
 >
   {/* Featured image */}
   <div class="blog-card__image">
@@ -43,7 +43,7 @@ const placeholderImage = '/images/blog/placeholder.webp';
   </div>
 
   {/* Content */}
-  <div class="p-5">
+  <div class="blog-card__body">
     {/* Category pill */}
     <span class="blog-card__pill">
       <i class={`ph-duotone ${categoryIcon}`} style="font-size: 0.875rem;"></i>
@@ -51,22 +51,24 @@ const placeholderImage = '/images/blog/placeholder.webp';
     </span>
 
     {/* Title */}
-    <h3 class="text-sub font-serif text-card-foreground mt-3 line-clamp-2">{title}</h3>
+    <h3 class="font-serif text-card-foreground mt-2 line-clamp-2" style="font-size: var(--text-sub, 1.125rem); line-height: 1.4;">{title}</h3>
 
-    {/* Date + reading time (full variant only) */}
-    {!compact && date && (
-      <p class="text-cite text-muted-foreground mt-2" style="font-family: var(--font-mono);">
+    {/* Date + reading time */}
+    {date && (
+      <p class="text-muted-foreground mt-1" style="font-family: var(--font-mono); font-size: 0.75rem;">
         {date}{readingTime ? ` · ${readingTime} min read` : ''}
       </p>
     )}
 
-    {/* Excerpt (full variant only) */}
-    {!compact && excerpt && (
-      <p class="text-body text-muted-foreground mt-2 line-clamp-3">{excerpt}</p>
+    {/* Excerpt */}
+    {excerpt && (
+      <p class="text-muted-foreground mt-1 line-clamp-2" style="font-size: 0.875rem; line-height: 1.5;">{excerpt}</p>
     )}
 
-    {/* Read link */}
-    <span class="inline-block text-body font-medium text-primary mt-3">Read &rarr;</span>
+    {/* Read link — bottom right */}
+    <div class="mt-auto pt-3 text-right pr-2">
+      <span class="btn-alive btn-alive--sm">Read</span>
+    </div>
   </div>
 </a>
 
@@ -75,6 +77,13 @@ const placeholderImage = '/images/blog/placeholder.webp';
     aspect-ratio: 16 / 9;
     overflow: hidden;
     background: var(--secondary);
+  }
+
+  .blog-card__body {
+    padding: 1rem 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   .blog-card__pill {

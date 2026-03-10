@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import BlogIndexIsland from '../../components/islands/BlogIndexIsland';
 import BlogCardNew from '../../components/BlogCardNew.astro';
 import { getCollection } from 'astro:content';
 import { blogCategories, getCategoryBySlug } from '../../data/blog-categories';
@@ -12,6 +13,27 @@ function getReadingTime(body: string | undefined): number {
   if (!body) return 1;
   return Math.max(1, Math.ceil(body.split(/\s+/).length / 200));
 }
+
+const blogPosts = posts.map(post => {
+  const cat = getCategoryBySlug(post.data.category);
+  const readingTime = getReadingTime(post.body);
+  const formattedDate = post.data.date.toLocaleDateString('en-GB', {
+    year: 'numeric', month: 'short', day: 'numeric',
+  });
+  return {
+    title: post.data.title,
+    href: '/blog/' + post.id.replace(/\.md$/, ''),
+    image: post.data.image,
+    category: post.data.category,
+    categoryLabel: cat?.label || post.data.category,
+    categoryIcon: cat?.icon || 'ph-article',
+    date: formattedDate,
+    readingTime,
+    excerpt: post.data.excerpt || post.body?.slice(0, 160) + '...',
+  };
+});
+
+const showGrid = posts.length > 5;
 ---
 
 <Base title="Blog — Consultates" description="Articles on AI adoption, AI safety, and practical guidance for business leaders.">
@@ -20,70 +42,64 @@ function getReadingTime(body: string | undefined): number {
   <section class="svc-hero bg-dots">
     <div class="svc-hero__glow"></div>
     <div class="svc-hero__content">
-      <h1 class="text-hero font-serif" style="color: #FFFFFF; max-width: 820px; margin: 0 auto;">Blog</h1>
-      <p class="text-body-lg mt-4" style="color: var(--hero-muted); max-width: 600px; margin: 0 auto;">
-        Articles on AI adoption, safety, and practical guidance for business leaders.
-      </p>
+      <h1 class="text-hero font-serif" style="color: var(--hero-fg); max-width: 820px; margin: 0 auto;">Things to inspire and inform you</h1>
     </div>
   </section>
 
-  {/* Category filters + card grid */}
-  <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
+  {/* Category filters + carousel */}
+  <section class="bg-secondary" style="padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 8rem) clamp(3rem, 6vw, 4rem);">
     <div style="max-width: 1200px; margin: 0 auto;">
-
-      {/* Filter pills */}
-      <div class="flex flex-wrap gap-2 mb-10" id="category-filters">
-        <button class="blog-filter-pill blog-filter-pill--active" data-category="all">All</button>
-        {blogCategories.map(cat => (
-          <button class="blog-filter-pill" data-category={cat.slug}>
-            <i class={`ph-duotone ${cat.icon}`} style="font-size: 0.875rem;"></i>
-            {cat.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Card grid */}
-      <div class="blog-index-grid" id="blog-grid">
-        {posts.map(post => {
-          const cat = getCategoryBySlug(post.data.category);
-          const readingTime = getReadingTime(post.body);
-          const formattedDate = post.data.date.toLocaleDateString('en-GB', {
-            year: 'numeric', month: 'short', day: 'numeric',
-          });
-          return (
-            <div class="blog-grid-item" data-category={post.data.category} data-reveal>
-              <BlogCardNew
-                title={post.data.title}
-                href={'/blog/' + post.id.replace(/\.md$/, '')}
-                image={post.data.image}
-                categorySlug={post.data.category}
-                categoryLabel={cat?.label || post.data.category}
-                categoryIcon={cat?.icon || 'ph-article'}
-                date={formattedDate}
-                readingTime={readingTime}
-                excerpt={post.data.excerpt || post.body?.slice(0, 160) + '...'}
-              />
-            </div>
-          );
-        })}
-      </div>
-
+      <BlogIndexIsland client:visible allPosts={blogPosts} categories={blogCategories} />
     </div>
   </section>
+
+  {/* All articles grid — only shown when more than 5 posts */}
+  {showGrid && (
+    <section class="bg-secondary" style="padding: 0 clamp(1.5rem, 5vw, 8rem) clamp(4rem, 8vw, 6rem);">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="text-center mb-8">
+          <h2 class="text-section font-serif">All articles</h2>
+        </div>
+        <div class="blog-all-grid" id="blog-all-grid">
+          {posts.map(post => {
+            const cat = getCategoryBySlug(post.data.category);
+            const readingTime = getReadingTime(post.body);
+            const formattedDate = post.data.date.toLocaleDateString('en-GB', {
+              year: 'numeric', month: 'short', day: 'numeric',
+            });
+            return (
+              <div class="blog-grid-item" data-category={post.data.category}>
+                <BlogCardNew
+                  title={post.data.title}
+                  href={'/blog/' + post.id.replace(/\.md$/, '')}
+                  image={post.data.image}
+                  categorySlug={post.data.category}
+                  categoryLabel={cat?.label || post.data.category}
+                  categoryIcon={cat?.icon || 'ph-article'}
+                  date={formattedDate}
+                  readingTime={readingTime}
+                  excerpt={post.data.excerpt || post.body?.slice(0, 160) + '...'}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
 
 </Base>
 
 <style>
-  /* Hero — same as service pages (GOSPEL pattern) */
   .svc-hero {
     background: var(--hero-bg, #0D1117);
     position: relative;
     overflow: hidden;
-    min-height: 40vh;
+    min-height: 25vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: clamp(6rem, 14vw, 10rem) var(--content-px) clamp(4rem, 8vw, 6rem);
+    padding: clamp(6rem, 10vw, 7rem) var(--content-px) clamp(4rem, 8vw, 5rem);
   }
 
   .svc-hero::before {
@@ -115,7 +131,34 @@ function getReadingTime(body: string | undefined): number {
     text-align: center;
   }
 
-  /* Filter pills */
+  .blog-grid-item {
+    transition: opacity 0.3s ease;
+  }
+
+  .blog-grid-item.hidden {
+    display: none;
+  }
+
+  .blog-all-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1023px) {
+    .blog-all-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 639px) {
+    .blog-all-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<style is:global>
   .blog-filter-pill {
     display: inline-flex;
     align-items: center;
@@ -141,96 +184,19 @@ function getReadingTime(body: string | undefined): number {
     border-color: var(--primary);
     color: #FFFFFF;
   }
-
-  /* Card grid */
-  .blog-index-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  @media (max-width: 1023px) {
-    .blog-index-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 639px) {
-    .blog-index-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .blog-grid-item {
-    transition: opacity 0.3s ease;
-  }
-
-  .blog-grid-item.hidden {
-    display: none;
-  }
-
-  /* Scroll reveal (GOSPEL pattern) */
-  [data-reveal] {
-    opacity: 0;
-    transition: opacity 0.6s ease-out;
-  }
-
-  [data-reveal].is-visible {
-    opacity: 1;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    [data-reveal] {
-      opacity: 1;
-      transition: none;
-    }
-  }
 </style>
 
 <script>
-  // --- Category filtering ---
-  const filters = document.querySelectorAll('.blog-filter-pill');
-  const items = document.querySelectorAll('.blog-grid-item');
-
-  filters.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const category = (btn as HTMLElement).dataset.category;
-
-      // Update active pill
-      filters.forEach(f => f.classList.remove('blog-filter-pill--active'));
-      btn.classList.add('blog-filter-pill--active');
-
-      // Filter cards
-      items.forEach(item => {
-        const el = item as HTMLElement;
-        if (category === 'all' || el.dataset.category === category) {
-          el.classList.remove('hidden');
-        } else {
-          el.classList.add('hidden');
-        }
-      });
+  window.addEventListener('blog-category-change', (e: Event) => {
+    const category = (e as CustomEvent).detail;
+    const items = document.querySelectorAll('#blog-all-grid .blog-grid-item');
+    items.forEach(item => {
+      const el = item as HTMLElement;
+      if (category === 'all' || el.dataset.category === category) {
+        el.classList.remove('hidden');
+      } else {
+        el.classList.add('hidden');
+      }
     });
-  });
-
-  // --- Scroll reveal (GOSPEL pattern) ---
-  requestAnimationFrame(() => {
-    const revealItems = document.querySelectorAll('[data-reveal]');
-    if (!revealItems.length) return;
-    let staggerIndex = 0;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const el = entry.target as HTMLElement;
-            const delay = staggerIndex * 150;
-            staggerIndex++;
-            setTimeout(() => el.classList.add('is-visible'), delay);
-            observer.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    revealItems.forEach((item) => observer.observe(item));
   });
 </script>

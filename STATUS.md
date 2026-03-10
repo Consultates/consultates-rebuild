@@ -61,10 +61,12 @@ Running tracker of what's done, what needs work, and what's broken.
 **Status: DONE**
 
 ### Blog Index
-**Status: NEEDS REDESIGN — plan written, ready for next session**
-- Current: dark hero + 3-column card grid (Gary: "looks fucking shit")
-- Plan: replace with film-strip carousel (same as homepage) + category filter pills + "See more" link
-- See `docs/plans/2026-03-10-blog-index-redesign.md`
+**Status: DONE (rebuilt 2026-03-10)**
+- Dark hero with "Things to inspire and inform you" heading (compact, vertically centered)
+- BlogIndexIsland wrapper: category filter pills + BlogCarouselIsland
+- Category pills filter both carousel and grid simultaneously (custom event bridge)
+- "All articles" 3-column grid appears when post count exceeds 5
+- BlogCardNew used in grid (equal-height flexbox, Read btn-alive bottom-right)
 
 ### Blog Posts
 **Status: DONE (rebuilt 2026-03-10)**
@@ -92,12 +94,18 @@ Running tracker of what's done, what needs work, and what's broken.
 - [x] Placeholder image: solid cream (replaced purple gradient)
 - [x] StakesCTA padding reduced for better viewport fit
 - [x] Scroll-sections wrapped in #scroll-snap-container
+- [x] Blog index redesign: dark hero + BlogIndexIsland (category filters + carousel) + "All articles" grid (>5 posts)
+- [x] BlogCarouselIsland cards: added date, reading time, excerpt, Read bottom-right
+- [x] BlogCardNew: equal-height flexbox, Read btn-alive bottom-right, matching carousel card layout
+- [x] StaggerHeading word-wrap fix: words no longer break mid-word across the site
+- [x] StakesCTA container widened (800px → 960px)
+- [x] Global heading word-break fix (text-hero, text-section)
 
 ---
 
 ## Not Yet Built
 
-- [ ] Blog index redesign (film-strip carousel replacing dark hero + grid)
+- [x] Blog index redesign (film-strip carousel replacing dark hero + grid)
 - [ ] Footer redesign (Gary: "slop")
 - [ ] Homepage: How It Works, Why Consultates, Get Started polish
 - [ ] Stakes missing from Home nav dropdown

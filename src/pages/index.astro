@@ -19,14 +19,26 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 
+function getReadingTime(body: string | undefined): number {
+  if (!body) return 1;
+  return Math.max(1, Math.ceil(body.split(/\s+/).length / 200));
+}
+
 const blogPosts = posts.map(post => {
   const cat = getCategoryBySlug(post.data.category);
+  const readingTime = getReadingTime(post.body);
+  const formattedDate = post.data.date.toLocaleDateString('en-GB', {
+    year: 'numeric', month: 'short', day: 'numeric',
+  });
   return {
     title: post.data.title,
     href: '/blog/' + post.id.replace(/\.md$/, ''),
     image: post.data.image,
     categoryLabel: cat?.label || post.data.category,
     categoryIcon: cat?.icon || 'ph-article',
+    date: formattedDate,
+    readingTime,
+    excerpt: post.data.excerpt || post.body?.slice(0, 160) + '...',
   };
 });
 ---

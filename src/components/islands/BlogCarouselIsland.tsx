@@ -12,6 +12,9 @@ export interface BlogCardData {
   image?: string;
   categoryLabel: string;
   categoryIcon: string;
+  date?: string;
+  readingTime?: number;
+  excerpt?: string;
 }
 
 interface Props {
@@ -232,8 +235,10 @@ function BlogCard({ post }: { post: BlogCardData }) {
   return (
     <a
       href={post.href}
-      className="block"
       style={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
         textDecoration: 'none',
         color: 'inherit',
         background: 'var(--card)',
@@ -255,7 +260,7 @@ function BlogCard({ post }: { post: BlogCardData }) {
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       </div>
-      <div style={{ padding: '1.25rem' }}>
+      <div style={{ padding: '1rem 1.5rem 1rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
         <span
           style={{
             display: 'inline-flex',
@@ -269,6 +274,7 @@ function BlogCard({ post }: { post: BlogCardData }) {
             borderRadius: '9999px',
             background: 'color-mix(in srgb, var(--primary) 12%, transparent)',
             color: 'var(--primary)',
+            alignSelf: 'flex-start',
           }}
         >
           <i className={`ph-duotone ${post.categoryIcon}`} style={{ fontSize: '0.875rem' }} />
@@ -279,9 +285,8 @@ function BlogCard({ post }: { post: BlogCardData }) {
           style={{
             fontSize: 'var(--text-sub, 1.125rem)',
             color: 'var(--card-foreground)',
-            marginTop: '0.75rem',
+            marginTop: '0.5rem',
             lineHeight: 1.4,
-            minHeight: '2.8em',
             display: '-webkit-box',
             WebkitLineClamp: 2,
             WebkitBoxOrient: 'vertical',
@@ -290,9 +295,35 @@ function BlogCard({ post }: { post: BlogCardData }) {
         >
           {post.title}
         </h3>
-        <span className="btn-alive btn-alive--sm" style={{ marginTop: '0.75rem' }}>
-          Read
-        </span>
+        {post.date && (
+          <p style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.75rem',
+            color: 'var(--muted-foreground)',
+            marginTop: '0.375rem',
+          }}>
+            {post.date}{post.readingTime ? ` · ${post.readingTime} min read` : ''}
+          </p>
+        )}
+        {post.excerpt && (
+          <p style={{
+            fontSize: '0.875rem',
+            color: 'var(--muted-foreground)',
+            marginTop: '0.375rem',
+            lineHeight: 1.5,
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}>
+            {post.excerpt}
+          </p>
+        )}
+        <div style={{ marginTop: 'auto', paddingTop: '0.75rem', textAlign: 'right', paddingRight: '0.5rem' }}>
+          <span className="btn-alive btn-alive--sm">
+            Read
+          </span>
+        </div>
       </div>
     </a>
   );

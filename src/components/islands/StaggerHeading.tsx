@@ -67,21 +67,40 @@ export function StaggerHeading({ text, className, style, emColor = '#8B6CC7' }: 
     >
       {parts.map((part, pi) => {
         if (part.type === 'br') return <br key={pi} />;
-        const chars = part.text.split('').map((char, ci) => (
-          <motion.span
-            key={`${pi}-${ci}`}
-            variants={{
-              initial: { opacity: 0, y: 20 },
-              animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease } },
-            }}
-            style={{ display: char === ' ' ? 'inline' : 'inline-block' }}
-          >
-            {char === ' ' ? '\u00A0' : char}
-          </motion.span>
-        ));
+        const words = part.text.split(' ');
+        const wordSpans = words.map((word, wi) => {
+          const letterSpans = word.split('').map((char, ci) => (
+            <motion.span
+              key={`${pi}-${wi}-${ci}`}
+              variants={{
+                initial: { opacity: 0, y: 20 },
+                animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease } },
+              }}
+              style={{ display: 'inline-block' }}
+            >
+              {char}
+            </motion.span>
+          ));
+          return (
+            <span key={`${pi}-w${wi}`}>
+              <span style={{ whiteSpace: 'nowrap' }}>{letterSpans}</span>
+              {wi < words.length - 1 && (
+                <motion.span
+                  key={`${pi}-s${wi}`}
+                  variants={{
+                    initial: { opacity: 0 },
+                    animate: { opacity: 1, transition: { duration: 0.4, ease } },
+                  }}
+                >
+                  {' '}
+                </motion.span>
+              )}
+            </span>
+          );
+        });
         return part.isEm
-          ? <em key={pi} style={{ fontStyle: 'normal', color: emColor }}>{chars}</em>
-          : <span key={pi}>{chars}</span>;
+          ? <em key={pi} style={{ fontStyle: 'normal', color: emColor }}>{wordSpans}</em>
+          : <span key={pi}>{wordSpans}</span>;
       })}
     </motion.h2>
   );
