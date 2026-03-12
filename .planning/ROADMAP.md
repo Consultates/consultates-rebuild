@@ -48,21 +48,15 @@ Phase 17: Blog — Blog index redesign, category filtering, carousel, post templ
 Plans:
 - [x] 18-01-PLAN.md — Bug fixes (Stakes nav, FormInput padding) and dummy blog post cleanup
 
-#### Phase 19: Homepage Polish
+#### ✅ Phase 19: Homepage Polish — COMPLETE 2026-03-12
 **Goal**: The homepage middle sections match the visual quality of the hero and stakes sections — no more "soulless" white/cream gaps
 **Depends on**: Phase 18 (clean baseline)
 **Requirements**: HP-01, HP-02, HP-03
-**Success Criteria** (what must be TRUE):
-  1. How It Works section has visual depth — texture, color, or motion that matches the design system quality of surrounding sections
-  2. Why Consultates section is visually distinct and engaging — not a plain white/cream box with text
-  3. Get Started / StakesCTA section feels like a deliberate close to the narrative — polished with design attention consistent with the hero
-  4. All three sections render correctly in light mode, dark mode, and on mobile viewports
-**Plans**: TBD
 
 Plans:
-- [ ] 19-01: How It Works section polish
-- [ ] 19-02: Why Consultates section redo
-- [ ] 19-03: Get Started / StakesCTA polish
+- [x] 19-01: How It Works section polish
+- [x] 19-02: Why Consultates section redo
+- [x] 19-03: Get Started / StakesCTA polish
 
 #### Phase 20: Footer
 **Goal**: The footer matches the site-wide design system quality and renders consistently everywhere
@@ -99,6 +93,6 @@ Plans:
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 18. Fixes & Cleanup | v3.0 | 1/1 | ✓ Complete | 2026-03-10 |
-| 19. Homepage Polish | v3.0 | 0/3 | Not started | - |
+| 19. Homepage Polish | v3.0 | 3/3 | ✓ Complete | 2026-03-12 |
 | 20. Footer | v3.0 | 0/1 | Not started | - |
 | 21. Integrations | v3.0 | 0/2 | Not started | - |

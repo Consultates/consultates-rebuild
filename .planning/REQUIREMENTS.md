@@ -19,9 +19,9 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 
 ### Homepage Polish
 
-- [ ] **HP-01**: How It Works section polished to match the visual standard set by the hero section
-- [ ] **HP-02**: Why Consultates section completely redone — no longer a "soulless middle" section
-- [ ] **HP-03**: Get Started / StakesCTA section polished with design attention
+- [x] **HP-01**: How It Works section polished to match the visual standard set by the hero section
+- [x] **HP-02**: Why Consultates section completely redone — no longer a "soulless middle" section
+- [x] **HP-03**: Get Started / StakesCTA section polished with design attention
 
 ### Integrations
 
@@ -63,9 +63,9 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 | FIX-02 | Phase 18 | Complete |
 | FOOT-01 | Phase 20 | Pending |
 | FOOT-02 | Phase 20 | Pending |
-| HP-01 | Phase 19 | Pending |
-| HP-02 | Phase 19 | Pending |
-| HP-03 | Phase 19 | Pending |
+| HP-01 | Phase 19 | Complete |
+| HP-02 | Phase 19 | Complete |
+| HP-03 | Phase 19 | Complete |
 | INT-01 | Phase 21 | Pending |
 | INT-02 | Phase 21 | Pending |
 | CLN-01 | Phase 18 | Complete |
@@ -77,4 +77,4 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 
 ---
 *Requirements defined: 2026-03-10*
-*Last updated: 2026-03-10 after roadmap creation*
+*Last updated: 2026-03-12 after Phase 19 completion*
