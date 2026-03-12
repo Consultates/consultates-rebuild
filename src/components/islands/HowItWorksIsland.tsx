@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from '../../lib/animations';
 
-interface Step {
+export interface HowItWorksStep {
   number: string;
   title: string;
   description: string;
 }
 
-const STEPS: Step[] = [
+const DEFAULT_STEPS: HowItWorksStep[] = [
   {
     number: '01',
     title: 'We talk',
@@ -33,7 +33,13 @@ const CIRCLE_FILL_AT = [270, 540, 800]; // when each circle fills (during line d
 const CONTENT_DELAY = 200; // delay after circle fill before content reveals
 const CTA_DELAY = 400; // delay after last content before CTA appears
 
-export function HowItWorksIsland() {
+interface Props {
+  steps?: HowItWorksStep[];
+  showCta?: boolean;
+}
+
+export function HowItWorksIsland({ steps, showCta = true }: Props) {
+  const STEPS = steps ?? DEFAULT_STEPS;
   const reducedMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
@@ -305,24 +311,26 @@ export function HowItWorksIsland() {
       </div>
 
       {/* CTA */}
-      <div
-        className="text-center"
-        style={{
-          marginTop: 'clamp(2rem, 4vw, 3rem)',
-          opacity: ctaVisible ? 1 : 0,
-          transform: ctaVisible ? 'translateY(0)' : 'translateY(12px)',
-          transition: reducedMotion ? 'none' : 'opacity 400ms ease-out, transform 400ms ease-out',
-        }}
-      >
-        <a
-          href={TIDYCAL_URL}
-          className="btn-alive"
-          target="_blank"
-          rel="noopener noreferrer"
+      {showCta && (
+        <div
+          className="text-center"
+          style={{
+            marginTop: 'clamp(2rem, 4vw, 3rem)',
+            opacity: ctaVisible ? 1 : 0,
+            transform: ctaVisible ? 'translateY(0)' : 'translateY(12px)',
+            transition: reducedMotion ? 'none' : 'opacity 400ms ease-out, transform 400ms ease-out',
+          }}
         >
-          Book a Free Call
-        </a>
-      </div>
+          <a
+            href={TIDYCAL_URL}
+            className="btn-alive"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book a Free Call
+          </a>
+        </div>
+      )}
 
       {/* Pulse keyframes */}
       <style>{`

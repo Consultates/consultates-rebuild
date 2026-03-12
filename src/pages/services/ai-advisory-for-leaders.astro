@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import SocialProofIsland from '../../components/islands/SocialProofIsland';
+import { HowItWorksIsland } from '../../components/islands/HowItWorksIsland';
 import { StakesCTAPulse } from '../../components/islands/StakesCTAPulse';
 import { StaggerHeading } from '../../components/islands/StaggerHeading';
 import { TIDYCAL_URL } from '../../config';
@@ -98,29 +99,15 @@ const scenarios = [
   <section class="svc-section bg-secondary">
     <div class="svc-container">
       <h2 class="text-section mb-12">How it works</h2>
-      <div class="hiw-steps" data-stagger>
-        <div class="hiw-step" data-reveal>
-          <div class="hiw-node">1</div>
-          <div class="hiw-content">
-            <h3 class="text-sub font-serif mb-2">We talk</h3>
-            <p class="text-body text-muted-foreground">Tell me where you are and what you're trying to figure out. No preparation needed.</p>
-          </div>
-        </div>
-        <div class="hiw-step" data-reveal>
-          <div class="hiw-node">2</div>
-          <div class="hiw-content">
-            <h3 class="text-sub font-serif mb-2">You get a plan</h3>
-            <p class="text-body text-muted-foreground">Specific to your business, your team, and your goals. Not a template.</p>
-          </div>
-        </div>
-        <div class="hiw-step" data-reveal>
-          <div class="hiw-node">3</div>
-          <div class="hiw-content">
-            <h3 class="text-sub font-serif mb-2">You act</h3>
-            <p class="text-body text-muted-foreground">You leave with specific next steps you can implement immediately — not a deck, a plan.</p>
-          </div>
-        </div>
-      </div>
+      <HowItWorksIsland
+        client:visible
+        steps={[
+          { number: '01', title: 'We talk', description: 'Tell me where you are and what you\'re trying to figure out. No preparation needed.' },
+          { number: '02', title: 'You get a plan', description: 'Specific to your business, your team, and your goals. Not a template.' },
+          { number: '03', title: 'You act', description: 'You leave with specific next steps you can implement immediately — not a deck, a plan.' },
+        ]}
+        showCta={false}
+      />
     </div>
   </section>
 
@@ -213,78 +200,6 @@ const scenarios = [
     margin-bottom: 1rem;
   }
 
-  .hiw-steps {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .hiw-steps::before {
-    content: '';
-    position: absolute;
-    left: 23px;
-    top: 24px;
-    bottom: 24px;
-    width: 2px;
-    background: var(--border);
-  }
-
-  .hiw-step {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-    position: relative;
-  }
-
-  .hiw-node {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 2px solid var(--primary);
-    background: var(--secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    font-size: 1.125rem;
-    color: var(--primary);
-    flex-shrink: 0;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hiw-content {
-    padding-top: 0.5rem;
-  }
-
-  @media (min-width: 768px) {
-    .hiw-steps {
-      flex-direction: row;
-      gap: 2rem;
-    }
-
-    .hiw-steps::before {
-      left: 24px;
-      right: 24px;
-      top: 23px;
-      bottom: auto;
-      width: auto;
-      height: 2px;
-    }
-
-    .hiw-step {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      flex: 1;
-    }
-
-    .hiw-content {
-      padding-top: 0;
-    }
-  }
 
   [data-reveal] {
     opacity: 0;
