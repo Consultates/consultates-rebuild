@@ -27,9 +27,9 @@ const logos: Logo[] = [
 ---
 
 <div class="logo-ticker-wrapper">
-  <p class="text-caption text-muted-foreground text-center mb-5 tracking-wide uppercase">
+  <h2 class="text-sub font-serif text-foreground text-center">
     Worked with leaders from
-  </p>
+  </h2>
   <div class="logo-ticker" aria-label="Companies Gary has worked with">
     <div class="logo-ticker__track">
       {/* Render logos twice for seamless loop */}
@@ -48,7 +48,11 @@ const logos: Logo[] = [
 
 <style>
   .logo-ticker-wrapper {
-    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    padding: clamp(2rem, 4vw, 3.5rem) 0;
   }
   .logo-ticker {
     overflow: hidden;
@@ -85,6 +89,14 @@ const logos: Logo[] = [
   .logo-ticker__logo:hover {
     opacity: 0.8;
     filter: grayscale(50%);
+  }
+  :global(.dark) .logo-ticker__logo {
+    filter: grayscale(100%) invert(1);
+    opacity: 0.6;
+  }
+  :global(.dark) .logo-ticker__logo:hover {
+    filter: grayscale(50%) invert(1);
+    opacity: 0.85;
   }
   @keyframes ticker-scroll {
     0% { transform: translateX(0); }
