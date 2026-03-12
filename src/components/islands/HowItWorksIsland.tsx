@@ -191,7 +191,7 @@ export function HowItWorksIsland() {
               style={{
                 height: '100%',
                 width: lineProgress === 1 ? '100%' : '0%',
-                background: 'linear-gradient(90deg, var(--border), var(--primary), var(--border))',
+                background: 'linear-gradient(90deg, var(--primary), var(--border) 48%, var(--primary) 52%, var(--border))',
                 transition: reducedMotion ? 'none' : `width ${LINE_DURATION}ms var(--ease-out)`,
               }}
             />
