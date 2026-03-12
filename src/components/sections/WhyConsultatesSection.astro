@@ -32,6 +32,10 @@ import AuthorityCardsIsland from '../islands/AuthorityCardsIsland';
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
   }
+  :global(.dark) .why-section::before,
+  :global(.dark) .why-section::after {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06) 20%, rgba(255,255,255,0.06) 80%, transparent);
+  }
   .why-section::before { top: 0; }
   .why-section::after { bottom: 0; }
 </style>
