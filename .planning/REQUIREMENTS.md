@@ -25,12 +25,27 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 
 ### Integrations
 
-- [ ] **INT-01**: Contact form wired to Google Apps Script backend — submissions sent to email and logged to Google Sheet
-- [ ] **INT-02**: Google Analytics GA4 tag added and tracking page views
+- [x] **INT-01**: Contact form wired to Google Apps Script backend — submissions sent to email and logged to Google Sheet *(completed prior to v3.0 — already deployed)*
+- [ ] **INT-02**: Google Analytics GA4 tag added and tracking page views *(moved to Phase 22)*
 
 ### Cleanup
 
 - [x] **CLN-01**: Three dummy blog posts removed (strategy, tools-tactics, ai-safety categories added for grid threshold testing)
+
+### Responsive Audit
+
+- [ ] **RESP-01**: Homepage scroll-snap sections fit within viewport on MacBook Pro, iPad landscape, and Windows laptops without content overflow or overlap
+- [ ] **RESP-02**: All pages render correctly across viewport sizes — no clipped, squashed, or overflowing content
+
+### Analytics & Monitoring
+
+- [ ] **ANL-01**: GA4 active on every page + additional monitoring tools (scope TBD)
+
+### Discoverability (SEO / GEO / AEO)
+
+- [ ] **DISC-01**: SEO — structured data (JSON-LD), meta tags, Core Web Vitals, semantic HTML
+- [ ] **DISC-02**: GEO — content structured for AI model extraction and citation
+- [ ] **DISC-03**: AEO — schema markup, entity definitions, machine-readable service descriptions
 
 ## Future Requirements
 
@@ -66,15 +81,21 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 | HP-01 | Phase 19 | Complete |
 | HP-02 | Phase 19 | Complete |
 | HP-03 | Phase 19 | Complete |
-| INT-01 | Phase 21 | Pending |
-| INT-02 | Phase 21 | Pending |
+| INT-01 | Pre-v3.0 | Complete |
+| INT-02 | Phase 22 | Pending |
 | CLN-01 | Phase 18 | Complete |
+| RESP-01 | Phase 21 | Pending |
+| RESP-02 | Phase 21 | Pending |
+| ANL-01 | Phase 22 | Pending |
+| DISC-01 | Phase 23 | Pending |
+| DISC-02 | Phase 23 | Pending |
+| DISC-03 | Phase 23 | Pending |
 
 **Coverage:**
-- v1 requirements: 10 total
-- Mapped to phases: 10
+- v1 requirements: 16 total
+- Mapped to phases: 16
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-10*
-*Last updated: 2026-03-13 after Phase 20 completion*
+*Last updated: 2026-03-13 — Phase 21-23 added, INT-01 marked complete (pre-existing), Phase 21 reworked to Responsive Audit*

@@ -4,7 +4,7 @@
 
 - ✅ **v1.0 MVP** — Phases 1-9 (shipped 2026-03-05)
 - ✅ **v2.0 Visual Redesign** — Phases 10-17 (shipped 2026-03-10)
-- 🚧 **v3.0 Polish & Ship** — Phases 18-21 (in progress)
+- 🚧 **v3.0 Polish & Ship** — Phases 18-23 (in progress)
 
 ## Phases
 
@@ -66,28 +66,45 @@ Plans:
 Plans:
 - [x] 20-01-PLAN.md — Footer redesign (layout, dot texture, animated underlines, social icons)
 
-#### Phase 21: Integrations
-**Goal**: The site is fully operational — form submissions reach Gary, and traffic is being tracked
-**Depends on**: Phase 18 (FIX-02 ensures form inputs work before wiring backend)
-**Requirements**: INT-01, INT-02
+#### Phase 21: Responsive Audit & Viewport Fixes
+**Goal**: Every page looks correct on real screens — MacBook, iPad landscape, Windows laptops, 4K displays, and mobile. No overlapping, squashed, or overflowing sections.
+**Depends on**: Phase 20 (all visual work complete before auditing)
+**Requirements**: RESP-01, RESP-02
 **Success Criteria** (what must be TRUE):
-  1. Submitting the contact form sends an email to gary@consultates.com with all form field values
-  2. Submitting the contact form logs a row to a Google Sheet with submission timestamp and all fields
-  3. User sees a success confirmation after form submission (not a blank page or error)
-  4. Google Analytics GA4 is active and recording page views on every page of the site
+  1. Homepage scroll-snap sections fit within viewport on MacBook Pro (1440×900), iPad landscape (1194×834), and standard Windows laptops (1366×768) without content overflow or overlap
+  2. All pages render correctly across viewport sizes — no clipped content, no squashed sections
+  3. Mobile viewports (375px, 390px) have no layout breaks
 **Plans**: TBD
 
-Plans:
-- [ ] 21-01: Contact form Google Apps Script backend
-- [ ] 21-02: Google Analytics GA4
+#### Phase 22: Analytics & Monitoring
+**Goal**: Site traffic is tracked and monitored with GA4 and Gary's analytics stack
+**Depends on**: Phase 21 (audit site before adding tracking)
+**Requirements**: ANL-01
+**Note**: INT-01 (contact form) already wired — Google Apps Script backend deployed and functional
+**Success Criteria** (what must be TRUE):
+  1. Google Analytics GA4 is active and recording page views on every page
+  2. Additional monitoring tools configured (scope TBD during discussion)
+**Plans**: TBD
+
+#### Phase 23: SEO / GEO / AEO
+**Goal**: The site is optimized for modern discoverability — search engines, generative AI models, and AI agents can find, extract, and recommend Consultates
+**Depends on**: Phase 21 (responsive fixes), Phase 22 (analytics in place)
+**Requirements**: DISC-01, DISC-02, DISC-03
+**Success Criteria** (what must be TRUE):
+  1. SEO: Structured data (JSON-LD), complete meta tags, Core Web Vitals passing, semantic HTML audit
+  2. GEO: Content structured for AI model extraction — clear factual statements, authoritative sourcing, citable content blocks
+  3. AEO: Schema markup for services, entity definitions, machine-readable service descriptions
+**Plans**: TBD
 
 ## Progress
 
-**Execution Order:** 18 → 19 → 20 → 21 (19 and 20 can run in parallel after 18)
+**Execution Order:** 18 → 19 → 20 → 21 → 22 → 23
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 18. Fixes & Cleanup | v3.0 | 1/1 | ✓ Complete | 2026-03-10 |
 | 19. Homepage Polish | v3.0 | 3/3 | ✓ Complete | 2026-03-12 |
 | 20. Footer | v3.0 | 1/1 | ✓ Complete | 2026-03-13 |
-| 21. Integrations | v3.0 | 0/2 | Not started | - |
+| 21. Responsive Audit & Viewport Fixes | v3.0 | 0/? | Not started | - |
+| 22. Analytics & Monitoring | v3.0 | 0/? | Not started | - |
+| 23. SEO / GEO / AEO | v3.0 | 0/? | Not started | - |
