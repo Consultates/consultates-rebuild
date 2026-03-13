@@ -486,6 +486,31 @@ body.nav-open {
    v2 Texture / ornament utilities
    -------------------------------------------------------- */
 
+/* Footer animated underline links */
+.footer-link {
+  position: relative;
+  display: inline-block;
+  color: var(--footer-link);
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+.footer-link:hover {
+  color: var(--footer-link-hover);
+}
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--stakes-accent, #8B6CC7);
+  transition: width 0.3s var(--ease-out);
+}
+.footer-link:hover::after {
+  width: 100%;
+}
+
 /* Dot grid background */
 .bg-dots {
   background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
