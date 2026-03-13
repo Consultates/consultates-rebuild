@@ -1,51 +1,66 @@
 ---
+import { LINKEDIN_URL, TWITTER_URL } from '../config';
+
 const year = new Date().getFullYear();
 
-const quickLinks = [
+const quickLinksCol1 = [
   { href: '/', label: 'Home' },
   { href: '/services/ai-advisory-for-leaders', label: 'Services' },
   { href: '/about', label: 'About' },
+];
+
+const quickLinksCol2 = [
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
   { href: '/privacy-policy', label: 'Privacy Policy' },
 ];
 ---
 
-<footer class="bg-footer-bg text-footer-text">
+<footer class="bg-footer-bg bg-dots text-footer-text">
   <div class="max-w-[1200px] mx-auto px-[clamp(1.5rem,5vw,8rem)] py-12">
 
     <!-- 3-column grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
 
       <!-- Column 1: Brand -->
       <div>
-        <img src="/images/logo-dark.webp" alt="Consultates" class="h-8" />
-        <p class="text-caption text-footer-text/70 mt-2">Consultates Limited</p>
+        <img src="/images/logo-dark.webp" alt="Consultates" class="h-9 md:h-10" />
+        <p class="text-caption text-footer-text/70 italic font-serif mt-2">Clarity on AI</p>
+        <p class="text-cite text-footer-text/50 mt-1">Consultates Limited</p>
       </div>
 
       <!-- Column 2: Quick Links -->
-      <div>
-        <h4 class="text-caption font-semibold text-footer-text uppercase tracking-wider mb-4">Quick Links</h4>
-        {quickLinks.map((link) => (
-          <a href={link.href} class="block text-body text-footer-link hover:text-footer-link-hover transition-colors duration-150 mb-2">
-            {link.label}
-          </a>
-        ))}
+      <div class="grid grid-cols-2 gap-x-8">
+        <div class="flex flex-col gap-2">
+          {quickLinksCol1.map((link) => (
+            <a href={link.href} class="footer-link text-body">{link.label}</a>
+          ))}
+        </div>
+        <div class="flex flex-col gap-2">
+          {quickLinksCol2.map((link) => (
+            <a href={link.href} class="footer-link text-body">{link.label}</a>
+          ))}
+        </div>
       </div>
 
-      <!-- Column 3: Contact -->
+      <!-- Column 3: Get in Touch -->
       <div>
-        <h4 class="text-caption font-semibold text-footer-text uppercase tracking-wider mb-4">Get in Touch</h4>
-        <a href="mailto:gary@consultates.com" class="text-body text-footer-link hover:text-footer-link-hover transition-colors">
-          gary@consultates.com
-        </a>
-        <a href="https://www.linkedin.com/company/consultates-limited/" target="_blank" rel="noopener" class="inline-flex text-footer-link hover:text-footer-link-hover transition-colors mt-3">
-          <!-- Phosphor LinkedinLogo duotone -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
-            <path d="M224,40V216a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8H216A8,8,0,0,1,224,40Z" opacity="0.2"></path>
-            <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM92,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,0v64a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,180,140ZM96,84A12,12,0,1,1,84,72,12,12,0,0,1,96,84Z"></path>
-          </svg>
-        </a>
+        <a href="/contact" class="footer-link text-caption font-semibold text-footer-text uppercase tracking-wider">Get in Touch</a>
+        <div class="flex gap-4 mt-3">
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener" class="footer-link" aria-label="LinkedIn">
+            <!-- Phosphor LinkedinLogo duotone -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+              <path d="M224,40V216a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8H216A8,8,0,0,1,224,40Z" opacity="0.2"></path>
+              <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM92,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,0v64a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,180,140ZM96,84A12,12,0,1,1,84,72,12,12,0,0,1,96,84Z"></path>
+            </svg>
+          </a>
+          <a href={TWITTER_URL} target="_blank" rel="noopener" class="footer-link" aria-label="X (Twitter)">
+            <!-- X (Twitter) logo -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
 
