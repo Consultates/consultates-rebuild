@@ -66,10 +66,10 @@ Plans:
   1. Footer design matches the visual standard of the rest of the site — no longer looks like "slop"
   2. Footer renders identically on all pages: homepage, 3 service pages, about, contact, blog index, blog posts, privacy policy, and 404
   3. Footer works correctly in both light and dark modes and on mobile viewports
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 20-01: Footer redesign
+- [ ] 20-01-PLAN.md — Footer redesign (layout, dot texture, animated underlines, social icons)
 
 #### Phase 21: Integrations
 **Goal**: The site is fully operational — form submissions reach Gary, and traffic is being tracked
