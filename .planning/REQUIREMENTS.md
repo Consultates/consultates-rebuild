@@ -14,8 +14,8 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 
 ### Footer
 
-- [ ] **FOOT-01**: Footer redesigned to match site-wide design system quality (per Gary's direction — current footer is "slop")
-- [ ] **FOOT-02**: Footer renders consistently on all pages (homepage, service pages, about, contact, blog index, blog post, privacy, 404)
+- [x] **FOOT-01**: Footer redesigned to match site-wide design system quality (per Gary's direction — current footer is "slop")
+- [x] **FOOT-02**: Footer renders consistently on all pages (homepage, service pages, about, contact, blog index, blog post, privacy, 404)
 
 ### Homepage Polish
 
@@ -61,8 +61,8 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 |-------------|-------|--------|
 | FIX-01 | Phase 18 | Complete |
 | FIX-02 | Phase 18 | Complete |
-| FOOT-01 | Phase 20 | Pending |
-| FOOT-02 | Phase 20 | Pending |
+| FOOT-01 | Phase 20 | Complete |
+| FOOT-02 | Phase 20 | Complete |
 | HP-01 | Phase 19 | Complete |
 | HP-02 | Phase 19 | Complete |
 | HP-03 | Phase 19 | Complete |
@@ -77,4 +77,4 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 
 ---
 *Requirements defined: 2026-03-10*
-*Last updated: 2026-03-12 after Phase 19 completion*
+*Last updated: 2026-03-13 after Phase 20 completion*

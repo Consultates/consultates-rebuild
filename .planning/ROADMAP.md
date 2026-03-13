@@ -58,18 +58,13 @@ Plans:
 - [x] 19-02: Why Consultates section redo
 - [x] 19-03: Get Started / StakesCTA polish
 
-#### Phase 20: Footer
+#### ✅ Phase 20: Footer — COMPLETE 2026-03-13
 **Goal**: The footer matches the site-wide design system quality and renders consistently everywhere
 **Depends on**: Phase 18 (clean baseline)
 **Requirements**: FOOT-01, FOOT-02
-**Success Criteria** (what must be TRUE):
-  1. Footer design matches the visual standard of the rest of the site — no longer looks like "slop"
-  2. Footer renders identically on all pages: homepage, 3 service pages, about, contact, blog index, blog posts, privacy policy, and 404
-  3. Footer works correctly in both light and dark modes and on mobile viewports
-**Plans**: 1 plan
 
 Plans:
-- [ ] 20-01-PLAN.md — Footer redesign (layout, dot texture, animated underlines, social icons)
+- [x] 20-01-PLAN.md — Footer redesign (layout, dot texture, animated underlines, social icons)
 
 #### Phase 21: Integrations
 **Goal**: The site is fully operational — form submissions reach Gary, and traffic is being tracked
@@ -94,5 +89,5 @@ Plans:
 |-------|-----------|----------------|--------|-----------|
 | 18. Fixes & Cleanup | v3.0 | 1/1 | ✓ Complete | 2026-03-10 |
 | 19. Homepage Polish | v3.0 | 3/3 | ✓ Complete | 2026-03-12 |
-| 20. Footer | v3.0 | 0/1 | Not started | - |
+| 20. Footer | v3.0 | 1/1 | ✓ Complete | 2026-03-13 |
 | 21. Integrations | v3.0 | 0/2 | Not started | - |
