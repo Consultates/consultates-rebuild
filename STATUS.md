@@ -7,28 +7,26 @@ Running tracker of what's done, what needs work, and what's broken.
 ## Pages
 
 ### Homepage
-**Status: PARTIALLY DONE — several sections need work**
+**Status: DONE**
 
 **Done:**
-- Silk video hero background with ping-pong loop
-- Scroll-snap film-strip system (GSAP)
-- Section navigation dropdown in nav (icons, descriptions) — missing Stakes entry
+- Silk video hero background with ping-pong loop (scale 1.2, opacity 0.7, overlay 0.35)
+- Scroll-snap film-strip system (GSAP) with session restore (sessionStorage)
+- Section navigation dropdown in nav (icons, descriptions) — shows on all pages with cross-page navigation
 - Social proof: logo ticker + quote carousel with film-strip animation + photos
 - What We Offer: offering cards with sequential reveal
 - Use Cases: use case cards
 - Gary's nav avatar (right of CTA, desktop only)
 - Blog highlights in "Get Started" section: film-strip carousel with 3 latest posts, btn-alive links, category pills
-- Session restore: scroll position saved to sessionStorage, restored on reload
-
-**Needs work:**
-- [ ] **Stakes (NegativeStakes)** — missing from Home nav dropdown menu
-- [ ] **How It Works** — average, not finished
-- [ ] **Why Consultates** — needs complete redo
-- [ ] **Get Started (StakesCTA)** — padding reduced but section still not polished
+- Scroll indicator: single fixed instance, visible across all sections
+- Trust bar: single fixed instance, visible on all viewport heights
+- How It Works — polished (cream+dots background, heading, dark mode borders)
+- Why Consultates — polished (cream+dots background, heading, dark mode borders)
+- Get Started (StakesCTA) — polished (increased padding, dot texture, supporting paragraph)
 
 ### About
 **Status: DONE (rebuilt 2026-03-09)**
-- Dark hero with purple glow + dot grid (placeholder for background photo)
+- Dark hero with purple glow + dot grid
 - "How We Work" + "A Personal Message From Our Founder" — Gary's approved copy, 50/50 grid with photo right (sticky)
 - Timeline: CSS Grid, 6 entries (1980s–Why it matters), IntersectionObserver opacity reveal
 - Photo: `Me-for-Website-450x600.webp`
@@ -40,7 +38,7 @@ Running tracker of what's done, what needs work, and what's broken.
 **Status: DONE (rebuilt 2026-03-09)**
 - Unified structure across all three: dark hero → What You Get (3 cards with icons) → Who It's For (3 cards) → Testimonials (film-strip carousel) → How It Works (3-step) → Dark CTA
 - Uses SocialProofIsland with `quotes` prop for testimonials (same component as homepage)
-- Phosphor duotone icons in cream/purple circle containers
+- Phosphor duotone icons in cream/purple circle containers (via `@phosphor-icons/web` CDN in Base.astro)
 - IntersectionObserver scroll reveals (no SectionAnimator)
 - Real testimonials from social-proof.ts with headshots
 
@@ -82,6 +80,19 @@ Running tracker of what's done, what needs work, and what's broken.
 
 ---
 
+## Completed (2026-03-11 through 2026-03-13)
+
+- [x] How It Works section polished (cream background, dots, heading, dark mode borders)
+- [x] Why Consultates section polished (cream background, dots, heading, dark mode borders)
+- [x] StakesCTA section enhanced (increased padding, dot texture, supporting paragraph)
+- [x] Authority card typography refined (tighter letter spacing, purple top border)
+- [x] LogoTicker enhanced with dark mode support
+- [x] HowItWorksIsland refactored to accept parameters (reused across service pages)
+- [x] Timeline line gradient fixed (directional purple flow)
+- [x] Dark mode separator borders fixed with rgba override
+- [x] Footer redesigned (dot texture, animated purple underlines, social icons, two-column quick links)
+- [x] Footer link underlines constrained to text width
+
 ## Completed (2026-03-10)
 
 - [x] Blog content schema extended (image, category, tags)
@@ -100,14 +111,29 @@ Running tracker of what's done, what needs work, and what's broken.
 - [x] StaggerHeading word-wrap fix: words no longer break mid-word across the site
 - [x] StakesCTA container widened (800px → 960px)
 - [x] Global heading word-break fix (text-hero, text-section)
+- [x] Scroll indicator fixed to viewport (single instance, GSAP fade-out removed)
+- [x] Trust bar fixed to viewport (no longer hidden on shorter viewports)
+- [x] Hero video quality improved (scale 1.8→1.2, opacity 0.5→0.7, overlay 0.50→0.35)
+- [x] Home dropdown now shows on all pages with /?section=N cross-page navigation
+
+## Completed (2026-03-09)
+
+- [x] Homepage: silk video hero, scroll-snap, section nav dropdown (icons + descriptions)
+- [x] Social proof redesign: logo ticker + quote carousel (film-strip animation) + reference photos
+- [x] About page rebuilt: dark hero, founder message (50/50 with photo), timeline with scroll reveal
+- [x] Gary's nav avatar added (gary-nav-avatar.webp, 80x80, 3.4KB)
+- [x] Service pages rebuilt (all 3): unified structure — dark hero, icon cards, SocialProofIsland, HIW, dark CTA
+- [x] SocialProofIsland: accepts optional `quotes` prop — reused on all service pages
+- [x] Service page testimonials curated in social-proof.ts (advisoryTestimonials, trainingTestimonials, fractionalTestimonials)
+- [x] Website design doc updated with 4 GOSPEL sections (Testimonial Carousel, Scroll Reveal, Timeline, Service Pages)
+- [x] SectionAnimator marked DEPRECATED in design doc
 
 ---
 
 ## Not Yet Built
 
-- [x] Blog index redesign (film-strip carousel replacing dark hero + grid)
-- [ ] Footer redesign (Gary: "slop")
-- [ ] Homepage: How It Works, Why Consultates, Get Started polish
-- [ ] Stakes missing from Home nav dropdown
+- [ ] Blog index polish — category filtering UX, empty state handling
+- [ ] Contact form wiring — Google Apps Script integration
+- [ ] Analytics — Google Analytics GA4
 
 ---

@@ -21,17 +21,19 @@ pnpm preview          # preview production build
 
 ## Current Status
 
-**Phases 1-15 complete.** The site is structurally built and deployed to GitHub Pages.
+**Phases 1-15 complete.** Site deployed to GitHub Pages at consultates.com with SSL. Deploy workflow triggers on `master` branch.
 
 **Known issues:**
-1. Training page icons broken — gray dots instead of Phosphor icons in "What you get" cards
-2. Service page inconsistency — three different layouts for the same section types
-3. Soulless middle sections — 80% of page area is white/cream with no visual life
-4. About page dead zones — "A family business" and "Lead with AI PRO" have zero visual treatment
-5. Content slots empty — intentional whitespace reserved for rotating quotes/stats, currently blank
+1. Soulless middle sections — homepage How It Works and Why Consultates sections are white/cream with no visual life
+2. Homepage middle sections need polish — How It Works, Why Consultates, Get Started sections
+3. Stakes section missing from Home nav dropdown `homeSections` array
+4. FormInput icon padding bug — `iconPaddingClass` is computed but not applied to the input element
+5. Footer needs redesign
 
 **Not yet built:**
-- Phase 17: Blog polish (typography, reading experience, related posts)
+- Blog index polish — category filtering UX, empty state handling
+- Contact form wiring — Google Apps Script integration
+- Analytics — Google Analytics GA4
 
 ## PRD (Copy & Routes Only)
 

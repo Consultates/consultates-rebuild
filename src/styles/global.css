@@ -517,6 +517,12 @@ body.nav-open {
   background-size: 24px 24px;
 }
 
+/* Dark section dot grid — brighter dots on dark backgrounds (matching homepage hero) */
+.bg-dots-dark {
+  background-image: radial-gradient(circle, rgba(139,108,199,0.18) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
 /* Radial glow -- centered soft wash */
 .glow { position: relative; }
 .glow::before {
@@ -530,6 +536,12 @@ body.nav-open {
   z-index: 0;
 }
 .glow > * { position: relative; z-index: 1; }
+
+/* Dark section glow — brighter for dark backgrounds (matching homepage hero) */
+.glow-dark::before {
+  width: 800px; height: 500px;
+  background: radial-gradient(ellipse, rgba(92,59,156,0.25) 0%, rgba(92,59,156,0.10) 40%, transparent 70%);
+}
 
 /* Corner markers */
 .corner-marks { position: relative; }
@@ -630,6 +642,45 @@ body.nav-open {
   }
   [data-scroll-indicator] {
     animation: none !important;
+  }
+}
+
+/* --------------------------------------------------------
+   Viewport height responsive overrides — homepage scroll-snap
+   At short desktop heights (laptops, iPad landscape), reduce
+   vertical spacing so sections fit within 100dvh.
+   Only applies at desktop widths where scroll-snap is active.
+   -------------------------------------------------------- */
+@media (max-height: 900px) and (min-width: 1024px) {
+  :root {
+    --section-py: clamp(2rem, 4vh, 4rem);
+    --card-padding: clamp(1.25rem, 2vw, 1.75rem);
+    --text-hero: clamp(2.25rem, 4.5vw, 3.25rem);
+    --text-section: clamp(1.5rem, 2.5vw, 2rem);
+    --text-stat: clamp(2.5rem, 5vw, 4rem);
+  }
+}
+
+@media (max-height: 768px) and (min-width: 1024px) {
+  :root {
+    --section-py: clamp(1.5rem, 3vh, 3rem);
+    --card-padding: clamp(1rem, 1.5vw, 1.5rem);
+    --text-hero: clamp(2rem, 4vw, 2.75rem);
+    --text-section: clamp(1.25rem, 2vw, 1.75rem);
+    --text-body-lg: clamp(0.9375rem, 1.2vw, 1.125rem);
+    --text-stat: clamp(2rem, 4vw, 3rem);
+  }
+}
+
+/* Testimonial quote text — constrain at short heights */
+@media (max-height: 900px) and (min-width: 1024px) {
+  #section-proof blockquote p {
+    font-size: clamp(0.85rem, 1.5vw, 1.125rem) !important;
+    line-height: 1.55 !important;
+  }
+  #section-proof blockquote {
+    max-height: 45vh;
+    overflow: hidden;
   }
 }
 

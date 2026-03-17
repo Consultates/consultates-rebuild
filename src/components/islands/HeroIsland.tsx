@@ -163,23 +163,44 @@ export default function HeroIsland({
       >
         {headlineParts.map((part, pi) => {
           if (part.type === 'br') return <br key={pi} />;
-          const chars = part.text.split('').map((char, ci) => (
-            <motion.span
-              key={`${pi}-${ci}`}
-              variants={{
-                initial: { opacity: 0, y: 20 },
-                animate: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.4, ease },
-                },
-              }}
-              style={{ display: char === ' ' ? 'inline' : 'inline-block' }}
-            >
-              {char === ' ' ? '\u00A0' : char}
-            </motion.span>
-          ));
-          return part.isEm ? <em key={pi}>{chars}</em> : <span key={pi}>{chars}</span>;
+          // Group characters into words wrapped in nowrap spans to prevent mid-word breaks
+          const words = part.text.split(/(\s+)/);
+          let charIndex = 0;
+          const wordSpans = words.map((word, wi) => {
+            if (/^\s+$/.test(word)) {
+              // Whitespace between words — use regular space (not \u00A0) to allow line breaks
+              const spaceChars = word.split('').map((_, si) => (
+                <motion.span
+                  key={`${pi}-${charIndex + si}`}
+                  variants={{
+                    initial: { opacity: 0, y: 20 },
+                    animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease } },
+                  }}
+                  style={{ display: 'inline' }}
+                >
+                  {' '}
+                </motion.span>
+              ));
+              charIndex += word.length;
+              return <span key={`w${pi}-${wi}`}>{spaceChars}</span>;
+            }
+            // Actual word — wrap in nowrap span
+            const letterSpans = word.split('').map((char, ci) => (
+              <motion.span
+                key={`${pi}-${charIndex + ci}`}
+                variants={{
+                  initial: { opacity: 0, y: 20 },
+                  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease } },
+                }}
+                style={{ display: 'inline-block' }}
+              >
+                {char}
+              </motion.span>
+            ));
+            charIndex += word.length;
+            return <span key={`w${pi}-${wi}`} style={{ whiteSpace: 'nowrap' }}>{letterSpans}</span>;
+          });
+          return part.isEm ? <em key={pi}>{wordSpans}</em> : <span key={pi}>{wordSpans}</span>;
         })}
       </motion.h1>
 

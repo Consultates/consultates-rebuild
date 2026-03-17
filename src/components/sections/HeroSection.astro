@@ -10,7 +10,6 @@ import { TIDYCAL_URL } from '../../config';
     muted
     loop
     playsinline
-    poster="/images/hero-poster.webp"
     aria-hidden="true"
   >
     <source src="/images/PurpleSilk-loop.mp4" type="video/mp4" />
@@ -76,11 +75,6 @@ import { TIDYCAL_URL } from '../../config';
     .c-hero-video {
       display: none;
     }
-    .c-hero {
-      background-image: url('/images/hero-poster.webp');
-      background-size: cover;
-      background-position: center;
-    }
   }
 
   .c-hero-overlay {
@@ -145,6 +139,13 @@ import { TIDYCAL_URL } from '../../config';
     color: #FFFFFF;
     max-width: 820px;
     margin: 0 auto 1.75rem;
+  }
+
+  @media (max-width: 420px) {
+    :global(.c-hero-h1) {
+      font-size: clamp(1.75rem, 8vw, 2.25rem);
+      line-height: 1.15;
+    }
   }
 
   :global(.c-hero-h1 em) {

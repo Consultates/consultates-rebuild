@@ -5,10 +5,9 @@ import Base from '../layouts/Base.astro';
 <Base title="About Gary Tate — Consultates" description="Engineer. Commercial leader. AI practitioner. 35 years across military electronics, enterprise sales, and production AI — now helping leaders make sense of it.">
 
   <!-- Section 1 — Hero (dark, photo background placeholder) -->
-  <section class="about-hero bg-dots">
+  <section class="about-hero bg-dots-dark">
     <!-- TODO: Replace placeholder with actual hero photo -->
     <!-- <img src="/images/about-hero.webp" alt="" class="about-hero__bg" /> -->
-    <div class="about-hero__overlay"></div>
     <div class="about-hero__content">
         <h1 class="text-hero" style="color: #FFFFFF;">Engineer. Commercial leader.<br/>AI practitioner.</h1>
         <p class="text-body-lg" style="color: var(--hero-muted); max-width: 580px;">35 years across military electronics, Silicon Valley coding, enterprise sales leadership, and production AI.</p>
@@ -77,6 +76,12 @@ import Base from '../layouts/Base.astro';
         </div>
 
         <div class="timeline__entry" data-reveal>
+          <span class="timeline__era">2020s</span>
+          <span class="timeline__dot"></span>
+          <p class="text-body text-secondary-foreground">AI wasn't new to me. I'd been selling it at Wedge Networks and Cylance for years. But when ChatGPT launched, I knew from the start that this was something different. That's when I made the decision to focus all of my energies on generative AI.</p>
+        </div>
+
+        <div class="timeline__entry" data-reveal>
           <span class="timeline__era">Today</span>
           <span class="timeline__dot"></span>
           <p class="text-body text-secondary-foreground">Today I run AI advisories, I train leaders, I build AI applications, and I serve as a fractional AI executive.</p>
@@ -101,23 +106,22 @@ import Base from '../layouts/Base.astro';
     background: var(--hero-bg, #0D1117);
     position: relative;
     overflow: hidden;
-    min-height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: clamp(6rem, 14vw, 10rem) var(--content-px) clamp(4rem, 8vw, 6rem);
+    padding: clamp(3rem, 6vh, 5rem) var(--content-px);
   }
 
-  /* Radial purple glow — same as homepage hero */
+  /* Radial purple glow — matching homepage hero */
   .about-hero::before {
     content: '';
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 700px;
-    height: 400px;
-    background: radial-gradient(ellipse, rgba(92,59,156,0.20) 0%, rgba(92,59,156,0.08) 40%, transparent 70%);
+    width: 800px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(92,59,156,0.25) 0%, rgba(92,59,156,0.10) 40%, transparent 70%);
     pointer-events: none;
     z-index: 1;
   }
@@ -130,14 +134,6 @@ import Base from '../layouts/Base.astro';
     height: 100%;
     object-fit: cover;
     opacity: 0.4;
-    pointer-events: none;
-  }
-
-  .about-hero__overlay {
-    position: absolute;
-    inset: 0;
-    background: var(--hero-bg, #0D1117);
-    opacity: 0.5;
     pointer-events: none;
   }
 

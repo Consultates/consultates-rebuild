@@ -287,6 +287,56 @@ const { title, description = 'AI consulting for business leaders. Advisory, trai
         });
       };
 
+      // ── Keyboard navigation: intercept arrows to respect animation state ──
+      // Track when each section became active
+      let sectionActiveTime = Date.now();
+      const MIN_VIEW_TIME = 2500; // ms — minimum time to view a section before advancing
+
+      // Update active time when data-active changes
+      sections.forEach((section) => {
+        const obs = new MutationObserver(() => {
+          if (section.hasAttribute('data-active')) {
+            sectionActiveTime = Date.now();
+          }
+        });
+        obs.observe(section, { attributes: true, attributeFilter: ['data-active'] });
+      });
+
+      document.addEventListener('keydown', (e) => {
+        // Only intercept on pages with scroll-snap sections
+        if (!container) return;
+
+        const currentIndex = Math.round(st.progress * (sectionCount - 1));
+        const timeOnSection = Date.now() - sectionActiveTime;
+
+        if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+          e.preventDefault();
+
+          if (timeOnSection < MIN_VIEW_TIME) {
+            // Animations still likely playing — dispatch skip event
+            const activeSection = sections[currentIndex];
+            activeSection?.dispatchEvent(new CustomEvent('skip-animations', { bubbles: true }));
+            // Reset timer so next press advances
+            sectionActiveTime = Date.now() - MIN_VIEW_TIME;
+          } else if (currentIndex < sectionCount - 1) {
+            (window as any).scrollToSection(currentIndex + 1);
+          }
+        }
+
+        if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+          e.preventDefault();
+          if (currentIndex > 0) {
+            (window as any).scrollToSection(currentIndex - 1);
+          }
+        }
+
+        if (e.key === 'ArrowRight') {
+          // Speed up current section's animations
+          const activeSection = sections[currentIndex];
+          activeSection?.dispatchEvent(new CustomEvent('speed-up-animations', { bubbles: true }));
+        }
+      });
+
       // Check for URL section param (cross-page navigation takes priority)
       const urlSectionParam = new URLSearchParams(window.location.search).get('section');
 

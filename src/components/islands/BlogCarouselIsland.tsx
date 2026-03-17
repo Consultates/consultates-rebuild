@@ -19,12 +19,15 @@ export interface BlogCardData {
 
 interface Props {
   posts: BlogCardData[];
+  hideImages?: boolean;
+  fadeColor?: string;
+  cardBg?: string;
 }
 
 /** Wrap index into [0, length) */
 const wrap = (i: number, length: number) => ((i % length) + length) % length;
 
-export default function BlogCarouselIsland({ posts }: Props) {
+export default function BlogCarouselIsland({ posts, hideImages, fadeColor, cardBg }: Props) {
   const reducedMotion = useReducedMotion();
   const [currentIdx, setCurrentIdx] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
@@ -107,7 +110,7 @@ export default function BlogCarouselIsland({ posts }: Props) {
     return (
       <div className="relative">
         <div style={{ maxWidth: '540px', margin: '0 auto' }}>
-          <BlogCard post={posts[currentIdx]} />
+          <BlogCard post={posts[currentIdx]} hideImage={hideImages} cardBg={cardBg} />
         </div>
         <NavDots total={posts.length} current={currentIdx} onSelect={(i) => setCurrentIdx(i)} />
       </div>
@@ -158,7 +161,7 @@ export default function BlogCarouselIsland({ posts }: Props) {
         >
           {stripIndices.map((postIdx, i) => (
             <div key={i} style={{ flex: '1 0 0', minWidth: 0 }}>
-              <BlogCard post={posts[postIdx]} />
+              <BlogCard post={posts[postIdx]} hideImage={hideImages} cardBg={cardBg} />
             </div>
           ))}
         </motion.div>
@@ -171,7 +174,7 @@ export default function BlogCarouselIsland({ posts }: Props) {
             top: 0,
             bottom: 0,
             width: '33.33%',
-            background: 'linear-gradient(to right, var(--secondary), transparent)',
+            background: `linear-gradient(to right, ${fadeColor || 'var(--secondary)'}, transparent)`,
             pointerEvents: 'none',
             zIndex: 2,
           }}
@@ -185,7 +188,7 @@ export default function BlogCarouselIsland({ posts }: Props) {
             top: 0,
             bottom: 0,
             width: '33.33%',
-            background: 'linear-gradient(to left, var(--secondary), transparent)',
+            background: `linear-gradient(to left, ${fadeColor || 'var(--secondary)'}, transparent)`,
             pointerEvents: 'none',
             zIndex: 2,
           }}
@@ -229,7 +232,7 @@ export default function BlogCarouselIsland({ posts }: Props) {
   );
 }
 
-function BlogCard({ post }: { post: BlogCardData }) {
+function BlogCard({ post, hideImage, cardBg }: { post: BlogCardData; hideImage?: boolean; cardBg?: string }) {
   const placeholderImage = '/images/blog/placeholder.webp';
 
   return (
@@ -241,51 +244,33 @@ function BlogCard({ post }: { post: BlogCardData }) {
         height: '100%',
         textDecoration: 'none',
         color: 'inherit',
-        background: 'var(--card)',
+        background: cardBg || 'var(--card)',
         borderRadius: 'var(--card-radius, 16px)',
         border: '1px solid var(--border)',
         overflow: 'hidden',
       }}
     >
-      <div
-        style={{
-          aspectRatio: '16 / 9',
-          overflow: 'hidden',
-          background: 'var(--secondary)',
-        }}
-      >
-        <img
-          src={post.image || placeholderImage}
-          alt=""
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-        />
-      </div>
-      <div style={{ padding: '1rem 1.5rem 1rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
-        <span
+      {!hideImage && (
+        <div
           style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.375rem',
-            fontSize: '0.6875rem',
-            fontWeight: 600,
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em',
-            padding: '0.25rem 0.625rem',
-            borderRadius: '9999px',
-            background: 'color-mix(in srgb, var(--primary) 12%, transparent)',
-            color: 'var(--primary)',
-            alignSelf: 'flex-start',
+            aspectRatio: '16 / 9',
+            overflow: 'hidden',
+            background: 'var(--secondary)',
           }}
         >
-          <i className={`ph-duotone ${post.categoryIcon}`} style={{ fontSize: '0.875rem' }} />
-          {post.categoryLabel}
-        </span>
+          <img
+            src={post.image || placeholderImage}
+            alt=""
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </div>
+      )}
+      <div style={{ padding: '1rem 1.5rem 1rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
         <h3
           className="font-serif"
           style={{
             fontSize: 'var(--text-sub, 1.125rem)',
             color: 'var(--card-foreground)',
-            marginTop: '0.5rem',
             lineHeight: 1.4,
             display: '-webkit-box',
             WebkitLineClamp: 2,
@@ -319,7 +304,25 @@ function BlogCard({ post }: { post: BlogCardData }) {
             {post.excerpt}
           </p>
         )}
-        <div style={{ marginTop: 'auto', paddingTop: '0.75rem', textAlign: 'right', paddingRight: '0.5rem' }}>
+        <div style={{ marginTop: 'auto', paddingTop: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.375rem',
+              fontSize: '0.6875rem',
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              padding: '0.25rem 0.625rem',
+              borderRadius: '9999px',
+              background: 'color-mix(in srgb, var(--primary) 12%, transparent)',
+              color: 'var(--primary)',
+            }}
+          >
+            <i className={`ph-duotone ${post.categoryIcon}`} style={{ fontSize: '0.875rem' }} />
+            {post.categoryLabel}
+          </span>
           <span className="btn-alive btn-alive--sm">
             Read
           </span>

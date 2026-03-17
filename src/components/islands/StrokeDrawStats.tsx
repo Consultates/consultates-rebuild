@@ -555,10 +555,10 @@ export function StrokeDrawStats() {
       <div style={{ background: 'var(--secondary)' }}>
         <div
           className="glow max-w-[1200px] mx-auto relative flex flex-col items-center"
-          style={{ padding: 'clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 6rem)' }}
+          style={{ padding: 'clamp(2rem, 4vh, 4rem) clamp(1.5rem, 5vw, 6rem)' }}
         >
           <h2
-            className="text-foreground text-center mb-14"
+            className="text-foreground text-center mb-8"
             style={{
               fontFamily: 'var(--font-serif)',
               fontSize: 'clamp(2rem, 4vw, 3rem)',
@@ -590,17 +590,17 @@ export function StrokeDrawStats() {
 
       {/* === WHITE SECTION: The Finale — Quote word-by-word stagger === */}
       <div
-        className="max-w-[780px] mx-auto text-center"
-        style={{ padding: 'clamp(3rem, 6vw, 6rem) clamp(1.5rem, 5vw, 4rem)' }}
+        className="max-w-[960px] mx-auto text-center"
+        style={{ padding: 'clamp(1.5rem, 3vh, 3rem) clamp(1.5rem, 5vw, 4rem)' }}
       >
         <blockquote>
           <p
             className="text-foreground italic"
             style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: 'var(--text-section)',
-              lineHeight: '1.45',
-              letterSpacing: 'var(--ls-section)',
+              fontSize: 'clamp(1.1rem, 1.8vw, 1.5rem)',
+              lineHeight: '1.55',
+              letterSpacing: '-0.01em',
             }}
           >
             {quoteWords.map((word, wi) => {
