@@ -66,6 +66,19 @@ Plans:
 Plans:
 - [x] 20-01-PLAN.md — Footer redesign (layout, dot texture, animated underlines, social icons)
 
+#### ✅ Phase 20.5: Blog Content Overhaul — COMPLETE 2026-03-18
+**Goal**: Blog posts reflect current AI landscape (agents, March 2026) and match Gary's voice. Blog formatting and card UX improved.
+**Note**: Ad-hoc work, no formal GSD plan. Done across sessions 2026-03-17 and 2026-03-18.
+
+Completed:
+- [x] 3 existing posts polished in Gary's voice (removed corporate tone, fixed em dashes)
+- [x] 3 new 2026 companion posts (agents-eating-the-world framing)
+- [x] 6 Saul Bass-style blog images via Gemini Nano Banana Pro
+- [x] Prose CSS overhaul (font size, line-height, spacing, purple markers)
+- [x] Blog card spacing (padding, gap, 2:1 image container)
+- [x] Year added to category pill in BlogCardNew
+- [x] Blog post back button with reversed btn-alive animation
+
 #### Phase 21: Responsive Audit & Viewport Fixes
 **Goal**: Every page looks correct on real screens — MacBook, iPad landscape, Windows laptops, 4K displays, and mobile. No overlapping, squashed, or overflowing sections.
 **Depends on**: Phase 20 (all visual work complete before auditing)
@@ -105,6 +118,7 @@ Plans:
 | 18. Fixes & Cleanup | v3.0 | 1/1 | ✓ Complete | 2026-03-10 |
 | 19. Homepage Polish | v3.0 | 3/3 | ✓ Complete | 2026-03-12 |
 | 20. Footer | v3.0 | 1/1 | ✓ Complete | 2026-03-13 |
-| 21. Responsive Audit & Viewport Fixes | v3.0 | 0/? | Not started | - |
+| 20.5 Blog Content Overhaul | v3.0 | ad-hoc | ✓ Complete | 2026-03-18 |
+| 21. Responsive Audit & Viewport Fixes | v3.0 | 0/? | Partially done (screenshots + some fixes) | - |
 | 22. Analytics & Monitoring | v3.0 | 0/? | Not started | - |
 | 23. SEO / GEO / AEO | v3.0 | 0/? | Not started | - |

@@ -51,7 +51,7 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 
 ### Content & Marketing
 
-- **CONT-01**: Blog post featured images (real images, not placeholders)
+- [x] **CONT-01**: Blog post featured images (real images, not placeholders) *(completed 2026-03-18 — Saul Bass style via Gemini)*
 - **CONT-02**: OG image generation from brand template
 - **CONT-03**: Cookie consent banner
 - **CONT-04**: TidyCal embed on contact page (currently links only)
@@ -65,7 +65,7 @@ Requirements for v3.0 Polish & Ship. Each maps to roadmap phases.
 | E-commerce / payments | No products sold online |
 | User accounts / auth | No user-facing login needed |
 | CMS / admin panel | Markdown + git is sufficient |
-| Copy/content rewrites | Gary directs all copy |
+| Copy/content rewrites without Gary's direction | Gary directs all copy |
 | GSAP scroll-snap changes | Working system, do not touch |
 | New page creation | All pages exist, this milestone is polish only |
 | Blog category filtering UX overhaul | Current implementation works, defer unless Gary directs |
