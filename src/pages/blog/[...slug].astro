@@ -48,7 +48,7 @@ const related = [...relatedPosts, ...fillerPosts];
 <Base title={`${post.data.title} — Consultates Blog`} description={description}>
   <section style="padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 8rem);">
     <div style="max-width: 720px; margin: 0 auto;">
-      <a href="/blog" class="text-body text-primary hover:underline mb-6 inline-block">&larr; Back to Blog</a>
+      <a href="/blog" class="btn-alive btn-alive--back mb-6 inline-block">Back to Blog</a>
 
       {/* Featured image */}
       <div style="aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--card-radius, 16px); background: var(--secondary); margin-bottom: 2rem;">
@@ -96,6 +96,7 @@ const related = [...relatedPosts, ...fillerPosts];
                 categorySlug={p.data.category}
                 categoryLabel={pCat?.label || p.data.category}
                 categoryIcon={pCat?.icon || 'ph-article'}
+                year={p.data.date.getFullYear().toString()}
                 compact={true}
               />
             );

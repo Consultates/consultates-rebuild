@@ -6,6 +6,7 @@ interface Props {
   categorySlug: string;
   categoryLabel: string;
   categoryIcon: string;
+  year?: string;
   date?: string;
   readingTime?: number;
   excerpt?: string;
@@ -19,6 +20,7 @@ const {
   categorySlug,
   categoryLabel,
   categoryIcon,
+  year,
   date,
   readingTime,
   excerpt,
@@ -44,10 +46,13 @@ const placeholderImage = '/images/blog/placeholder.webp';
 
   {/* Content */}
   <div class="blog-card__body">
-    {/* Category pill */}
+    {/* Category pill — full width, icon+label left, year right */}
     <span class="blog-card__pill">
-      <i class={`ph-duotone ${categoryIcon}`} style="font-size: 0.875rem;"></i>
-      {categoryLabel}
+      <span class="blog-card__pill-left">
+        <i class={`ph-duotone ${categoryIcon}`} style="font-size: 0.875rem;"></i>
+        {categoryLabel}
+      </span>
+      {year && <span class="blog-card__pill-year">{year}</span>}
     </span>
 
     {/* Title */}
@@ -87,9 +92,9 @@ const placeholderImage = '/images/blog/placeholder.webp';
   }
 
   .blog-card__pill {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 0.375rem;
+    justify-content: space-between;
     font-size: 0.6875rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -98,5 +103,16 @@ const placeholderImage = '/images/blog/placeholder.webp';
     border-radius: 9999px;
     background: color-mix(in srgb, var(--primary) 12%, transparent);
     color: var(--primary);
+  }
+
+  .blog-card__pill-left {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .blog-card__pill-year {
+    font-family: var(--font-mono);
+    font-weight: 700;
   }
 </style>

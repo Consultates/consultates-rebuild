@@ -75,6 +75,7 @@ const showGrid = posts.length > 5;
                   categorySlug={post.data.category}
                   categoryLabel={cat?.label || post.data.category}
                   categoryIcon={cat?.icon || 'ph-article'}
+                  year={post.data.date.getFullYear().toString()}
                   date={formattedDate}
                   readingTime={readingTime}
                   excerpt={post.data.excerpt || post.body?.slice(0, 160) + '...'}

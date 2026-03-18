@@ -2,62 +2,53 @@
 title: "You're Not the Only One Stuck."
 date: 2025-04-29
 author: "Gary Tate"
-excerpt: "If AI feels like something for \"tech people,\" you're not alone. You don't need a tech background to get started---you just need to learn enough to spot the right tools."
+excerpt: "If AI feels like it's for \"tech people,\" you're not alone. You don't need a tech background to get started. You just need to know enough to spot the right tools."
+image: "/images/blog/youre-not-the-only-one-stuck.png"
 draft: false
 category: "getting-started"
 tags: ["adoption", "beginners"]
 ---
 
-You're not behind---you're just starting. Let's take the pressure off and show you how to start smart.
+So here's the thing. If AI feels like it's not for you, like it's something "tech people" do and you missed the boat, I hear that a lot. Like, a lot a lot.
 
-If AI feels like something for "tech people," you're not alone. We've talked to business owners, consultants, creatives and senior leaders, who all said similar things:
+I've talked to business owners, consultants, creatives, senior leaders. People who are really good at what they do. And they all say some version of the same thing:
 
 - "I don't know enough to use this stuff."
 - "I don't want to break anything."
 - "I'm too late and too busy to catch up."
 
-But here's the truth: you don't need a tech background to get started. You don't need to understand the math or the models. You just need to learn enough to spot the right tools---and ask the right questions.
+And I get it. The noise around AI is relentless. Every day there's a new tool, a new headline, someone on LinkedIn posting about how they 10x'd their productivity before breakfast. It's exhausting.
 
-This post is for you if you've been:
+But here's the truth: you don't need a tech background to get started. You don't need to understand the math or the models. You just need to learn enough to spot the right tools and ask the right questions.
 
-- Avoiding AI tools because you're afraid to "get it wrong"
-- Tired of hearing the hype and wondering what's actually useful
-- Ready to try---but overwhelmed by the choices
+If you've been avoiding AI because you're afraid to get it wrong, or you're tired of the hype and just want to know what's actually useful, this is for you.
 
-Let's make it simpler.
+## You Don't Need to Know Everything. Just These 3 Things.
 
-## You Don't Need to Know Everything---Just These 3 Things
+There's this myth that you have to "catch up" to use AI well. You don't.
 
-There's a myth that you have to "catch up" to use AI well. You don't.
+Most people massively overestimate what they need to learn, and completely underestimate what they already know. Getting started with AI doesn't require coding. It doesn't require deep tech knowledge. It doesn't require a massive time investment.
 
-Most people overestimate what they need to learn---and underestimate what they already know. The truth is, getting started with AI doesn't require coding, deep tech knowledge, or a massive time investment.
+What actually helps is knowing three things:
 
-What helps is knowing three things:
+**What you want to improve.** Not "what can AI do?" That's the wrong question. The right question is: what slows you down? What takes too long? What do you keep putting off because it's tedious? Start there.
 
-**What you want to improve** --- Are you trying to save time, get ideas faster, or organize better? Knowing your goal helps you choose the right tool.
+**How to talk to it.** Clear, specific instructions get better results. Think of it like giving directions to a new team member. "Write me something good" gets you nothing. "Rewrite this email to sound confident but friendly, and keep it under 100 words" gets you something useful.
 
-**How to talk to AI** --- Clear, specific instructions (called "prompts") get better results. Think of it like giving directions to a new assistant.
+**Which tools to trust.** You don't need to try everything. Pick one (ChatGPT, Claude, Gemini, whatever) and actually use it for a week. Not casually. Actually use it. You'll learn more in a week of real use than a month of reading articles about it.
 
-**Which tools to trust** --- You don't need to try everything. Start with one well-known tool (like ChatGPT, Claude, or Gemini) and build from there.
+## Try This First
 
-You don't need to be an expert. You just need a place to start.
+If you've never used an AI tool, or you opened one, stared at the blank prompt, and closed the tab, try this:
 
-## Try This First: A Simple AI Starter Task
+**Take something you already wrote and ask it to make it better.**
 
-If you've never used an AI tool---or if you opened one and froze---try this:
-
-**Ask it to rewrite something you already wrote.**
-
-This could be an email, a social post, a sales blurb, or even a LinkedIn summary. Copy-paste your own words and say something like:
+An email. A proposal. A LinkedIn post. A message to a client. Copy-paste your own words and say something like:
 
 - "Make this sound more confident."
 - "Shorten this to under 100 words."
-- "Rephrase this to be friendly and casual."
+- "Rephrase this so it sounds like I actually want to help, not sell."
 
-**Why this works:**
+Why this works: you're not starting from scratch. You're improving something familiar. You'll see how the AI responds to plain-language instructions. And you get results immediately. Keep what works, throw away what doesn't.
 
-- You're not starting from scratch---you're improving something familiar.
-- You'll see how AI responds to plain-language prompts.
-- You get results immediately---and can choose what to keep.
-
-This is how it starts: small wins that build confidence fast.
+That's how it starts. Small wins. Confidence builds fast from there.

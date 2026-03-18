@@ -253,7 +253,7 @@ function BlogCard({ post, hideImage, cardBg }: { post: BlogCardData; hideImage?:
       {!hideImage && (
         <div
           style={{
-            aspectRatio: '16 / 9',
+            aspectRatio: '2 / 1',
             overflow: 'hidden',
             background: 'var(--secondary)',
           }}
@@ -265,7 +265,7 @@ function BlogCard({ post, hideImage, cardBg }: { post: BlogCardData; hideImage?:
           />
         </div>
       )}
-      <div style={{ padding: '1rem 1.5rem 1rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
+      <div style={{ padding: '1.5rem 1.5rem 1.5rem', display: 'flex', flexDirection: 'column', flex: 1, gap: '0.75rem' }}>
         <h3
           className="font-serif"
           style={{
@@ -285,7 +285,6 @@ function BlogCard({ post, hideImage, cardBg }: { post: BlogCardData; hideImage?:
             fontFamily: 'var(--font-mono)',
             fontSize: '0.75rem',
             color: 'var(--muted-foreground)',
-            marginTop: '0.375rem',
           }}>
             {post.date}{post.readingTime ? ` · ${post.readingTime} min read` : ''}
           </p>
@@ -294,7 +293,6 @@ function BlogCard({ post, hideImage, cardBg }: { post: BlogCardData; hideImage?:
           <p style={{
             fontSize: '0.875rem',
             color: 'var(--muted-foreground)',
-            marginTop: '0.375rem',
             lineHeight: 1.5,
             display: '-webkit-box',
             WebkitLineClamp: 2,
@@ -304,7 +302,7 @@ function BlogCard({ post, hideImage, cardBg }: { post: BlogCardData; hideImage?:
             {post.excerpt}
           </p>
         )}
-        <div style={{ marginTop: 'auto', paddingTop: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ marginTop: 'auto', paddingTop: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <span
             style={{
               display: 'inline-flex',
