@@ -598,8 +598,8 @@ export function StrokeDrawStats() {
             className="text-foreground italic"
             style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: 'clamp(1.1rem, 1.8vw, 1.5rem)',
-              lineHeight: '1.55',
+              fontSize: 'clamp(1.25rem, 2.2vw, 1.75rem)',
+              lineHeight: '1.5',
               letterSpacing: '-0.01em',
             }}
           >

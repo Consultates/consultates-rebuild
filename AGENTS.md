@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Codex (Codex.ai/code) when working with code in this repository.
 
 ## Start Here
 
@@ -24,15 +24,15 @@ pnpm preview          # preview production build
 **v3.0 "Polish & Ship" in progress.** Phases 1-20.5 complete. Site deployed to GitHub Pages at consultates.com with SSL. Deploy workflow triggers on `master` branch.
 
 **Remaining phases:**
-- Phase 21: Responsive audit (partially done — screenshots and some fixes applied)
+- Phase 21: Responsive audit (partially done)
 - Phase 22: Analytics & Monitoring (GA4)
 - Phase 23: SEO / GEO / AEO
 
 See `PRD.md` for full requirements and `STATUS.md` for detailed completion history.
 
-## PRD (Copy & Routes Only)
+## PRD
 
-**`PRD.md`** contains Gary's approved copy and route definitions. The old PRD (`PRD.obsoleted.md`) tried to be a design doc — ignore it. All design decisions live in the website design doc (see Design Authority above).
+**`PRD.md`** is the living product requirements document. It defines what the site is, who it's for, what's built, and what's remaining. All design decisions live in the website design doc (see Design Authority below).
 
 **Animation stack:** GSAP ScrollTrigger (page-level scroll/snap, vanilla `<script>` in base layout) + Framer Motion (component animation in React islands via `whileInView`). They are decoupled — no cross-library communication.
 

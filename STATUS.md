@@ -1,6 +1,6 @@
 # Site Status — Consultates.com
 
-Running tracker of what's done, what needs work, and what's broken.
+**Last updated:** 2026-03-19
 
 ---
 
@@ -8,132 +8,99 @@ Running tracker of what's done, what needs work, and what's broken.
 
 ### Homepage
 **Status: DONE**
-
-**Done:**
-- Silk video hero background with ping-pong loop (scale 1.2, opacity 0.7, overlay 0.35)
-- Scroll-snap film-strip system (GSAP) with session restore (sessionStorage)
-- Section navigation dropdown in nav (icons, descriptions) — shows on all pages with cross-page navigation
-- Social proof: logo ticker + quote carousel with film-strip animation + photos
-- What We Offer: offering cards with sequential reveal
-- Use Cases: use case cards
-- Gary's nav avatar (right of CTA, desktop only)
-- Blog highlights in "Get Started" section: film-strip carousel with 3 latest posts, btn-alive links, category pills
-- Scroll indicator: single fixed instance, visible across all sections
-- Trust bar: single fixed instance, visible on all viewport heights
-- How It Works — polished (cream+dots background, heading, dark mode borders)
-- Why Consultates — polished (cream+dots background, heading, dark mode borders)
-- Get Started (StakesCTA) — polished (increased padding, dot texture, supporting paragraph)
+- Silk video hero with scroll-snap film-strip system (GSAP)
+- Section navigation dropdown on all pages with cross-page navigation
+- Social proof: logo ticker + quote carousel (film-strip animation)
+- What We Offer, Use Cases, How It Works, Why Consultates — all polished
+- Get Started: StakesCTA + blog carousel with real images
+- Nav avatar, scroll indicator, trust bar (fixed position singletons)
 
 ### About
-**Status: DONE (rebuilt 2026-03-09)**
+**Status: DONE**
 - Dark hero with purple glow + dot grid
-- "How We Work" + "A Personal Message From Our Founder" — Gary's approved copy, 50/50 grid with photo right (sticky)
-- Timeline: CSS Grid, 6 entries (1980s–Why it matters), IntersectionObserver opacity reveal
-- Photo: `Me-for-Website-450x600.webp`
-- No SectionAnimator (uses data-reveal + IntersectionObserver)
-- No dark CTA section (removed per Gary's direction)
-- No "Lead with AI PRO" section (removed per Gary's direction)
+- Founder message (50/50 grid with sticky photo)
+- Timeline: 7 entries (1980s through 2020s + Today + Why it matters)
+- data-reveal scroll animation
 
 ### Service Pages (all three)
-**Status: DONE (rebuilt 2026-03-09)**
-- Unified structure across all three: dark hero → What You Get (3 cards with icons) → Who It's For (3 cards) → Testimonials (film-strip carousel) → How It Works (3-step) → Dark CTA
-- Uses SocialProofIsland with `quotes` prop for testimonials (same component as homepage)
-- Phosphor duotone icons in cream/purple circle containers (via `@phosphor-icons/web` CDN in Base.astro)
-- IntersectionObserver scroll reveals (no SectionAnimator)
-- Real testimonials from social-proof.ts with headshots
+**Status: DONE**
+- Unified structure: dark hero → What You Get → Who It's For → Testimonials → How It Works → Dark CTA
+- Card headers with horizontal icon + title layout
+- SocialProofIsland with curated testimonials per page
+- Dark hero treatment with purple glow + dot grid + CTA button
 
-| Section | Advisory | Training | Fractional |
-|---------|----------|----------|------------|
-| What You Get | 3 cards (shield-check, crosshair, list-checks) | 3 cards (wrench, play-circle, trend-up) | 3 cards (map-trifold, compass, globe) |
-| Who It's For | 3 scenario cards | 3 scenario cards | 3 scenario cards |
-| Testimonials | Anastasia Fischer, Alexandros Lioumbis | Julie Lee, Anastasia Fischer | Dave Mommen, Danny Tan |
-| How It Works | We talk → You get a plan → You act | We talk → You get a plan → Your team ships | We talk → You get a plan → We scale together |
+### Blog Index
+**Status: DONE**
+- Dark hero, category filter pills, BlogCarouselIsland
+- "All articles" grid with year in category pills
+- 6 posts (3 from 2025, 3 from 2026)
+
+### Blog Posts
+**Status: DONE**
+- Saul Bass editorial illustration images on all 6 posts
+- Prose CSS: 17px font, 1.8 line-height, purple list markers
+- btn-alive back link with reversed animation
+- Related posts ("Keep reading") with year pills
 
 ### Contact
 **Status: DONE**
-- Dark hero with form reveal animation
-- TidyCal embed (lazy-loaded)
-- Form with reCAPTCHA, honeypot
+- Dark hero, form, TidyCal embed, Google Apps Script backend
 
 ### Privacy Policy
 **Status: DONE**
 
-### Blog Index
-**Status: DONE (rebuilt 2026-03-10)**
-- Dark hero with "Things to inspire and inform you" heading (compact, vertically centered)
-- BlogIndexIsland wrapper: category filter pills + BlogCarouselIsland
-- Category pills filter both carousel and grid simultaneously (custom event bridge)
-- "All articles" 3-column grid appears when post count exceeds 5
-- BlogCardNew used in grid (equal-height flexbox, Read btn-alive bottom-right)
+---
 
-### Blog Posts
-**Status: DONE (rebuilt 2026-03-10)**
-- Featured image at top, category pill, date/reading time
-- Improved prose typography (headings, links, blockquotes, code blocks)
-- Related posts section ("Keep reading") with compact cards
+## Known Issues
+
+None currently tracked.
 
 ---
 
-## Known Bugs
+## Completed Work Log
 
-- [ ] **FormInput icon padding** — `iconPaddingClass` computed but never applied to the input. Icons show in label but input text overlaps them.
+### 2026-03-18
+- [x] Blog content overhaul: 3 existing posts polished, 3 new 2026 posts written
+- [x] 6 Saul Bass blog images generated and wired up
+- [x] Prose CSS overhauled (font size, line-height, spacing)
+- [x] Blog card spacing improved (padding, gap)
+- [x] Year added to category pills (BlogCardNew)
+- [x] Blog post back button: btn-alive--back with reversed underline
+- [x] GSD state synced with reality
 
----
+### 2026-03-17
+- [x] Dark hero treatment on all service pages, about, blog index, StakesCTA
+- [x] Service page card layout restructured (icon + title horizontal)
+- [x] Blog carousel theming (fadeColor, cardBg props)
+- [x] Blog card layout fix (category pill to bottom)
+- [x] About page 2020s timeline entry added
+- [x] Responsive audit screenshots captured (pilot-audit/)
+- [x] Responsive fixes committed
 
-## Completed (2026-03-11 through 2026-03-13)
+### 2026-03-13
+- [x] Footer redesigned (dot texture, animated underlines, social icons)
 
-- [x] How It Works section polished (cream background, dots, heading, dark mode borders)
-- [x] Why Consultates section polished (cream background, dots, heading, dark mode borders)
-- [x] StakesCTA section enhanced (increased padding, dot texture, supporting paragraph)
-- [x] Authority card typography refined (tighter letter spacing, purple top border)
-- [x] LogoTicker enhanced with dark mode support
-- [x] HowItWorksIsland refactored to accept parameters (reused across service pages)
-- [x] Timeline line gradient fixed (directional purple flow)
-- [x] Dark mode separator borders fixed with rgba override
-- [x] Footer redesigned (dot texture, animated purple underlines, social icons, two-column quick links)
-- [x] Footer link underlines constrained to text width
+### 2026-03-11 — 2026-03-12
+- [x] How It Works, Why Consultates, StakesCTA sections polished
+- [x] Authority card typography, LogoTicker dark mode, timeline gradient
 
-## Completed (2026-03-10)
+### 2026-03-10
+- [x] Blog system rebuilt (carousel, index, post template, prose typography)
+- [x] Cross-page navigation, scroll-section restore, hero video tuning
+- [x] GitHub Pages deploy with SSL
 
-- [x] Blog content schema extended (image, category, tags)
-- [x] BlogCardNew component (Maze-style, category pills, compact variant)
-- [x] BlogCarouselIsland — film-strip carousel with 5-card strip, gradient fades, arrows, dots
-- [x] Homepage blog highlights in "Get Started" scroll-section
-- [x] Blog post template with featured images, category, related posts
-- [x] Prose typography overhaul
-- [x] Scroll-section restore on reload (sessionStorage)
-- [x] Placeholder image: solid cream (replaced purple gradient)
-- [x] StakesCTA padding reduced for better viewport fit
-- [x] Scroll-sections wrapped in #scroll-snap-container
-- [x] Blog index redesign: dark hero + BlogIndexIsland (category filters + carousel) + "All articles" grid (>5 posts)
-- [x] BlogCarouselIsland cards: added date, reading time, excerpt, Read bottom-right
-- [x] BlogCardNew: equal-height flexbox, Read btn-alive bottom-right, matching carousel card layout
-- [x] StaggerHeading word-wrap fix: words no longer break mid-word across the site
-- [x] StakesCTA container widened (800px → 960px)
-- [x] Global heading word-break fix (text-hero, text-section)
-- [x] Scroll indicator fixed to viewport (single instance, GSAP fade-out removed)
-- [x] Trust bar fixed to viewport (no longer hidden on shorter viewports)
-- [x] Hero video quality improved (scale 1.8→1.2, opacity 0.5→0.7, overlay 0.50→0.35)
-- [x] Home dropdown now shows on all pages with /?section=N cross-page navigation
-
-## Completed (2026-03-09)
-
-- [x] Homepage: silk video hero, scroll-snap, section nav dropdown (icons + descriptions)
-- [x] Social proof redesign: logo ticker + quote carousel (film-strip animation) + reference photos
-- [x] About page rebuilt: dark hero, founder message (50/50 with photo), timeline with scroll reveal
-- [x] Gary's nav avatar added (gary-nav-avatar.webp, 80x80, 3.4KB)
-- [x] Service pages rebuilt (all 3): unified structure — dark hero, icon cards, SocialProofIsland, HIW, dark CTA
-- [x] SocialProofIsland: accepts optional `quotes` prop — reused on all service pages
-- [x] Service page testimonials curated in social-proof.ts (advisoryTestimonials, trainingTestimonials, fractionalTestimonials)
-- [x] Website design doc updated with 4 GOSPEL sections (Testimonial Carousel, Scroll Reveal, Timeline, Service Pages)
-- [x] SectionAnimator marked DEPRECATED in design doc
+### 2026-03-09
+- [x] Homepage rebuild (silk video hero, social proof, section nav dropdown)
+- [x] About page rebuilt (timeline, founder message, data-reveal)
+- [x] Service pages rebuilt (unified structure, SocialProofIsland)
+- [x] Nav avatar added
 
 ---
 
-## Not Yet Built
+## Remaining Work
 
-- [ ] Blog index polish — category filtering UX, empty state handling
-- [ ] Contact form wiring — Google Apps Script integration
-- [ ] Analytics — Google Analytics GA4
+See `PRD.md` for full requirements. Summary:
 
----
+- [ ] Phase 21: Responsive audit completion (partial work done)
+- [ ] Phase 22: Google Analytics GA4
+- [ ] Phase 23: SEO / GEO / AEO
