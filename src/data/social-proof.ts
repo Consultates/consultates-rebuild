@@ -37,6 +37,14 @@ export const allReferences: Reference[] = [
     photo: '/images/Alexandros.webp',
     quote: "There are people who use AI, there are people who understand AI, there are people who use Agents and understand Agentic AI. And then, there\u00B4s Gary. Gary\u00B4s AI expertise in business automation allows him to transform, integrate and redefine processes with the use of Agents and Agentic AI systems, while having the ability to explain, teach and communicate the concepts effortlessly to the broader business world. Gary is \"the\" go-to guy for Agentic AI. Hands down.",
   },
+  {
+    name: 'Hagit (Rozov) Paz',
+    title: 'Head of Marketing | Director of Global Marketing at Nvidia',
+    category: 'ai',
+    categoryLabel: 'AI Training',
+    photo: '/images/Hagit-Rozov-Paz.jpeg',
+    quote: "I had the privilege of completing the \"Agentic AI Applied to Business\" bootcamp led by Gary C. Tate at Lead with AI Academy in February 2026, and I highly recommend him to anyone looking to stay ahead of the curve in AI-driven business transformation. Gary brings a powerful combination of industry expertise and instructional clarity. He is genuinely attentive, always tuned in to participants' questions and challenges, and remarkably patient in ensuring everyone truly understood the material before moving forward. That quality alone made a significant difference in how effectively the group absorbed and applied complex concepts. The bootcamp exceeded my expectations, both in the quality of the curriculum and in Gary's ability to engage and support participants at every level. I would not hesitate to enrol in another program he leads.",
+  },
   // === AI + Sales (bridges both) ===
   {
     name: 'Dave Mommen',
@@ -81,6 +89,7 @@ export const homepageQuotes: Reference[] = [
   allReferences.find(r => r.name === 'Evan Davidson')!,
   allReferences.find(r => r.name === 'Dave Mommen')!,
   allReferences.find(r => r.name === 'Alexandros Lioumbis')!,
+  allReferences.find(r => r.name === 'Hagit (Rozov) Paz')!,
 ];
 
 /** Filter references by category for service pages */
@@ -97,6 +106,7 @@ export const advisoryTestimonials: Reference[] = [
 export const trainingTestimonials: Reference[] = [
   allReferences.find(r => r.name === 'Julie Lee')!,
   allReferences.find(r => r.name === 'Anastasia Fischer')!,
+  allReferences.find(r => r.name === 'Hagit (Rozov) Paz')!,
 ];
 
 export const fractionalTestimonials: Reference[] = [

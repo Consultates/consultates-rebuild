@@ -22,9 +22,10 @@ const AUTO_ADVANCE_MS = 8000;
  */
 interface Props {
   quotes?: Reference[];
+  linkedinUrl?: string;
 }
 
-export default function SocialProofIsland({ quotes: quotesProp }: Props = {}) {
+export default function SocialProofIsland({ quotes: quotesProp, linkedinUrl }: Props = {}) {
   const reducedMotion = useReducedMotion();
   const [currentIdx, setCurrentIdx] = useState(0);
   const [nextIdx, setNextIdx] = useState<number | null>(null);
@@ -110,6 +111,18 @@ export default function SocialProofIsland({ quotes: quotesProp }: Props = {}) {
       <div className="relative">
         <QuoteCard quote={quotes[currentIdx]} />
         <NavDots total={quotes.length} current={currentIdx} onSelect={(i) => setCurrentIdx(i)} />
+        {linkedinUrl && (
+          <div className="flex justify-center mt-6">
+            <a
+              href={linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-alive btn-alive--sm"
+            >
+              See All Recommendations
+            </a>
+          </div>
+        )}
       </div>
     );
   }
@@ -214,6 +227,19 @@ export default function SocialProofIsland({ quotes: quotesProp }: Props = {}) {
         onNext={goNext}
         disabled={transitioning}
       />
+
+      {linkedinUrl && (
+        <div className="flex justify-center mt-6">
+          <a
+            href={linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-alive btn-alive--sm"
+          >
+            See All Recommendations
+          </a>
+        </div>
+      )}
     </div>
   );
 }
