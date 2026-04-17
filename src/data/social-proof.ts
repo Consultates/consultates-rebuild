@@ -86,10 +86,10 @@ export const allReferences: Reference[] = [
  * Sales Leadership → AI+Sales → Pure AI
  */
 export const homepageQuotes: Reference[] = [
+  allReferences.find(r => r.name === 'Hagit (Rozov) Paz')!,
   allReferences.find(r => r.name === 'Evan Davidson')!,
   allReferences.find(r => r.name === 'Dave Mommen')!,
   allReferences.find(r => r.name === 'Alexandros Lioumbis')!,
-  allReferences.find(r => r.name === 'Hagit (Rozov) Paz')!,
 ];
 
 /** Filter references by category for service pages */
@@ -104,9 +104,9 @@ export const advisoryTestimonials: Reference[] = [
 ];
 
 export const trainingTestimonials: Reference[] = [
+  allReferences.find(r => r.name === 'Hagit (Rozov) Paz')!,
   allReferences.find(r => r.name === 'Julie Lee')!,
   allReferences.find(r => r.name === 'Anastasia Fischer')!,
-  allReferences.find(r => r.name === 'Hagit (Rozov) Paz')!,
 ];
 
 export const fractionalTestimonials: Reference[] = [
