@@ -38,6 +38,14 @@ export const allReferences: Reference[] = [
     quote: "There are people who use AI, there are people who understand AI, there are people who use Agents and understand Agentic AI. And then, there\u00B4s Gary. Gary\u00B4s AI expertise in business automation allows him to transform, integrate and redefine processes with the use of Agents and Agentic AI systems, while having the ability to explain, teach and communicate the concepts effortlessly to the broader business world. Gary is \"the\" go-to guy for Agentic AI. Hands down.",
   },
   {
+    name: 'Shlomit Gruman Navot',
+    title: 'Co-Founder, Practi Community | Former CPO at Miro',
+    category: 'ai',
+    categoryLabel: 'AI Training',
+    photo: '/images/Shlomit Gruman Navot.jpeg',
+    quote: "I first worked with Gary through his agentic AI course, at a point when I was already deep into learning with Daan van Rossum's programs. Even in that context, Gary stood out immediately. What Gary brings is not theory. It is applied, working capability. He has a way of cutting through the noise and getting you building quickly, whether that is in Make, n8n, or directly with emerging tools like Claude and Google AI Studio. Between courses, I saw how fast the landscape was shifting. What Gary did was anchor that change into something usable. He pushed me toward tools and approaches I would not have explored on my own, and that materially accelerated my ability to move from understanding AI to actually deploying workflows. He operates with a bias toward action. Test, build, break, iterate. That mindset matters, because the ground is moving fast and static knowledge becomes outdated quickly. Just as important, Gary understands the environment required to make progress. Most people do not have the space inside their organizations to experiment properly. Gary creates that space, whether through his courses or the way he engages with people. It is practical, hands-on, and grounded in real work. If you are serious about moving beyond AI as a concept and into something operational, Gary is one of the few people I would recommend without hesitation.",
+  },
+  {
     name: 'Hagit (Rozov) Paz',
     title: 'Head of Marketing | Director of Global Marketing at Nvidia',
     category: 'ai',
@@ -86,6 +94,7 @@ export const allReferences: Reference[] = [
  * Sales Leadership → AI+Sales → Pure AI
  */
 export const homepageQuotes: Reference[] = [
+  allReferences.find(r => r.name === 'Shlomit Gruman Navot')!,
   allReferences.find(r => r.name === 'Hagit (Rozov) Paz')!,
   allReferences.find(r => r.name === 'Evan Davidson')!,
   allReferences.find(r => r.name === 'Dave Mommen')!,
@@ -105,6 +114,7 @@ export const advisoryTestimonials: Reference[] = [
 
 export const trainingTestimonials: Reference[] = [
   allReferences.find(r => r.name === 'Hagit (Rozov) Paz')!,
+  allReferences.find(r => r.name === 'Shlomit Gruman Navot')!,
   allReferences.find(r => r.name === 'Julie Lee')!,
   allReferences.find(r => r.name === 'Anastasia Fischer')!,
 ];
