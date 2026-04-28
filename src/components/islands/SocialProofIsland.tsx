@@ -262,7 +262,7 @@ function QuoteCard({ quote }: { quote: Reference }) {
       <blockquote>
         <p
           className="font-serif italic text-foreground"
-          style={{ fontSize: 'clamp(0.95rem, 2vw, 1.375rem)', lineHeight: 1.7 }}
+          style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)', lineHeight: 1.7 }}
         >
           &ldquo;{quote.quote}&rdquo;
         </p>
